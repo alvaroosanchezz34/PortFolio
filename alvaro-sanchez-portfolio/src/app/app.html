@@ -1,0 +1,385 @@
+<nav class="dot-nav">
+  <a href="#about" class="dot" [class.active]="activeSection === 'about'" data-label="Sobre mí"></a>
+
+  <a href="#projects" class="dot" [class.active]="activeSection === 'projects'" data-label="Proyectos"></a>
+
+  <a href="#contact" class="dot" [class.active]="activeSection === 'contact'" data-label="Contacto"></a>
+</nav>
+
+<!-- HERO -->
+<section class="hero reveal">
+  <div class="hero-content">
+    <span class="badge">Disponible para proyectos / contratación</span>
+
+    <h1>
+      Hola, soy <span class="highlight">Álvaro Sánchez</span><br />
+      <span class="subtitle">Desarrollador Full Stack</span>
+      <div class="hero-badges">
+        <span>Angular</span>
+        <span>APIs REST</span>
+        <span>React</span>
+        <span>Trabajo en equipo</span>
+        <span>Rendimiento bajo presión</span>
+        <span>Arquitectura limpia</span>
+        <span>Producto digital</span>
+      </div>
+
+    </h1>
+
+    <p class="description">
+      Construyo aplicaciones web modernas, escalables y bien estructuradas,
+      especializado en Angular y React, y desarrollo orientado a producto.
+    </p>
+
+    <div class="actions">
+      <a href="#projects" class="btn primary">Ver proyectos</a>
+      <a href="#contact" class="btn ghost">Contactar</a>
+    </div>
+  </div>
+
+  <div class="hero-glow"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about reveal">
+  <div class="about-container">
+    <div class="about-text">
+      <span class="section-badge">Sobre mí</span>
+
+      <h2>Transformando ideas en productos digitales</h2>
+
+      <p>
+        Soy <strong>Álvaro Sánchez</strong>, desarrollador Full Stack con foco en
+        Angular, APIs y arquitectura limpia.
+      </p>
+
+      <p>
+        Perfil práctico, orientado a proyectos reales, resolución de problemas
+        y aprendizaje constante.
+      </p>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="number" data-target="4" data-plus="true">0</span>
+        <span class="label">Años programando</span>
+      </div>
+      <div class="stat">
+        <span class="number" data-target="15" data-plus="true">0</span>
+        <span class="label">Proyectos</span>
+      </div>
+      <div class="stat">
+        <span class="number" data-target="9">0</span>
+        <span class="label">Tecnologías</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section class="stack reveal">
+  <div class="stack-container">
+    <span class="section-badge">Stack tecnológico</span>
+    <h2>Tecnologías con las que trabajo</h2>
+
+    <div class="stack-grid">
+      <div class="stack-card">
+        <h3>Frontend</h3>
+        <ul>
+          <li>Angular</li>
+          <li>React</li>
+          <li>TypeScript</li>
+          <li>HTML & CSS</li>
+          <li>RxJS</li>
+        </ul>
+      </div>
+
+      <div class="stack-card">
+        <h3>Backend</h3>
+        <ul>
+          <li>Node.js</li>
+          <li>Express</li>
+          <li>APIs REST</li>
+          <li>MySQL</li>
+          <li>SpringBoot</li>
+        </ul>
+      </div>
+
+      <div class="stack-card">
+        <h3>Herramientas</h3>
+        <ul>
+          <li>Git & GitHub</li>
+          <li>Docker</li>
+          <li>Postman</li>
+          <li>Linux</li>
+          <li>Xamp</li>
+          <li>Figma</li>
+          <li>Notion</li>
+          <li>Trello</li>
+          <li>Wordpress</li>
+          <li>Shopify</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="projects reveal">
+  <div class="projects-container">
+    <span class="section-badge">Proyectos</span>
+    <h2>Proyecto principal</h2>
+
+    <!-- WORKLY -->
+    <div class="featured-project">
+      <div class="featured-content">
+        <span class="featured-badge">🚧 Proyecto activo 🚧</span>
+
+        <h3>Workly</h3>
+
+        <p>
+          WorkLy es una plataforma ERP web diseñada para que freelancers y pequeños profesionales gestionen clientes,
+          proyectos, facturación y gastos desde un único panel intuitivo. El proyecto se centra en la simplicidad, la
+          eficiencia y la aplicación de buenas prácticas de desarrollo full stack con tecnologías web modernas.
+        </p>
+
+        <ul class="featured-tech">
+          <li>React</li>
+          <li>MySQL</li>
+          <li>APIs REST</li>
+        </ul>
+
+        <a class="featured-btn" (click)="openWorkly()" style="cursor:pointer;">
+          Ver caso de estudio
+        </a>
+      </div>
+
+      <div class="featured-visual">
+        <img
+          src="https://res.cloudinary.com/dhbjoltyy/image/upload/v1766937411/ChatGPT_Image_28_dic_2025_16_55_48_try0ll.png"
+          alt="Workly" class="logo">
+      </div>
+    </div>
+
+    <h2 class="other-projects-title">Otros proyectos</h2>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image">
+          <img
+            src="https://res.cloudinary.com/dhbjoltyy/image/upload/v1766937256/ChatGPT_Image_28_dic_2025__16_48_34-removebg-preview_wcwkew.png"
+            alt="">
+        </div>
+        <div class="project-content">
+          <h3>FocusQuest</h3>
+          <p>FocusQuest es una aplicación web tipo To-Do List gamificada, diseñada para convertir la gestión de tareas
+            en una experiencia motivadora, visual y dinámica, inspirada en mecánicas de videojuegos RPG.</p> <br>
+          <a href="https://github.com/alvaroosanchezz34/FocusQuest" class="featured-btn" style="cursor:pointer;">
+            Ver repositorio
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <img
+            src="https://res.cloudinary.com/dhbjoltyy/image/upload/v1766936504/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f6473793330703767662f696d6167652f75706c6f61642f76313736343637313339372f47726f75705f3137355f6c776c6538692e706e67_o1svgh.png"
+            alt="ChoreoMania">
+        </div>
+        <div class="project-content">
+          <h3>ChoreoMania</h3>
+          <p>Choreomania: The Last Ascent es una experiencia narrativa web que da un giro radical al clásico «Wheel of
+            Death». En lugar de evitar la eliminación, luchas por ser seleccionado. Dieciséis participantes. Cuatro
+            pruebas. Un billete a la libertad a bordo del New Esperanza.</p> <br>
+          <a href="https://github.com/Miguelean1/Choreomania" class="featured-btn" style="cursor:pointer;">
+            Ver repositorio
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <img style="object-fit: cover;"
+            src="https://res.cloudinary.com/dhbjoltyy/image/upload/v1766938106/favicon_rxb0ah.png" alt="ChoreoMania">
+        </div>
+        <div class="project-content">
+          <h3>LaLiga360</h3>
+          <p>LaLiga360 es un proyecto personal, para un TFG, bastante ambicioso, hecho con angular,. mysql y node.js, el
+            cual pretende simular una aplicacion web la cual preste un servicio de proveer datos futbolisticos sobre la
+            liga española, tanto estadisticas, como noticias actuales, resultados, junto a un foro en el que poder
+            comentar datos y respondelos.</p> <br>
+          <a href="https://github.com/alvaroosanchezz34/LaLiga360" class="featured-btn" style="cursor:pointer;">
+            Ver repositorio
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience reveal">
+  <div class="experience-container">
+    <span class="section-badge">Experiencia</span>
+    <h2>Experiencia & Formación</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>DAW – CEI Sevilla</h3>
+          <span class="timeline-date">2025 – Actualidad</span>
+          <p>Formación en desarrollo web y despliegue de aplicaciones.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Desarrollador Freelance</h3>
+          <span class="timeline-date">2022 – Actualidad</span>
+          <p>Proyectos personales y para PYMES locales.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Full Stack – Ceginfor</h3>
+          <span class="timeline-date">2024 – 2025</span>
+          <p>Desarrollo de plataforma cloud de contabilidad empresarial.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Formación en Desarrollo de Aplicaciones Multiplataforma<br> (Staff Formación)</h3>
+          <span class="timeline-date">2022 – 2024</span>
+          <p>
+            Formación en desarrollo multiplataforma (DAM) y aprendizaje práctico de
+            programación, bases de datos y sistemas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="contact-container">
+    <span class="section-badge">Contacto</span>
+    <h2>¿Hablamos?</h2>
+
+    <p class="contact-text">
+      Si tienes un proyecto, una idea o simplemente quieres contactar conmigo,
+      estaré encantado de leerte.
+    </p>
+
+    <form class="contact-form" (ngSubmit)="sendEmail($event)" #contactForm="ngForm">
+
+
+      <input aria-label="Nombre" type="text" name="from_name" [(ngModel)]="contact.name" placeholder="Tu nombre" required />
+
+      <input aria-label="Email" type="email" name="from_email" [(ngModel)]="contact.email" placeholder="Tu email" required />
+
+      <textarea aria-label="Mensaje" name="message" [(ngModel)]="contact.message" rows="5" placeholder="Tu mensaje" required></textarea>
+
+      <button aria-label="Enviar Mensaje" type="submit" class="contact-btn" [disabled]="loading">
+        <span *ngIf="!loading">Enviar mensaje</span>
+        <span *ngIf="loading">Enviando...</span>
+      </button>
+    </form>
+
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <span class="footer-name">Álvaro Sánchez</span>
+      <span class="footer-role">Desarrollador Full Stack</span>
+    </div>
+
+    <div class="footer-center">
+      <a href="https://github.com/TU_USUARIO" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/TU_USUARIO" target="_blank">LinkedIn</a>
+      <a href="mailto:tuemail@gmail.com">Email</a>
+    </div>
+
+    <div class="footer-right">
+      <span>© 2025</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WORKLY PROJECT PANEL -->
+<div class="project-panel-backdrop workly-backdrop" *ngIf="showWorkly" (click)="closeWorkly()">
+  <aside class="project-panel" (click)="$event.stopPropagation()">
+    <button class="panel-close" (click)="closeWorkly()">×</button>
+
+    <header class="panel-header">
+      <span class="panel-status">🚧 Proyecto activo</span>
+      <h3>Workly</h3>
+      <p class="panel-subtitle">
+        Plataforma de productividad para equipos pequeños.
+      </p>
+
+      <div class="panel-tags">
+        <span>React</span>
+        <span>MySQL</span>
+        <span>APIs REST</span>
+      </div>
+    </header>
+
+    <!-- WORKLY CAROUSEL -->
+    <div class="workly-carousel">
+      <button class="carousel-btn prev" (click)="prevImage()">‹</button>
+
+      <div class="carousel-viewport">
+        <div class="carousel-track" [style.transform]="'translateX(-' + currentImage * 100 + '%)'">
+          <img *ngFor="let img of worklyImages" [src]="img.src" [alt]="img.alt" loading="lazy" />
+
+        </div>
+      </div>
+
+      <button class="carousel-btn next" (click)="nextImage()">›</button>
+    </div>
+
+
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4>Qué es</h4>
+        <p>WorkLy es una aplicación web tipo ERP pensada para freelancers y pequeños profesionales que necesitan
+          gestionar su actividad diaria de forma sencilla y centralizada. Permite controlar clientes, proyectos,
+          facturas, gastos y servicios desde un único panel, facilitando la organización y el seguimiento financiero sin
+          la complejidad de los ERP tradicionales.</p>
+      </div>
+
+      <div class="panel-section">
+        <h4>Objetivo</h4>
+        <p>El objetivo de WorkLy es simplificar la gestión profesional de freelancers y pequeños emprendedores,
+          ofreciendo una herramienta web intuitiva que centralice clientes, proyectos, facturación y gastos en un solo
+          lugar.
+          Busca mejorar la organización, el control financiero y la productividad diaria, evitando la complejidad de los
+          ERP tradicionales y adaptándose a las necesidades reales de los autónomos.</p>
+      </div>
+
+      <div class="panel-section">
+        <h4>Próximos pasos</h4>
+        <ul>
+          <li>Gestión de tareas</li>
+          <li>Autenticación</li>
+          <li>Roles</li>
+          <li>API estable</li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+</div>
+<div class="toast" *ngIf="showToast" [class.success]="toastType === 'success'" [class.error]="toastType === 'error'">
+  {{ toastMessage }}
+</div>
