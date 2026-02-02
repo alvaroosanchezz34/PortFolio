@@ -19,12 +19,14 @@ gsap.registerPlugin(ScrollTrigger);
 })
 export class App implements AfterViewInit {
   @ViewChild('projectsScroll') projectsScroll!: ElementRef<HTMLDivElement>;
+  showDragHint = true;
 
   private isDragging = false;
   private startX = 0;
   private scrollLeft = 0;
 
   onDragStart(event: MouseEvent) {
+    this.showDragHint = false;
     this.isDragging = true;
     this.startX = event.pageX - this.projectsScroll.nativeElement.offsetLeft;
     this.scrollLeft = this.projectsScroll.nativeElement.scrollLeft;
@@ -70,6 +72,10 @@ export class App implements AfterViewInit {
   };
 
   ngAfterViewInit() {
+    setTimeout(() => {
+      this.showDragHint = false;
+    }, 4000);
+
     // Animación del proyecto destacado (Workly)
     gsap.from('.featured-project', {
       scrollTrigger: {

@@ -208,6 +208,11 @@
 
     <h2 class="other-projects-title">Otros proyectos</h2>
 
+    <div class="drag-hint" *ngIf="showDragHint">
+      Arrastra →
+    </div>
+
+
     <div class="projects-carousel">
 
       <div class="projects-scroll" #projectsScroll (mousedown)="onDragStart($event)" (mousemove)="onDragMove($event)"
