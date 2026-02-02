@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AfterViewInit } from '@angular/core';
 import gsap from 'gsap';
@@ -18,10 +18,49 @@ gsap.registerPlugin(ScrollTrigger);
   styleUrl: './app.css'
 })
 export class App implements AfterViewInit {
+  @ViewChild('projectsScroll') projectsScroll!: ElementRef<HTMLDivElement>;
+
+  private isDragging = false;
+  private startX = 0;
+  private scrollLeft = 0;
+
+  onDragStart(event: MouseEvent) {
+    this.isDragging = true;
+    this.startX = event.pageX - this.projectsScroll.nativeElement.offsetLeft;
+    this.scrollLeft = this.projectsScroll.nativeElement.scrollLeft;
+  }
+
+  onDragMove(event: MouseEvent) {
+    if (!this.isDragging) return;
+
+    event.preventDefault();
+
+    const x = event.pageX - this.projectsScroll.nativeElement.offsetLeft;
+    const walk = (x - this.startX) * 1.2; // velocidad
+    this.projectsScroll.nativeElement.scrollLeft = this.scrollLeft - walk;
+  }
+
+  onDragEnd() {
+    this.isDragging = false;
+
+    const container = this.projectsScroll.nativeElement;
+    const card = container.children[0] as HTMLElement;
+    const cardWidth = card.offsetWidth + 32; // 32 = gap (2rem)
+
+    const index = Math.round(container.scrollLeft / cardWidth);
+
+    container.scrollTo({
+      left: index * cardWidth,
+      behavior: 'smooth'
+    });
+  }
+
+
   constructor(private zone: NgZone, private cdr: ChangeDetectorRef) { }
   toastMessage = '';
   toastType: 'success' | 'error' | '' = '';
   showToast = false;
+  ctaText = 'Hablemos de tu idea';
 
   activeSection = '';
   contact = {
@@ -90,7 +129,21 @@ export class App implements AfterViewInit {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             this.activeSection = entry.target.id;
+
+            switch (this.activeSection) {
+              case 'projects':
+                this.ctaText = '¿Quieres algo así?';
+                break;
+
+              case 'contact':
+                this.ctaText = 'Envíame un mensaje';
+                break;
+
+              default:
+                this.ctaText = 'Hablemos de tu idea';
+            }
           }
+
         });
       },
       { threshold: 0.6 }
@@ -306,7 +359,76 @@ export class App implements AfterViewInit {
       });
   }
 
+  projects = [
+    {
+      title: 'FocusQuest',
+      description: 'FocusQuest es una aplicación web tipo To-Do List gamificada.',
+      image: 'https://res.cloudinary.com/dhbjoltyy/image/upload/v1766937256/ChatGPT_Image_28_dic_2025__16_48_34-removebg-preview_wcwkew.png',
+      link: 'https://github.com/alvaroosanchezz34/FocusQuest'
+    },
+    {
+      title: 'ChoreoMania',
+      description: 'Experiencia narrativa web basada en Wheel of Death.',
+      image: 'https://res.cloudinary.com/dhbjoltyy/image/upload/v1766936504/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f6473793330703767662f696d6167652f75706c6f61642f76313736343637313339372f47726f75705f3137355f6c776c6538692e706e67_o1svgh.png',
+      link: 'https://github.com/Miguelean1/Choreomania'
+    },
+    {
+      title: 'LaLiga360',
+      description: 'TFG con Angular, Node.js y MySQL.',
+      image: 'https://res.cloudinary.com/dhbjoltyy/image/upload/v1766938106/favicon_rxb0ah.png',
+      link: 'https://github.com/alvaroosanchezz34/LaLiga360'
+    },
+    {
+      title: 'ChoreoMania',
+      description: 'Experiencia narrativa web basada en Wheel of Death.',
+      image: 'https://res.cloudinary.com/dhbjoltyy/image/upload/v1766936504/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f6473793330703767662f696d6167652f75706c6f61642f76313736343637313339372f47726f75705f3137355f6c776c6538692e706e67_o1svgh.png',
+      link: 'https://github.com/Miguelean1/Choreomania'
+    },
+    {
+      title: 'ChoreoMania',
+      description: 'Experiencia narrativa web basada en Wheel of Death.',
+      image: 'https://res.cloudinary.com/dhbjoltyy/image/upload/v1766936504/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f6473793330703767662f696d6167652f75706c6f61642f76313736343637313339372f47726f75705f3137355f6c776c6538692e706e67_o1svgh.png',
+      link: 'https://github.com/Miguelean1/Choreomania'
+    },
+    {
+      title: 'ChoreoMania',
+      description: 'Experiencia narrativa web basada en Wheel of Death.',
+      image: 'https://res.cloudinary.com/dhbjoltyy/image/upload/v1766936504/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f6473793330703767662f696d6167652f75706c6f61642f76313736343637313339372f47726f75705f3137355f6c776c6538692e706e67_o1svgh.png',
+      link: 'https://github.com/Miguelean1/Choreomania'
+    }
+  ];
 
+  currentProjectIndex = 0;
+
+  projectsPerView = 3;
+
+  get slidePercentage(): number {
+    if (window.innerWidth <= 768) return 100;     // 1 card
+    if (window.innerWidth <= 1024) return 50;     // 2 cards
+    return 33.3333;                               // 3 cards
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.projects.length / this.projectsPerView);
+  }
+
+  nextProjects() {
+    const maxIndex = this.projects.length - this.cardsPerView;
+    this.currentProjectIndex =
+      this.currentProjectIndex >= maxIndex ? 0 : this.currentProjectIndex + 1;
+  }
+
+  prevProjects() {
+    const maxIndex = this.projects.length - this.cardsPerView;
+    this.currentProjectIndex =
+      this.currentProjectIndex <= 0 ? maxIndex : this.currentProjectIndex - 1;
+  }
+
+  get cardsPerView(): number {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
+  }
 
   triggerToast(message: string, type: 'success' | 'error') {
     this.zone.run(() => {

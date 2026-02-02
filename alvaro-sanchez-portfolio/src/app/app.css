@@ -1199,3 +1199,337 @@ h1 {
         opacity: 1;
     }
 }
+
+.projects-carousel {
+    position: relative;
+}
+
+.projects-carousel::before,
+.projects-carousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.projects-carousel::before {
+    left: 0;
+    background: linear-gradient(to right,
+            rgba(11, 15, 25, 1),
+            rgba(11, 15, 25, 0));
+}
+
+.projects-carousel::after {
+    right: 0;
+    background: linear-gradient(to left,
+            rgba(11, 15, 25, 1),
+            rgba(11, 15, 25, 0));
+}
+
+
+.projects-scroll {
+    display: flex;
+    gap: 2rem;
+
+    overflow-x: auto;
+    /* 👈 SCROLL REAL */
+    overflow-y: hidden;
+
+    width: 100%;
+    max-width: 100%;
+
+    cursor: grab;
+    user-select: none;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.projects-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.project-card {
+    flex: 0 0 320px;
+}
+
+
+
+@media (max-width: 1024px) {
+    .projects-scroll {
+        grid-auto-columns: calc((100% - 2rem) / 2);
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-scroll {
+        grid-auto-columns: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .project-card {
+        flex: 0 0 calc((100% - 2rem) / 2);
+    }
+}
+
+@media (max-width: 768px) {
+    .project-card {
+        flex: 0 0 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 90vh;
+        padding: 0 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.1rem;
+        line-height: 1.15;
+    }
+
+    .hero-badges {
+        gap: 0.4rem;
+    }
+
+    .hero-badges span {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.6rem;
+    }
+
+    .description {
+        font-size: 0.95rem;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .about {
+        padding: 4rem 1rem;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .stat {
+        padding: 1.5rem 1rem;
+    }
+
+    .stat .number {
+        font-size: 1.9rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .stack {
+        padding: 4rem 1rem;
+    }
+
+    .stack-card {
+        padding: 1.8rem 1.5rem;
+    }
+
+    .stack-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .stack-card li {
+        font-size: 0.85rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .projects {
+        padding: 4rem 0;
+    }
+
+    .projects-container {
+        padding: 0;
+    }
+
+    .other-projects-title {
+        padding: 0 1rem;
+        font-size: 1.6rem;
+    }
+
+    .projects-scroll {
+        gap: 1.2rem;
+        padding: 0.5rem 1rem 1.5rem;
+    }
+
+    .project-card {
+        flex: 0 0 85%;
+    }
+
+    .project-image {
+        height: 140px;
+    }
+
+    .project-content {
+        padding: 1.2rem;
+    }
+
+    .project-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .project-content p {
+        font-size: 0.85rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .experience {
+        padding: 4rem 1rem;
+    }
+
+    .timeline {
+        margin-top: 2rem;
+    }
+
+    .timeline-content {
+        padding: 1.2rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .contact {
+        padding: 4rem 1rem 5rem;
+    }
+
+    .contact-form {
+        margin-top: 2rem;
+    }
+
+    .contact-btn {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .footer {
+        padding: 1.2rem 1rem;
+    }
+
+}
+
+.btn.primary {
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* WORKFLOW */
+.workflow {
+    padding: 6rem 1.5rem;
+    background: linear-gradient(180deg,
+            transparent,
+            rgba(255, 255, 255, 0.02));
+}
+
+.workflow-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.workflow-container h2 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin-bottom: 3rem;
+}
+
+.workflow-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.workflow-step {
+    background: var(--color-card);
+    border-radius: var(--radius);
+    padding: 2rem 1.8rem;
+    text-align: left;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.workflow-step:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.step-number {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: rgba(56, 189, 248, 0.35);
+    margin-bottom: 0.8rem;
+}
+
+.workflow-step h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-primary);
+}
+
+.workflow-step p {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .workflow-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .workflow {
+        padding: 4rem 1rem;
+    }
+
+    .workflow-steps {
+        grid-template-columns: 1fr;
+    }
+}
