@@ -385,22 +385,16 @@ export class App implements AfterViewInit {
       link: 'https://github.com/alvaroosanchezz34/LaLiga360'
     },
     {
-      title: 'ChoreoMania',
-      description: 'Experiencia narrativa web basada en Wheel of Death.',
-      image: 'https://res.cloudinary.com/dhbjoltyy/image/upload/v1766936504/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f6473793330703767662f696d6167652f75706c6f61642f76313736343637313339372f47726f75705f3137355f6c776c6538692e706e67_o1svgh.png',
-      link: 'https://github.com/Miguelean1/Choreomania'
+      title: 'ResumeAI',
+      description: 'ResumeAI convierte cualquier texto en un resumen perfecto y genera preguntas y tarjetas de estudio con IA para aprender más rápido y mejor.',
+      image: 'https://res.cloudinary.com/dhbjoltyy/image/upload/v1770710086/ChatGPT_Image_10_feb_2026_08_53_35_1_u2hpid.png',
+      link: 'https://github.com/alvaroosanchezz34/ResumeAI.git'
     },
     {
-      title: 'ChoreoMania',
-      description: 'Experiencia narrativa web basada en Wheel of Death.',
-      image: 'https://res.cloudinary.com/dhbjoltyy/image/upload/v1766936504/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f6473793330703767662f696d6167652f75706c6f61642f76313736343637313339372f47726f75705f3137355f6c776c6538692e706e67_o1svgh.png',
-      link: 'https://github.com/Miguelean1/Choreomania'
-    },
-    {
-      title: 'ChoreoMania',
-      description: 'Experiencia narrativa web basada en Wheel of Death.',
-      image: 'https://res.cloudinary.com/dhbjoltyy/image/upload/v1766936504/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f6473793330703767662f696d6167652f75706c6f61642f76313736343637313339372f47726f75705f3137355f6c776c6538692e706e67_o1svgh.png',
-      link: 'https://github.com/Miguelean1/Choreomania'
+      title: 'FlowSenseAI',
+      description: 'FlowSenseAI es una plataforma con inteligencia artificial que analiza procesos y datos para detectar ineficiencias, optimizar flujos de trabajo y ayudar a tomar mejores decisiones de forma automática.',
+      image: 'https://res.cloudinary.com/dhbjoltyy/image/upload/v1770710430/ChatGPT_Image_10_feb_2026_09_00_00_1_rdezei.png',
+      link: 'https://github.com/alvaroosanchezz34/flowsenseai.git'
     }
   ];
 
