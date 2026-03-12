@@ -115,16 +115,16 @@
      THEME TOGGLE
   ═══════════════════════════════════════ */
   .theme-btn {
-    position:fixed; top:1.4rem; right:1.4rem;
-    z-index:300;
-    width:42px; height:42px;
+    /* Now lives inside topbar — no longer fixed */
+    position:static;
+    width:34px; height:34px;
     background:var(--surface);
     border:1px solid var(--border);
     border-radius:50%;
     display:flex; align-items:center; justify-content:center;
-    cursor:pointer; font-size:1.1rem;
+    cursor:pointer; font-size:.95rem;
     transition:all var(--transition);
-    color:var(--text-dim);
+    color:var(--text-dim); flex-shrink:0;
   }
   .theme-btn:hover { border-color:var(--border-acc); color:var(--accent); transform:rotate(20deg); }
 
@@ -133,29 +133,61 @@
   ═══════════════════════════════════════ */
   .topbar {
     position:fixed; top:0; left:0; right:0;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:1.2rem 2.5rem;
+    display:flex; align-items:center; gap:1.5rem;
+    padding:0 2rem; height:56px;
     z-index:200;
-    background:linear-gradient(180deg, rgba(8,10,13,.92) 0%, transparent 100%);
-    backdrop-filter:blur(6px);
+    background:linear-gradient(180deg, rgba(8,10,13,.95) 0%, rgba(8,10,13,.6) 80%, transparent 100%);
+    backdrop-filter:blur(10px);
     transition:background var(--transition);
   }
-  [data-theme="light"] .topbar { background:linear-gradient(180deg,rgba(245,247,250,.95) 0%, transparent 100%); }
+  [data-theme="light"] .topbar {
+    background:linear-gradient(180deg,rgba(245,247,250,.97) 0%, rgba(245,247,250,.7) 80%, transparent 100%);
+  }
 
-  .topbar-logo { font-family:var(--font-mono); font-size:.85rem; color:var(--accent); letter-spacing:.04em; }
+  .topbar-logo {
+    font-family:var(--font-mono); font-size:.85rem;
+    color:var(--accent); letter-spacing:.04em; flex-shrink:0;
+  }
 
-  .topbar-links { display:flex; gap:2rem; list-style:none; }
+  /* nav scrollable in the middle */
+  .topbar-links {
+    display:flex; gap:1.6rem; list-style:none;
+    overflow-x:auto; scrollbar-width:none; flex:1;
+    /* hide scrollbar */
+    -ms-overflow-style:none;
+  }
+  .topbar-links::-webkit-scrollbar { display:none; }
   .topbar-links a {
-    font-size:.82rem; color:var(--muted); text-decoration:none;
-    font-family:var(--font-mono); letter-spacing:.04em; transition:color .2s;
+    font-size:.78rem; color:var(--muted); text-decoration:none;
+    font-family:var(--font-mono); letter-spacing:.04em;
+    transition:color .2s; white-space:nowrap;
   }
   .topbar-links a:hover { color:var(--accent); }
 
-  @media (max-width:600px) {
-    .topbar { padding:1rem 1.2rem; }
-    .topbar-links { gap:1rem; }
+  /* right-side controls inside the topbar */
+  .topbar-actions {
+    display:flex; align-items:center; gap:.6rem; flex-shrink:0; margin-left:auto;
+  }
+
+  /* Override fixed positioning for lang+theme when inside topbar */
+  .topbar .lang-btn {
+    position:static !important;
+    height:30px; padding:0 .75rem; font-size:.72rem;
+  }
+  .topbar .theme-btn {
+    position:static !important;
+    width:34px; height:34px; font-size:.95rem;
+    top:auto; right:auto;
+  }
+
+  @media (max-width:768px) {
+    .topbar { padding:0 1.2rem; gap:1rem; }
+    .topbar-links { gap:1.2rem; }
     .topbar-links a { font-size:.72rem; }
-    .theme-btn { top:.8rem; right:.8rem; width:36px; height:36px; }
+  }
+  @media (max-width:480px) {
+    .topbar-logo { font-size:.75rem; }
+    .topbar-links a { font-size:.68rem; }
   }
 
   /* ═══════════════════════════════════════
@@ -1080,6 +1112,270 @@
     .admin-sidebar { display: none; }
     .admin-main { padding: 1.2rem; }
   }
+
+  /* ══ LANG TOGGLE ══ */
+  .lang-btn {
+    /* Now lives inside topbar — no longer fixed */
+    position:static;
+    height:30px; padding:0 .75rem;
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:99px; display:flex; align-items:center; gap:.35rem;
+    cursor:pointer; font-size:.72rem; font-family:var(--font-mono);
+    color:var(--muted); transition:all .25s; flex-shrink:0;
+  }
+  .lang-btn:hover { border-color:var(--border-acc); color:var(--accent); }
+
+  /* ══ PRESENTATION MODE ══ */
+  .present-btn {
+    position:fixed; bottom:2rem; left:5rem; z-index:400;
+    width:38px; height:38px; background:var(--surface);
+    border:1px solid var(--border); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; font-size:.85rem; color:var(--muted);
+    opacity:0.3; transition:all .25s;
+  }
+  .present-btn:hover { opacity:1; border-color:var(--border-acc); color:var(--accent); }
+  body.present-mode .topbar,
+  body.present-mode .sidenav,
+  body.present-mode .admin-trigger,
+  body.present-mode .present-btn,
+  body.present-mode .lang-btn,
+  body.present-mode .theme-btn,
+  body.present-mode .cv-fab,
+  body.present-mode footer { display:none !important; }
+  body.present-mode section { padding-left:5vw !important; padding-right:5vw !important; }
+  .present-exit {
+    position:fixed; top:1rem; right:1rem; z-index:9999;
+    padding:.5rem 1.1rem; background:var(--accent); color:var(--bg);
+    border:none; border-radius:var(--r-sm); font-size:.78rem;
+    font-family:var(--font-mono); cursor:pointer; font-weight:700;
+    opacity:0; pointer-events:none; transition:opacity .3s;
+  }
+  body.present-mode .present-exit { opacity:1; pointer-events:all; }
+
+  /* ══ CV FAB ══ */
+  .cv-fab {
+    position:fixed; bottom:2rem; right:2rem; z-index:400;
+    display:flex; align-items:center; gap:.45rem;
+    padding:.65rem 1.1rem;
+    background:var(--accent); color:var(--bg);
+    border:none; border-radius:99px;
+    font-size:.76rem; font-family:var(--font-mono); font-weight:700;
+    cursor:pointer; box-shadow:0 4px 20px var(--accent-glow);
+    transition:all .25s; white-space:nowrap;
+  }
+  .cv-fab:hover { background:var(--accent2); transform:translateY(-2px); }
+
+  /* ══ ANALYTICS BAR ══ */
+  .analytics-bar {
+    position:fixed; bottom:0; left:0; right:0; z-index:350;
+    background:var(--surface); border-top:1px solid var(--border);
+    padding:.55rem 1.5rem; display:none;
+    align-items:center; gap:1.5rem; flex-wrap:wrap;
+    font-size:.71rem; font-family:var(--font-mono); color:var(--muted);
+  }
+  .analytics-bar.visible { display:flex; }
+  .analytics-stat { display:flex; align-items:center; gap:.35rem; }
+  .analytics-stat strong { color:var(--accent); }
+  .analytics-close { margin-left:auto; background:none; border:none; color:var(--muted); font-size:1.1rem; cursor:pointer; padding:.2rem .4rem; }
+
+  /* ══ BUDGET SECTION ══ */
+  #budget { padding:7rem 6rem 7rem 10rem; position:relative; z-index:1; }
+  .budget-wrap { max-width:960px; }
+  .budget-grid { display:grid; grid-template-columns:1fr 380px; gap:3rem; align-items:start; margin-top:2.5rem; }
+  .budget-options { display:flex; flex-direction:column; gap:.8rem; }
+  .budget-option {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--r); padding:1.1rem 1.3rem;
+    display:flex; align-items:center; gap:1rem;
+    cursor:pointer; transition:all .2s; user-select:none;
+  }
+  .budget-option:hover { border-color:var(--border-acc); }
+  .budget-option.sel { border-color:var(--accent); background:var(--accent-dim); }
+  .budget-chk {
+    width:18px; height:18px; flex-shrink:0;
+    border:2px solid var(--border); border-radius:4px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:.65rem; transition:all .2s; color:transparent;
+  }
+  .budget-option.sel .budget-chk { background:var(--accent); border-color:var(--accent); color:var(--bg); }
+  .budget-opt-info { flex:1; }
+  .budget-opt-name { font-size:.9rem; font-weight:600; color:var(--text); }
+  .budget-opt-desc { font-size:.73rem; color:var(--muted); margin-top:.15rem; }
+  .budget-opt-price { font-family:var(--font-mono); font-size:.82rem; color:var(--accent); flex-shrink:0; }
+  .complexity-row { margin-top:1.4rem; }
+  .complexity-label { font-size:.73rem; font-family:var(--font-mono); color:var(--muted); margin-bottom:.7rem; }
+  .complexity-opts { display:flex; gap:.5rem; }
+  .complexity-opt {
+    flex:1; padding:.65rem .5rem; text-align:center; cursor:pointer;
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--r-sm); font-size:.78rem;
+    font-family:var(--font-mono); color:var(--muted); transition:all .2s; line-height:1.3;
+  }
+  .complexity-opt:hover { border-color:var(--border-acc); }
+  .complexity-opt.sel { border-color:var(--accent); color:var(--accent); background:var(--accent-dim); }
+  .budget-result {
+    background:var(--surface); border:1px solid var(--border-acc);
+    border-radius:var(--r-lg); padding:2rem;
+    position:sticky; top:6rem;
+  }
+  .budget-result-ttl { font-family:var(--font-serif); font-size:1.1rem; margin-bottom:1.3rem; color:var(--accent); }
+  .budget-line { display:flex; justify-content:space-between; padding:.45rem 0; border-bottom:1px solid var(--border); font-size:.83rem; color:var(--text-dim); gap:.5rem; }
+  .budget-total-row { display:flex; justify-content:space-between; align-items:baseline; margin-top:1.1rem; padding-top:1.1rem; border-top:2px solid var(--border-acc); }
+  .budget-total-lbl { font-family:var(--font-serif); font-size:1rem; }
+  .budget-total-amt { font-family:var(--font-mono); font-size:1.4rem; color:var(--accent); font-weight:700; }
+  .budget-days-txt { font-size:.72rem; font-family:var(--font-mono); color:var(--muted); text-align:right; margin-top:.4rem; }
+  .budget-empty-txt { font-size:.8rem; color:var(--muted); font-family:var(--font-mono); text-align:center; padding:1.5rem 0; }
+  .budget-cta-link {
+    display:flex; align-items:center; justify-content:center;
+    margin-top:1.3rem; padding:.85rem; width:100%;
+    background:var(--accent); color:var(--bg);
+    font-weight:700; font-size:.88rem; text-decoration:none;
+    border-radius:var(--r-sm); transition:all .2s;
+  }
+  .budget-cta-link:hover { background:var(--accent2); }
+  @media (max-width:960px) { #budget { padding:5rem 1.5rem; } .budget-grid { grid-template-columns:1fr; } .budget-result { position:static; } }
+
+  /* ══ ROADMAP ══ */
+  #roadmap { padding:7rem 6rem 7rem 10rem; background:var(--bg2); position:relative; z-index:1; }
+  .roadmap-wrap { max-width:900px; }
+  .roadmap-track { position:relative; padding:1rem 0; }
+  .roadmap-spine {
+    position:absolute; left:50%; top:0; bottom:0; width:2px;
+    background:linear-gradient(180deg,transparent,var(--border-acc) 8%,var(--border-acc) 92%,transparent);
+    transform:translateX(-50%);
+  }
+  .roadmap-item {
+    display:grid; grid-template-columns:1fr 56px 1fr;
+    margin-bottom:2.5rem; align-items:center;
+    opacity:0; transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .roadmap-item.vis { opacity:1; transform:none; }
+  .roadmap-l { text-align:right; padding-right:2rem; }
+  .roadmap-r { text-align:left; padding-left:2rem; }
+  .roadmap-c { display:flex; flex-direction:column; align-items:center; gap:.4rem; position:relative; z-index:2; }
+  .roadmap-node {
+    width:42px; height:42px; border-radius:50%;
+    border:2px solid var(--border-acc); background:var(--surface);
+    display:flex; align-items:center; justify-content:center; font-size:1rem;
+    transition:all .3s;
+  }
+  .roadmap-item.done .roadmap-node { background:var(--accent-dim); border-color:var(--accent); box-shadow:0 0 14px var(--accent-glow); }
+  .roadmap-item.now  .roadmap-node { background:var(--accent); border-color:var(--accent); box-shadow:0 0 20px var(--accent-glow); animation:rpulse 2s ease infinite; }
+  @keyframes rpulse { 0%,100%{box-shadow:0 0 20px var(--accent-glow)} 50%{box-shadow:0 0 36px var(--accent-glow)} }
+  .roadmap-yr { font-family:var(--font-mono); font-size:.65rem; color:var(--muted); }
+  .roadmap-card {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--r); padding:1.1rem 1.3rem; transition:border-color .3s;
+  }
+  .roadmap-item.done .roadmap-card { border-color:rgba(110,231,183,.15); }
+  .roadmap-item.now  .roadmap-card { border-color:var(--border-acc); }
+  .roadmap-badge {
+    display:inline-block; font-size:.63rem; font-family:var(--font-mono);
+    padding:.15rem .55rem; border-radius:99px; margin-bottom:.5rem;
+  }
+  .badge-done   { background:rgba(110,231,183,.1); color:var(--accent); border:1px solid rgba(110,231,183,.2); }
+  .badge-now    { background:rgba(251,191,36,.1); color:#fbbf24; border:1px solid rgba(251,191,36,.2); }
+  .badge-future { background:var(--surface2); color:var(--muted); border:1px solid var(--border); }
+  .roadmap-card-title { font-family:var(--font-serif); font-size:.95rem; margin-bottom:.25rem; }
+  .roadmap-card-desc  { font-size:.8rem; color:var(--muted); line-height:1.55; }
+  @media (max-width:700px) {
+    #roadmap { padding:5rem 1.5rem; }
+    .roadmap-spine { left:21px; }
+    .roadmap-item { grid-template-columns:44px 1fr; }
+    .roadmap-l { display:none; }
+    .roadmap-r { text-align:left; padding-left:1.2rem; padding-right:0; }
+    .roadmap-node { width:36px; height:36px; font-size:.85rem; }
+  }
+
+  /* ══ ADMIN EXTRA ══ */
+  .range-row { display:flex; align-items:center; gap:.7rem; }
+  .admin-range { flex:1; accent-color:var(--accent); cursor:pointer; }
+  .range-val { font-family:var(--font-mono); font-size:.77rem; color:var(--accent); min-width:34px; text-align:right; }
+  .avail-opts-row { display:flex; gap:.6rem; }
+  .avail-opt-btn {
+    flex:1; padding:.6rem; text-align:center; cursor:pointer;
+    background:var(--surface2); border:1px solid var(--border);
+    border-radius:var(--r-sm); font-size:.78rem; font-family:var(--font-mono);
+    color:var(--muted); transition:all .2s;
+  }
+  .avail-opt-btn.sel { border-color:var(--accent); color:var(--accent); background:var(--accent-dim); }
+  .preview-toggle-row {
+    display:flex; align-items:center; gap:.6rem;
+    font-size:.74rem; font-family:var(--font-mono); color:var(--muted);
+    cursor:pointer; user-select:none; margin-bottom:1rem;
+  }
+  .preview-sw {
+    width:30px; height:17px; background:var(--border); border-radius:99px;
+    position:relative; transition:background .2s; flex-shrink:0;
+  }
+  .preview-sw::after { content:''; position:absolute; top:2.5px; left:2.5px; width:12px; height:12px; background:white; border-radius:50%; transition:transform .2s; }
+  .preview-sw.on { background:var(--accent); }
+  .preview-sw.on::after { transform:translateX(13px); }
+  .live-preview-box {
+    background:var(--bg); border:1px solid var(--border); border-radius:var(--r);
+    padding:1.4rem; margin-bottom:1.2rem; display:none;
+  }
+  .live-preview-box.show { display:block; }
+  .prev-name { font-family:var(--font-serif); font-size:1.5rem; }
+  .prev-role { font-family:var(--font-mono); font-size:.8rem; color:var(--accent); margin:.25rem 0; }
+  .prev-avail-badge { display:inline-block; font-size:.68rem; font-family:var(--font-mono); padding:.25rem .7rem; border-radius:99px; }
+  .prev-bio { font-size:.84rem; color:var(--text-dim); margin-top:.7rem; line-height:1.6; }
+  .data-actions { display:flex; gap:.8rem; flex-wrap:wrap; margin-bottom:2rem; }
+  .data-btn {
+    display:inline-flex; align-items:center; gap:.4rem;
+    padding:.6rem 1rem; background:var(--surface2);
+    border:1px solid var(--border); border-radius:var(--r-sm);
+    font-size:.78rem; font-family:var(--font-mono); color:var(--text-dim);
+    cursor:pointer; transition:all .2s;
+  }
+  .data-btn:hover { border-color:var(--border-acc); color:var(--accent); }
+  .stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:.7rem; }
+  .stat-tile { background:var(--surface2); border-radius:var(--r-sm); padding:.9rem; text-align:center; }
+  .stat-tile-val { font-family:var(--font-serif); font-size:1.5rem; color:var(--accent); }
+  .stat-tile-lbl { font-size:.67rem; font-family:var(--font-mono); color:var(--muted); margin-top:.15rem; }
+  .skill-edit-row { display:grid; grid-template-columns:1fr 150px 32px; align-items:center; gap:.7rem; margin-bottom:.7rem; }
+
+  /* ══ MOBILE GLOBAL FIXES ══ */
+  @media (max-width:768px) {
+    .hero { flex-direction:column; padding:6rem 1.5rem 4rem; gap:2rem; }
+    .hero-left { max-width:100%; }
+    .hero-photo-wrap { display:none; }
+    h1 { font-size:clamp(2.2rem,8vw,3.5rem) !important; }
+    .hero-actions { flex-direction:column; gap:.8rem; }
+    .hero-actions a { text-align:center; }
+    .hero-tags { gap:.4rem; }
+    .about-grid { grid-template-columns:1fr; }
+    .stats-col { grid-template-columns:1fr 1fr; }
+    .stack-grid { grid-template-columns:1fr; }
+    .skills-layout { grid-template-columns:1fr; }
+    .budget-grid { grid-template-columns:1fr; }
+    .budget-result { position:static; }
+    .complexity-opts { flex-direction:column; }
+    #contact { padding:5rem 1.5rem; }
+    #experience { padding:5rem 1.5rem; }
+    #budget { padding:5rem 1.5rem; }
+    #roadmap { padding:5rem 1.5rem; }
+    footer { padding:2rem 1.5rem; flex-direction:column; align-items:flex-start; gap:1.2rem; }
+    .cv-fab { bottom:1.2rem; right:1rem; padding:.55rem .9rem; font-size:.72rem; }
+    .admin-trigger { bottom:1.2rem; left:1rem; }
+    .present-btn { display:none; }
+    .topbar { padding:.8rem 1.5rem; }
+    .topbar-links { display:none; }
+    .analytics-bar { gap:.8rem; padding:.5rem 1rem; }
+    .analytics-stat { font-size:.68rem; }
+    .featured-project { grid-template-columns:1fr; }
+    .featured-right { display:none; }
+  }
+  @media (max-width:480px) {
+    .hero-tags span { font-size:.68rem; padding:.3rem .6rem; }
+    .stat-card { padding:1.2rem; }
+    .btn-primary, .btn-ghost { padding:.8rem 1.4rem; font-size:.88rem; }
+    .admin-sidebar { width:180px; }
+    .admin-main { padding:1rem; }
+  }
+
   </style>
 </head>
 <body>
@@ -1091,29 +1387,37 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- Theme toggle -->
-<button class="theme-btn" id="themeBtn" title="Cambiar tema" aria-label="Cambiar tema claro/oscuro">☀️</button>
 
 <!-- Topbar -->
 <header class="topbar">
   <span class="topbar-logo">// álvaro.dev</span>
   <nav><ul class="topbar-links">
-    <li><a href="#about">sobre mí</a></li>
-    <li><a href="#skills">skills</a></li>
-    <li><a href="#projects">proyectos</a></li>
-    <li><a href="#testimonials">referencias</a></li>
-    <li><a href="#contact">contacto</a></li>
+    <li><a href="#about" data-i18n="nav_about">sobre mí</a></li>
+    <li><a href="#skills" data-i18n="nav_skills">skills</a></li>
+    <li><a href="#projects" data-i18n="nav_projects">proyectos</a></li>
+    <li><a href="#testimonials" data-i18n="nav_testi">referencias</a></li>
+    <li><a href="#budget" data-i18n="nav_budget">presupuesto</a></li>
+    <li><a href="#roadmap" data-i18n="nav_roadmap">roadmap</a></li>
+    <li><a href="#contact" data-i18n="nav_contact">contacto</a></li>
   </ul></nav>
+  <div class="topbar-actions">
+    <button class="lang-btn" id="langBtn" aria-label="Cambiar idioma">
+      <span id="langFlag">🇪🇸</span><span id="langLabel">ES</span>
+    </button>
+    <button class="theme-btn" id="themeBtn" title="Cambiar tema" aria-label="Cambiar tema claro/oscuro">☀️</button>
+  </div>
 </header>
 
 <!-- Side dots nav -->
 <nav class="sidenav" id="sideNav">
-  <a href="#about" class="ndl" data-s="about"><span class="pip"></span><span class="nav-label">Sobre mí</span></a>
-  <a href="#skills" class="ndl" data-s="skills"><span class="pip"></span><span class="nav-label">Skills</span></a>
-  <a href="#projects" class="ndl" data-s="projects"><span class="pip"></span><span class="nav-label">Proyectos</span></a>
-  <a href="#experience" class="ndl" data-s="experience"><span class="pip"></span><span class="nav-label">Experiencia</span></a>
-  <a href="#testimonials" class="ndl" data-s="testimonials"><span class="pip"></span><span class="nav-label">Referencias</span></a>
-  <a href="#contact" class="ndl" data-s="contact"><span class="pip"></span><span class="nav-label">Contacto</span></a>
+  <a href="#about" class="ndl" data-s="about"><span class="pip"></span><span class="nav-label" data-i18n="nav_about_long">Sobre mí</span></a>
+  <a href="#skills" class="ndl" data-s="skills"><span class="pip"></span><span class="nav-label" data-i18n="nav_skills_long">Skills</span></a>
+  <a href="#projects" class="ndl" data-s="projects"><span class="pip"></span><span class="nav-label" data-i18n="nav_projects_long">Proyectos</span></a>
+  <a href="#experience" class="ndl" data-s="experience"><span class="pip"></span><span class="nav-label" data-i18n="nav_exp_long">Experiencia</span></a>
+  <a href="#testimonials" class="ndl" data-s="testimonials"><span class="pip"></span><span class="nav-label" data-i18n="nav_testi_long">Referencias</span></a>
+  <a href="#budget" class="ndl" data-s="budget"><span class="pip"></span><span class="nav-label" data-i18n="nav_budget_long">Presupuesto</span></a>
+  <a href="#roadmap" class="ndl" data-s="roadmap"><span class="pip"></span><span class="nav-label" data-i18n="nav_roadmap_long">Roadmap</span></a>
+  <a href="#contact" class="ndl" data-s="contact"><span class="pip"></span><span class="nav-label" data-i18n="nav_contact_long">Contacto</span></a>
 </nav>
 
 <!-- ══════════ HERO ══════════ -->
@@ -1124,22 +1428,19 @@
   <div class="hero-left">
     <div class="hero-status">
       <span class="status-dot"></span>
-      Disponible para proyectos y contratación
+      <span data-i18n="hero_available">Disponible para proyectos y contratación</span>
     </div>
 
     <h1>
       Álvaro <em>Sánchez</em>
-      <span class="role-line">Desarrollador Full Stack</span>
+      <span class="role-line" data-i18n="hero_role">Desarrollador Full Stack</span>
     </h1>
 
     <div class="typing-wrap">
       <span id="typingText"></span><span class="typing-cursor"></span>
     </div>
 
-    <p class="hero-desc">
-      Construyo aplicaciones web modernas, escalables y bien estructuradas,
-      especializado en Angular y React, con orientación a producto real.
-    </p>
+    <p class="hero-desc" data-i18n="hero_desc">Construyo aplicaciones web modernas, escalables y bien estructuradas, especializado en Angular y React, con orientación a producto real.</p>
 
     <div class="hero-tags">
       <span>Angular</span><span>React</span><span>Node.js</span>
@@ -1148,8 +1449,8 @@
     </div>
 
     <div class="hero-actions">
-      <a href="#projects" class="btn-primary">Ver proyectos →</a>
-      <a href="#contact" class="btn-ghost">Hablemos</a>
+      <a href="#projects" class="btn-primary" data-i18n="hero_cta1">Ver proyectos →</a>
+      <a href="#contact" class="btn-ghost" data-i18n="hero_cta2">Hablemos</a>
     </div>
   </div>
 
@@ -1173,7 +1474,7 @@
   </div>
 
   <div class="hero-scroll-hint">
-    <span class="scroll-text">scroll</span>
+    <span class="scroll-text" data-i18n="scroll_hint">scroll</span>
     <div class="scroll-line"></div>
   </div>
 </section>
@@ -1183,17 +1484,17 @@
   <div class="about-grid">
     <div class="about-text reveal">
       <div style="margin-bottom:2rem">
-        <p class="section-eyebrow">Sobre mí</p>
-        <h2 class="section-title">Transformando ideas<br>en productos digitales</h2>
+        <p class="section-eyebrow" data-i18n="about_eyebrow">Sobre mí</p>
+        <h2 class="section-title" data-i18n="about_title">Transformando ideas<br>en productos digitales</h2>
       </div>
-      <p>Soy <strong>Álvaro Sánchez</strong>, desarrollador Full Stack con foco en Angular, APIs REST y arquitectura limpia. Trabajo con un perfil práctico orientado a proyectos reales y resolución de problemas.</p>
-      <p>Me interesa el producto tanto como el código. No sólo que "funcione", sino que escale, sea mantenible y aporte valor real al usuario final.</p>
-      <p>Aprendizaje constante, metodología clara y atención al detalle son los pilares de cómo trabajo.</p>
+      <p data-i18n="about_p1">Soy <strong>Álvaro Sánchez</strong>, desarrollador Full Stack con foco en Angular, APIs REST y arquitectura limpia. Trabajo con un perfil práctico orientado a proyectos reales y resolución de problemas.</p>
+      <p data-i18n="about_p2">Me interesa el producto tanto como el código. No sólo que "funcione", sino que escale, sea mantenible y aporte valor real al usuario final.</p>
+      <p data-i18n="about_p3">Aprendizaje constante, metodología clara y atención al detalle son los pilares de cómo trabajo.</p>
     </div>
     <div class="stats-col reveal-stagger">
-      <div class="stat-card"><span class="stat-number" data-target="4" data-plus="true">0</span><span class="stat-label">Años programando</span></div>
-      <div class="stat-card"><span class="stat-number" data-target="20" data-plus="true">0</span><span class="stat-label">Proyectos completados</span></div>
-      <div class="stat-card"><span class="stat-number" data-target="15" data-plus="true">0</span><span class="stat-label">Tecnologías dominadas</span></div>
+      <div class="stat-card"><span class="stat-number" data-target="4" data-plus="true">0</span><span class="stat-label" data-i18n="stat_years">Años programando</span></div>
+      <div class="stat-card"><span class="stat-number" data-target="20" data-plus="true">0</span><span class="stat-label" data-i18n="stat_projects">Proyectos completados</span></div>
+      <div class="stat-card"><span class="stat-number" data-target="15" data-plus="true">0</span><span class="stat-label" data-i18n="stat_techs">Tecnologías dominadas</span></div>
     </div>
   </div>
 </section>
@@ -1202,8 +1503,8 @@
 <section id="skills">
   <div class="skills-outer">
     <div class="reveal" style="margin-bottom:3rem">
-      <p class="section-eyebrow">Habilidades</p>
-      <h2 class="section-title">Mi nivel técnico</h2>
+      <p class="section-eyebrow" data-i18n="skills_eyebrow">Habilidades</p>
+      <h2 class="section-title" data-i18n="skills_title">Mi nivel técnico</h2>
     </div>
     <div class="skills-layout">
       <!-- Skill bars -->
@@ -1240,16 +1541,16 @@
 
       <!-- Soft skills -->
       <div class="soft-skills reveal">
-        <p class="soft-title">Habilidades blandas</p>
+        <p class="soft-title" data-i18n="soft_title">Habilidades blandas</p>
         <div class="soft-grid">
-          <div class="soft-chip"><span class="soft-chip-icon">🔍</span>Resolución de problemas</div>
-          <div class="soft-chip"><span class="soft-chip-icon">🤝</span>Trabajo en equipo</div>
-          <div class="soft-chip"><span class="soft-chip-icon">⚡</span>Rendimiento bajo presión</div>
-          <div class="soft-chip"><span class="soft-chip-icon">📦</span>Orientación a producto</div>
-          <div class="soft-chip"><span class="soft-chip-icon">📚</span>Aprendizaje continuo</div>
-          <div class="soft-chip"><span class="soft-chip-icon">🎯</span>Atención al detalle</div>
-          <div class="soft-chip"><span class="soft-chip-icon">💬</span>Comunicación clara</div>
-          <div class="soft-chip"><span class="soft-chip-icon">🏗️</span>Arquitectura limpia</div>
+          <div class="soft-chip"><span class="soft-chip-icon">🔍</span><span data-i18n="soft1">Resolución de problemas</span></div>
+          <div class="soft-chip"><span class="soft-chip-icon">🤝</span><span data-i18n="soft2">Trabajo en equipo</span></div>
+          <div class="soft-chip"><span class="soft-chip-icon">⚡</span><span data-i18n="soft3">Rendimiento bajo presión</span></div>
+          <div class="soft-chip"><span class="soft-chip-icon">📦</span><span data-i18n="soft4">Orientación a producto</span></div>
+          <div class="soft-chip"><span class="soft-chip-icon">📚</span><span data-i18n="soft5">Aprendizaje continuo</span></div>
+          <div class="soft-chip"><span class="soft-chip-icon">🎯</span><span data-i18n="soft6">Atención al detalle</span></div>
+          <div class="soft-chip"><span class="soft-chip-icon">💬</span><span data-i18n="soft7">Comunicación clara</span></div>
+          <div class="soft-chip"><span class="soft-chip-icon">🏗️</span><span data-i18n="soft8">Arquitectura limpia</span></div>
         </div>
       </div>
     </div>
@@ -1260,23 +1561,23 @@
 <section id="stack">
   <div class="stack-outer">
     <div class="section-header reveal" style="margin-bottom:2.5rem">
-      <p class="section-eyebrow">Stack tecnológico</p>
-      <h2 class="section-title">Tecnologías con las<br>que trabajo</h2>
+      <p class="section-eyebrow" data-i18n="stack_eyebrow">Stack tecnológico</p>
+      <h2 class="section-title" data-i18n="stack_title">Tecnologías con las<br>que trabajo</h2>
     </div>
     <div class="stack-grid reveal-stagger">
       <div class="stack-card">
         <div class="stack-card-icon">⬡</div>
-        <h3 class="stack-card-title">Frontend</h3>
+        <h3 class="stack-card-title" data-i18n="stack_fe">Frontend</h3>
         <ul class="stack-items"><li>Angular</li><li>React</li><li>TypeScript</li><li>HTML & CSS</li><li>RxJS</li></ul>
       </div>
       <div class="stack-card">
         <div class="stack-card-icon">◈</div>
-        <h3 class="stack-card-title">Backend</h3>
+        <h3 class="stack-card-title" data-i18n="stack_be">Backend</h3>
         <ul class="stack-items"><li>Node.js</li><li>Express</li><li>APIs REST</li><li>MySQL</li><li>Spring Boot</li></ul>
       </div>
       <div class="stack-card">
         <div class="stack-card-icon">◎</div>
-        <h3 class="stack-card-title">Herramientas</h3>
+        <h3 class="stack-card-title" data-i18n="stack_tools">Herramientas</h3>
         <ul class="stack-items"><li>Git & GitHub</li><li>Docker</li><li>Postman</li><li>Linux</li><li>Figma</li><li>Notion / Trello</li><li>WordPress & Shopify</li></ul>
       </div>
     </div>
@@ -1287,14 +1588,14 @@
 <section id="workflow">
   <div class="workflow-outer">
     <div class="reveal" style="margin-bottom:2.5rem">
-      <p class="section-eyebrow">Cómo trabajo</p>
-      <h2 class="section-title">De la idea al producto</h2>
+      <p class="section-eyebrow" data-i18n="wf_eyebrow">Cómo trabajo</p>
+      <h2 class="section-title" data-i18n="wf_title">De la idea al producto</h2>
     </div>
     <div class="workflow-steps reveal">
-      <div class="workflow-step"><span class="step-num">/ 01</span><div class="step-corner"></div><h3 class="step-title">Entender<br>el problema</h3><p class="step-desc">Analizo la idea, el contexto y los objetivos reales antes de escribir una sola línea de código.</p></div>
-      <div class="workflow-step"><span class="step-num">/ 02</span><div class="step-corner"></div><h3 class="step-title">Diseñar<br>la solución</h3><p class="step-desc">Defino la arquitectura, flujos y tecnologías buscando simplicidad y escalabilidad.</p></div>
-      <div class="workflow-step"><span class="step-num">/ 03</span><div class="step-corner"></div><h3 class="step-title">Desarrollar<br>con criterio</h3><p class="step-desc">Código limpio, buenas prácticas y foco en producto, no solo en que "funcione".</p></div>
-      <div class="workflow-step"><span class="step-num">/ 04</span><div class="step-corner"></div><h3 class="step-title">Iterar<br>y mejorar</h3><p class="step-desc">Reviso, optimizo y mejoro según feedback y uso real del producto.</p></div>
+      <div class="workflow-step"><span class="step-num">/ 01</span><div class="step-corner"></div><h3 class="step-title" data-i18n="wf1_title">Entender<br>el problema</h3><p class="step-desc" data-i18n="wf1_desc">Analizo la idea, el contexto y los objetivos reales antes de escribir una sola línea de código.</p></div>
+      <div class="workflow-step"><span class="step-num">/ 02</span><div class="step-corner"></div><h3 class="step-title" data-i18n="wf2_title">Diseñar<br>la solución</h3><p class="step-desc" data-i18n="wf2_desc">Defino la arquitectura, flujos y tecnologías buscando simplicidad y escalabilidad.</p></div>
+      <div class="workflow-step"><span class="step-num">/ 03</span><div class="step-corner"></div><h3 class="step-title" data-i18n="wf3_title">Desarrollar<br>con criterio</h3><p class="step-desc" data-i18n="wf3_desc">Código limpio, buenas prácticas y foco en producto, no solo en que "funcione".</p></div>
+      <div class="workflow-step"><span class="step-num">/ 04</span><div class="step-corner"></div><h3 class="step-title" data-i18n="wf4_title">Iterar<br>y mejorar</h3><p class="step-desc" data-i18n="wf4_desc">Reviso, optimizo y mejoro según feedback y uso real del producto.</p></div>
     </div>
   </div>
 </section>
@@ -1303,25 +1604,25 @@
 <section id="projects">
   <div class="projects-outer">
     <div class="reveal" style="margin-bottom:2.5rem">
-      <p class="section-eyebrow">Proyectos</p>
-      <h2 class="section-title">Proyecto principal</h2>
+      <p class="section-eyebrow" data-i18n="proj_eyebrow">Proyectos</p>
+      <h2 class="section-title" data-i18n="proj_title">Proyecto principal</h2>
     </div>
 
     <div class="featured-project reveal">
       <div class="featured-left">
-        <span class="featured-badge"><span style="display:inline-block;width:6px;height:6px;background:var(--accent);border-radius:50%;animation:blink 2s infinite"></span> Proyecto activo</span>
+        <span class="featured-badge"><span style="display:inline-block;width:6px;height:6px;background:var(--accent);border-radius:50%;animation:blink 2s infinite"></span> <span data-i18n="proj_active">Proyecto activo</span></span>
         <h3>Workly</h3>
-        <p>Plataforma ERP web para freelancers y pequeños profesionales. Gestiona clientes, proyectos, facturación y gastos desde un único panel intuitivo, sin la complejidad de los ERP tradicionales.</p>
+        <p data-i18n="workly_desc">Plataforma ERP web para freelancers y pequeños profesionales. Gestiona clientes, proyectos, facturación y gastos desde un único panel intuitivo, sin la complejidad de los ERP tradicionales.</p>
         <div class="tech-tags"><span>React</span><span>Node.js</span><span>MySQL</span><span>APIs REST</span><span>Express</span></div>
-        <button class="btn-primary" onclick="openPanel()" style="border:none;cursor:pointer;">Ver caso de estudio →</button>
+        <button class="btn-primary" onclick="openPanel()" style="border:none;cursor:pointer;" data-i18n="workly_cta">Ver caso de estudio →</button>
       </div>
       <div class="featured-right" onclick="openPanel()">
         <img src="https://res.cloudinary.com/dhbjoltyy/image/upload/v1766937411/ChatGPT_Image_28_dic_2025_16_55_48_try0ll.png" alt="Workly">
       </div>
     </div>
 
-    <h3 class="other-title reveal">Otros proyectos</h3>
-    <p class="drag-hint-text">← Arrastra para explorar →</p>
+    <h3 class="other-title reveal" data-i18n="proj_other">Otros proyectos</h3>
+    <p class="drag-hint-text" data-i18n="proj_drag">← Arrastra para explorar →</p>
     <div class="carousel-wrap reveal">
       <div class="carousel-track-outer" id="carouselTrack">
         <div class="proj-card"><div class="proj-img"><img src="https://res.cloudinary.com/dhbjoltyy/image/upload/v1770710086/ChatGPT_Image_10_feb_2026_08_53_35_1_u2hpid.png" alt="ResumeAI" draggable="false"></div><div class="proj-body"><h3>ResumeAI</h3><p>Convierte cualquier texto en resumen perfecto y genera tarjetas de estudio con IA para aprender más rápido.</p><a class="proj-link" href="https://github.com/alvaroosanchezz34/ResumeAI.git" target="_blank">Ver repositorio →</a></div></div>
@@ -1338,14 +1639,14 @@
 <section id="experience">
   <div class="exp-outer">
     <div class="reveal" style="margin-bottom:2.5rem">
-      <p class="section-eyebrow">Trayectoria</p>
-      <h2 class="section-title">Experiencia &<br>Formación</h2>
+      <p class="section-eyebrow" data-i18n="exp_eyebrow">Trayectoria</p>
+      <h2 class="section-title" data-i18n="exp_title">Experiencia &<br>Formación</h2>
     </div>
     <div class="timeline reveal">
-      <div class="timeline-item"><span class="timeline-date">2025 — Actualidad</span><div class="timeline-content"><h3>DAW — CEI Sevilla</h3><p>Formación en desarrollo web y despliegue de aplicaciones. TFG con proyecto real.</p></div></div>
-      <div class="timeline-item"><span class="timeline-date">2024 — 2025</span><div class="timeline-content"><h3>Full Stack — Ceginfor</h3><p>Desarrollo de plataforma cloud de contabilidad empresarial.</p></div></div>
-      <div class="timeline-item"><span class="timeline-date">2022 — Actualidad</span><div class="timeline-content"><h3>Desarrollador Freelance</h3><p>Proyectos personales y para PYMEs locales. Desarrollo de webs, apps y soluciones a medida.</p></div></div>
-      <div class="timeline-item"><span class="timeline-date">2022 — 2024</span><div class="timeline-content"><h3>DAM — Staff Formación</h3><p>Formación en desarrollo de aplicaciones multiplataforma, bases de datos y sistemas.</p></div></div>
+      <div class="timeline-item"><span class="timeline-date" data-i18n="exp1_date">2025 — Actualidad</span><div class="timeline-content"><h3 data-i18n="exp1_title">DAW — CEI Sevilla</h3><p data-i18n="exp1_desc">Formación en desarrollo web y despliegue de aplicaciones. TFG con proyecto real.</p></div></div>
+      <div class="timeline-item"><span class="timeline-date" data-i18n="exp2_date">2024 — 2025</span><div class="timeline-content"><h3 data-i18n="exp2_title">Full Stack — Ceginfor</h3><p data-i18n="exp2_desc">Desarrollo de plataforma cloud de contabilidad empresarial.</p></div></div>
+      <div class="timeline-item"><span class="timeline-date" data-i18n="exp3_date">2022 — Actualidad</span><div class="timeline-content"><h3 data-i18n="exp3_title">Desarrollador Freelance</h3><p data-i18n="exp3_desc">Proyectos personales y para PYMEs locales. Desarrollo de webs, apps y soluciones a medida.</p></div></div>
+      <div class="timeline-item"><span class="timeline-date" data-i18n="exp4_date">2022 — 2024</span><div class="timeline-content"><h3 data-i18n="exp4_title">DAM — Staff Formación</h3><p data-i18n="exp4_desc">Formación en desarrollo de aplicaciones multiplataforma, bases de datos y sistemas.</p></div></div>
     </div>
   </div>
 </section>
@@ -1354,15 +1655,15 @@
 <section id="testimonials">
   <div class="testi-outer">
     <div class="reveal" style="margin-bottom:2.5rem">
-      <p class="section-eyebrow">Referencias</p>
-      <h2 class="section-title">Lo que dicen<br>de mi trabajo</h2>
+      <p class="section-eyebrow" data-i18n="testi_eyebrow">Referencias</p>
+      <h2 class="section-title" data-i18n="testi_title">Lo que dicen<br>de mi trabajo</h2>
     </div>
 
     <div class="testi-grid reveal-stagger">
 
       <div class="testi-card">
         <span class="testi-quote-mark">"</span>
-        <p class="testi-text">Álvaro entregó el proyecto en plazo y con una calidad de código que raramente veo en perfiles junior. Muy orientado a producto, no sólo a ejecutar tareas.</p>
+        <p class="testi-text" data-i18n="testi1_text">Álvaro entregó el proyecto en plazo y con una calidad de código que raramente veo en perfiles junior. Muy orientado a producto, no sólo a ejecutar tareas.</p>
         <div>
           <div class="testi-stars">★★★★★</div>
         </div>
@@ -1370,14 +1671,14 @@
           <div class="testi-avatar">JM</div>
           <div>
             <div class="testi-name">José M.</div>
-            <div class="testi-role">// CTO · Ceginfor</div>
+            <div class="testi-role" data-i18n="testi1_role">// CTO · Ceginfor</div>
           </div>
         </div>
       </div>
 
       <div class="testi-card">
         <span class="testi-quote-mark">"</span>
-        <p class="testi-text">Necesitábamos una web de comercio electrónico y Álvaro la resolvió con Shopify de manera limpia, rápida y explicando cada paso. Repetiría sin dudar.</p>
+        <p class="testi-text" data-i18n="testi2_text">Necesitábamos una web de comercio electrónico y Álvaro la resolvió con Shopify de manera limpia, rápida y explicando cada paso. Repetiría sin dudar.</p>
         <div>
           <div class="testi-stars">★★★★★</div>
         </div>
@@ -1385,14 +1686,14 @@
           <div class="testi-avatar">LC</div>
           <div>
             <div class="testi-name">Laura C.</div>
-            <div class="testi-role">// Propietaria · PYME local</div>
+            <div class="testi-role" data-i18n="testi2_role">// Propietaria · PYME local</div>
           </div>
         </div>
       </div>
 
       <div class="testi-card">
         <span class="testi-quote-mark">"</span>
-        <p class="testi-text">Trabajar con Álvaro en el TFG fue una experiencia muy positiva. Siempre con iniciativa, resuelve problemas sin esperar que te los den mascados.</p>
+        <p class="testi-text" data-i18n="testi3_text">Trabajar con Álvaro en el TFG fue una experiencia muy positiva. Siempre con iniciativa, resuelve problemas sin esperar que te los den mascados.</p>
         <div>
           <div class="testi-stars">★★★★★</div>
         </div>
@@ -1400,30 +1701,141 @@
           <div class="testi-avatar">RP</div>
           <div>
             <div class="testi-name">Roberto P.</div>
-            <div class="testi-role">// Compañero · DAW CEI Sevilla</div>
+            <div class="testi-role" data-i18n="testi3_role">// Compañero · DAW CEI Sevilla</div>
           </div>
         </div>
       </div>
 
     </div>
 
-    <p class="testi-notice">* Las referencias son representativas de feedback recibido. Disponible verificación por LinkedIn a petición.</p>
+    <p class="testi-notice" data-i18n="testi_notice">* Las referencias son representativas de feedback recibido. Disponible verificación por LinkedIn a petición.</p>
   </div>
 </section>
 
+<!-- ══════════ BUDGET SECTION ══════════ -->
+<section id="budget">
+  <div class="budget-wrap">
+    <div class="reveal">
+      <p class="section-eyebrow" id="budgetEyebrow">Presupuesto</p>
+      <h2 class="section-title" id="budgetTitle">Calcula tu proyecto</h2>
+    </div>
+    <div class="budget-grid">
+      <div>
+        <div class="budget-options">
+          <div class="budget-option" data-price="800"  data-days="5"  onclick="toggleBudget(this)">
+            <div class="budget-chk">✓</div>
+            <div class="budget-opt-info"><div class="budget-opt-name" data-i18n="bud1_name">Landing page</div><div class="budget-opt-desc" data-i18n="bud1_desc">Web de presentación con diseño personalizado</div></div>
+            <div class="budget-opt-price" data-i18n="bud1_price">desde 800€</div>
+          </div>
+          <div class="budget-option" data-price="1800" data-days="14" onclick="toggleBudget(this)">
+            <div class="budget-chk">✓</div>
+            <div class="budget-opt-info"><div class="budget-opt-name" data-i18n="bud2_name">Web + CMS / Blog</div><div class="budget-opt-desc" data-i18n="bud2_desc">Con panel de edición de contenidos</div></div>
+            <div class="budget-opt-price" data-i18n="bud2_price">desde 1.800€</div>
+          </div>
+          <div class="budget-option" data-price="3500" data-days="30" onclick="toggleBudget(this)">
+            <div class="budget-chk">✓</div>
+            <div class="budget-opt-info"><div class="budget-opt-name" data-i18n="bud3_name">App web / SaaS</div><div class="budget-opt-desc" data-i18n="bud3_desc">Full stack con autenticación y base de datos</div></div>
+            <div class="budget-opt-price" data-i18n="bud3_price">desde 3.500€</div>
+          </div>
+          <div class="budget-option" data-price="600"  data-days="4"  onclick="toggleBudget(this)">
+            <div class="budget-chk">✓</div>
+            <div class="budget-opt-info"><div class="budget-opt-name" data-i18n="bud4_name">API REST</div><div class="budget-opt-desc" data-i18n="bud4_desc">Backend con endpoints documentados</div></div>
+            <div class="budget-opt-price" data-i18n="bud4_price">desde 600€</div>
+          </div>
+          <div class="budget-option" data-price="400"  data-days="3"  onclick="toggleBudget(this)">
+            <div class="budget-chk">✓</div>
+            <div class="budget-opt-info"><div class="budget-opt-name" data-i18n="bud5_name">Mantenimiento / mejoras</div><div class="budget-opt-desc" data-i18n="bud5_desc">Consultoría, refactoring o nuevas features</div></div>
+            <div class="budget-opt-price" data-i18n="bud5_price">desde 400€</div>
+          </div>
+        </div>
+        <div class="complexity-row">
+          <div class="complexity-label" id="complexityLabel">// complejidad del proyecto</div>
+          <div class="complexity-opts">
+            <div class="complexity-opt sel" data-mult="1"   onclick="setComplexity(this)">Simple<br><small>×1</small></div>
+            <div class="complexity-opt"     data-mult="1.5" onclick="setComplexity(this)">Media<br><small>×1.5</small></div>
+            <div class="complexity-opt"     data-mult="2.2" onclick="setComplexity(this)">Compleja<br><small>×2.2</small></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="budget-result">
+          <div class="budget-result-ttl" id="budgetSummaryTitle" data-i18n="bud_summary">// resumen estimado</div>
+          <div id="budgetLines"><div class="budget-empty-txt" id="budgetEmptyMsg">← Selecciona servicios</div></div>
+          <div id="budgetTotalBlock" style="display:none">
+            <div class="budget-total-row">
+              <span class="budget-total-lbl" data-i18n="bud_total_lbl">Total estimado</span>
+              <span class="budget-total-amt" id="budgetTotalAmt">0€</span>
+            </div>
+            <div class="budget-days-txt" id="budgetDaysTxt"></div>
+            <a href="#contact" class="budget-cta-link" id="budgetCtaLink" data-i18n="bud_cta">Solicitar presupuesto →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ROADMAP SECTION ══════════ -->
+<section id="roadmap">
+  <div class="roadmap-wrap">
+    <div class="reveal" style="margin-bottom:2.5rem">
+      <p class="section-eyebrow" id="roadmapEyebrow">Roadmap</p>
+      <h2 class="section-title" id="roadmapTitle">Mi trayectoria<br>y próximos pasos</h2>
+    </div>
+    <div class="roadmap-track">
+      <div class="roadmap-spine"></div>
+
+      <div class="roadmap-item done" data-rdelay="0">
+        <div class="roadmap-l"><div class="roadmap-card"><div class="roadmap-badge badge-done" data-i18n="rm_done">✓ Completado</div><div class="roadmap-card-title" data-i18n="rm1_title">Primeros pasos</div><div class="roadmap-card-desc" data-i18n="rm1_desc">Python, Java, fundamentos de algoritmos y estructuras de datos.</div></div></div>
+        <div class="roadmap-c"><div class="roadmap-node">💻</div><div class="roadmap-yr">2021</div></div>
+        <div class="roadmap-r"></div>
+      </div>
+
+      <div class="roadmap-item done" data-rdelay="120">
+        <div class="roadmap-l"></div>
+        <div class="roadmap-c"><div class="roadmap-node">🌐</div><div class="roadmap-yr">2022</div></div>
+        <div class="roadmap-r"><div class="roadmap-card"><div class="roadmap-badge badge-done" data-i18n="rm_done">✓ Completado</div><div class="roadmap-card-title" data-i18n="rm2_title">DAM + primeros proyectos web</div><div class="roadmap-card-desc" data-i18n="rm2_desc">HTML, CSS, JavaScript. Primeros proyectos freelance para PYMEs locales.</div></div></div>
+      </div>
+
+      <div class="roadmap-item done" data-rdelay="240">
+        <div class="roadmap-l"><div class="roadmap-card"><div class="roadmap-badge badge-done" data-i18n="rm_done">✓ Completado</div><div class="roadmap-card-title" data-i18n="rm3_title">Full Stack — Ceginfor</div><div class="roadmap-card-desc" data-i18n="rm3_desc">Primer trabajo profesional. Angular, Node.js, APIs REST, MySQL en producción.</div></div></div>
+        <div class="roadmap-c"><div class="roadmap-node">⚡</div><div class="roadmap-yr">2024</div></div>
+        <div class="roadmap-r"></div>
+      </div>
+
+      <div class="roadmap-item now" data-rdelay="360">
+        <div class="roadmap-l"></div>
+        <div class="roadmap-c"><div class="roadmap-node">🚀</div><div class="roadmap-yr">2025</div></div>
+        <div class="roadmap-r"><div class="roadmap-card"><div class="roadmap-badge badge-now" data-i18n="rm_now">⬤ Ahora</div><div class="roadmap-card-title" data-i18n="rm4_title">DAW + TFG + SaaS propios</div><div class="roadmap-card-desc" data-i18n="rm4_desc">Workly, ResumeAI, FlowSenseAI. Construyendo producto real con orientación a negocio.</div></div></div>
+      </div>
+
+      <div class="roadmap-item" data-rdelay="480">
+        <div class="roadmap-l"><div class="roadmap-card"><div class="roadmap-badge badge-future" data-i18n="rm_next">◎ Próximo</div><div class="roadmap-card-title" data-i18n="rm5_title">Primer SaaS con ingresos</div><div class="roadmap-card-desc" data-i18n="rm5_desc">Monetizar Workly o ResumeAI. Primeros 100 usuarios de pago.</div></div></div>
+        <div class="roadmap-c"><div class="roadmap-node">💡</div><div class="roadmap-yr">2026</div></div>
+        <div class="roadmap-r"></div>
+      </div>
+
+      <div class="roadmap-item" data-rdelay="600">
+        <div class="roadmap-l"></div>
+        <div class="roadmap-c"><div class="roadmap-node">🌍</div><div class="roadmap-yr">2027+</div></div>
+        <div class="roadmap-r"><div class="roadmap-card"><div class="roadmap-badge badge-future" data-i18n="rm_vision">◎ Visión</div><div class="roadmap-card-title" data-i18n="rm6_title">Empresa / equipo propio</div><div class="roadmap-card-desc" data-i18n="rm6_desc">Escalar producto digital. Equipo técnico pequeño y altamente autónomo.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- ══════════ CONTACT ══════════ -->
 <section id="contact">
   <div class="contact-outer">
     <div class="reveal" style="margin-bottom:1.5rem">
-      <p class="section-eyebrow">Contacto</p>
-      <h2 class="section-title">¿Hablamos?</h2>
+      <p class="section-eyebrow" data-i18n="contact_eyebrow">Contacto</p>
+      <h2 class="section-title" data-i18n="contact_title">¿Hablamos?</h2>
     </div>
-    <p class="contact-intro reveal">Si tienes un proyecto, una idea o simplemente quieres contactar conmigo, estaré encantado de leerte. Respondo en menos de 24 horas.</p>
+    <p class="contact-intro reveal" data-i18n="contact_intro">Si tienes un proyecto, una idea o simplemente quieres contactar conmigo, estaré encantado de leerte. Respondo en menos de 24 horas.</p>
     <form class="contact-form reveal" id="contactForm">
-      <div class="form-field"><label for="from_name">// nombre</label><input type="text" id="from_name" name="from_name" placeholder="Tu nombre" required></div>
-      <div class="form-field"><label for="from_email">// email</label><input type="email" id="from_email" name="from_email" placeholder="tu@email.com" required></div>
-      <div class="form-field"><label for="message">// mensaje</label><textarea id="message" name="message" placeholder="Cuéntame tu proyecto o idea..." required></textarea></div>
-      <button type="submit" class="form-submit" id="submitBtn">Enviar mensaje</button>
+      <div class="form-field"><label for="from_name" data-i18n="form_name_label">// nombre</label><input type="text" id="from_name" name="from_name" placeholder="Tu nombre" required></div>
+      <div class="form-field"><label for="from_email" data-i18n="form_email_label">// email</label><input type="email" id="from_email" name="from_email" placeholder="tu@email.com" required></div>
+      <div class="form-field"><label for="message" data-i18n="form_msg_label">// mensaje</label><textarea id="message" name="message" placeholder="Cuéntame tu proyecto o idea..." required></textarea></div>
+      <button type="submit" class="form-submit" id="submitBtn" data-i18n="form_submit">Enviar mensaje</button>
     </form>
   </div>
 </section>
@@ -1432,14 +1844,14 @@
 <footer>
   <div class="footer-left">
     <span class="footer-name">Álvaro Sánchez</span>
-    <span class="footer-role">// desarrollador full stack</span>
+    <span class="footer-role" data-i18n="footer_role">// desarrollador full stack</span>
   </div>
   <div class="footer-links">
     <a href="https://github.com/alvaroosanchezz34" target="_blank">GitHub</a>
     <a href="https://www.linkedin.com/in/alvaro-sanchez-ortega-06bb82394/" target="_blank">LinkedIn</a>
     <a href="mailto:alvarosanchezortega34@gmail.com">Email</a>
   </div>
-  <span class="footer-right">© 2026 · Álvaro Sánchez</span>
+  <span class="footer-right" data-i18n="footer_copy">© 2026 · Álvaro Sánchez</span>
 </footer>
 
 <!-- ══════════ WORKLY PANEL ══════════ -->
@@ -1447,9 +1859,9 @@
   <aside class="side-panel" onclick="event.stopPropagation()">
     <button class="panel-close-btn" onclick="closePanel()">×</button>
     <div class="panel-clear"></div>
-    <span class="panel-eyebrow">🚧 Proyecto activo</span>
+    <span class="panel-eyebrow" data-i18n="panel_eyebrow">🚧 Proyecto activo</span>
     <h3 class="panel-title">Workly</h3>
-    <p class="panel-subtitle">Plataforma ERP web para freelancers y pequeños profesionales.</p>
+    <p class="panel-subtitle" data-i18n="panel_subtitle">Plataforma ERP web para freelancers y pequeños profesionales.</p>
     <div class="panel-tags"><span>React</span><span>Node.js</span><span>MySQL</span><span>APIs REST</span><span>Express</span></div>
     <div class="panel-carousel">
       <div class="panel-carousel-track" id="panelCarouselTrack">
@@ -1460,9 +1872,9 @@
       <button class="panel-carousel-btn prev" onclick="panelPrev()">‹</button>
       <button class="panel-carousel-btn next" onclick="panelNext()">›</button>
     </div>
-    <div class="panel-section"><h4>Qué es</h4><p>WorkLy es una aplicación web tipo ERP pensada para freelancers y pequeños profesionales que necesitan gestionar su actividad diaria de forma sencilla y centralizada. Permite controlar clientes, proyectos, facturas, gastos y servicios desde un único panel.</p></div>
-    <div class="panel-section"><h4>Objetivo</h4><p>Simplificar la gestión profesional de freelancers y pequeños emprendedores, ofreciendo una herramienta web intuitiva que centralice clientes, proyectos, facturación y gastos en un solo lugar.</p></div>
-    <div class="panel-section"><h4>Próximos pasos</h4><ul><li>Gestión de tareas avanzada</li><li>Sistema de autenticación completo</li><li>Roles y permisos por usuario</li><li>API estable y documentada</li></ul></div>
+    <div class="panel-section"><h4 data-i18n="panel_what">Qué es</h4><p data-i18n="panel_what_desc">WorkLy es una aplicación web tipo ERP pensada para freelancers y pequeños profesionales que necesitan gestionar su actividad diaria de forma sencilla y centralizada. Permite controlar clientes, proyectos, facturas, gastos y servicios desde un único panel.</p></div>
+    <div class="panel-section"><h4 data-i18n="panel_goal">Objetivo</h4><p data-i18n="panel_goal_desc">Simplificar la gestión profesional de freelancers y pequeños emprendedores, ofreciendo una herramienta web intuitiva que centralice clientes, proyectos, facturación y gastos en un solo lugar.</p></div>
+    <div class="panel-section"><h4 data-i18n="panel_next">Próximos pasos</h4><ul><li data-i18n="panel_next1">Gestión de tareas avanzada</li><li data-i18n="panel_next2">Sistema de autenticación completo</li><li data-i18n="panel_next3">Roles y permisos por usuario</li><li data-i18n="panel_next4">API estable y documentada</li></ul></div>
   </aside>
 </div>
 
@@ -1598,8 +2010,7 @@
 
 <div class="toast" id="toast"></div>
 
-<!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- EmailJS --><script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
 /* ═══════════════════════════════════
@@ -2212,5 +2623,749 @@ function showToast(msg, type) {
   setTimeout(() => t.classList.remove('visible'), 3500);
 }
 </script>
+
+<!-- ══ PRESENTATION MODE ══ -->
+<button class="present-btn" id="presentBtn" title="Modo presentación" aria-label="Modo presentación">⛶</button>
+<button class="present-exit" id="presentExit" aria-label="Salir de modo presentación" data-i18n="present_exit">✕ Salir</button>
+
+<!-- ══ CV FAB ══ -->
+<button class="cv-fab" id="cvFab" aria-label="Descargar CV">📄 <span id="cvFabLabel" data-i18n="cv_label">Descargar CV</span></button>
+
+<!-- ══ ANALYTICS BAR ══ -->
+<div class="analytics-bar" id="analyticsBar" role="status">
+  <span class="analytics-stat">👁 <strong id="aViews">—</strong> <span id="aViewsLbl">visitas hoy</span></span>
+  <span class="analytics-stat">📅 <strong id="aTotal">—</strong> <span id="aTotalLbl">total</span></span>
+  <span class="analytics-stat">⏱ <strong id="aTime">—</strong> <span id="aAvgLbl">seg. prom.</span></span>
+  <span class="analytics-stat">📍 <strong id="aRef">—</strong></span>
+  <button class="analytics-close" onclick="document.getElementById('analyticsBar').classList.remove('visible')" aria-label="Cerrar barra de analytics">×</button>
+</div>
+
+
 </body>
+
+<script>
+/* ══════════════════════════════════════════════
+   V4 FEATURES — runs after full DOM is ready
+══════════════════════════════════════════════ */
+
+// nav items now in static HTML
+
+/* ─── i18n ─── */
+const I18N = {
+  es: {
+    // NAV
+    nav_about:'sobre mí', nav_skills:'skills', nav_projects:'proyectos',
+    nav_testi:'referencias', nav_budget:'presupuesto', nav_roadmap:'roadmap', nav_contact:'contacto',
+    nav_about_long:'Sobre mí', nav_skills_long:'Skills', nav_projects_long:'Proyectos',
+    nav_exp_long:'Experiencia', nav_testi_long:'Referencias', nav_budget_long:'Presupuesto',
+    nav_roadmap_long:'Roadmap', nav_contact_long:'Contacto',
+    // HERO
+    hero_available:'Disponible para proyectos y contratación',
+    hero_role:'Desarrollador Full Stack',
+    hero_desc:'Construyo aplicaciones web modernas, escalables y bien estructuradas, especializado en Angular y React, con orientación a producto real.',
+    hero_cta1:'Ver proyectos →', hero_cta2:'Hablemos',
+    // ABOUT
+    about_eyebrow:'Sobre mí',
+    about_title:'Transformando ideas<br>en productos digitales',
+    about_p1:'Soy <strong>Álvaro Sánchez</strong>, desarrollador Full Stack con foco en Angular, APIs REST y arquitectura limpia. Trabajo con un perfil práctico orientado a proyectos reales y resolución de problemas.',
+    about_p2:'Me interesa el producto tanto como el código. No sólo que "funcione", sino que escale, sea mantenible y aporte valor real al usuario final.',
+    about_p3:'Aprendizaje constante, metodología clara y atención al detalle son los pilares de cómo trabajo.',
+    stat_years:'Años programando', stat_projects:'Proyectos completados', stat_techs:'Tecnologías dominadas',
+    // SKILLS
+    skills_eyebrow:'Habilidades', skills_title:'Mi nivel técnico',
+    soft_title:'Habilidades blandas',
+    soft1:'Resolución de problemas', soft2:'Trabajo en equipo', soft3:'Rendimiento bajo presión',
+    soft4:'Orientación a producto', soft5:'Aprendizaje continuo', soft6:'Atención al detalle',
+    soft7:'Comunicación clara', soft8:'Arquitectura limpia',
+    // STACK
+    stack_eyebrow:'Stack tecnológico', stack_title:'Tecnologías con las<br>que trabajo',
+    stack_fe:'Frontend', stack_be:'Backend', stack_tools:'Herramientas',
+    // WORKFLOW
+    wf_eyebrow:'Cómo trabajo', wf_title:'De la idea al producto',
+    wf1_title:'Entender<br>el problema', wf1_desc:'Analizo la idea, el contexto y los objetivos reales antes de escribir una sola línea de código.',
+    wf2_title:'Diseñar<br>la solución', wf2_desc:'Defino la arquitectura, flujos y tecnologías buscando simplicidad y escalabilidad.',
+    wf3_title:'Desarrollar<br>con criterio', wf3_desc:'Código limpio, buenas prácticas y foco en producto, no solo en que "funcione".',
+    wf4_title:'Iterar<br>y mejorar', wf4_desc:'Reviso, optimizo y mejoro según feedback y uso real del producto.',
+    // PROJECTS
+    proj_eyebrow:'Proyectos', proj_title:'Proyecto principal',
+    proj_active:'Proyecto activo',
+    workly_desc:'Plataforma ERP web para freelancers y pequeños profesionales. Gestiona clientes, proyectos, facturación y gastos desde un único panel intuitivo, sin la complejidad de los ERP tradicionales.',
+    workly_cta:'Ver caso de estudio →',
+    proj_other:'Otros proyectos', proj_drag:'← Arrastra para explorar →',
+    // EXPERIENCE
+    exp_eyebrow:'Trayectoria', exp_title:'Experiencia &<br>Formación',
+    exp1_date:'2025 — Actualidad', exp1_title:'DAW — CEI Sevilla', exp1_desc:'Formación en desarrollo web y despliegue de aplicaciones. TFG con proyecto real.',
+    exp2_date:'2024 — 2025', exp2_title:'Full Stack — Ceginfor', exp2_desc:'Desarrollo de plataforma cloud de contabilidad empresarial.',
+    exp3_date:'2022 — Actualidad', exp3_title:'Desarrollador Freelance', exp3_desc:'Proyectos personales y para PYMEs locales. Desarrollo de webs, apps y soluciones a medida.',
+    exp4_date:'2022 — 2024', exp4_title:'DAM — Staff Formación', exp4_desc:'Formación en desarrollo de aplicaciones multiplataforma, bases de datos y sistemas.',
+    // TESTIMONIALS
+    testi_eyebrow:'Referencias', testi_title:'Lo que dicen<br>de mi trabajo',
+    testi1_text:'Álvaro entregó el proyecto en plazo y con una calidad de código que raramente veo en perfiles junior. Muy orientado a producto, no sólo a ejecutar tareas.',
+    testi1_role:'// CTO · Ceginfor',
+    testi2_text:'Necesitábamos una web de comercio electrónico y Álvaro la resolvió con Shopify de manera limpia, rápida y explicando cada paso. Repetiría sin dudar.',
+    testi2_role:'// Propietaria · PYME local',
+    testi3_text:'Trabajar con Álvaro en el TFG fue una experiencia muy positiva. Siempre con iniciativa, resuelve problemas sin esperar que te los den mascados.',
+    testi3_role:'// Compañero · DAW CEI Sevilla',
+    testi_notice:'* Las referencias son representativas de feedback recibido. Disponible verificación por LinkedIn a petición.',
+    // BUDGET
+    budget_eyebrow:'Presupuesto', budget_title:'Calcula tu proyecto',
+    budget_complexity:'// complejidad del proyecto', bud_summary:'// resumen estimado',
+    budget_empty:'← Selecciona servicios', bud_cta:'Solicitar presupuesto →',
+    bud_total_lbl:'Total estimado',
+    bud1_name:'Landing page', bud1_desc:'Web de presentación con diseño personalizado', bud1_price:'desde 800€',
+    bud2_name:'Web + CMS / Blog', bud2_desc:'Con panel de edición de contenidos', bud2_price:'desde 1.800€',
+    bud3_name:'App web / SaaS', bud3_desc:'Full stack con autenticación y base de datos', bud3_price:'desde 3.500€',
+    bud4_name:'API REST', bud4_desc:'Backend con endpoints documentados', bud4_price:'desde 600€',
+    bud5_name:'Mantenimiento / mejoras', bud5_desc:'Consultoría, refactoring o nuevas features', bud5_price:'desde 400€',
+    // ROADMAP
+    roadmap_eyebrow:'Roadmap', roadmap_title:'Mi trayectoria<br>y próximos pasos',
+    rm_done:'✓ Completado', rm_now:'⬤ Ahora', rm_next:'◎ Próximo', rm_vision:'◎ Visión',
+    rm1_title:'Primeros pasos', rm1_desc:'Python, Java, fundamentos de algoritmos y estructuras de datos.',
+    rm2_title:'DAM + primeros proyectos web', rm2_desc:'HTML, CSS, JavaScript. Primeros proyectos freelance para PYMEs locales.',
+    rm3_title:'Full Stack — Ceginfor', rm3_desc:'Primer trabajo profesional. Angular, Node.js, APIs REST, MySQL en producción.',
+    rm4_title:'DAW + TFG + SaaS propios', rm4_desc:'Workly, ResumeAI, FlowSenseAI. Construyendo producto real con orientación a negocio.',
+    rm5_title:'Primer SaaS con ingresos', rm5_desc:'Monetizar Workly o ResumeAI. Primeros 100 usuarios de pago.',
+    rm6_title:'Empresa / equipo propio', rm6_desc:'Escalar producto digital. Equipo técnico pequeño y altamente autónomo.',
+    // CONTACT
+    contact_eyebrow:'Contacto', contact_title:'¿Hablamos?',
+    contact_intro:'Si tienes un proyecto, una idea o simplemente quieres contactar conmigo, estaré encantado de leerte. Respondo en menos de 24 horas.',
+    form_name_label:'// nombre', form_email_label:'// email', form_msg_label:'// mensaje',
+    form_name_ph:'Tu nombre', form_email_ph:'tu@email.com', form_msg_ph:'Cuéntame tu proyecto...',
+    form_submit:'Enviar mensaje',
+    // WORKLY PANEL
+    panel_eyebrow:'🚧 Proyecto activo', panel_subtitle:'Plataforma ERP web para freelancers y pequeños profesionales.',
+    panel_what:'Qué es', panel_what_desc:'WorkLy es una aplicación web tipo ERP pensada para freelancers y pequeños profesionales que necesitan gestionar su actividad diaria de forma sencilla y centralizada. Permite controlar clientes, proyectos, facturas, gastos y servicios desde un único panel.',
+    panel_goal:'Objetivo', panel_goal_desc:'Simplificar la gestión profesional de freelancers y pequeños emprendedores, ofreciendo una herramienta web intuitiva que centralice clientes, proyectos, facturación y gastos en un solo lugar.',
+    panel_next:'Próximos pasos',
+    panel_next1:'Gestión de tareas avanzada', panel_next2:'Sistema de autenticación completo',
+    panel_next3:'Roles y permisos por usuario', panel_next4:'API estable y documentada',
+    // MISC
+    scroll_hint:'scroll', present_exit:'✕ Salir', cv_label:'Descargar CV',
+    footer_role:'// desarrollador full stack', footer_copy:'© 2026 · Álvaro Sánchez',
+    a_views:'visitas hoy', a_total:'total', a_avg:'seg. prom.',
+  },
+  en: {
+    // NAV
+    nav_about:'about', nav_skills:'skills', nav_projects:'projects',
+    nav_testi:'references', nav_budget:'budget', nav_roadmap:'roadmap', nav_contact:'contact',
+    nav_about_long:'About me', nav_skills_long:'Skills', nav_projects_long:'Projects',
+    nav_exp_long:'Experience', nav_testi_long:'References', nav_budget_long:'Budget',
+    nav_roadmap_long:'Roadmap', nav_contact_long:'Contact',
+    // HERO
+    hero_available:'Available for projects & hiring',
+    hero_role:'Full Stack Developer',
+    hero_desc:'I build modern, scalable and well-structured web applications, specialised in Angular and React, with a focus on real product delivery.',
+    hero_cta1:'View projects →', hero_cta2:"Let's talk",
+    // ABOUT
+    about_eyebrow:'About me',
+    about_title:'Turning ideas<br>into digital products',
+    about_p1:'I\'m <strong>Álvaro Sánchez</strong>, a Full Stack developer focused on Angular, REST APIs and clean architecture. I work with a hands-on profile oriented towards real projects and problem-solving.',
+    about_p2:'I care about the product as much as the code — not just making it "work", but making it scale, stay maintainable and deliver real value to the end user.',
+    about_p3:'Continuous learning, clear methodology and attention to detail are the pillars of how I work.',
+    stat_years:'Years coding', stat_projects:'Projects completed', stat_techs:'Technologies mastered',
+    // SKILLS
+    skills_eyebrow:'Skills', skills_title:'My technical level',
+    soft_title:'Soft skills',
+    soft1:'Problem solving', soft2:'Teamwork', soft3:'Performance under pressure',
+    soft4:'Product mindset', soft5:'Continuous learning', soft6:'Attention to detail',
+    soft7:'Clear communication', soft8:'Clean architecture',
+    // STACK
+    stack_eyebrow:'Tech stack', stack_title:'Technologies I<br>work with',
+    stack_fe:'Frontend', stack_be:'Backend', stack_tools:'Tools',
+    // WORKFLOW
+    wf_eyebrow:'How I work', wf_title:'From idea to product',
+    wf1_title:'Understand<br>the problem', wf1_desc:'I analyse the idea, context and real goals before writing a single line of code.',
+    wf2_title:'Design<br>the solution', wf2_desc:'I define the architecture, flows and technologies aiming for simplicity and scalability.',
+    wf3_title:'Develop<br>with purpose', wf3_desc:'Clean code, best practices and product focus — not just making it "work".',
+    wf4_title:'Iterate<br>and improve', wf4_desc:'I review, optimise and improve based on real feedback and product usage.',
+    // PROJECTS
+    proj_eyebrow:'Projects', proj_title:'Main project',
+    proj_active:'Active project',
+    workly_desc:'ERP web platform for freelancers and small professionals. Manage clients, projects, invoicing and expenses from a single intuitive panel, without the complexity of traditional ERPs.',
+    workly_cta:'View case study →',
+    proj_other:'Other projects', proj_drag:'← Drag to explore →',
+    // EXPERIENCE
+    exp_eyebrow:'Journey', exp_title:'Experience &<br>Education',
+    exp1_date:'2025 — Present', exp1_title:'Web Dev — CEI Sevilla', exp1_desc:'Web development and app deployment training. Final project with a real product.',
+    exp2_date:'2024 — 2025', exp2_title:'Full Stack — Ceginfor', exp2_desc:'Development of a cloud-based enterprise accounting platform.',
+    exp3_date:'2022 — Present', exp3_title:'Freelance Developer', exp3_desc:'Personal projects and work for local SMEs. Websites, apps and custom solutions.',
+    exp4_date:'2022 — 2024', exp4_title:'App Dev — Staff Formación', exp4_desc:'Cross-platform application development, databases and systems training.',
+    // TESTIMONIALS
+    testi_eyebrow:'References', testi_title:'What people say<br>about my work',
+    testi1_text:'Álvaro delivered the project on time with a code quality I rarely see in junior profiles. Very product-oriented, not just executing tasks.',
+    testi1_role:'// CTO · Ceginfor',
+    testi2_text:'We needed an e-commerce website and Álvaro handled it with Shopify cleanly, quickly, and explaining every step. I would hire him again without hesitation.',
+    testi2_role:'// Owner · Local SME',
+    testi3_text:'Working with Álvaro on the final project was a very positive experience. Always taking initiative, solving problems without waiting to be told what to do.',
+    testi3_role:'// Classmate · CEI Sevilla',
+    testi_notice:'* References are representative of feedback received. LinkedIn verification available upon request.',
+    // BUDGET
+    budget_eyebrow:'Budget', budget_title:'Estimate your project',
+    budget_complexity:'// project complexity', bud_summary:'// estimated summary',
+    budget_empty:'← Select services', bud_cta:'Request a quote →',
+    bud_total_lbl:'Estimated total',
+    bud1_name:'Landing page', bud1_desc:'Presentation website with custom design', bud1_price:'from €800',
+    bud2_name:'Web + CMS / Blog', bud2_desc:'With content management panel', bud2_price:'from €1,800',
+    bud3_name:'Web app / SaaS', bud3_desc:'Full stack with auth and database', bud3_price:'from €3,500',
+    bud4_name:'REST API', bud4_desc:'Backend with documented endpoints', bud4_price:'from €600',
+    bud5_name:'Maintenance / upgrades', bud5_desc:'Consulting, refactoring or new features', bud5_price:'from €400',
+    // ROADMAP
+    roadmap_eyebrow:'Roadmap', roadmap_title:'My journey<br>& next steps',
+    rm_done:'✓ Done', rm_now:'⬤ Now', rm_next:'◎ Next', rm_vision:'◎ Vision',
+    rm1_title:'First steps', rm1_desc:'Python, Java, algorithm and data structure fundamentals.',
+    rm2_title:'App Dev + first web projects', rm2_desc:'HTML, CSS, JavaScript. First freelance projects for local businesses.',
+    rm3_title:'Full Stack — Ceginfor', rm3_desc:'First professional job. Angular, Node.js, REST APIs, MySQL in production.',
+    rm4_title:'Web Dev + Final Project + own SaaS', rm4_desc:'Workly, ResumeAI, FlowSenseAI. Building real products with business focus.',
+    rm5_title:'First revenue-generating SaaS', rm5_desc:'Monetise Workly or ResumeAI. First 100 paying users.',
+    rm6_title:'Own company / team', rm6_desc:'Scale a digital product. Small, highly autonomous technical team.',
+    // CONTACT
+    contact_eyebrow:'Contact', contact_title:"Let's talk?",
+    contact_intro:"If you have a project, an idea or just want to get in touch, I'd love to hear from you. I reply within 24 hours.",
+    form_name_label:'// name', form_email_label:'// email', form_msg_label:'// message',
+    form_name_ph:'Your name', form_email_ph:'you@email.com', form_msg_ph:'Tell me about your project...',
+    form_submit:'Send message',
+    // WORKLY PANEL
+    panel_eyebrow:'🚧 Active project', panel_subtitle:'ERP web platform for freelancers and small professionals.',
+    panel_what:'What it is', panel_what_desc:'Workly is an ERP-type web application designed for freelancers and small professionals who need to manage their daily activity in a simple and centralised way. It lets you control clients, projects, invoices, expenses and services from a single panel.',
+    panel_goal:'Goal', panel_goal_desc:'Simplify professional management for freelancers and small entrepreneurs, providing an intuitive web tool that centralises clients, projects, invoicing and expenses in one place.',
+    panel_next:'Next steps',
+    panel_next1:'Advanced task management', panel_next2:'Complete authentication system',
+    panel_next3:'Roles and permissions per user', panel_next4:'Stable and documented API',
+    // MISC
+    scroll_hint:'scroll', present_exit:'✕ Exit', cv_label:'Download CV',
+    footer_role:'// full stack developer', footer_copy:'© 2026 · Álvaro Sánchez',
+    a_views:'visits today', a_total:'total', a_avg:'avg sec',
+  }
+};
+
+function applyLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  const T = I18N[lang];
+  document.documentElement.lang = lang === 'es' ? 'es' : 'en';
+
+  // Flag & label
+  const flagEl = document.getElementById('langFlag');
+  const lblEl  = document.getElementById('langLabel');
+  if (flagEl) flagEl.textContent = lang === 'es' ? '🇪🇸' : '🇬🇧';
+  if (lblEl)  lblEl.textContent  = lang.toUpperCase();
+
+  // Apply all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (!T[key]) return;
+    // Use innerHTML for keys that contain HTML tags (bold, br)
+    const htmlKeys = ['about_title','about_p1','stack_title','wf1_title','wf2_title','wf3_title','wf4_title',
+                      'exp_title','testi_title','roadmap_title','proj_title'];
+    if (htmlKeys.includes(key)) {
+      el.innerHTML = T[key];
+    } else {
+      el.textContent = T[key];
+    }
+  });
+
+  // Form placeholders (use data-i18n-ph attribute)
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.dataset.i18nPh;
+    if (T[key]) el.placeholder = T[key];
+  });
+
+  // Budget empty msg (dynamically rendered)
+  const em = document.getElementById('budgetEmptyMsg');
+  if (em) em.textContent = T.budget_empty;
+
+  // Complexity label
+  const cl = document.getElementById('complexityLabel');
+  if (cl) cl.textContent = T.budget_complexity;
+
+  // Budget summary title
+  const st = document.getElementById('budgetSummaryTitle');
+  if (st) st.textContent = T.bud_summary;
+
+  // Budget CTA inside result (re-rendered by updateBudgetResult, update template)
+  const ca = document.getElementById('budgetCtaLink');
+  if (ca) ca.textContent = T.bud_cta;
+
+  // Analytics bar labels
+  const av = document.getElementById('aViewsLbl');
+  const at = document.getElementById('aTotalLbl');
+  const aa = document.getElementById('aAvgLbl');
+  if (av) av.textContent = T.a_views;
+  if (at) at.textContent = T.a_total;
+  if (aa) aa.textContent = T.a_avg;
+}
+
+
+let currentLang = localStorage.getItem('lang') || 'es';
+
+const langBtn = document.getElementById('langBtn');
+if (langBtn) langBtn.addEventListener('click', () => applyLang(currentLang === 'es' ? 'en' : 'es'));
+applyLang(currentLang);
+
+/* ─── Presentation mode ─── */
+const presentBtn  = document.getElementById('presentBtn');
+const presentExit = document.getElementById('presentExit');
+
+if (presentBtn) presentBtn.addEventListener('click', () => {
+  document.body.classList.add('present-mode');
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen().catch(() => {});
+  }
+});
+if (presentExit) presentExit.addEventListener('click', () => {
+  document.body.classList.remove('present-mode');
+  if (document.exitFullscreen) document.exitFullscreen().catch(() => {});
+});
+document.addEventListener('fullscreenchange', () => {
+  if (!document.fullscreenElement) document.body.classList.remove('present-mode');
+});
+
+/* ─── Analytics ─── */
+(function() {
+  const today = new Date().toISOString().slice(0,10);
+  let stats = { total: 0, days: {} };
+  try { stats = JSON.parse(localStorage.getItem('pf_stats') || '{"total":0,"days":{}}'); } catch {}
+  stats.total = (stats.total || 0) + 1;
+  if (!stats.days) stats.days = {};
+  stats.days[today] = (stats.days[today] || 0) + 1;
+  try { localStorage.setItem('pf_stats', JSON.stringify(stats)); } catch {}
+
+  const startTime = Date.now();
+  let refHost = 'directo';
+  try { if (document.referrer) refHost = new URL(document.referrer).hostname || 'directo'; } catch {}
+
+  window.addEventListener('beforeunload', () => {
+    const secs = Math.round((Date.now() - startTime) / 1000);
+    let times = [];
+    try { times = JSON.parse(localStorage.getItem('pf_times') || '[]'); } catch {}
+    times.push(secs);
+    if (times.length > 50) times = times.slice(-50);
+    try { localStorage.setItem('pf_times', JSON.stringify(times)); } catch {}
+  });
+
+  window._getAnalytics = function() {
+    let s = { total: 0, days: {} };
+    let t = [];
+    try { s = JSON.parse(localStorage.getItem('pf_stats') || '{"total":0,"days":{}}'); } catch {}
+    try { t = JSON.parse(localStorage.getItem('pf_times') || '[]'); } catch {}
+    const avg = t.length ? Math.round(t.reduce((a, b) => a + b, 0) / t.length) : 0;
+    return { today: (s.days || {})[today] || 1, total: s.total || 1, avg, ref: refHost };
+  };
+})();
+
+/* ─── CV Generator ─── */
+// loadData is defined in the main script block
+const cvFab = document.getElementById('cvFab');
+if (cvFab) cvFab.addEventListener('click', generateCV);
+
+function generateCV() {
+  const btn = document.getElementById('cvFab');
+  if (!btn) return;
+  const origHTML = btn.innerHTML;
+  btn.textContent = '⏳ Generando...';
+  btn.disabled = true;
+
+  let hero = { name:'Álvaro Sánchez', role:'Desarrollador Full Stack', bio:'Construyo aplicaciones web modernas y escalables. Especializado en Angular y React.', email:'alvarosanchezortega34@gmail.com', github:'github.com/alvaroosanchezz34', linkedin:'linkedin.com/in/alvaro-sanchez-ortega-06bb82394', location:'Sevilla, España', available:'yes' };
+  let skillsForCV = [{name:'Angular',pct:90},{name:'React',pct:85},{name:'TypeScript',pct:82},{name:'Node.js',pct:80},{name:'MySQL',pct:78},{name:'Spring Boot',pct:65},{name:'Docker',pct:60}];
+  try { const h = JSON.parse(localStorage.getItem('admin_hero')); if (h) hero = h; } catch {}
+  try { const s = JSON.parse(localStorage.getItem('admin_skills')); if (s && s.length) skillsForCV = s; } catch {}
+
+  let projs = [{title:'Workly',tags:['React','Node.js','MySQL'],desc:'ERP web para freelancers. Gestión de clientes, proyectos y facturación.'},{title:'ResumeAI',tags:['React','IA'],desc:'Genera resúmenes y tarjetas de estudio con IA desde cualquier texto.'},{title:'FlowSenseAI',tags:['React','Express'],desc:'Detecta ineficiencias en procesos de trabajo con análisis de IA.'},{title:'FocusQuest',tags:['Angular'],desc:'To-Do gamificada que convierte tareas en misiones y recompensas.'}];
+  try { const p = JSON.parse(localStorage.getItem('admin_projects')); if (p && p.length) projs = p.slice(0,4); } catch {}
+
+  const expRows = [
+    {t:'DAW — CEI Sevilla', p:'2025–Act.', d:'Desarrollo web y despliegue. TFG con proyecto real.'},
+    {t:'Full Stack — Ceginfor', p:'2024–2025', d:'Plataforma cloud de contabilidad empresarial.'},
+    {t:'Freelance', p:'2022–Act.', d:'Webs y apps para PYMEs locales.'},
+    {t:'DAM — Staff Formación', p:'2022–2024', d:'Desarrollo multiplataforma y BBDD.'},
+  ].map(e => `<div style="margin-bottom:11px;padding-bottom:11px;border-bottom:1px solid #f3f4f6"><div style="display:flex;justify-content:space-between"><strong style="font-size:13px;color:#111">${e.t}</strong><span style="font-size:11px;color:#9ca3af;font-family:monospace">${e.p}</span></div><div style="font-size:12px;color:#6b7280;margin-top:2px">${e.d}</div></div>`).join('');
+
+  const projRows = projs.map(p => `<div style="margin-bottom:8px"><strong style="font-size:13px;color:#111">${p.title}</strong><span style="font-size:10px;color:#059669;font-family:monospace;margin-left:6px">${(p.tags||[]).join(' · ')}</span><div style="font-size:11px;color:#6b7280;margin-top:2px">${(p.desc||'').slice(0,85)}${(p.desc||'').length>85?'…':''}</div></div>`).join('');
+
+  const skillRows = skillsForCV.map(s => `<div style="display:flex;align-items:center;gap:7px;margin-bottom:7px"><span style="font-size:12px;color:#374151;width:125px;flex-shrink:0">${s.name}</span><div style="flex:1;height:5px;background:#e5e7eb;border-radius:99px;overflow:hidden"><div style="width:${s.pct}%;height:100%;background:linear-gradient(90deg,#059669,#34d399)"></div></div><span style="font-size:10px;color:#059669;font-family:monospace;min-width:30px;text-align:right">${s.pct}%</span></div>`).join('');
+
+  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>CV — ${hero.name}</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Arial,sans-serif;color:#1f2937;background:#fff}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body>
+<div style="max-width:800px;margin:0 auto;padding:44px">
+  <div style="display:grid;grid-template-columns:1fr auto;gap:20px;margin-bottom:26px;padding-bottom:20px;border-bottom:3px solid #059669">
+    <div>
+      <div style="font-size:28px;font-weight:700;color:#111;font-family:Georgia,serif">${hero.name}</div>
+      <div style="font-size:15px;color:#059669;font-family:monospace;margin-top:3px">${hero.role}</div>
+      <div style="display:inline-block;background:#d1fae5;color:#065f46;border-radius:99px;padding:2px 10px;font-size:10px;font-family:monospace;margin-top:5px">${hero.available==='yes'?'✓ Disponible':'◎ No disponible'}</div>
+    </div>
+    <div style="text-align:right;font-size:11px;color:#6b7280;font-family:monospace;line-height:2">
+      <div>📍 ${hero.location}</div><div>✉ ${hero.email}</div><div>🐙 ${hero.github}</div><div>💼 ${hero.linkedin}</div>
+    </div>
+  </div>
+  <div style="margin-bottom:18px">
+    <div style="font-size:10px;font-family:monospace;color:#059669;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px;padding-bottom:4px;border-bottom:1px solid #e5e7eb">Perfil</div>
+    <div style="font-size:13px;color:#374151;line-height:1.7">${hero.bio}</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:26px">
+    <div>
+      <div style="font-size:10px;font-family:monospace;color:#059669;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #e5e7eb">Experiencia & Formación</div>
+      ${expRows}
+      <div style="font-size:10px;font-family:monospace;color:#059669;letter-spacing:.1em;text-transform:uppercase;margin:14px 0 8px;padding-bottom:4px;border-bottom:1px solid #e5e7eb">Proyectos</div>
+      ${projRows}
+    </div>
+    <div>
+      <div style="font-size:10px;font-family:monospace;color:#059669;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #e5e7eb">Habilidades técnicas</div>
+      ${skillRows}
+    </div>
+  </div>
+</div></body></html>`;
+
+  const w = window.open('', '_blank', 'width=860,height=700');
+  if (w) {
+    w.document.write(html);
+    w.document.close();
+    setTimeout(() => {
+      w.print();
+      btn.innerHTML = origHTML;
+      btn.disabled = false;
+    }, 700);
+  } else {
+    btn.innerHTML = origHTML;
+    btn.disabled = false;
+    if (typeof showToast === 'function') showToast('Permite ventanas emergentes para el CV', 'error');
+  }
+}
+
+/* ─── Budget Calculator ─── */
+const _budgetSelected = {};
+let   _complexityMult = 1;
+
+function toggleBudget(el) {
+  el.classList.toggle('sel');
+  const name = el.querySelector('.budget-opt-name').textContent;
+  if (el.classList.contains('sel')) {
+    _budgetSelected[name] = { price: +el.dataset.price, days: +el.dataset.days };
+  } else {
+    delete _budgetSelected[name];
+  }
+  updateBudgetResult();
+}
+
+function setComplexity(el) {
+  document.querySelectorAll('.complexity-opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  _complexityMult = +el.dataset.mult;
+  updateBudgetResult();
+}
+
+function updateBudgetResult() {
+  const linesEl = document.getElementById('budgetLines');
+  const block   = document.getElementById('budgetTotalBlock');
+  const amtEl   = document.getElementById('budgetTotalAmt');
+  const daysEl  = document.getElementById('budgetDaysTxt');
+  const emptyEl = document.getElementById('budgetEmptyMsg');
+
+  const keys = Object.keys(_budgetSelected);
+  if (!keys.length) {
+    if (linesEl) linesEl.innerHTML = '<div class="budget-empty-txt" id="budgetEmptyMsg">' + (I18N[currentLang].budget_empty || '← Selecciona servicios') + '</div>';
+    if (block) block.style.display = 'none';
+    return;
+  }
+
+  let total = 0, totalDays = 0, html = '';
+  keys.forEach(name => {
+    const { price, days } = _budgetSelected[name];
+    const p = Math.round(price * _complexityMult);
+    total += p; totalDays += days;
+    html += `<div class="budget-line"><span>${name}</span><span>${p.toLocaleString('es-ES')}€</span></div>`;
+  });
+  if (_complexityMult !== 1) {
+    html += `<div class="budget-line" style="font-style:italic;opacity:.7"><span>Multiplicador ×${_complexityMult}</span><span>incluido</span></div>`;
+  }
+  if (linesEl) linesEl.innerHTML = html;
+  if (amtEl)   amtEl.textContent  = total.toLocaleString('es-ES') + '€';
+  if (daysEl)  daysEl.textContent  = '~' + Math.round(totalDays * _complexityMult) + ' días de desarrollo estimados';
+  if (block)   block.style.display = 'block';
+}
+
+/* ─── Roadmap Animation ─── */
+const roadmapObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const delay = +(e.target.dataset.rdelay || 0);
+    setTimeout(() => e.target.classList.add('vis'), delay);
+    roadmapObserver.unobserve(e.target);
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.roadmap-item').forEach(el => roadmapObserver.observe(el));
+
+/* ─── ADMIN: Extra tabs (Hero, Skills, Backup) ─── */
+const _HERO_DEF = {
+  name:'Álvaro Sánchez', role:'Desarrollador Full Stack',
+  bio:'Construyo aplicaciones web modernas, escalables y bien estructuradas. Especializado en Angular y React.',
+  location:'Sevilla, España', email:'alvarosanchezortega34@gmail.com',
+  github:'github.com/alvaroosanchezz34', linkedin:'linkedin.com/in/alvaro-sanchez-ortega-06bb82394',
+  available:'yes'
+};
+const _SKILLS_DEF = [
+  {name:'Angular',pct:90},{name:'React',pct:85},{name:'TypeScript',pct:82},
+  {name:'Node.js / Express',pct:80},{name:'MySQL',pct:78},{name:'Spring Boot',pct:65},{name:'Docker',pct:60}
+];
+
+let _heroData   = (() => { try { return JSON.parse(localStorage.getItem('admin_hero'))   || _HERO_DEF;   } catch { return _HERO_DEF;   } })();
+let _skillsData = (() => { try { return JSON.parse(localStorage.getItem('admin_skills')) || _SKILLS_DEF; } catch { return _SKILLS_DEF; } })();
+
+function _saveLS(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
+
+function applyHeroDOM() {
+  const h = _heroData;
+  const h1 = document.querySelector('#hero h1');
+  if (h1) {
+    const em = h1.querySelector('em'); const rl = h1.querySelector('.role-line');
+    if (em && rl) {
+      const parts = h.name.trim().split(' ');
+      if (h1.childNodes[0]) h1.childNodes[0].textContent = parts[0] + ' ';
+      em.textContent = parts.slice(1).join(' ');
+      rl.textContent = h.role;
+    }
+  }
+  const st = document.querySelector('.hero-status');
+  if (st) {
+    st.removeAttribute('style');
+    if (h.available === 'yes') {
+      st.innerHTML = '<span class="status-dot"></span> Disponible para proyectos y contratación';
+    } else {
+      st.innerHTML = '◎ No disponible en este momento';
+      Object.assign(st.style, { background:'rgba(248,113,113,.1)', borderColor:'rgba(248,113,113,.3)', color:'#f87171' });
+    }
+  }
+  const badge = document.querySelector('.hero-photo-badge');
+  if (badge) badge.textContent = '📍 ' + h.location;
+}
+applyHeroDOM();
+
+function applySkillsDOM() {
+  const bars = document.getElementById('skillBars');
+  if (!bars) return;
+  bars.innerHTML = _skillsData.map(s => `
+    <div class="skill-row">
+      <div class="skill-meta"><span class="skill-name">${s.name}</span><span class="skill-pct">${s.pct}%</span></div>
+      <div class="skill-track"><div class="skill-fill" data-pct="${s.pct}" style="width:${s.pct}%"></div></div>
+    </div>`).join('');
+}
+applySkillsDOM();
+
+// Extend openAdminPanel (defined in main script)
+let _extraTabsDone = false;
+const _origOpen = window.openAdminPanel;
+window.openAdminPanel = function() {
+  if (typeof _origOpen === 'function') _origOpen();
+  if (!_extraTabsDone) { _buildExtraTabs(); _extraTabsDone = true; }
+  else { _loadHeroForm(); _renderSkillRows(); _renderStatsPanel(); }
+};
+
+function _buildExtraTabs() {
+  const sidebar = document.querySelector('.admin-sidebar');
+  const footer  = document.querySelector('.admin-sidebar-footer');
+  const main    = document.querySelector('.admin-main');
+  if (!sidebar || !main) return;
+
+  [['hero-tab','👤','Hero / Bio'],['skills-tab','📊','Skills'],['data-tab','💾','Backup & Stats']].forEach(([tab,ic,lbl]) => {
+    const n = document.createElement('div');
+    n.className = 'admin-nav-item'; n.dataset.tab = tab;
+    n.onclick = () => adminTab(tab);
+    n.innerHTML = `<span class="admin-nav-icon">${ic}</span> ${lbl}`;
+    if (footer) sidebar.insertBefore(n, footer); else sidebar.appendChild(n);
+  });
+
+  // HERO TAB
+  const heroTab = document.createElement('div');
+  heroTab.className = 'admin-tab'; heroTab.id = 'tab-hero-tab';
+  heroTab.innerHTML = `
+    <h2 class="admin-tab-title">Hero / Bio</h2>
+    <p class="admin-tab-sub">// edita tu presentación principal</p>
+    <div class="preview-toggle-row" onclick="_togglePreview()">
+      Vista previa en tiempo real
+      <div class="preview-sw" id="prevSw"></div>
+    </div>
+    <div class="live-preview-box" id="livePreviewBox">
+      <div class="prev-name" id="prevName">—</div>
+      <div class="prev-role" id="prevRole">—</div>
+      <div><span class="prev-avail-badge" id="prevAvail" style="background:rgba(110,231,183,.1);color:var(--accent);border:1px solid rgba(110,231,183,.2)">✓ Disponible</span></div>
+      <div class="prev-bio" id="prevBio">—</div>
+    </div>
+    <div class="admin-form">
+      <div class="admin-field"><label class="admin-label">// nombre completo</label><input class="admin-input" id="hf_name" oninput="_livePreview()"></div>
+      <div class="admin-field"><label class="admin-label">// rol / título</label><input class="admin-input" id="hf_role" oninput="_livePreview()"></div>
+      <div class="admin-field"><label class="admin-label">// bio corta</label><textarea class="admin-textarea" id="hf_bio" style="min-height:80px" oninput="_livePreview()"></textarea></div>
+      <div class="admin-field"><label class="admin-label">// ubicación</label><input class="admin-input" id="hf_location"></div>
+      <div class="admin-field"><label class="admin-label">// email</label><input class="admin-input" id="hf_email" type="email"></div>
+      <div class="admin-field"><label class="admin-label">// GitHub (sin https://)</label><input class="admin-input" id="hf_github"></div>
+      <div class="admin-field"><label class="admin-label">// LinkedIn (sin https://)</label><input class="admin-input" id="hf_linkedin"></div>
+      <div class="admin-field">
+        <label class="admin-label">// disponibilidad</label>
+        <div class="avail-opts-row">
+          <div class="avail-opt-btn sel" id="availYes" data-v="yes" onclick="_setAvail('yes')">✓ Disponible</div>
+          <div class="avail-opt-btn"     id="availNo"  data-v="no"  onclick="_setAvail('no')">◎ No disponible</div>
+        </div>
+      </div>
+      <button class="admin-save-btn" onclick="_saveHero()" style="align-self:flex-start;margin-top:.5rem">Guardar cambios</button>
+    </div>`;
+  main.appendChild(heroTab);
+
+  // SKILLS TAB
+  const skillsTab = document.createElement('div');
+  skillsTab.className = 'admin-tab'; skillsTab.id = 'tab-skills-tab';
+  skillsTab.innerHTML = `
+    <h2 class="admin-tab-title">Skills</h2>
+    <p class="admin-tab-sub">// edita habilidades y porcentajes</p>
+    <div id="skillRowsContainer" style="margin-bottom:1.4rem"></div>
+    <div style="display:flex;gap:.8rem;flex-wrap:wrap;align-items:center">
+      <button class="admin-add-btn" onclick="_addSkill()">+ Añadir skill</button>
+      <button class="admin-save-btn" onclick="_saveSkills()">Guardar skills</button>
+    </div>`;
+  main.appendChild(skillsTab);
+
+  // DATA TAB
+  const dataTab = document.createElement('div');
+  dataTab.className = 'admin-tab'; dataTab.id = 'tab-data-tab';
+  dataTab.innerHTML = `
+    <h2 class="admin-tab-title">Backup & Stats</h2>
+    <p class="admin-tab-sub">// exporta, importa y consulta estadísticas</p>
+    <p style="font-size:.84rem;color:var(--text-dim);line-height:1.6;margin-bottom:1.3rem">Exporta todos los datos del portfolio en JSON. Ideal para backup o migrar a otro dispositivo.</p>
+    <div class="data-actions">
+      <button class="data-btn" onclick="_exportData()">⬇ Exportar JSON</button>
+      <label class="data-btn" style="cursor:pointer">⬆ Importar JSON<input type="file" accept=".json" onchange="_importData(event)" style="display:none"></label>
+      <button class="data-btn" onclick="_resetData()" style="color:#f87171">🗑 Resetear todo</button>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.4rem">
+      <p style="font-size:.73rem;font-family:var(--font-mono);color:var(--muted);margin-bottom:1rem">// estadísticas de visitas</p>
+      <div id="statsTilesEl"><div style="font-size:.82rem;color:var(--muted)">Cargando...</div></div>
+      <button class="data-btn" onclick="_showAnalyticsBar()" style="margin-top:1.1rem">Mostrar barra de analytics</button>
+    </div>`;
+  main.appendChild(dataTab);
+
+  _loadHeroForm();
+  _renderSkillRows();
+  _renderStatsPanel();
+}
+
+// ── Hero form helpers ──
+let _previewOn = false;
+function _togglePreview() {
+  _previewOn = !_previewOn;
+  const sw = document.getElementById('prevSw');
+  const box = document.getElementById('livePreviewBox');
+  if (sw)  sw.classList.toggle('on', _previewOn);
+  if (box) box.classList.toggle('show', _previewOn);
+  if (_previewOn) _livePreview();
+}
+function _livePreview() {
+  if (!_previewOn) return;
+  const get = id => { const el = document.getElementById(id); return el ? el.value : ''; };
+  const pn = document.getElementById('prevName'); if (pn) pn.textContent = get('hf_name') || '—';
+  const pr = document.getElementById('prevRole'); if (pr) pr.textContent = get('hf_role') || '—';
+  const pb = document.getElementById('prevBio');  if (pb) pb.textContent = get('hf_bio')  || '—';
+}
+function _setAvail(val) {
+  const yes = document.getElementById('availYes');
+  const no  = document.getElementById('availNo');
+  if (yes) yes.classList.toggle('sel', val === 'yes');
+  if (no)  no.classList.toggle('sel',  val === 'no');
+  const pa = document.getElementById('prevAvail');
+  if (pa && _previewOn) {
+    if (val === 'yes') { pa.textContent='✓ Disponible'; Object.assign(pa.style, {background:'rgba(110,231,183,.1)',color:'var(--accent)',border:'1px solid rgba(110,231,183,.2)'}); }
+    else               { pa.textContent='◎ No disponible'; Object.assign(pa.style, {background:'rgba(248,113,113,.1)',color:'#f87171',border:'1px solid rgba(248,113,113,.2)'}); }
+  }
+}
+function _loadHeroForm() {
+  const h = _heroData;
+  const s = (id, v) => { const el = document.getElementById(id); if (el) el.value = v || ''; };
+  s('hf_name', h.name); s('hf_role', h.role); s('hf_bio', h.bio);
+  s('hf_location', h.location); s('hf_email', h.email);
+  s('hf_github', h.github); s('hf_linkedin', h.linkedin);
+  _setAvail(h.available || 'yes');
+}
+function _saveHero() {
+  const g = id => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+  const yes = document.getElementById('availYes');
+  const available = yes && yes.classList.contains('sel') ? 'yes' : 'no';
+  _heroData = { name: g('hf_name')||_heroData.name, role: g('hf_role')||_heroData.role, bio: g('hf_bio'), location: g('hf_location'), email: g('hf_email'), github: g('hf_github'), linkedin: g('hf_linkedin'), available };
+  _saveLS('admin_hero', _heroData);
+  applyHeroDOM();
+  if (typeof showToast === 'function') showToast('Hero actualizado ✓', 'success');
+}
+
+// ── Skills helpers ──
+function _renderSkillRows() {
+  const container = document.getElementById('skillRowsContainer');
+  if (!container) return;
+  container.innerHTML = _skillsData.map((s, i) => `
+    <div class="skill-edit-row">
+      <input class="admin-input" value="${s.name}" onchange="_skillsData[${i}].name=this.value" style="padding:.55rem .8rem;font-size:.85rem">
+      <div class="range-row">
+        <input type="range" class="admin-range" min="10" max="100" value="${s.pct}"
+          oninput="_skillsData[${i}].pct=+this.value;this.nextElementSibling.textContent=this.value+'%'">
+        <span class="range-val">${s.pct}%</span>
+      </div>
+      <button class="admin-icon-btn danger" onclick="_skillsData.splice(${i},1);_renderSkillRows()" title="Eliminar">🗑</button>
+    </div>`).join('');
+}
+function _addSkill() { _skillsData.push({name:'Nueva skill', pct:70}); _renderSkillRows(); }
+function _saveSkills() {
+  _saveLS('admin_skills', _skillsData);
+  applySkillsDOM();
+  if (typeof showToast === 'function') showToast('Skills guardados ✓', 'success');
+}
+
+// ── Data helpers ──
+function _exportData() {
+  let projects = [], testimonials = [];
+  try { projects = JSON.parse(localStorage.getItem('admin_projects') || '[]'); } catch {}
+  try { testimonials = JSON.parse(localStorage.getItem('admin_testimonials') || '[]'); } catch {}
+  const data = { version: 2, date: new Date().toISOString(), projects, testimonials, heroData: _heroData, skillsData: _skillsData };
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], {type:'application/json'}));
+  a.download = 'portfolio-backup-' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  if (typeof showToast === 'function') showToast('Backup exportado ✓', 'success');
+}
+function _importData(e) {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      const d = JSON.parse(ev.target.result);
+      if (d.heroData)     { _heroData = d.heroData; _saveLS('admin_hero', _heroData); applyHeroDOM(); _loadHeroForm(); }
+      if (d.skillsData)   { _skillsData = d.skillsData; _saveLS('admin_skills', _skillsData); applySkillsDOM(); _renderSkillRows(); }
+      if (d.projects)     { _saveLS('admin_projects', d.projects); if (typeof renderCarousel === 'function') { window.projects = d.projects; renderCarousel(); } }
+      if (d.testimonials) { _saveLS('admin_testimonials', d.testimonials); if (typeof renderTestimonials === 'function') { window.testimonials = d.testimonials; renderTestimonials(); } }
+      if (typeof showToast === 'function') showToast('Datos importados ✓', 'success');
+    } catch { if (typeof showToast === 'function') showToast('JSON inválido', 'error'); }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+}
+function _resetData() {
+  if (!confirm('¿Resetear TODOS los datos? No se puede deshacer.')) return;
+  ['admin_projects','admin_testimonials','admin_hero','admin_skills'].forEach(k => { try { localStorage.removeItem(k); } catch {} });
+  _heroData = Object.assign({}, _HERO_DEF);
+  _skillsData = _SKILLS_DEF.map(s => ({...s}));
+  applyHeroDOM(); applySkillsDOM(); _loadHeroForm(); _renderSkillRows();
+  if (typeof renderCarousel === 'function') renderCarousel();
+  if (typeof renderTestimonials === 'function') renderTestimonials();
+  if (typeof showToast === 'function') showToast('Datos reseteados', 'success');
+}
+function _renderStatsPanel() {
+  const el = document.getElementById('statsTilesEl');
+  if (!el) return;
+  const s = window._getAnalytics ? window._getAnalytics() : { today:0, total:0, avg:0, ref:'—' };
+  const tiles = [['👁',s.today,'visitas hoy'],['📅',s.total,'total'],['⏱',s.avg+'s','tiempo prom.'],['📍',s.ref,'origen']];
+  el.innerHTML = `<div class="stats-grid">${tiles.map(([ic,v,l]) => `<div class="stat-tile"><div class="stat-tile-val">${v}</div><div class="stat-tile-lbl">${ic} ${l}</div></div>`).join('')}</div>`;
+}
+function _showAnalyticsBar() {
+  const s = window._getAnalytics ? window._getAnalytics() : { today:0, total:0, avg:0, ref:'—' };
+  const sv = id => { const el = document.getElementById(id); if (el) el.textContent = s[id.slice(1).toLowerCase()] || s.ref || '—'; };
+  document.getElementById('aViews').textContent = s.today;
+  document.getElementById('aTotal').textContent = s.total;
+  document.getElementById('aTime').textContent  = s.avg + 's';
+  document.getElementById('aRef').textContent   = s.ref;
+  document.getElementById('analyticsBar').classList.add('visible');
+  if (typeof adminLogout === 'function') adminLogout();
+}
+</script>
 </html>
