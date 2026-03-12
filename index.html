@@ -3302,6 +3302,11 @@
             gap: .7rem;
         }
 
+        /* Admin hamburger: hidden on desktop, shown via @media in mobile block */
+        .admin-mob-menu {
+            display: none;
+        }
+
         .admin-range {
             flex: 1;
             accent-color: var(--accent);
@@ -3485,28 +3490,217 @@
         }
 
         /* ══ MOBILE GLOBAL FIXES ══ */
-        @media (max-width:768px) {
-            .hero {
-                flex-direction: column;
-                padding: 6rem 1.5rem 4rem;
-                gap: 2rem;
+        /* ═══════════════════════════════════════════════════════
+   MOBILE — COMPREHENSIVE RESPONSIVE OVERHAUL
+   Breakpoints: 900px · 768px · 480px
+═══════════════════════════════════════════════════════ */
+
+        /* ── 900px: tablets ── */
+        @media (max-width:900px) {
+
+            /* Global padding reset */
+            section,
+            #hero,
+            #about,
+            #skills,
+            #stack,
+            #workflow,
+            #projects,
+            #experience,
+            #testimonials,
+            #budget,
+            #roadmap,
+            #heatmap,
+            #contact {
+                padding: 5rem 1.5rem !important;
             }
 
-            .hero-left {
-                max-width: 100%;
+            /* Hero */
+            .hero {
+                grid-template-columns: 1fr !important;
+                padding: 5rem 1.5rem 3rem !important;
+                gap: 2rem;
+                text-align: center;
             }
 
             .hero-photo-wrap {
+                margin: 0 auto;
+                display: block !important;
+            }
+
+            .hero-photo-ring {
+                width: 180px;
+                height: 180px;
+            }
+
+            .hero-tags {
+                justify-content: center;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-blob {
                 display: none;
             }
 
-            h1 {
-                font-size: clamp(2.2rem, 8vw, 3.5rem) !important;
+            /* About */
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .stats-col {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            /* Skills */
+            .skills-layout {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            /* Stack */
+            .stack-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            /* Workflow */
+            .workflow-steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .workflow-step:nth-child(even) {
+                border-right: none;
+            }
+
+            /* Projects */
+            .featured-project {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-right {
+                border-left: none;
+                border-top: 1px solid var(--border);
+            }
+
+            .carousel-wrap {
+                margin: 0 -1rem;
+            }
+
+            /* Testimonials */
+            .testi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Budget */
+            .budget-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .budget-result {
+                position: static;
+            }
+
+            .complexity-opts {
+                flex-direction: column;
+                gap: .6rem;
+            }
+
+            /* Roadmap */
+            .roadmap-spine {
+                left: 21px;
+            }
+
+            .roadmap-item {
+                grid-template-columns: 44px 1fr !important;
+            }
+
+            .roadmap-l {
+                display: none;
+            }
+
+            .roadmap-r {
+                text-align: left !important;
+                padding-left: 1.2rem !important;
+                padding-right: 0 !important;
+            }
+
+            .roadmap-node {
+                width: 36px;
+                height: 36px;
+                font-size: .85rem;
+            }
+
+            /* Footer */
+            footer {
+                padding: 2rem 1.5rem !important;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.2rem;
+            }
+        }
+
+        /* ── 768px: phones landscape + most phones ── */
+        @media (max-width:768px) {
+
+            /* Topbar */
+            .topbar {
+                padding: .7rem 1rem;
+                gap: .6rem;
+                height: auto;
+                min-height: 52px;
+            }
+
+            .topbar-logo {
+                font-size: .8rem;
+            }
+
+            .topbar-links {
+                display: none;
+            }
+
+            .topbar-actions {
+                gap: .4rem;
+                flex-shrink: 0;
+            }
+
+            .lang-btn,
+            .theme-btn {
+                height: 28px;
+                padding: 0 .6rem;
+                font-size: .68rem;
+            }
+
+            /* Hero: keep photo visible on phones */
+            .hero {
+                grid-template-columns: 1fr !important;
+                padding: 5rem 1.2rem 3rem !important;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .hero-photo-wrap {
+                display: block !important;
+                margin: 0 auto;
+            }
+
+            .hero-photo-ring {
+                width: 160px;
+                height: 160px;
+            }
+
+            h1.hero-name,
+            .hero h1 {
+                font-size: clamp(2rem, 9vw, 3rem) !important;
             }
 
             .hero-actions {
                 flex-direction: column;
-                gap: .8rem;
+                gap: .7rem;
+                align-items: stretch;
             }
 
             .hero-actions a {
@@ -3514,25 +3708,236 @@
             }
 
             .hero-tags {
-                gap: .4rem;
+                gap: .35rem;
+                justify-content: center;
+                flex-wrap: wrap;
             }
 
-            .about-grid {
-                grid-template-columns: 1fr;
+            .hero-blob {
+                display: none;
             }
 
+            /* About stats */
             .stats-col {
                 grid-template-columns: 1fr 1fr;
+                gap: .8rem;
             }
 
+            .stat-card {
+                padding: 1.2rem 1rem;
+            }
+
+            .stat-num {
+                font-size: 1.8rem;
+            }
+
+            /* Stack: 2 columns */
             .stack-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
+                gap: .8rem;
             }
 
+            .stack-card {
+                padding: 1.4rem 1rem;
+            }
+
+            .stack-card-title {
+                font-size: .9rem;
+            }
+
+            /* Skills */
             .skills-layout {
                 grid-template-columns: 1fr;
             }
 
+            /* Workflow: single column */
+            .workflow-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .workflow-step {
+                border-right: none !important;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .workflow-step:last-child {
+                border-bottom: none;
+            }
+
+            /* Projects carousel */
+            .carousel-track-outer {
+                gap: 1rem;
+                padding: .8rem 1rem 1.2rem;
+            }
+
+            .project-card {
+                min-width: 260px;
+            }
+
+            .featured-right {
+                display: none;
+            }
+
+            /* Timeline */
+            .timeline::before {
+                display: none;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: .4rem;
+                padding-left: 0;
+            }
+
+            .timeline-item::before {
+                display: none;
+            }
+
+            .timeline-date {
+                font-size: .72rem;
+            }
+
+            /* Contact */
+            .form-submit {
+                width: 100%;
+                justify-content: center;
+            }
+
+            /* Admin panel — FULL MOBILE EXPERIENCE */
+            .admin-panel-wrap {
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border-radius: 0;
+            }
+
+            .admin-sidebar {
+                position: fixed;
+                top: 0;
+                left: -260px;
+                height: 100%;
+                width: 260px;
+                z-index: 9999;
+                transition: left .28s cubic-bezier(.4, 0, .2, 1);
+                overflow-y: auto;
+                background: var(--surface);
+                border-right: 1px solid var(--border);
+                display: flex !important;
+                flex-direction: column;
+                padding: 1.5rem 0 1rem;
+            }
+
+            .admin-sidebar.mob-open {
+                left: 0 !important;
+            }
+
+            .admin-main {
+                padding: 1rem !important;
+                width: 100% !important;
+                overflow-y: auto;
+                height: 100%;
+            }
+
+            .admin-sidebar-overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, .5);
+                z-index: 9998;
+                backdrop-filter: blur(2px);
+            }
+
+            .admin-sidebar-overlay.mob-open {
+                display: block;
+            }
+
+            /* Hamburger button for admin sidebar on mobile */
+            .admin-mob-menu {
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+                background: var(--surface);
+                border: 1px solid var(--border);
+                border-radius: var(--r);
+                padding: .45rem .75rem;
+                font-size: .75rem;
+                font-family: var(--font-mono);
+                color: var(--muted);
+                cursor: pointer;
+                transition: all .2s;
+                margin-bottom: 1rem;
+            }
+
+            .admin-mob-menu:hover {
+                border-color: var(--border-acc);
+                color: var(--accent);
+            }
+
+            .admin-mob-menu-icon {
+                font-size: 1rem;
+            }
+
+            /* Admin modal: full screen on mobile */
+            .admin-modal {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: 100%;
+                max-height: 100% !important;
+                border-radius: 0 !important;
+                overflow-y: auto;
+                margin: 0;
+                padding-bottom: env(safe-area-inset-bottom, 1rem);
+            }
+
+            .admin-modal-bg {
+                align-items: flex-end;
+            }
+
+            /* Admin cards: better tap targets */
+            .admin-card {
+                padding: 1rem;
+                gap: .8rem;
+            }
+
+            .admin-card-actions {
+                flex-direction: row;
+                gap: .4rem;
+            }
+
+            .admin-icon-btn {
+                width: 36px;
+                height: 36px;
+                font-size: .9rem;
+            }
+
+            .admin-add-btn {
+                width: 100%;
+                justify-content: center;
+                padding: .8rem;
+            }
+
+            /* Admin form */
+            .admin-input,
+            .admin-textarea,
+            .admin-select {
+                font-size: 16px;
+                /* prevents iOS zoom */
+            }
+
+            .admin-modal-footer {
+                flex-direction: column;
+                gap: .6rem;
+            }
+
+            .admin-save-btn,
+            .admin-cancel-btn {
+                width: 100%;
+                justify-content: center;
+                padding: .85rem;
+            }
+
+            /* Budget */
             .budget-grid {
                 grid-template-columns: 1fr;
             }
@@ -3545,29 +3950,37 @@
                 flex-direction: column;
             }
 
-            #contact {
-                padding: 5rem 1.5rem;
+            .budget-opt {
+                width: 100%;
             }
 
-            #experience {
-                padding: 5rem 1.5rem;
+            /* Heatmap */
+            .heatmap-grid {
+                gap: 2px;
             }
 
-            #budget {
-                padding: 5rem 1.5rem;
+            .heatmap-cell {
+                width: 9px !important;
+                height: 9px !important;
+                border-radius: 1px;
             }
 
-            #roadmap {
-                padding: 5rem 1.5rem;
+            .heatmap-months {
+                font-size: .6rem;
             }
 
-            footer {
-                padding: 2rem 1.5rem;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.2rem;
+            /* Analytics bar */
+            .analytics-bar {
+                gap: .6rem;
+                padding: .4rem .8rem;
+                flex-wrap: wrap;
             }
 
+            .analytics-stat {
+                font-size: .65rem;
+            }
+
+            /* FABs: avoid overlap */
             .cv-fab {
                 bottom: 1.2rem;
                 right: 1rem;
@@ -3584,29 +3997,93 @@
                 display: none;
             }
 
+            /* Terminal */
+            .term-modal {
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                top: 0;
+                left: 0;
+                height: 100%;
+            }
+        }
+
+        /* ── 480px: small phones ── */
+        @media (max-width:480px) {
+
+            /* Topbar tighter */
             .topbar {
-                padding: .8rem 1.5rem;
+                padding: .6rem .9rem;
             }
 
-            .topbar-links {
+            .topbar-logo {
+                font-size: .75rem;
+            }
+
+            .lang-btn span:last-child,
+            .lang-btn span:first-child {
                 display: none;
             }
 
-            .analytics-bar {
-                gap: .8rem;
-                padding: .5rem 1rem;
-            }
-
-            .analytics-stat {
+            .lang-btn::after {
+                content: attr(data-lang);
                 font-size: .68rem;
             }
 
-            .featured-project {
-                grid-template-columns: 1fr;
+            /* Hero photo smaller */
+            .hero-photo-ring {
+                width: 140px;
+                height: 140px;
             }
 
-            .featured-right {
+            .hero-badge {
                 display: none;
+            }
+
+            /* Stack: single column */
+            .stack-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Stats: single column */
+            .stats-col {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Buttons */
+            .btn-primary,
+            .btn-ghost {
+                padding: .8rem 1.2rem;
+                font-size: .86rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Tags smaller */
+            .hero-tags span {
+                font-size: .66rem;
+                padding: .28rem .55rem;
+            }
+
+            /* Admin */
+            .admin-sidebar {
+                width: 240px;
+                left: -240px;
+            }
+
+            .admin-tab-title {
+                font-size: 1.1rem;
+            }
+
+            /* Section eyebrow */
+            .section-eyebrow {
+                font-size: .67rem;
+            }
+
+            /* Heatmap: even smaller */
+            .heatmap-cell {
+                width: 7px !important;
+                height: 7px !important;
             }
         }
 
@@ -3649,7 +4126,7 @@
 
     <!-- Topbar -->
     <header class="topbar">
-        <span class="topbar-logo">// sanchezdevelop</span>
+        <span class="topbar-logo">// álvaro.dev</span>
         <nav>
             <ul class="topbar-links">
                 <li><a href="#about" data-i18n="nav_about">sobre mí</a></li>
@@ -3990,7 +4467,7 @@
                             <h3>ResumeAI</h3>
                             <p>Convierte cualquier texto en resumen perfecto y genera tarjetas de estudio con IA para
                                 aprender más rápido.</p><a class="proj-link"
-                                href="https://github.com/alvaroosanchezz34/ResumeAI.git" target="_blank">Ver repositorio
+                                href="https://github.com/alvaroosanchezz34/ResumeAI.git" target="_blank">Ver producto
                                 →</a>
                         </div>
                     </div>
@@ -4466,7 +4943,14 @@
                 <button class="admin-exit-btn" onclick="adminLogout()">← Cerrar sesión</button>
             </div>
         </aside>
+        <!-- Mobile sidebar overlay (tap to close) -->
+        <div class="admin-sidebar-overlay" id="adminSidebarOverlay" onclick="adminCloseSidebar()"></div>
+
         <main class="admin-main">
+            <!-- Mobile hamburger — only visible on small screens -->
+            <button class="admin-mob-menu" id="adminMobMenu" onclick="adminOpenSidebar()" aria-label="Menú admin">
+                <span class="admin-mob-menu-icon">☰</span> Menú
+            </button>
             <div class="admin-tab active" id="tab-projects">
                 <h2 class="admin-tab-title">Proyectos</h2>
                 <p class="admin-tab-sub">// gestiona los proyectos del carrusel</p>
@@ -4824,7 +5308,7 @@
 
         // ── DEFAULT DATA ──
         const DEFAULT_PROJECTS = [
-            { id: 'p1', title: 'ResumeAI', desc: 'Convierte cualquier texto en resumen perfecto y genera tarjetas de estudio con IA.', image: 'https://res.cloudinary.com/dedxglg2f/image/upload/v1773318921/WhatsApp_Image_2026-02-26_at_14.14.37_uunkla.png', link: 'https://github.com/alvaroosanchezz34/ResumeAI.git', tags: ['React', 'Node.js', 'IA'] },
+            { id: 'p1', title: 'ResumeAI', desc: 'Convierte cualquier texto en resumen perfecto y genera tarjetas de estudio con IA.', image: 'https://res.cloudinary.com/dedxglg2f/image/upload/v1773318921/WhatsApp_Image_2026-02-26_at_14.14.37_uunkla.png', link: 'https://resume-ai.dev/', tags: ['React', 'Node.js', 'IA'] },
             { id: 'p2', title: 'FlowSenseAI', desc: 'Plataforma con IA que analiza procesos para detectar ineficiencias y optimizar flujos.', image: 'https://res.cloudinary.com/dhbjoltyy/image/upload/v1770710430/ChatGPT_Image_10_feb_2026_09_00_00_1_rdezei.png', link: 'https://github.com/alvaroosanchezz34/flowsenseai.git', tags: ['React', 'Express', 'IA'] },
             { id: 'p3', title: 'FocusQuest', desc: 'To-Do List gamificada que convierte tus tareas en misiones y recompensas.', image: 'https://res.cloudinary.com/dhbjoltyy/image/upload/v1766937256/ChatGPT_Image_28_dic_2025__16_48_34-removebg-preview_wcwkew.png', link: 'https://github.com/alvaroosanchezz34/FocusQuest', tags: ['Angular', 'Gamification'] },
             { id: 'p4', title: 'ChoreoMania', desc: 'Experiencia narrativa web basada en Wheel of Death. Proyecto colaborativo.', image: 'https://res.cloudinary.com/dhbjoltyy/image/upload/v1766936504/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f6473793330703767662f696d6167652f75706c6f61642f76313736343637313339372f47726f75705f3137355f6c776c6538692e706e67_o1svgh.png', link: 'https://github.com/Miguelean1/Choreomania', tags: ['JavaScript', 'HTML', 'CSS'] },
@@ -4932,7 +5416,33 @@
             sessionStorage.removeItem('admin_auth');
             adminPanelWrap.classList.remove('open');
             document.body.style.overflow = '';
+            adminCloseSidebar();
         }
+
+        /* ── Mobile sidebar toggle ── */
+        function adminOpenSidebar() {
+            const sb = document.querySelector('.admin-sidebar');
+            const ov = document.getElementById('adminSidebarOverlay');
+            if (sb) sb.classList.add('mob-open');
+            if (ov) ov.classList.add('mob-open');
+            document.body.style.overflow = 'hidden';
+        }
+        function adminCloseSidebar() {
+            const sb = document.querySelector('.admin-sidebar');
+            const ov = document.getElementById('adminSidebarOverlay');
+            if (sb) sb.classList.remove('mob-open');
+            if (ov) ov.classList.remove('mob-open');
+            // Restore scroll only if admin panel is still open
+            if (!document.querySelector('.admin-panel-wrap.open')) {
+                document.body.style.overflow = '';
+            }
+        }
+        // Close sidebar when a nav item is tapped on mobile
+        document.querySelectorAll('.admin-nav-item').forEach(el => {
+            el.addEventListener('click', () => {
+                if (window.innerWidth <= 768) adminCloseSidebar();
+            });
+        });
 
         // Escape key
         document.addEventListener('keydown', e => {
