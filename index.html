@@ -15,17 +15,17 @@
     rel="stylesheet">
   <style>
     :root {
-      --bg: #0B0C11;
-      --bg-2: #0E0F16;
-      --surface: #14151E;
-      --surface-2: #1A1C27;
+      --bg: #070709;
+      --bg-2: #0A0B10;
+      --surface: #101218;
+      --surface-2: #171A24;
       --line: rgba(255, 255, 255, .09);
       --line-2: rgba(255, 255, 255, .15);
       --text: #ECEDF2;
       --muted: #9294A6;
-      --violet: #8B6BFF;
-      --violet-2: #A98BFF;
-      --coral: #FF7A66;
+      --blue: #29A3E8;
+      --blue-2: #6BC1F7;
+      --blue-deep: #2B45BE;
       --good: #34D399;
       --serif: 'Fraunces', Georgia, serif;
       --sans: 'Inter', system-ui, sans-serif;
@@ -70,7 +70,7 @@
     .glow.v {
       width: 560px;
       height: 560px;
-      background: radial-gradient(circle, rgba(139, 107, 255, .55), transparent 68%);
+      background: radial-gradient(circle, rgba(41, 163, 232, .5), transparent 68%);
       top: -160px;
       left: -120px;
       animation: drift1 22s ease-in-out infinite
@@ -79,7 +79,7 @@
     .glow.c {
       width: 500px;
       height: 500px;
-      background: radial-gradient(circle, rgba(255, 122, 102, .4), transparent 68%);
+      background: radial-gradient(circle, rgba(43, 69, 190, .42), transparent 68%);
       bottom: -180px;
       right: -120px;
       animation: drift2 26s ease-in-out infinite
@@ -130,7 +130,7 @@
     .eyebrow {
       font-family: var(--mono);
       font-size: .8rem;
-      color: var(--violet-2);
+      color: var(--blue-2);
       text-transform: lowercase;
       letter-spacing: .04em;
       display: block;
@@ -150,7 +150,7 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(11, 12, 17, .72);
+      background: rgba(7, 7, 9, .72);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line)
     }
@@ -227,12 +227,13 @@
     }
 
     .btn-primary {
-      background: var(--violet);
-      color: #fff
+      background: linear-gradient(135deg, var(--blue), var(--blue-deep));
+      color: #fff;
+      box-shadow: 0 8px 22px -12px rgba(41, 163, 232, .9)
     }
 
     .btn-primary:hover {
-      background: var(--violet-2);
+      background: linear-gradient(135deg, var(--blue-2), var(--blue));
       transform: translateY(-1px)
     }
 
@@ -319,7 +320,7 @@
 
     .hero h1 em {
       font-style: italic;
-      color: var(--violet-2)
+      color: var(--blue-2)
     }
 
     .hero .lede {
@@ -363,7 +364,7 @@
     }
 
     .gen-row input:focus {
-      border-color: var(--violet)
+      border-color: var(--blue)
     }
 
     .gen-row input::placeholder {
@@ -407,13 +408,13 @@
       border: 1px solid var(--line-2);
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 40px 90px -50px rgba(139, 107, 255, .6);
+      box-shadow: 0 40px 90px -50px rgba(41, 163, 232, .5);
       text-align: left;
       transition: box-shadow .5s
     }
 
     .frame.flash {
-      box-shadow: 0 0 0 2px var(--violet), 0 40px 100px -40px rgba(139, 107, 255, .9)
+      box-shadow: 0 0 0 2px var(--blue), 0 40px 100px -40px rgba(41, 163, 232, .85)
     }
 
     .frame-bar {
@@ -497,7 +498,7 @@
     .empty .sm {
       font-family: var(--mono);
       font-size: .8rem;
-      color: var(--violet-2)
+      color: var(--blue-2)
     }
 
     /* SKELETON (fase "montando") */
@@ -577,7 +578,7 @@
       right: 0;
       height: 120px;
       top: -120px;
-      background: linear-gradient(180deg, transparent, rgba(139, 107, 255, .14), transparent);
+      background: linear-gradient(180deg, transparent, rgba(41, 163, 232, .14), transparent);
       animation: scan 1.6s ease-in-out infinite;
       pointer-events: none
     }
@@ -600,7 +601,7 @@
       text-align: center;
       font-family: var(--mono);
       font-size: .78rem;
-      color: #8B6BFF
+      color: #29A3E8
     }
 
     /* GENERATED SITE */
@@ -895,7 +896,7 @@
     }
 
     .done-badge .s {
-      color: var(--violet-2)
+      color: var(--blue-2)
     }
 
     .done-badge.in {
@@ -965,8 +966,8 @@
     .project .tag {
       font-family: var(--mono);
       font-size: .72rem;
-      color: var(--violet-2);
-      background: rgba(139, 107, 255, .12);
+      color: var(--blue-2);
+      background: rgba(41, 163, 232, .12);
       padding: 5px 11px;
       border-radius: 100px;
       display: inline-block;
@@ -1033,7 +1034,7 @@
 
     .visit {
       font-weight: 600;
-      color: var(--violet-2);
+      color: var(--blue-2);
       font-size: .94rem;
       white-space: nowrap
     }
@@ -1075,8 +1076,8 @@
     }
 
     .opt.sel {
-      border-color: var(--violet);
-      background: rgba(139, 107, 255, .08)
+      border-color: var(--blue);
+      background: rgba(41, 163, 232, .10)
     }
 
     .opt .check {
@@ -1091,8 +1092,8 @@
     }
 
     .opt.sel .check {
-      background: var(--violet);
-      border-color: var(--violet)
+      background: var(--blue);
+      border-color: var(--blue)
     }
 
     .opt .check svg {
@@ -1151,7 +1152,7 @@
     }
 
     .est-total span {
-      color: var(--violet-2)
+      color: var(--blue-2)
     }
 
     .est-rec {
@@ -1188,7 +1189,7 @@
     .step .num {
       font-family: var(--mono);
       font-size: .8rem;
-      color: var(--violet-2);
+      color: var(--blue-2);
       margin-bottom: 12px
     }
 
@@ -1268,7 +1269,7 @@
       font-weight: 700;
       font-size: 2.6rem;
       line-height: 1;
-      color: var(--coral);
+      color: var(--blue);
       margin-bottom: 10px
     }
 
@@ -1287,7 +1288,7 @@
 
     .pain-punch em {
       font-style: italic;
-      color: var(--coral)
+      color: var(--blue)
     }
 
     .src {
@@ -1299,8 +1300,8 @@
 
     /* GUARANTEE */
     .guar {
-      background: linear-gradient(135deg, rgba(52, 211, 153, .1), var(--surface));
-      border: 1px solid rgba(52, 211, 153, .3);
+      background: linear-gradient(135deg, rgba(41, 163, 232, .1), var(--surface));
+      border: 1px solid rgba(41, 163, 232, .3);
       border-radius: 24px;
       padding: 44px;
       display: grid;
@@ -1313,7 +1314,7 @@
       width: 64px;
       height: 64px;
       border-radius: 18px;
-      background: rgba(52, 211, 153, .15);
+      background: rgba(41, 163, 232, .15);
       display: grid;
       place-items: center;
       font-size: 2rem
@@ -1339,7 +1340,7 @@
     .guar-points span {
       font-family: var(--mono);
       font-size: .82rem;
-      color: var(--good)
+      color: var(--blue-2)
     }
 
     /* FAQ */
@@ -1374,7 +1375,7 @@
     }
 
     .qa-q .ic {
-      color: var(--violet-2);
+      color: var(--blue-2);
       font-size: 1.3rem;
       line-height: 1;
       transition: transform .25s;
@@ -1940,7 +1941,7 @@
       { k: ['taller', 'mecánic', 'mecanic', 'coche', 'fontaner', 'electric', 'reforma', 'obra'], acc: '#D98324', kick: 'Profesionales de confianza', cta: 'Pedir presupuesto', cards: [['🔧', 'Servicios'], ['🧾', 'Presupuesto'], ['📞', 'Contacto']], foot: ['📍 Tu ciudad', '🕐 L–V', '☎ Llámanos'] },
       { k: ['foto', 'fotógraf', 'fotograf', 'vídeo', 'video', 'diseñ', 'artist', 'músic'], acc: '#7C4DFF', kick: 'Trabajo con alma', cta: 'Ver portfolio', cards: [['📸', 'Portfolio'], ['📦', 'Servicios'], ['✉️', 'Contacto']], foot: ['📍 Disponible online', '🕐 Respuesta 24h', '✉️ Escríbeme'] },
     ];
-    const GENERIC = { acc: '#8B6BFF', kick: 'Bienvenido', cta: 'Contactar', cards: [['🧩', 'Servicios'], ['⭐', 'Sobre mí'], ['✉️', 'Contacto']], foot: ['📍 Tu ciudad', '🕐 Horario', '✉️ Contacto'] };
+    const GENERIC = { acc: '#29A3E8', kick: 'Bienvenido', cta: 'Contactar', cards: [['🧩', 'Servicios'], ['⭐', 'Sobre mí'], ['✉️', 'Contacto']], foot: ['📍 Tu ciudad', '🕐 Horario', '✉️ Contacto'] };
 
     function localData(name, type) {
       const t = (type || '').toLowerCase();
@@ -1968,7 +1969,7 @@
 
     // Construye el DOM (oculto, listo para animar)
     function buildSite(d) {
-      const acc = hexOk(d.accent) ? d.accent : '#8B6BFF';
+      const acc = hexOk(d.accent) ? d.accent : '#29A3E8';
       site.style.setProperty('--acc', acc);
       site.style.setProperty('--acc-soft', tint(acc));
       const cards = (Array.isArray(d.cards) ? d.cards : []).slice(0, 3);
