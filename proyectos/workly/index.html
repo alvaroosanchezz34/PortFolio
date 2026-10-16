@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Workly, caso de estudio: gestión para autónomos | SanchezDevelop</title>
+  <meta name="description" content="Cómo es Workly por dentro: clientes, proyectos, facturas en PDF, gastos, horas y modelos 130 y 303 en una plataforma con React 19, Express y MySQL.">
+  <link rel="canonical" href="https://sanchezdevelop.com/proyectos/workly/">
+  <meta name="theme-color" content="#000000">
+  <meta name="author" content="Álvaro Sánchez">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="SanchezDevelop">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Workly, caso de estudio: gestión para autónomos | SanchezDevelop">
+  <meta property="og:description" content="Cómo es Workly por dentro: clientes, proyectos, facturas en PDF, gastos, horas y modelos 130 y 303 en una plataforma con React 19, Express y MySQL.">
+  <meta property="og:url" content="https://sanchezdevelop.com/proyectos/workly/">
+  <meta property="og:image" content="https://sanchezdevelop.com/assets/og/workly.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Captura de Workly, software de gestión para autónomos">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/favicon-96.png" type="image/png" sizes="96x96">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css?v=1">
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://sanchezdevelop.com/#alvaro",
+      "name": "Álvaro Sánchez",
+      "alternateName": "Álvaro Sánchez Ortega",
+      "jobTitle": "Desarrollador Full Stack",
+      "description": "Desarrollador Full Stack independiente. Diseña y programa webs, sistemas de reservas, aplicaciones web y software a medida para autónomos y pequeñas empresas.",
+      "url": "https://sanchezdevelop.com/sobre-mi/",
+      "email": "mailto:alvarosanchezortega34@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Málaga",
+        "addressRegion": "Andalucía",
+        "addressCountry": "ES"
+      },
+      "knowsAbout": [
+        "Desarrollo web",
+        "Desarrollo Full Stack",
+        "Aplicaciones web",
+        "Sistemas de reservas online",
+        "Integración de inteligencia artificial",
+        "Automatización de procesos",
+        "SEO técnico",
+        "Angular",
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Node.js",
+        "Express",
+        "Spring Boot",
+        "MySQL",
+        "MongoDB",
+        "Firebase"
+      ],
+      "knowsLanguage": "es",
+      "brand": {
+        "@type": "Brand",
+        "name": "SanchezDevelop"
+      },
+      "sameAs": [
+        "https://github.com/alvaroosanchezz34"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://sanchezdevelop.com/#website",
+      "url": "https://sanchezdevelop.com/",
+      "name": "SanchezDevelop",
+      "alternateName": "sanchezdevelop.com",
+      "inLanguage": "es-ES",
+      "publisher": {
+        "@id": "https://sanchezdevelop.com/#alvaro"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://sanchezdevelop.com/proyectos/workly/#webpage",
+      "url": "https://sanchezdevelop.com/proyectos/workly/",
+      "name": "Workly, caso de estudio: gestión para autónomos | SanchezDevelop",
+      "description": "Cómo es Workly por dentro: clientes, proyectos, facturas en PDF, gastos, horas y modelos 130 y 303 en una plataforma con React 19, Express y MySQL.",
+      "inLanguage": "es-ES",
+      "isPartOf": {
+        "@id": "https://sanchezdevelop.com/#website"
+      },
+      "about": {
+        "@id": "https://sanchezdevelop.com/proyectos/workly/#article"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://sanchezdevelop.com/assets/og/workly.jpg"
+      },
+      "breadcrumb": {
+        "@id": "https://sanchezdevelop.com/proyectos/workly/#breadcrumb"
+      },
+      "dateModified": "2026-10-16"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://sanchezdevelop.com/proyectos/workly/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://sanchezdevelop.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Proyectos",
+          "item": "https://sanchezdevelop.com/proyectos/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Workly",
+          "item": "https://sanchezdevelop.com/proyectos/workly/"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://sanchezdevelop.com/proyectos/workly/#article",
+      "headline": "Workly: software de gestión para autónomos y freelancers",
+      "description": "Caso de estudio de Workly, plataforma de clientes, facturación, gastos, horas y contabilidad para autónomos.",
+      "image": "https://sanchezdevelop.com/assets/img/proyectos/workly-hero-1280.webp",
+      "inLanguage": "es-ES",
+      "datePublished": "2026-10-16",
+      "dateModified": "2026-10-16",
+      "author": {
+        "@id": "https://sanchezdevelop.com/#alvaro"
+      },
+      "publisher": {
+        "@id": "https://sanchezdevelop.com/#alvaro"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://sanchezdevelop.com/proyectos/workly/#webpage"
+      },
+      "about": {
+        "@type": "CreativeWork",
+        "name": "Workly",
+        "url": "https://workly.space",
+        "creator": {
+          "@id": "https://sanchezdevelop.com/#alvaro"
+        }
+      }
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+  <a class="skip" href="#main">Saltar al contenido</a>
+  <header class="lnav" id="lnav">
+    <div class="wide lnav-in">
+      <a href="/" class="brand"><img src="/assets/img/logo-sd.webp" alt="" width="26" height="26">sanchezdevelop</a>
+      <div class="lnav-r">
+        <nav class="lnav-links" id="links" aria-label="Principal">
+          <a href="/diseno-web-empresas/">Webs</a>
+          <a href="/sistemas-reservas-online/">Reservas</a>
+          <a href="/aplicaciones-web/">Apps a medida</a>
+          <a href="/integracion-inteligencia-artificial/">IA</a>
+          <a href="/mantenimiento-web/">Mantenimiento</a>
+          <a href="/proyectos/" aria-current="page">Proyectos</a>
+          <a href="/blog/">Blog</a>
+        </nav>
+        <button class="chev" id="chev" aria-label="Mostrar menú" aria-expanded="false" aria-controls="links"><svg
+            viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M2 5l5 5 5-5" />
+          </svg></button>
+        <a class="btn sm" href="/contacto/">Presupuesto</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="phero dark" aria-labelledby="h1">
+      <div class="wrap">
+          <nav class="crumbs" aria-label="Migas de pan">
+            <ol>
+              <li><a href="/">Inicio</a></li>
+              <li><a href="/proyectos/">Proyectos</a></li>
+              <li><span aria-current="page">Workly</span></li>
+            </ol>
+          </nav>
+        <p class="kick">Caso de estudio</p>
+        <h1 class="h-xl" id="h1">Workly: software de gestión para autónomos y freelancers</h1>
+        <p class="lead">Clientes, proyectos, presupuestos, <b>facturas en PDF, gastos, control de horas y contabilidad</b> en una sola herramienta, pensada para que un autónomo deje las hojas de cálculo.</p>
+        <ul class="facts">
+          <li>Diseño y desarrollo: Álvaro Sánchez</li>
+          <li>En producción, con plan gratuito</li>
+          <li><a href="https://workly.space" target="_blank" rel="noopener">workly.space</a></li>
+        </ul>
+        <div class="ctas">
+          <a class="btn" href="https://wa.me/34697898574?text=Hola%20%C3%81lvaro%2C%20he%20visto%20el%20caso%20de%20Workly%20y%20quiero%20un%20software%20de%20gesti%C3%B3n%20para%20mi%20negocio." target="_blank" rel="noopener" data-cta="whatsapp">Pedir presupuesto</a>
+          <a class="lnk" href="https://workly.space" target="_blank" rel="noopener">Visitar Workly</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="narrow prose">
+        <h2>El problema</h2>
+        <p>Muchos autónomos llevan su negocio repartido entre una hoja de cálculo de clientes, un programa para facturar, otro para las horas y una carpeta de tickets. Cada mes toca juntarlo todo para saber cuánto han facturado, qué falta por cobrar y cuánto IVA o IRPF tendrán que pagar.</p>
+        <p>Workly reúne todo eso en una sola plataforma: cada factura sale de un cliente y un proyecto, cada gasto queda registrado y los números del trimestre ya están calculados.</p>
+        <h2>Para quién es</h2>
+        <p>Autónomos, freelancers y equipos pequeños que facturan por proyectos o por horas y quieren tener el negocio bajo control sin contratar un ERP.</p>
+      </div>
+    </section>
+
+    <section class="sec soft">
+      <div class="wide shots">
+
+          <figure class="shot">
+            <img src="/assets/img/proyectos/workly-features-1280.webp"
+            srcset="/assets/img/proyectos/workly-features-640.webp 640w, /assets/img/proyectos/workly-features-1280.webp 1280w"
+            sizes="(max-width: 860px) 100vw, 620px" width="1280" height="800" alt="Sección de funciones de Workly: gestión de clientes, proyectos y Kanban, facturación, presupuestos, facturas recurrentes, notas de crédito, gastos y dashboard" loading="lazy" decoding="async">
+            <figcaption>Los módulos de Workly, tal como aparecen en la web del producto.</figcaption>
+          </figure>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="narrow prose">
+        <h2>Funcionalidades</h2>
+        <ul>
+          <li><strong>Clientes</strong> con búsqueda en tiempo real, historial por cliente y papelera de reciclaje.</li>
+          <li><strong>Proyectos</strong> en un tablero Kanban con arrastrar y soltar, vinculados a cada cliente.</li>
+          <li><strong>Facturación</strong> con IVA, descuentos y líneas de detalle, PDF profesional, numeración correlativa y portal público para el cliente.</li>
+          <li><strong>Presupuestos</strong> que se convierten en factura con un clic.</li>
+          <li><strong>Facturas recurrentes</strong> que se generan solas con una periodicidad configurable.</li>
+          <li><strong>Notas de crédito</strong> (rectificativas) vinculadas a la factura original, para corregir importes sin borrar registros.</li>
+          <li><strong>Gastos</strong> por categoría, con exportación a Excel.</li>
+          <li><strong>Dashboard financiero</strong>: ingresos, gastos, beneficio neto, mejores clientes y evolución de 12 meses.</li>
+          <li><strong>Contabilidad</strong>: libro de ingresos y gastos y <strong>modelos 130 y 303</strong> precalculados.</li>
+          <li><strong>Control de horas</strong> con temporizador por proyecto y tarifa por hora.</li>
+          <li><strong>Asistente con IA</strong>: presupuestos inteligentes, lectura de tickets por OCR y resúmenes del negocio.</li>
+          <li><strong>Calendario</strong> de vencimientos de facturas, presupuestos y proyectos.</li>
+        </ul>
+
+        <h2>Tecnologías y arquitectura</h2>
+        <ul class="tech"><li>React 19</li><li>Vite</li><li>Node.js</li><li>Express</li><li>MySQL</li><li>JWT</li><li>Stripe</li><li>Resend</li><li>OpenAI</li><li>PDFKit</li><li>ExcelJS</li><li>node-cron</li></ul>
+        <ul>
+          <li><strong>React 19 con Vite</strong> para una aplicación rápida detrás del inicio de sesión.</li>
+          <li><strong>Node.js y Express</strong> para la API.</li>
+          <li><strong>MySQL</strong>, una base de datos relacional: encaja con datos que dependen unos de otros, como clientes, facturas, líneas y pagos.</li>
+          <li><strong>JWT</strong> para la autenticación.</li>
+          <li><strong>PDFKit</strong> para las facturas y presupuestos en PDF y <strong>ExcelJS</strong> para las exportaciones.</li>
+          <li><strong>node-cron</strong> para las tareas programadas, como generar cada día las facturas recurrentes.</li>
+          <li><strong>Resend</strong> para los emails, <strong>Stripe</strong> para los planes de pago y <strong>OpenAI</strong> para el asistente.</li>
+        </ul>
+
+        <h2>Lo que exige técnicamente un producto así</h2>
+        <ul>
+          <li><strong>La facturación no admite atajos.</strong> La numeración tiene que ser correlativa y una factura emitida no se borra: se corrige con una rectificativa. Por eso existen las notas de crédito vinculadas.</li>
+          <li><strong>Cálculos fiables.</strong> IVA, descuentos, retenciones y los modelos trimestrales tienen que cuadrar al céntimo con lo que se ha facturado y gastado.</li>
+          <li><strong>Tareas que ocurren sin nadie delante.</strong> Las facturas recurrentes y los avisos tienen que ejecutarse cada día sin duplicarse ni perderse.</li>
+          <li><strong>Documentos profesionales.</strong> Los PDF de factura y de presupuesto son lo que ve el cliente final, así que tienen que salir bien siempre.</li>
+        </ul>
+
+        <h2>Qué puede aprovechar tu negocio de este proyecto</h2>
+        <p>Si tu empresa sigue un proceso propio (presupuestos, pedidos, trabajos o turnos), puede tener una herramienta hecha a su medida con esta misma base. Lo cuento en <a href="/aplicaciones-web/">aplicaciones web y software a medida</a>, y las tareas automáticas en <a href="/integracion-inteligencia-artificial/">IA y automatización</a>.</p>
+      </div>
+    </section>
+
+    <section class="final dark" id="contacto" aria-labelledby="final-t">
+      <div class="wrap">
+        <h2 class="h-xl" id="final-t">Tu negocio,<br><span class="grad">bajo control.</span></h2>
+        <p class="lead">Cuéntame cómo trabajas hoy y te digo qué herramienta construiría para ti.</p>
+        <div class="ctas">
+          <a class="btn lg wa" href="https://wa.me/34697898574?text=Hola%20%C3%81lvaro%2C%20he%20visto%20el%20caso%20de%20Workly%20y%20quiero%20un%20software%20de%20gesti%C3%B3n%20para%20mi%20negocio." target="_blank" rel="noopener" data-cta="whatsapp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.4z"/></svg>Escribir por WhatsApp</a>
+          <a class="lnk" href="mailto:alvarosanchezortega34@gmail.com?subject=Software%20de%20gesti%C3%B3n%20a%20medida&body=Hola%20%C3%81lvaro%2C%20te%20escribo%20desde%20tu%20web.%20Mi%20negocio%20es%3A%20" data-cta="email">Mandar un email</a>
+          <a class="lnk" href="/#presupuesto" data-cta="configurador">Calcular el precio</a>
+        </div>
+        <a class="mail" href="mailto:alvarosanchezortega34@gmail.com" data-cta="email">alvarosanchezortega34@gmail.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wide">
+      <nav class="foot-map" aria-label="Mapa del sitio">
+        <div>
+          <p>Servicios</p>
+          <ul>
+            <li><a href="/diseno-web-empresas/">Diseño web para empresas</a></li>
+            <li><a href="/sistemas-reservas-online/">Reservas, citas y pedidos online</a></li>
+            <li><a href="/aplicaciones-web/">Aplicaciones web y software a medida</a></li>
+            <li><a href="/integracion-inteligencia-artificial/">Inteligencia artificial y automatización</a></li>
+            <li><a href="/mantenimiento-web/">Mantenimiento y mejora web</a></li>
+          </ul>
+        </div>
+        <div>
+          <p>Proyectos</p>
+          <ul>
+            <li><a href="/proyectos/">Todos los proyectos</a></li>
+            <li><a href="/proyectos/resumeai/">ResumeAI</a></li>
+            <li><a href="/proyectos/workly/">Workly</a></li>
+          </ul>
+        </div>
+        <div>
+          <p>SanchezDevelop</p>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/sobre-mi/">Sobre mí</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/#presupuesto">Calcular presupuesto</a></li>
+            <li><a href="/privacidad/">Privacidad</a></li>
+          </ul>
+        </div>
+        <div>
+          <p>Contacto</p>
+          <ul>
+            <li><a href="/contacto/">Pedir presupuesto</a></li>
+            <li><a href="https://wa.me/34697898574" target="_blank" rel="noopener" data-cta="whatsapp">WhatsApp</a></li>
+            <li><a href="mailto:alvarosanchezortega34@gmail.com" data-cta="email">Email</a></li>
+            <li><a href="https://github.com/alvaroosanchezz34" target="_blank" rel="noopener me">GitHub</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="fb">
+        <span>© <span id="year">2026</span> Álvaro Sánchez · SanchezDevelop · Málaga, España</span>
+        <span>Desarrollo web y software a medida para toda España</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="fab" href="https://wa.me/34697898574?text=Hola%20%C3%81lvaro%2C%20he%20visto%20el%20caso%20de%20Workly%20y%20quiero%20un%20software%20de%20gesti%C3%B3n%20para%20mi%20negocio." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-cta="whatsapp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.4z"/></svg></a>
+
+  <script src="/assets/js/site.js?v=1" defer></script>
+  <script src="/assets/js/track.js?v=1" defer></script>
+</body>
+
+</html>
