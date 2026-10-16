@@ -288,7 +288,7 @@ a.card:hover .go::after { transform: translateX(4px) }
 .form { display: grid; gap: 20px }
 .form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px }
 @media (max-width: 640px) { .form .row { grid-template-columns: 1fr } }
-.fld { display: grid; gap: 8px }
+.fld { display: grid; gap: 8px; align-content: start }
 .fld label, .fld legend { font-size: .9rem; font-weight: 500; color: var(--fg) }
 .fld .opt { color: var(--muted); font-weight: 400 }
 .fld input, .fld select, .fld textarea {

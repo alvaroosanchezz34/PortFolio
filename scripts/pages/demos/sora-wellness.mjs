@@ -24,7 +24,7 @@ const price = p => p ? `${eur(p)}` : 'Sin coste';
 const body = `
   <header class="sw-hd" id="hd">
     <div class="sw-w sw-hd-in">
-      <a class="sw-logo" href="#inicio" aria-label="Sora Wellness, inicio">sora<span>wellness</span></a>
+      <a class="sw-logo" href="#inicio">sora<span> wellness</span></a>
       <button class="sw-menu" id="menuBtn" aria-expanded="false" aria-controls="nav">Menú</button>
       <nav class="sw-nav" id="nav" aria-label="Principal">
         <a href="#tratamientos">Tratamientos</a><a href="#espacio">Espacio</a><a href="#equipo">Equipo</a><a href="#contacto">Contacto</a>

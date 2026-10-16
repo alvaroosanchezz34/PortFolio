@@ -32,7 +32,7 @@ const PLANS = [
   { id: 'personal', name: 'Personal', m: 149, line: 'Ilimitado + 4 sesiones 1:1', feats: ['Todo lo de Pro', '4 sesiones con tu coach al mes', 'Plan de entrenamiento propio'] },
 ];
 const NAME = Object.fromEntries(PROGRAMS.map(p => [p.id, p.name]));
-const bars = n => `<span class="ff-lvl" aria-label="Intensidad ${n} de 5">${[1, 2, 3, 4, 5].map(i => `<i${i <= n ? ' class="on"' : ''}></i>`).join('')}</span>`;
+const bars = n => `<span class="ff-lvl" role="img" aria-label="Intensidad ${n} de 5">${[1, 2, 3, 4, 5].map(i => `<i${i <= n ? ' class="on"' : ''}></i>`).join('')}</span>`;
 
 const body = `
   <header class="ff-hd" id="hd">

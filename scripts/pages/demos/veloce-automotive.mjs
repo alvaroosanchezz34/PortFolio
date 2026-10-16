@@ -46,7 +46,7 @@ const body = `
       <div class="va-lines" aria-hidden="true"><i></i><i></i><i></i></div>
       <div class="va-w va-hero-in">
         <p class="va-kick">Deportivos premium · Selección multimarca</p>
-        <h1 id="va-h1">Cada coche,<br>elegido <span>uno a uno</span>.</h1>
+        <h1 id="va-h1">Cada coche,<br>elegido <span>uno&nbsp;a&nbsp;uno</span>.</h1>
         <div class="va-hero-ft">
           <p>Revisados, documentados y listos para entregar. Prueba el que te interese antes de decidir.</p>
           <div class="va-ctas"><a class="va-btn" href="#stock">Ver el stock</a><a class="va-btn ghost" href="#contacto" data-type="Tasación de mi coche">Tasar mi coche</a></div>

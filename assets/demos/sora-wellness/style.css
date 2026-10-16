@@ -89,7 +89,7 @@
 .sw-sum { background: rgba(255, 253, 249, .1); border: 1px solid rgba(255, 253, 249, .22); border-radius: 18px; padding: 22px }
 .sw-sum h3 { font-family: var(--serif); font-weight: 400; font-size: 1.4rem; margin-bottom: 10px }
 .sw-sum dl div { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-top: 1px solid rgba(255, 253, 249, .18); font-size: .95rem }
-.sw-sum dt { color: #d5ddd3 }
+.sw-sum dt { color: #fff; opacity: 1 }
 .sw-sum dd { text-align: right; font-weight: 500 }
 @media (max-width: 900px) { .sw-book-in { grid-template-columns: 1fr } .sw-book-l { position: static } }
 .sw-form { display: grid; gap: 16px }
@@ -110,7 +110,8 @@
 .sw-r input:checked + span { border-color: var(--sage); background: var(--sage-2); box-shadow: inset 0 0 0 1px var(--sage) }
 .sw-r input:focus-visible + span, .sw-day input:focus-visible + span, .sw-slot input:focus-visible + span { outline: 2px solid var(--sage); outline-offset: 2px }
 .sw-days { display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 8px; scroll-snap-type: x mandatory }
-.sw-day { flex: 0 0 auto; scroll-snap-align: start }
+.sw-day { flex: 0 0 auto; scroll-snap-align: start; position: relative }
+.sw-r, .sw-slot { position: relative }
 .sw-day span { display: grid; place-items: center; width: 72px; height: 84px; border: 1px solid var(--line); border-radius: 14px; background: var(--white); cursor: pointer; line-height: 1.15; transition: border-color .2s, background .2s }
 .sw-day b { font-family: var(--serif); font-size: 1.6rem; font-weight: 400 }
 .sw-day small { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2) }
@@ -118,6 +119,7 @@
 .sw-day input:checked + span small { color: #d5ddd3 }
 .sw-day input:disabled + span { background: transparent; color: #9a9e97; cursor: not-allowed; border-style: dashed }
 .sw-slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 8px }
+.sw-slots .sw-hint { grid-column: 1 / -1 }
 .sw-slot span { display: grid; place-items: center; min-height: 46px; border: 1px solid var(--line); border-radius: 10px; background: var(--white); cursor: pointer; font-variant-numeric: tabular-nums; font-size: .95rem; line-height: 1.1; text-align: center }
 .sw-slot span small { font-size: .66rem; color: var(--ink-2) }
 .sw-slot input:checked + span { background: var(--sage); color: var(--white); border-color: var(--sage) }

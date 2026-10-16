@@ -1,7 +1,7 @@
 /* Veloce Automotive · cinematográfico: negro, grafito y rojo */
 @font-face { font-family: "Michroma"; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/michroma.woff2) format("woff2") }
 .va {
-  --bk: #070708; --g1: #101012; --g2: #17171a; --g3: #222226; --red: #e5392f; --w: #f2f2f0; --mut: #a2a2a8; --line: rgba(255, 255, 255, .1);
+  --bk: #070708; --g1: #101012; --g2: #17171a; --g3: #222226; --red: #e5392f; --red-b: #d4312a; --w: #f2f2f0; --mut: #a2a2a8; --line: rgba(255, 255, 255, .1);
   --wide: "Michroma", "Eurostile", "Arial Black", sans-serif; --sans: "Inter Tight", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace;
   margin: 0; background: var(--bk); color: var(--w); font: 400 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased
 }
@@ -27,7 +27,7 @@
   .va-nav .va-btn { margin-top: 16px }
   .js .va-nav:not(.open) { display: none }
 }
-.va .va-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 26px; background: var(--red); color: #fff; border: 1px solid var(--red); text-transform: uppercase; letter-spacing: .14em; font-size: .76rem; font-weight: 600; cursor: pointer; transition: background .3s, color .3s, border-color .3s }
+.va .va-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 26px; background: var(--red-b); color: #fff; border: 1px solid var(--red-b); text-transform: uppercase; letter-spacing: .14em; font-size: .76rem; font-weight: 600; cursor: pointer; transition: background .3s, color .3s, border-color .3s }
 .va .va-btn:hover { background: var(--w); color: var(--bk); border-color: var(--w) }
 .va .va-btn.sm { min-height: 40px; padding: 0 16px }
 .va .va-btn.ghost { background: transparent; border-color: rgba(255, 255, 255, .35) }

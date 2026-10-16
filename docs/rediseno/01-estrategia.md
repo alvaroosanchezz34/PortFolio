@@ -30,6 +30,7 @@
 ## Proyectos actuales
 - Se retiran de todo lo público: la home, `/proyectos/`, las páginas de servicio, «Sobre mí», el JSON-LD, las capturas y las imágenes OG. Producción nunca llegó a publicar `/proyectos/`, así que no hace falta ninguna redirección.
 - `check.mjs` incorpora una lista de términos prohibidos para garantizar que no vuelven a aparecer.
+- Los repositorios y el código de esos proyectos no se tocan. La documentación SEO anterior (`docs/seo/`) los menciona como histórico, pero `_redirects` impide abrir `docs/` desde la web.
 
 ## Fotografía
 - Las fotos son de Unsplash (Unsplash License: uso comercial gratuito, se pueden descargar y autoalojar), revisadas una a una. Se han descartado las que muestran marcas o logos en productos y las matrículas en primer plano. Se sirven en WebP a 800 y 1600 px, con `srcset` y carga diferida.

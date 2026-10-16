@@ -178,6 +178,23 @@ const dup = (key, label) => {
 dup('title', 'title');
 dup('desc', 'meta description');
 
+// Proyectos retirados del portfolio: no deben aparecer en nada publicado
+// (páginas, CSS, JS, datos) ni en las fuentes que las generan.
+const FORBIDDEN = /resume ?ai|resume-ai|workly/i;
+const scanDirs = (dir, out = []) => {
+  for (const n of readdirSync(dir)) {
+    if (['node_modules', '.wrangler', '.git', 'docs', 'tests'].includes(n)) continue;
+    const p = join(dir, n);
+    if (statSync(p).isDirectory()) scanDirs(p, out);
+    else if (/\.(html|js|mjs|css|json|xml|txt|webmanifest|md)$/.test(n) && n !== 'check.mjs') out.push(p);
+  }
+  return out;
+};
+for (const f of scanDirs(ROOT)) {
+  const m = readFileSync(f, 'utf8').match(FORBIDDEN);
+  if (m) err(relative(ROOT, f), `menciona un proyecto retirado del portfolio («${m[0]}»)`);
+}
+
 // Sitemap
 const smFile = join(ROOT, 'sitemap.xml');
 if (!existsSync(smFile)) err('sitemap.xml', 'no existe');

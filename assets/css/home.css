@@ -45,7 +45,7 @@
 @keyframes float { to { transform: translateY(-10px) rotate(var(--rot, 0deg)) } }
 .p-browser { --o: 0; left: 4%; top: 6%; width: 84% }
 .p-browser .pn-in { background: #f3efe7; overflow: hidden }
-.bbar { display: flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px; background: #1b1b1e; color: #8e8c87; font-family: var(--f-mono); font-size: .62rem; letter-spacing: .04em }
+.bbar { display: flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px; background: #1b1b1e; color: #b3b1ab; font-family: var(--f-mono); font-size: .62rem; letter-spacing: .04em }
 .bbar i { width: 8px; height: 8px; border-radius: 50%; background: #3a3a3e }
 .bbar span { margin-left: 10px }
 .b-hero { position: relative; aspect-ratio: 16 / 10 }
@@ -68,16 +68,16 @@
 .ph-sizes { display: flex; gap: 4px }
 .ph-sizes i { font-style: normal; font-size: .6rem; width: 22px; height: 22px; display: grid; place-items: center; border: 1px solid #ccc }
 .ph-sizes i.on { background: #111; color: #fff; border-color: #111 }
-.ph-sizes i.off { color: #bbb; text-decoration: line-through }
+.ph-sizes i.off { color: #737373; text-decoration: line-through }
 .ph-add { margin-top: 4px; background: #111; color: #fff; text-align: center; padding: 8px; font-size: .62rem; letter-spacing: .14em; text-transform: uppercase }
 .p-slots { --o: 1; left: -5%; bottom: 6%; width: 42%; min-width: 210px }
 .p-slots .pn-in { background: #efe9df; color: #2b2f2a; padding: 16px; display: grid; gap: 8px; --rot: 1deg; animation-duration: 11s }
-.sl-h { font-size: .66rem; color: #5f7363; font-weight: 600 }
+.sl-h { font-size: .66rem; color: #4b5d4f; font-weight: 600 }
 .p-slots b { font-family: var(--f-serif); font-weight: 400; font-size: 1.4rem; line-height: 1 }
 .sl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px }
 .sl-grid i { font-style: normal; font-size: .66rem; text-align: center; padding: 7px 0; border-radius: 6px; background: #fff; border: 1px solid #ddd5c8 }
 .sl-grid i.on { background: #5f7363; border-color: #5f7363; color: #fff }
-.sl-grid i.off { color: #b4ab9c; text-decoration: line-through }
+.sl-grid i.off { color: #776e60; text-decoration: line-through }
 .sl-go { background: #2b2f2a; color: #efe9df; border-radius: 99px; text-align: center; padding: 8px; font-size: .68rem; font-weight: 600 }
 .p-kpi { --o: 3; right: 6%; top: -2%; width: 30%; min-width: 170px }
 .p-kpi .pn-in { background: #fff; color: #0f172a; padding: 14px 16px; display: grid; gap: 4px; --rot: -1.5deg; animation-duration: 8s; font-family: "Manrope", var(--f) }
@@ -112,6 +112,7 @@
   /* En móvil la composición cambia: protagonistas el teléfono y la cita */
   .stage { height: 420px; margin-inline: auto }
   .p-browser { left: 0; top: 0; width: 100%; opacity: .55 }
+  .p-browser .bbar span { visibility: hidden }
   .p-browser .b-search { display: none }
   .p-phone { right: 4%; bottom: 0; width: 46%; min-width: 0 }
   .p-slots { left: 0; bottom: 8%; width: 58%; min-width: 0 }
@@ -320,7 +321,7 @@
 .sum-h { color: var(--fg-2); font-size: .95rem }
 .sum-ctas { display: grid; gap: 10px; margin: 24px 0 }
 .sum-ctas .btn { width: 100% }
-@media (max-width: 900px) { .cfg { grid-template-columns: 1fr } .sum { position: static } }
+@media (max-width: 900px) { .cfg { grid-template-columns: 1fr } .sum { position: relative; top: 0 } }
 
 /* ---------- CONTACTO ---------- */
 .contact { background: radial-gradient(ellipse 60% 50% at 15% 30%, rgba(74, 140, 255, .14), transparent 70%) }

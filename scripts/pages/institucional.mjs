@@ -123,7 +123,7 @@ const privacidad = {
   nav: '',
   updated: '2026-10-16',
   title: 'Política de privacidad | SanchezDevelop',
-  description: 'Qué datos trata sanchezdevelop.com, para qué y cómo ejercer tus derechos: contacto por WhatsApp o email, demo con IA y analítica sin cookies.',
+  description: 'Qué datos trata sanchezdevelop.com, para qué y cómo ejercer tus derechos: contacto por WhatsApp o email, demos, demo con IA y analítica sin cookies.',
   crumbs: [['Inicio', '/'], ['Privacidad', '/privacidad/']],
   kick: 'Legal',
   h1: 'Política de privacidad',
@@ -139,6 +139,10 @@ const privacidad = {
         <h3>Cuando me escribes</h3>
         <p>Si me contactas por WhatsApp o email, trato los datos que tú me envías (nombre, teléfono o email y lo que me cuentes de tu negocio) <strong>solo para responderte y, si lo pides, preparar un presupuesto</strong>. La base legal es tu solicitud y la aplicación de medidas precontractuales. Los conservo mientras dure la conversación o la relación profesional, y después durante los plazos legales que correspondan.</p>
         <p>WhatsApp es un servicio de Meta, y el uso que hace de tus datos se rige por su propia política de privacidad.</p>
+        <p>El formulario de contacto de esta web <strong>no envía ni guarda nada en ningún servidor</strong>: solo prepara el mensaje y abre WhatsApp o tu programa de correo para que lo envíes tú. Hasta que no pulses enviar allí, no me llega nada.</p>
+
+        <h3>Las demos</h3>
+        <p>Las demos de <a href="/demos/">/demos/</a> son negocios ficticios. Sus formularios (reservas, visitas, pruebas, contacto) validan los campos pero <strong>no envían los datos a ningún sitio</strong>. La bolsa de la tienda de ejemplo y las citas del panel de Flowbook se guardan solo en tu navegador (almacenamiento local) para que la demo funcione al recargar; puedes borrarlas desde la propia demo o limpiando los datos del sitio en tu navegador.</p>
 
         <h3>La demo con IA</h3>
         <p>Si usas la demo de la portada, el nombre y el tipo de negocio que escribes se envían a la API de OpenAI para generar la maqueta. Esta web no guarda ese texto. <strong>No escribas datos personales en la demo</strong>: basta con algo como «Peluquería Lucía, peluquería y estética». El tratamiento por parte de OpenAI se rige por sus condiciones de uso de la API.</p>

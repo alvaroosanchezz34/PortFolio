@@ -1,31 +1,65 @@
 # sanchezdevelop.com
 
-Web de SanchezDevelop (Álvaro Sánchez, desarrollador Full Stack). HTML estático publicado con **Cloudflare Pages** desde la raíz del repositorio, más una Pages Function (`functions/api/preview.js`) para la demo con IA.
+Web de SanchezDevelop (Álvaro Sánchez, diseño y desarrollo web a medida). HTML estático publicado con **Cloudflare Pages** desde la raíz del repositorio, más una Pages Function (`functions/api/preview.js`) para el generador de ideas con IA de la portada.
+
+No hay framework ni dependencias de npm: un pequeño generador en Node convierte módulos de contenido en HTML, y ese HTML generado se versiona.
 
 ## Estructura
 
 | Ruta | Qué es |
 |---|---|
-| `index.html` | Portada (editada a mano). Los bloques entre `<!-- jsonld:… -->` y `<!-- footmap:… -->` los genera el build. |
-| `scripts/pages/*.mjs` | **Contenido de las páginas internas** (servicios, proyectos, blog, sobre mí, contacto, privacidad, 404). |
-| `scripts/lib/` | Plantilla común (`layout.mjs`) y datos y componentes compartidos (`site.mjs`). |
-| `*/index.html`, `404.html`, `sitemap.xml` | **Generados**: no los edites a mano. |
-| `assets/` | CSS y JS de las páginas internas, fuentes autoalojadas, imágenes e imágenes para compartir (OG). |
-| `robots.txt`, `_headers` | Rastreo y cabeceras de Cloudflare Pages. |
-| `docs/seo/` | Auditoría e informe SEO. |
+| `scripts/pages/*.mjs` | **Contenido de todas las páginas**: portada (`home.mjs`), servicios, índice de demos, blog, sobre mí, contacto, privacidad y 404. |
+| `scripts/pages/demos/*.mjs` | Las seis demos (datos + marcado). `flowbook.mjs` exporta dos páginas: la landing y el panel. |
+| `scripts/lib/` | Plantilla del sitio (`layout.mjs`), plantilla de las demos (`demo.mjs`) y datos y componentes compartidos (`site.mjs`: servicios, demos, formulario, schema…). |
+| `scripts/data/images.json` | Dimensiones de las fotos, para `width`/`height` y `srcset`. |
+| `index.html`, `*/index.html`, `404.html`, `sitemap.xml` | **Generados**: no los edites a mano. |
+| `assets/css`, `assets/js` | Estilos y JS del sitio (`site.*` común; `home.*`; `contact.js` formulario; `track.js` eventos de conversión). |
+| `assets/demos/kit.*` | Kit común de las demos: barra «Demo ficticia», cierre comercial, validación, diálogos, router por hash y almacenamiento local. |
+| `assets/demos/<slug>/` | CSS, JS, fuentes y fotos propias de cada demo. |
+| `assets/og/` | Imágenes para compartir (1200×630). |
+| `robots.txt`, `_headers`, `_redirects` | Rastreo, cabeceras y redirecciones de Cloudflare Pages. `_redirects` impide abrir `docs/`, `scripts/`, `tests/` y este README desde la web. |
+| `tests/e2e.mjs` | Pruebas end-to-end con Playwright (formularios, menú, 404 y las seis demos). |
+| `docs/` | Estrategia y entrega del rediseño (`docs/rediseno/`) y documentación SEO (`docs/seo/`, histórica). |
 
-## Comandos (Node 18 o superior, sin dependencias)
+## Demos
+
+| Ruta | Sector | Qué se puede probar |
+|---|---|---|
+| `/demos/aurea-estates/` | Inmobiliaria de lujo | Buscador y filtros, orden, ficha con galería, formulario de visita |
+| `/demos/noir-atelier/` | Moda | Catálogo filtrable, colores y tallas, bolsa persistente (pago desactivado) |
+| `/demos/sora-wellness/` | Estética y bienestar | Reserva en cuatro pasos con días y horas libres |
+| `/demos/forge-fitness/` | Gimnasio | Horario filtrable, tarifas mensual/trimestral, clase de prueba |
+| `/demos/veloce-automotive/` | Concesionario | Stock con filtros y rango de precio, ficha técnica, calculadora de cuota |
+| `/demos/flowbook/` y `/app/` | SaaS de reservas | Landing y panel de citas: alta con control de solapes, estados, búsqueda, métricas |
+
+Todas son negocios **ficticios**, lo dicen en pantalla y llevan `noindex`. Sus formularios validan pero no envían nada. La bolsa de Noir y las citas de Flowbook se guardan solo en `localStorage`.
+
+## Comandos (Node 18 o superior)
 
 ```bash
-npm run build   # genera las páginas internas, el sitemap y los bloques de la portada
-npm run check   # valida titles, H1, canonical, OG, JSON-LD, enlaces, sitemap y robots
+npm run build   # genera todas las páginas y el sitemap (y borra las que ya no existen)
+npm run check   # valida titles, H1, canonical, OG, JSON-LD, enlaces, sitemap, robots y términos retirados
 npm test        # build + check
 ```
 
-Para probar el comportamiento real de Cloudflare Pages (404, redirecciones, `_headers`, Function): `npx wrangler pages dev .`
+Para ver la web con el comportamiento real de Cloudflare Pages (404, `_headers`, `_redirects`, la Function):
 
-## Añadir una página o un artículo
+```bash
+npx wrangler pages dev . --port 8788
+```
 
-1. Crea o edita un módulo en `scripts/pages/` (copia uno existente).
+El generador con IA necesita la variable `OPENAI_API_KEY` (en local, en un fichero `.dev.vars`; en producción, en el panel de Cloudflare Pages). Sin ella, el resto de la web funciona igual.
+
+Pruebas end-to-end (con el servidor anterior en marcha y Playwright instalado, por ejemplo con `npm i -D playwright && npx playwright install chromium`):
+
+```bash
+BASE=http://localhost:8788 npm run e2e
+```
+
+## Añadir o cambiar una página
+
+1. Crea o edita un módulo en `scripts/pages/` (copia uno parecido).
 2. `npm test` y revisa que no haya errores.
 3. Haz commit del módulo **y** de los HTML generados.
+
+Si cambias CSS o JS de forma que el navegador deba recargarlo, sube `ASSET_V` en `scripts/lib/site.mjs`.

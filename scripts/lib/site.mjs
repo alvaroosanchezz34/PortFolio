@@ -11,7 +11,7 @@ export const WA_NUMBER = '34697898574';
 export const GITHUB = 'https://github.com/alvaroosanchezz34';
 export const OG_DEFAULT = '/assets/og/sanchezdevelop.jpg';
 // Versión de los recursos estáticos: súbela cuando cambien los CSS o JS comunes.
-export const ASSET_V = '3';
+export const ASSET_V = '4';
 
 // Dimensiones reales de las fotos de las demos (las genera la conversión a WebP).
 export const IMAGES = JSON.parse(readFileSync(new URL('../data/images.json', import.meta.url)));

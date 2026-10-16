@@ -62,24 +62,25 @@
 
   const apBtn = (a, list = false) => {
     const end = toTime(toMin(a.start) + a.min);
-    const label = `${a.start} a ${end}, ${a.client}, ${a.service}, ${ST[a.status]}`;
     const pos = list ? '' : ` style="top:${(toMin(a.start) - OPEN) / ROW * 30 + 2}px;height:${a.min / ROW * 30 - 4}px"`;
     const short = !list && a.min <= 30;
-    return `<button type="button" class="fa-ap st-${a.status}${short ? ' short' : ''}${a.id === lastNew ? ' new' : ''}" data-ap="${a.id}" aria-label="${esc(label)}"${pos}><b>${esc(a.client)}</b><small>${a.start}${short ? '' : ` · ${esc(a.service)}`}</small>${list ? `<small>${ST[a.status]}</small>` : ''}</button>`;
+    return `<button type="button" class="fa-ap st-${a.status}${short ? ' short' : ''}${a.id === lastNew ? ' new' : ''}" data-ap="${a.id}"${pos}><b>${esc(a.client)}</b><small>${a.start}${short ? '' : ` · ${esc(a.service)}`}</small>${list ? `<small>${ST[a.status]}</small>` : ''}<span class="dk-sr">${short ? `, ${esc(a.service)}` : ''}, hasta las ${end}${list ? '' : `, ${ST[a.status]}`}</span></button>`;
   };
 
   const renderWeekGrid = () => {
     const days = weekDays();
     const rows = (data.close * 60 - OPEN) / ROW;
-    let h = `<div class="fa-grid" role="grid" aria-label="Semana"><div class="fa-head" aria-hidden="true"></div>`;
+    let h = `<div class="fa-grid" role="group" aria-label="Semana"><div class="fa-head" aria-hidden="true"></div>`;
     days.forEach(d => { const t = iso(d) === todayIso; h += `<div class="fa-head${t ? ' today' : ''}">${fmt(d, { weekday: 'short' })} <span>${d.getDate()}</span></div>`; });
     h += `<div class="fa-hours" aria-hidden="true">${Array.from({ length: rows }, (_, r) => `<span>${r % 2 ? '' : toTime(OPEN + r * ROW)}</span>`).join('')}</div>`;
     days.forEach(d => {
       const ds = iso(d), close = closeOf(d);
-      h += `<div class="fa-col${close ? '' : ' closed'}" aria-label="${fmt(d, { weekday: 'long', day: 'numeric' })}${close ? '' : ', cerrado'}">`;
+      const taken = A.filter(a => a.date === ds).map(a => [toMin(a.start), toMin(a.start) + a.min]);
+      h += `<div class="fa-col${close ? '' : ' closed'}" role="group" aria-label="${fmt(d, { weekday: 'long', day: 'numeric' })}${close ? '' : ', cerrado'}">`;
       for (let r = 0; r < rows; r++) {
         const m = OPEN + r * ROW;
-        h += m < close ? `<button type="button" class="fa-slot" data-new="${ds}|${toTime(m)}" aria-label="Nueva cita el ${fmt(d, { weekday: 'long', day: 'numeric' })} a las ${toTime(m)}"></button>` : '<div aria-hidden="true"></div>';
+        // Un hueco tapado por una cita no se puede pulsar: no se pinta como botón.
+        h += m < close && !taken.some(([s, e]) => m < e && m + ROW > s) ? `<button type="button" class="fa-slot" data-new="${ds}|${toTime(m)}" aria-label="Nueva cita el ${fmt(d, { weekday: 'long', day: 'numeric' })} a las ${toTime(m)}"></button>` : '<div aria-hidden="true"></div>';
       }
       A.filter(a => a.date === ds).sort((x, y) => toMin(x.start) - toMin(y.start)).forEach(a => { h += apBtn(a); });
       if (ds === todayIso) {
@@ -97,8 +98,8 @@
     $('#dayTabs').innerHTML = days.map((d, i) => `<button type="button" role="tab" aria-selected="${i === sel}" data-day="${i}">${fmt(d, { weekday: 'short' })}<small>${d.getDate()} ${fmt(d, { month: 'short' })}</small></button>`).join('');
     const d = days[sel], ds = iso(d), list = A.filter(a => a.date === ds).sort((x, y) => toMin(x.start) - toMin(y.start));
     const closed = !closeOf(d);
-    $('#cal').innerHTML = `<ul class="fa-list" role="tabpanel" aria-label="${fmt(d, { weekday: 'long', day: 'numeric', month: 'long' })}">${list.map(a => `<li>${apBtn(a, true)}</li>`).join('')}
-      <li class="fa-free">${closed ? 'Cerrado este día.' : `${list.length ? '¿Otro cliente?' : 'Sin citas este día.'}<br><button type="button" class="fb-btn sm" data-new="${ds}|${list.length ? '' : '10:00'}">+ Nueva cita</button>`}</li></ul>`;
+    $('#cal').innerHTML = `<div role="tabpanel" aria-label="${fmt(d, { weekday: 'long', day: 'numeric', month: 'long' })}"><ul class="fa-list">${list.map(a => `<li>${apBtn(a, true)}</li>`).join('')}
+      <li class="fa-free">${closed ? 'Cerrado este día.' : `${list.length ? '¿Otro cliente?' : 'Sin citas este día.'}<br><button type="button" class="fb-btn sm" data-new="${ds}|${list.length ? '' : '10:00'}">+ Nueva cita</button>`}</li></ul></div>`;
   };
 
   const renderTable = () => {
