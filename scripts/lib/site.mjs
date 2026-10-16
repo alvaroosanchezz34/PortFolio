@@ -10,7 +10,7 @@ export const WA_NUMBER = '34697898574';
 export const GITHUB = 'https://github.com/alvaroosanchezz34';
 export const OG_DEFAULT = '/assets/og/sanchezdevelop.jpg';
 // Versión de los recursos estáticos: súbela cuando cambien site.css o site.js.
-export const ASSET_V = '1';
+export const ASSET_V = '2';
 
 export const SERVICES = [
   {
@@ -110,17 +110,15 @@ export const serviceNode = ({ path, name, serviceType, description, minPrice, un
     url: abs(path),
     provider: { '@id': PERSON_ID },
     areaServed: { '@type': 'Country', name: 'España' },
-    availableLanguage: 'es',
   };
   if (minPrice) {
     node.offers = {
       '@type': 'Offer',
       url: abs(path),
       priceCurrency: 'EUR',
-      priceSpecification: {
-        '@type': 'PriceSpecification', minPrice, priceCurrency: 'EUR',
-        ...(unitText ? { unitText } : {}),
-      },
+      priceSpecification: unitText
+        ? { '@type': 'UnitPriceSpecification', minPrice, priceCurrency: 'EUR', unitCode: 'MON', unitText }
+        : { '@type': 'PriceSpecification', minPrice, priceCurrency: 'EUR' },
     };
   }
   return node;

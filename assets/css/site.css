@@ -85,7 +85,8 @@ h1, h2, h3, p { margin: 0 }
 .h-lg { font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 1.07; font-weight: 700; letter-spacing: -.03em }
 .h-md { font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.12; font-weight: 700; letter-spacing: -.025em }
 .kick { font-size: clamp(1rem, 1.4vw, 1.2rem); font-weight: 600; color: var(--gray); margin-bottom: 12px; letter-spacing: -.01em }
-.lead { font-size: clamp(1.12rem, 1.7vw, 1.36rem); line-height: 1.45; font-weight: 500; color: var(--gray); max-width: 36em; letter-spacing: -.012em }
+.lead { font-size: clamp(1.12rem, 1.7vw, 1.36rem); line-height: 1.45; font-weight: 500; color: var(--gray-2); max-width: 36em; letter-spacing: -.012em }
+.dark .lead { color: var(--gray) }
 .lead b, .lead strong { color: var(--ink); font-weight: 600 }
 .dark .lead b, .dark .lead strong { color: var(--light) }
 
@@ -272,7 +273,7 @@ a.card .go::after { content: "›"; margin-left: 6px }
 
 /* Blog */
 .posts { display: grid; gap: 18px; list-style: none; padding: 0; margin: 0 }
-.meta { color: var(--gray); font-size: .92rem; margin-top: 18px }
+.meta { color: var(--gray-2); font-size: .92rem; margin-top: 18px }
 .toc { background: var(--light); border-radius: 18px; padding: 22px 26px; font-size: 1rem }
 .toc p { font-weight: 600 }
 .toc ol { margin: 10px 0 0; padding-left: 1.2em }

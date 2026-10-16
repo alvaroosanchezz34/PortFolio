@@ -29,7 +29,7 @@ const fileToPath = f => {
 };
 const pathToFile = p => {
   const clean = decodeURIComponent(p.split('#')[0].split('?')[0]);
-  if (clean.endsWith('/')) return join(ROOT, clean, 'index.html');
+  if (clean.endsWith('/')) { const idx = join(ROOT, clean, 'index.html'); return existsSync(idx) ? idx : null; }
   const direct = join(ROOT, clean);
   if (existsSync(direct) && statSync(direct).isFile()) return direct;
   return null;

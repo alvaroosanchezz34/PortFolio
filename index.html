@@ -270,6 +270,21 @@
       border-radius: 8px
     }
 
+    .skip {
+      position: absolute;
+      left: 12px;
+      top: -60px;
+      z-index: 100;
+      background: var(--blue);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 10px
+    }
+
+    .skip:focus {
+      top: 12px
+    }
+
     .wrap {
       width: min(var(--wrap), 100% - var(--gut) * 2);
       margin-inline: auto
@@ -621,11 +636,14 @@
         font-size: 1.05rem;
         border-bottom: 1px solid rgba(127, 127, 127, .2);
         clip-path: inset(0 0 100% 0);
-        transition: clip-path .5s var(--ease-out)
+        visibility: hidden;
+        transition: clip-path .5s var(--ease-out), visibility 0s .5s
       }
 
       .lnav.open .lnav-links {
-        clip-path: inset(0 0 0 0)
+        clip-path: inset(0 0 0 0);
+        visibility: visible;
+        transition: clip-path .5s var(--ease-out)
       }
 
       .lnav.open {
@@ -1830,7 +1848,7 @@
 
     .statement .src {
       margin-top: 34px;
-      color: var(--gray-2);
+      color: var(--gray);
       font-size: .82rem
     }
 
@@ -3677,6 +3695,7 @@
 
 <body>
 
+  <a class="skip" href="#main">Saltar al contenido</a>
   <div class="promo">Primero ves tu web y luego decides. Si no te convence, no pagas.<sup><a href="#fn1">1</a></sup> <a
       href="#presupuesto">Calcula tu presupuesto ›</a></div>
 
@@ -3702,7 +3721,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- ================= HERO ================= -->
     <section class="hero dark" id="hero">
       <div class="pin" id="heroPin">
