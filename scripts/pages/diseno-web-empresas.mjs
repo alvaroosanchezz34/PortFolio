@@ -39,11 +39,11 @@ export default {
       </div>
     </section>
 
-    <section class="sec soft" aria-labelledby="planes-t">
+    <section class="sec alt" aria-labelledby="planes-t">
       <div class="wrap">
-        <div class="sec-head">
-          <h2 class="h-lg" id="planes-t">Qué web necesitas</h2>
-          <p class="lead">Precios orientativos de pago único. El precio final lo cerramos por escrito antes de empezar y <b>ya no cambia</b>, salvo que añadamos funciones nuevas.</p>
+        <div class="sh">
+          <h2 class="t-lg" id="planes-t">Qué web necesitas</h2>
+          <p class="lede">Precios orientativos de pago único. El precio final lo cerramos por escrito antes de empezar y <b>ya no cambia</b>, salvo que añadamos funciones nuevas.</p>
         </div>
         <div class="cards c4">
           <div class="card">
@@ -75,7 +75,7 @@ export default {
 
     <section class="sec" aria-labelledby="incl-t">
       <div class="wrap">
-        <div class="sec-head"><h2 class="h-lg" id="incl-t">Qué incluye y qué no</h2></div>
+        <div class="sh"><h2 class="t-lg" id="incl-t">Qué incluye y qué no</h2></div>
         <div class="split">
           <div class="card">
             <h3>Incluido</h3>
@@ -110,13 +110,13 @@ export default {
         <h2 id="medida-t">Por qué a medida y no una plantilla</h2>
         <p>Una plantilla sirve para salir del paso, pero arrastra código que tu web no usa: scripts, estilos y complementos pensados para mil casos distintos. Eso pesa, y en un móvil con mala cobertura se nota. También hace que tu web se parezca a la de muchos otros negocios.</p>
         <p>Cuando programo una web desde cero, solo lleva lo que necesita. El resultado suele ser más rápido y más fácil de mantener, porque no hay complementos de terceros que se rompan con cada actualización. Y el diseño parte de tu negocio: de qué buscan tus clientes y de qué quieres que hagan al entrar.</p>
-        <p>¿Quieres hacerte una idea antes de hablar? En la portada hay una <a href="/#demo">demo que genera en segundos una primera maqueta para tu negocio</a> con IA. No es la web final (esa la diseño contigo, a mano), pero te sirve para imaginarla.</p>
+        <p>¿Quieres hacerte una idea antes de hablar? En la portada hay una <a href="/#idea">demo que genera en segundos una primera maqueta para tu negocio</a> con IA. No es la web final (esa la diseño contigo, a mano), pero te sirve para imaginarla.</p>
       </div>
     </section>
 
-    <section class="sec soft" aria-labelledby="proc-t">
+    <section class="sec alt" aria-labelledby="proc-t">
       <div class="wrap">
-        <div class="sec-head"><h2 class="h-lg" id="proc-t">Cómo trabajamos</h2></div>
+        <div class="sh"><h2 class="t-lg" id="proc-t">Cómo trabajamos</h2></div>
         <ol class="steps">
           <li><h3>Hablamos</h3><p>Me cuentas tu negocio con tus palabras, por WhatsApp, llamada o en persona si estás en Málaga.</p></li>
           <li><h3>Propuesta</h3><p>Te paso por escrito qué incluye, el precio cerrado y una fecha de entrega.</p></li>
@@ -149,7 +149,7 @@ ${faq([
   ])}
 ${related(['reservas', 'mant', 'precio'])}
 ${finalCta({
-    title: 'Tu negocio,<br><span class="grad">en su mejor versión.</span>',
+    title: 'Tu negocio,<br><em>en su mejor versión.</em>',
     text: 'Cuéntame qué haces y te digo qué web haría yo. <b>La primera conversación es gratis</b> y te respondo normalmente el mismo día.',
     waText: 'Hola Álvaro, he visto tu página de diseño web y quiero una web para mi negocio.',
     mailSubject: 'Quiero una web para mi negocio',

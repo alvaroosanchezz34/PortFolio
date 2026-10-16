@@ -155,9 +155,12 @@ for (const f of files) {
 // Resolución de enlaces internos y anclas
 const inbound = new Map();
 for (const page of pages.values()) {
-  for (const href of page.links) {
-    if (href === '#') continue;
-    const [p, hash] = href.split('#');
+  for (const raw of page.links) {
+    if (raw === '#' || raw.startsWith('#/')) continue; // rutas por hash de las demos (las resuelve su JS)
+    // enlaces relativos (app/, ../) respecto a la página
+    const href = /^[./]|^[#?]/.test(raw) && !raw.startsWith('./') && !raw.startsWith('../') ? raw : new URL(raw, 'https://x' + page.path).pathname + (raw.includes('#') ? '#' + raw.split('#')[1] : '');
+    const [p0, hash] = href.split('#');
+    const p = p0.split('?')[0];
     const target = p === '' ? page : pages.get(p.endsWith('/') || p.endsWith('.html') ? p : p + '/');
     if (p !== '' && !target && !pathToFile(p)) { err(page.rel, `enlace roto: ${href}`); continue; }
     if (p !== '' && p !== page.path && target) inbound.set(target.path, (inbound.get(target.path) || 0) + 1);

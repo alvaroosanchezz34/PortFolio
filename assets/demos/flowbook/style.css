@@ -1,0 +1,218 @@
+/* Flowbook · producto SaaS: claro, preciso, con acento verde azulado */
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 400 800; font-display: swap; src: url(fonts/manrope.woff2) format("woff2") }
+.fb {
+  --w: #ffffff; --bg: #f8fafc; --ink: #0f172a; --ink-2: #334155; --mut: #64748b; --line: #e2e8f0; --teal: #0d9488; --teal-2: #ccfbf1; --teal-d: #0f766e;
+  --amber: #b45309; --amber-2: #fef3c7; --slate-2: #e2e8f0; --red: #b91c1c; --red-2: #fee2e2; --navy: #0f172a;
+  --sans: "Manrope", "Inter Tight", system-ui, sans-serif;
+  margin: 0; background: var(--w); color: var(--ink); font: 400 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased
+}
+.fb *, .fb *::before, .fb *::after { box-sizing: border-box }
+.fb a { color: inherit; text-decoration: none }
+.fb h1, .fb h2, .fb h3, .fb p, .fb ul, .fb ol { margin: 0 }
+.fb button, .fb input, .fb select { font: inherit; color: inherit }
+.fb :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 6px }
+.fb-logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.2rem; letter-spacing: -.03em }
+.fb-mark { position: relative; width: 26px; height: 26px; border-radius: 8px; background: var(--ink); display: inline-block; overflow: hidden }
+.fb-mark i { position: absolute; left: 6px; right: 6px; height: 4px; border-radius: 2px; background: #5eead4 }
+.fb-mark i:first-child { top: 7px } .fb-mark i:last-child { top: 15px; right: 11px; background: #fbbf24 }
+.fb .fb-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 12px; background: var(--ink); color: var(--w); border: 1px solid var(--ink); font-weight: 700; cursor: pointer; transition: background .25s, transform .25s, box-shadow .25s }
+.fb .fb-btn:hover { background: var(--teal-d); border-color: var(--teal-d); box-shadow: 0 10px 24px -12px rgba(13, 148, 136, .7) }
+.fb .fb-btn:active { transform: scale(.97) }
+.fb .fb-btn.sm { min-height: 40px; padding: 0 16px; font-size: .92rem }
+.fb .fb-btn.ghost { background: var(--w); color: var(--ink); border-color: var(--line) }
+.fb .fb-btn.ghost:hover { background: var(--bg); box-shadow: none }
+.fb .fb-btn.danger { background: var(--w); color: var(--red); border-color: #fecaca }
+.fb .fb-btn.danger:hover { background: var(--red-2); box-shadow: none }
+.fb-link { color: var(--teal-d); font-weight: 700; text-decoration: underline; text-underline-offset: 4px }
+
+/* ---------- Landing ---------- */
+.fb .fl-w { width: min(1180px, 100% - clamp(32px, 6vw, 80px)); margin-inline: auto }
+.fl-hd { position: sticky; top: 0; z-index: 40; background: rgba(255, 255, 255, .88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line) }
+.fl-hd-in { height: 66px; display: flex; align-items: center; gap: 28px }
+.fl-hd-in .fb-logo { margin-right: auto }
+.fl-nav { display: flex; gap: 26px; font-weight: 600; color: var(--ink-2); font-size: .95rem }
+.fl-nav a:hover { color: var(--teal-d) }
+@media (max-width: 720px) { .fl-nav { display: none } }
+.fl-hero { padding: clamp(56px, 8vw, 100px) 0 0; background: radial-gradient(ellipse 60% 50% at 50% 0%, #ccfbf1, transparent 70%), var(--w); overflow: hidden }
+.fl-hero-in { text-align: center; display: grid; justify-items: center }
+.fl-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 100px; background: var(--w); border: 1px solid var(--line); font-size: .84rem; font-weight: 600; color: var(--ink-2) }
+.fl-pill span { width: 8px; height: 8px; border-radius: 50%; background: var(--teal) }
+.fl-hero h1 { font-weight: 800; font-size: clamp(2.8rem, 7.4vw, 6.2rem); line-height: .98; letter-spacing: -.055em; margin: 22px 0 20px }
+.fl-hero h1 span { background: linear-gradient(90deg, var(--teal), #0284c7); -webkit-background-clip: text; background-clip: text; color: transparent }
+.fl-sub { color: var(--ink-2); max-width: 46ch; font-size: 1.12rem }
+.fl-ctas { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px 24px; margin: 30px 0 56px }
+.js .fl-hero-in > * { animation: fup 1s cubic-bezier(.16, 1, .3, 1) both }
+.js .fl-hero-in > :nth-child(2) { animation-delay: .08s } .js .fl-hero-in > :nth-child(3) { animation-delay: .16s } .js .fl-hero-in > :nth-child(4) { animation-delay: .24s } .js .fl-hero-in > :nth-child(5) { animation-delay: .36s }
+@keyframes fup { from { opacity: 0; transform: translateY(24px) } }
+.fb-shot { width: min(1040px, 100%); border-radius: 16px 16px 0 0; overflow: hidden; background: var(--w); box-shadow: 0 0 0 1px var(--line), 0 40px 80px -30px rgba(15, 23, 42, .35); text-align: left }
+.fbs-bar { height: 34px; display: flex; align-items: center; gap: 6px; padding: 0 14px; background: var(--bg); border-bottom: 1px solid var(--line); font-size: .72rem; color: var(--mut) }
+.fbs-bar i { width: 9px; height: 9px; border-radius: 50%; background: #cbd5e1 }
+.fbs-bar span { margin-left: 10px }
+.fbs-in { display: grid; grid-template-columns: 200px 1fr; min-height: 340px }
+.fbs-side { background: var(--navy); color: #cbd5e1; padding: 18px; display: grid; align-content: start; gap: 6px; font-size: .9rem }
+.fbs-side b { color: var(--w); margin-bottom: 14px; font-size: 1rem }
+.fbs-side .fb-mark { width: 20px; height: 20px }
+.fbs-side span { padding: 8px 10px; border-radius: 8px }
+.fbs-side span.on { background: #1e293b; color: var(--w) }
+.fbs-main { padding: 18px; display: grid; gap: 14px; background: var(--bg) }
+.fbs-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px }
+.fbs-kpis span { background: var(--w); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; display: grid }
+.fbs-kpis small { color: var(--mut); font-size: .72rem }
+.fbs-kpis b { font-size: 1.35rem; letter-spacing: -.03em }
+.fbs-cal { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; background: var(--w); border: 1px solid var(--line); border-radius: 10px; padding: 10px; min-height: 190px }
+.fbs-cal > div { position: relative; display: grid; align-content: start; gap: 6px }
+.fbs-cal small { color: var(--mut); font-size: .72rem; font-weight: 700 }
+.fbs-cal i { display: block; height: 30px; margin-top: var(--t); border-radius: 6px; background: var(--teal-2); border-left: 3px solid var(--teal) }
+.fbs-cal i.s1 { background: var(--amber-2); border-color: #f59e0b }
+.fbs-cal i.s2 { background: #e0f2fe; border-color: #0284c7 }
+@media (max-width: 700px) { .fbs-in { grid-template-columns: 1fr } .fbs-side { display: none } .fbs-kpis { grid-template-columns: 1fr 1fr } }
+.fl-feat, .fl-how, .fl-price { padding: clamp(70px, 9vw, 120px) 0 }
+.fl-feat { background: var(--bg); border-top: 1px solid var(--line) }
+.fb h2 { font-weight: 800; font-size: clamp(2rem, 4.2vw, 3.3rem); line-height: 1.05; letter-spacing: -.045em; max-width: 20ch }
+.fl-grid { list-style: none; padding: 0; margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px }
+@media (max-width: 900px) { .fl-grid { grid-template-columns: 1fr 1fr } }
+@media (max-width: 600px) { .fl-grid { grid-template-columns: 1fr } }
+.fl-grid li { background: var(--w); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: grid; gap: 8px; transition: transform .3s, box-shadow .3s }
+.fl-grid li:hover { transform: translateY(-3px); box-shadow: 0 16px 30px -20px rgba(15, 23, 42, .4) }
+.fl-grid b { font-size: 1.1rem }
+.fl-grid p, .fl-steps p { color: var(--ink-2) }
+.fl-note { color: var(--mut); font-size: .88rem; margin-top: 26px; max-width: 70ch }
+.fl-steps { list-style: none; padding: 0; margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; counter-reset: s }
+@media (max-width: 760px) { .fl-steps { grid-template-columns: 1fr } }
+.fl-steps li { display: grid; gap: 8px; padding-top: 18px; border-top: 2px solid var(--line) }
+.fl-steps span { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--teal-2); color: var(--teal-d); font-weight: 800 }
+.fl-steps b { font-size: 1.15rem }
+.fl-plans { list-style: none; padding: 0; margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch }
+@media (max-width: 860px) { .fl-plans { grid-template-columns: 1fr } }
+.fl-plans > li { position: relative; border: 1px solid var(--line); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 10px }
+.fl-plans > li.top { border-color: var(--teal); box-shadow: 0 0 0 1px var(--teal), 0 24px 40px -28px rgba(13, 148, 136, .6) }
+.fl-badge { position: absolute; top: -12px; left: 24px; background: var(--teal); color: var(--w); font-size: .74rem; font-weight: 700; padding: 4px 10px; border-radius: 100px }
+.fl-plans b { font-size: 1.3rem }
+.fl-plans p { color: var(--ink-2) }
+.fl-amount { font-size: 2.6rem !important; font-weight: 800; letter-spacing: -.04em; color: var(--ink) !important }
+.fl-amount small { font-size: .95rem; color: var(--mut); font-weight: 600; letter-spacing: 0 }
+.fl-plans ul { list-style: none; padding: 12px 0; display: grid; gap: 8px; border-top: 1px solid var(--line); flex: 1 }
+.fl-plans ul li::before { content: "✓ "; color: var(--teal); font-weight: 800 }
+.fl-cta { padding: clamp(70px, 9vw, 120px) 0; background: var(--navy); color: var(--w); text-align: center }
+.fl-cta .fl-w { display: grid; justify-items: center; gap: 18px }
+.fl-cta h2 { max-width: none }
+.fl-cta p { color: #cbd5e1 }
+.fl-cta .fb-btn { background: #5eead4; color: var(--navy); border-color: #5eead4 }
+.fl-ft { border-top: 1px solid var(--line); padding: 30px 0; color: var(--mut); font-size: .86rem }
+.fl-ft .fl-w { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; align-items: center }
+.fl-ft .fb-logo { color: var(--ink) }
+
+/* ---------- Panel ---------- */
+.fb-app { background: var(--bg) }
+.fa { display: grid; grid-template-columns: 240px 1fr; min-height: calc(100vh - 38px) }
+.fa-side { background: var(--navy); color: #cbd5e1; padding: 22px 16px; display: flex; flex-direction: column; gap: 22px; position: sticky; top: 0; height: 100vh; height: 100dvh }
+.fa-side .fb-logo { color: var(--w); padding: 0 8px }
+.fa-biz { padding: 12px; border-radius: 12px; background: #1e293b; color: var(--w); font-weight: 700; display: grid }
+.fa-biz small { color: #94a3b8; font-weight: 500; font-size: .74rem }
+.fa-nav { display: grid; gap: 4px }
+.fb .fa-nav button { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 0; border-radius: 10px; background: none; color: #cbd5e1; cursor: pointer; text-align: left; font-weight: 600 }
+.fb .fa-nav button:hover { background: #1e293b; color: var(--w) }
+.fb .fa-nav button.on { background: #134e4a; color: var(--w) }
+.fa-nav svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round }
+.fa-side-ft { margin-top: auto; display: grid; gap: 10px; font-size: .86rem }
+.fb .fa-reset { background: none; border: 1px solid #334155; color: #cbd5e1; padding: 9px 10px; border-radius: 10px; cursor: pointer }
+.fb .fa-reset:hover { border-color: #64748b; color: var(--w) }
+.fa-side-ft a { color: #94a3b8; padding: 0 4px }
+.fa-side-ft a:hover { color: var(--w) }
+.fa-main { padding: clamp(16px, 2.4vw, 30px); display: grid; gap: 18px; align-content: start; min-width: 0 }
+.fa-top { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap }
+.fa-week { display: flex; align-items: center; gap: 8px; flex-wrap: wrap }
+.fb .fa-ic, .fb .fa-today { min-width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--line); background: var(--w); cursor: pointer; font-weight: 700; padding: 0 12px }
+.fb .fa-ic { font-size: 1.3rem; line-height: 1 }
+.fa-week .fa-h1 { font-size: clamp(1.1rem, 2vw, 1.45rem); font-weight: 800; letter-spacing: -.03em; margin-left: 8px; text-transform: capitalize }
+.fa-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px }
+@media (max-width: 1000px) { .fa-kpis { grid-template-columns: 1fr 1fr } }
+.fa-kpis > div { background: var(--w); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: grid; gap: 2px }
+.fa-kpis small { color: var(--mut); font-size: .8rem; font-weight: 600 }
+.fa-kpis b { font-size: 1.7rem; letter-spacing: -.04em; font-variant-numeric: tabular-nums }
+.fa-meter { height: 6px; border-radius: 3px; background: var(--slate-2); overflow: hidden; margin-top: 4px }
+.fa-meter i { display: block; height: 100%; background: var(--teal); transition: width .6s cubic-bezier(.16, 1, .3, 1) }
+.fa-legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: .82rem; color: var(--ink-2); margin-bottom: 10px }
+.fa-legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; background: var(--c-bg); border-left: 3px solid var(--c) }
+.st-pending { --c: #d97706; --c-bg: var(--amber-2) } .st-confirmed { --c: var(--teal); --c-bg: var(--teal-2) } .st-done { --c: #64748b; --c-bg: var(--slate-2) } .st-cancelled { --c: var(--red); --c-bg: var(--red-2) }
+
+.fa-cal { background: var(--w); border: 1px solid var(--line); border-radius: 14px; overflow: auto; --row: 30px }
+.fa-grid { display: grid; grid-template-columns: 56px repeat(7, minmax(110px, 1fr)); min-width: 860px }
+.fa-head { position: sticky; top: 0; z-index: 3; background: var(--w); border-bottom: 1px solid var(--line); padding: 10px 8px; text-align: center; font-weight: 700; font-size: .86rem; text-transform: capitalize }
+.fa-head.today { color: var(--teal-d) }
+.fa-head.today span { background: var(--teal); color: var(--w); border-radius: 8px; padding: 1px 7px }
+.fa-hours { display: grid; grid-auto-rows: var(--row) }
+.fa-hours span { font-size: .72rem; color: var(--mut); text-align: right; padding-right: 8px; transform: translateY(-7px); font-variant-numeric: tabular-nums }
+.fa-col { position: relative; border-left: 1px solid var(--line); display: grid; grid-auto-rows: var(--row) }
+.fa-col.closed { background: repeating-linear-gradient(-45deg, var(--bg) 0 8px, #f1f5f9 8px 16px) }
+.fb .fa-slot { border: 0; border-top: 1px solid #f1f5f9; background: none; cursor: pointer; padding: 0 }
+.fb .fa-slot:nth-child(2n+1) { border-top-color: var(--line) }
+.fb .fa-slot:hover { background: #f0fdfa }
+.fb .fa-slot:hover::after { content: "+"; color: var(--teal-d); font-weight: 800 }
+.fb .fa-ap { position: absolute; left: 4px; right: 4px; z-index: 2; border: 0; border-left: 4px solid var(--c); background: var(--c-bg); border-radius: 8px; padding: 4px 8px; text-align: left; cursor: pointer; overflow: hidden; font-size: .78rem; line-height: 1.25; display: grid; align-content: start; transition: transform .2s, box-shadow .2s }
+.fb .fa-ap:hover { transform: translateY(-1px); box-shadow: 0 8px 18px -10px rgba(15, 23, 42, .45) }
+.fa-ap b { font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.fa-ap small { color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.fa-ap.st-cancelled b { text-decoration: line-through }
+.fb .fa-ap.short { display: flex; align-items: center; gap: 6px; padding-top: 0; padding-bottom: 0 }
+.fa-ap.short small { flex: none }
+.fa-ap.new { animation: pop .5s cubic-bezier(.16, 1, .3, 1) }
+@keyframes pop { from { transform: scale(.85); opacity: 0 } }
+.fa-now { position: absolute; left: 0; right: 0; height: 2px; background: var(--red); z-index: 2; pointer-events: none }
+.fa-now::before { content: ""; position: absolute; left: -4px; top: -3px; width: 8px; height: 8px; border-radius: 50%; background: var(--red) }
+.fa-days { display: none; gap: 6px; overflow-x: auto; margin-bottom: 12px }
+.fb .fa-days button { flex: 0 0 auto; min-width: 58px; padding: 8px 10px; border-radius: 12px; border: 1px solid var(--line); background: var(--w); cursor: pointer; display: grid; text-align: center; font-weight: 700; line-height: 1.2; text-transform: capitalize }
+.fa-days small { font-weight: 500; color: var(--mut); font-size: .72rem }
+.fb .fa-days button[aria-selected="true"] { background: var(--ink); color: var(--w); border-color: var(--ink) }
+.fb .fa-days button[aria-selected="true"] small { color: #cbd5e1 }
+.fa-list { list-style: none; padding: 8px; margin: 0; display: grid; gap: 8px }
+.fb .fa-list .fa-ap { position: relative; left: 0; right: 0; padding: 12px 14px; font-size: .92rem; width: 100% }
+.fa-list .fa-free { border: 1px dashed var(--line); border-radius: 10px; padding: 12px; text-align: center; color: var(--mut) }
+.fb .fa-free button { margin-top: 8px }
+
+.fa-tools { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px }
+.fa-tools input, .fa-tools select { min-height: 42px; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; background: var(--w) }
+.fa-tools input { min-width: 240px }
+.fa-table { background: var(--w); border: 1px solid var(--line); border-radius: 14px; overflow-x: auto }
+.fa-table table { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 640px }
+.fa-table th { text-align: left; font-size: .76rem; text-transform: uppercase; letter-spacing: .05em; color: var(--mut); padding: 12px 14px; border-bottom: 1px solid var(--line) }
+.fa-table td { padding: 12px 14px; border-bottom: 1px solid #f1f5f9; vertical-align: middle }
+.fa-table tr:last-child td { border-bottom: 0 }
+.fa-badge { display: inline-flex; align-items: center; gap: 6px; font-size: .78rem; font-weight: 700; padding: 3px 9px; border-radius: 100px; background: var(--c-bg); color: var(--c) }
+.fa-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--c) }
+.fa-badge.st-pending { color: #92400e } .fa-badge.st-confirmed { color: #115e59 } .fa-badge.st-done { color: #334155 } .fa-badge.st-cancelled { color: #991b1b }
+.fb .fa-open { background: none; border: 0; color: var(--teal-d); font-weight: 700; cursor: pointer; text-decoration: underline; text-underline-offset: 3px }
+.fa-empty { text-align: center; padding: 30px; color: var(--mut) }
+.fa-note { color: var(--mut); font-size: .84rem }
+
+.fa-dlg { max-width: 520px !important; border-radius: 18px; background: var(--w); color: var(--ink) }
+.fa-form { padding: 24px; display: grid; gap: 14px }
+.fa-dh { display: flex; justify-content: space-between; align-items: center }
+.fa-dh h2 { font-size: 1.4rem; letter-spacing: -.03em; max-width: none }
+.fb .fa-x { width: 40px; height: 40px; border-radius: 10px; border: 0; background: var(--bg); font-size: 1.4rem; cursor: pointer }
+.fa-f { display: grid; gap: 6px }
+.fa-f label { font-size: .88rem; font-weight: 700 }
+.fa-opt { color: var(--mut); font-weight: 500 }
+.fa-f input, .fa-f select { min-height: 46px; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; background: var(--w); width: 100% }
+.fa-f input:focus, .fa-f select:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 4px rgba(13, 148, 136, .15) }
+.fb [aria-invalid="true"] { border-color: var(--red) !important }
+.fa-err { color: var(--red); font-size: .86rem }
+.fa-err::before { content: "⚠ " }
+.fa-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
+.fa-dact { display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap; margin-top: 6px }
+.fa-dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; font-size: .95rem }
+.fa-dl dt { color: var(--mut) }
+.fa-dl dd { margin: 0; font-weight: 600 }
+.fa-status { display: flex; flex-wrap: wrap; gap: 8px }
+.fb .fa-status button { border: 1px solid var(--line); background: var(--w); padding: 8px 12px; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: .86rem }
+.fb .fa-status button[aria-pressed="true"] { background: var(--c-bg); border-color: var(--c); color: var(--ink) }
+
+@media (max-width: 860px) {
+  .fa { grid-template-columns: 1fr }
+  .fa-side { position: static; height: auto; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 12px 16px }
+  .fa-biz { display: none }
+  .fa-nav { grid-auto-flow: column; margin-left: auto }
+  .fa-side-ft { margin: 0; flex-basis: 100%; display: flex; justify-content: space-between }
+  .fa-days { display: flex }
+  .fa-tools input { min-width: 0; flex: 1 }
+}

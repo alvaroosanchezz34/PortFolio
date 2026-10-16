@@ -25,9 +25,9 @@ export default {
   body: `
     <section class="sec" aria-labelledby="neg-t">
       <div class="wrap">
-        <div class="sec-head">
-          <h2 class="h-lg" id="neg-t">Para qué negocios</h2>
-          <p class="lead">Cada negocio reserva de una forma distinta. Por eso no instalo un calendario genérico: <b>el sistema se adapta a cómo trabajas tú</b>.</p>
+        <div class="sh">
+          <h2 class="t-lg" id="neg-t">Para qué negocios</h2>
+          <p class="lede">Cada negocio reserva de una forma distinta. Por eso no instalo un calendario genérico: <b>el sistema se adapta a cómo trabajas tú</b>.</p>
         </div>
         <div class="cards">
           <div class="card"><h3>Restaurantes y bares</h3><p>Reservas de mesa por turnos, con número de comensales y un aforo máximo para no llenar dos veces la misma mesa.</p></div>
@@ -39,11 +39,11 @@ export default {
       </div>
     </section>
 
-    <section class="sec soft" aria-labelledby="inc-t">
+    <section class="sec alt" aria-labelledby="inc-t">
       <div class="wrap">
-        <div class="sec-head">
-          <h2 class="h-lg" id="inc-t">Qué puede incluir</h2>
-          <p class="lead">Elegimos solo lo que te hace falta. Cada pieza añadida es más cómoda para tus clientes, pero también es más trabajo, así que la presupuestamos por separado.</p>
+        <div class="sh">
+          <h2 class="t-lg" id="inc-t">Qué puede incluir</h2>
+          <p class="lede">Elegimos solo lo que te hace falta. Cada pieza añadida es más cómoda para tus clientes, pero también es más trabajo, así que la presupuestamos por separado.</p>
         </div>
         <div class="split">
           <div class="card">
@@ -84,7 +84,7 @@ export default {
       </div>
     </section>
 
-    <section class="sec soft" aria-labelledby="dentro-t">
+    <section class="sec alt" aria-labelledby="dentro-t">
       <div class="narrow prose">
         <h2 id="dentro-t">Cómo funciona por dentro</h2>
         <p>Un sistema de reservas parece un calendario con botones, pero lo difícil está en lo que no se ve. Estas son las decisiones técnicas que cuido en cada proyecto:</p>
@@ -93,7 +93,7 @@ export default {
           <li><strong>Reglas claras.</strong> Con cuánta antelación se puede reservar o cancelar, cuánto dura cada servicio y cuánto margen hay entre citas. Todo eso se configura, no se improvisa.</li>
           <li><strong>Datos protegidos.</strong> Las reservas se guardan en una base de datos (MySQL, MongoDB o Firebase, según el proyecto), y el panel tiene acceso privado. Solo se piden los datos necesarios para la reserva.</li>
           <li><strong>Avisos fiables.</strong> Las confirmaciones y los recordatorios salen por un servicio de email transaccional, para que no acaben en spam.</li>
-          <li><strong>Pagos seguros.</strong> Si hay señal o pago por adelantado, uso una pasarela como Stripe. La tarjeta del cliente nunca pasa por tu web, y ya lo he integrado en productos propios como <a href="/proyectos/resumeai/">ResumeAI</a> y <a href="/proyectos/workly/">Workly</a>.</li>
+          <li><strong>Pagos seguros.</strong> Si hay señal o pago por adelantado, uso una pasarela como Stripe. La tarjeta del cliente nunca pasa por tu web.</li>
         </ul>
       </div>
     </section>
@@ -118,9 +118,9 @@ ${faq([
     ['¿De quién son los datos de mis clientes?', '<p>De tu negocio. Se guardan en tu sistema, se piden solo los necesarios y se tratan conforme al RGPD. Te ayudo a explicarlo en tu política de privacidad.</p>'],
     ['¿Cuánto se tarda en tenerlo funcionando?', '<p>Depende de lo completo que sea. Cuando definamos qué necesitas, te doy una fecha concreta por escrito.</p>'],
   ])}
-${related(['webs', 'ia', 'precio'])}
+${related(['sora-wellness', 'flowbook', 'precio'])}
 ${finalCta({
-    title: 'Que reserven<br><span class="grad">sin llamarte.</span>',
+    title: 'Que reserven<br><em>sin llamarte.</em>',
     text: 'Cuéntame cómo funcionan hoy tus reservas y te digo cómo lo haría. <b>La primera conversación es gratis.</b>',
     waText: 'Hola Álvaro, he visto tu página de reservas online y quiero un sistema de reservas para mi negocio.',
     mailSubject: 'Quiero un sistema de reservas',

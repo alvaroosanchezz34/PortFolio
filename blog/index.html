@@ -7,7 +7,7 @@
   <title>Blog sobre webs y software para negocios | SanchezDevelop</title>
   <meta name="description" content="Guías prácticas y sin tecnicismos para autónomos y pequeñas empresas: precios de webs, reservas online, software a medida e inteligencia artificial.">
   <link rel="canonical" href="https://sanchezdevelop.com/blog/">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#0b0b0c">
   <meta name="author" content="Álvaro Sánchez">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="SanchezDevelop">
@@ -24,7 +24,8 @@
   <link rel="icon" href="/assets/img/favicon-96.png" type="image/png" sizes="96x96">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preload" href="/assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/site.css?v=2">
+
+  <link rel="stylesheet" href="/assets/css/site.css?v=3">
   <script>document.documentElement.classList.add('js')</script>
   <script type="application/ld+json">
 {
@@ -151,40 +152,49 @@
 <body>
 
   <a class="skip" href="#main">Saltar al contenido</a>
-  <header class="lnav" id="lnav">
-    <div class="wide lnav-in">
-      <a href="/" class="brand"><img src="/assets/img/logo-sd.webp" alt="" width="26" height="26">sanchezdevelop</a>
-      <div class="lnav-r">
-        <nav class="lnav-links" id="links" aria-label="Principal">
-          <a href="/diseno-web-empresas/">Webs</a>
-          <a href="/sistemas-reservas-online/">Reservas</a>
-          <a href="/aplicaciones-web/">Apps a medida</a>
-          <a href="/integracion-inteligencia-artificial/">IA</a>
-          <a href="/mantenimiento-web/">Mantenimiento</a>
-          <a href="/proyectos/">Proyectos</a>
-          <a href="/blog/" aria-current="page">Blog</a>
-        </nav>
-        <button class="chev" id="chev" aria-label="Mostrar menú" aria-expanded="false" aria-controls="links"><svg
-            viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-            <path d="M2 5l5 5 5-5" />
-          </svg></button>
-        <a class="btn sm" href="/contacto/">Presupuesto</a>
-      </div>
+  <header class="hd" id="hd">
+    <div class="wide hd-in">
+      <a href="/" class="hd-logo"><img src="/assets/img/logo-sd.webp" alt="" width="28" height="28">SanchezDevelop</a>
+      <nav class="hd-nav" aria-label="Principal">
+        <a href="/demos/">Demos</a>
+        <a href="/#servicios">Servicios</a>
+        <a href="/#presupuesto">Precios</a>
+        <a href="/sobre-mi/">Sobre mí</a>
+        <a href="/blog/" aria-current="page">Blog</a>
+      </nav>
+      <a class="btn sm" href="/contacto/" data-cta="presupuesto">Pedir presupuesto <span class="arr" aria-hidden="true">→</span></a>
+      <button class="hd-menu" id="menuBtn" aria-expanded="false" aria-controls="menu"><i aria-hidden="true"></i><span>Menú</span></button>
     </div>
   </header>
+  <div class="menu" id="menu" hidden>
+    <nav aria-label="Menú">
+      <ol>
+        <li style="--i:0"><a href="/">Inicio</a></li>
+        <li style="--i:1"><a href="/demos/">Demos</a></li>
+        <li style="--i:2"><a href="/#servicios">Servicios</a></li>
+        <li style="--i:3"><a href="/#presupuesto">Precios</a></li>
+        <li style="--i:4"><a href="/sobre-mi/">Sobre mí</a></li>
+        <li style="--i:5"><a href="/blog/">Blog</a></li>
+        <li style="--i:6"><a href="/contacto/">Contacto</a></li>
+      </ol>
+    </nav>
+    <div class="menu-foot">
+      <a class="btn lg" href="/contacto/" data-cta="presupuesto">Pedir presupuesto <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn lg ghost" href="https://wa.me/34697898574?text=Hola%20%C3%81lvaro%2C%20he%20visto%20tu%20web%20y%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener" data-cta="whatsapp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.4z"/></svg>WhatsApp</a>
+    </div>
+  </div>
 
   <main id="main">
-    <section class="phero dark" aria-labelledby="h1">
+    <section class="phero" aria-labelledby="h1">
       <div class="wrap">
-          <nav class="crumbs" aria-label="Migas de pan">
-            <ol>
-              <li><a href="/">Inicio</a></li>
-              <li><span aria-current="page">Blog</span></li>
-            </ol>
-          </nav>
-        <p class="kick">Blog</p>
-        <h1 class="h-xl" id="h1">Webs y software para negocios, sin tecnicismos</h1>
-        <p class="lead">Guías prácticas para tomar buenas decisiones sobre tu web, tus herramientas y la IA, escritas por quien las programa.</p>
+        <nav class="crumbs" aria-label="Migas de pan">
+          <ol>
+            <li><a href="/">Inicio</a></li>
+            <li><span aria-current="page">Blog</span></li>
+          </ol>
+        </nav>
+        <h1 class="t-xl" id="h1"><span class="eyebrow" style="margin-bottom:22px">Blog</span>Webs y software para negocios, sin tecnicismos</h1>
+        <p class="lede">Guías prácticas para tomar buenas decisiones sobre tu web, tus herramientas y la IA, escritas por quien las programa.</p>
       </div>
     </section>
 
@@ -193,7 +203,7 @@
         <ul class="posts">
           <li>
             <a class="card" href="/blog/cuanto-cuesta-una-pagina-web/">
-              <h2 class="h-md">¿Cuánto cuesta una página web para un negocio en 2026?</h2>
+              <h2 class="t-md">¿Cuánto cuesta una página web para un negocio en 2026?</h2>
               <p>Qué hace subir o bajar el precio de una web, los costes que no salen en el presupuesto y cómo comparar ofertas sin llevarte sustos. Con precios reales de ejemplo.</p>
               <p class="meta"><time datetime="2026-10-16">16 de octubre de 2026</time> · Álvaro Sánchez</p>
               <span class="go">Leer artículo</span>
@@ -204,11 +214,16 @@
     </section>
   </main>
 
-  <footer class="foot">
+  <footer class="ft">
     <div class="wide">
-      <nav class="foot-map" aria-label="Mapa del sitio">
-        <div>
-          <p>Servicios</p>
+      <div class="ft-top">
+        <div class="ft-brand">
+          <a href="/" class="hd-logo"><img src="/assets/img/logo-sd.webp" alt="" width="28" height="28">SanchezDevelop</a>
+          <p>Diseño y desarrollo de webs, reservas online y software a medida. Desde Málaga, para toda España.</p>
+          <div class="ctas"><a class="btn sm" href="/contacto/" data-cta="presupuesto">Pedir presupuesto <span class="arr" aria-hidden="true">→</span></a></div>
+        </div>
+        <nav aria-labelledby="ft-s">
+          <h2 id="ft-s">Servicios</h2>
           <ul>
             <li><a href="/diseno-web-empresas/">Diseño web para empresas</a></li>
             <li><a href="/sistemas-reservas-online/">Reservas, citas y pedidos online</a></li>
@@ -216,46 +231,44 @@
             <li><a href="/integracion-inteligencia-artificial/">Inteligencia artificial y automatización</a></li>
             <li><a href="/mantenimiento-web/">Mantenimiento y mejora web</a></li>
           </ul>
-        </div>
-        <div>
-          <p>Proyectos</p>
+        </nav>
+        <nav aria-labelledby="ft-d">
+          <h2 id="ft-d">Demos</h2>
           <ul>
-            <li><a href="/proyectos/">Todos los proyectos</a></li>
-            <li><a href="/proyectos/resumeai/">ResumeAI</a></li>
-            <li><a href="/proyectos/workly/">Workly</a></li>
+            <li><a href="/demos/">Todas las demos</a></li>
+            <li><a href="/demos/aurea-estates/">Aurea Estates</a></li>
+            <li><a href="/demos/noir-atelier/">Noir Atelier</a></li>
+            <li><a href="/demos/sora-wellness/">Sora Wellness</a></li>
+            <li><a href="/demos/forge-fitness/">Forge Fitness</a></li>
+            <li><a href="/demos/veloce-automotive/">Veloce Automotive</a></li>
+            <li><a href="/demos/flowbook/">Flowbook</a></li>
           </ul>
-        </div>
-        <div>
-          <p>SanchezDevelop</p>
+        </nav>
+        <nav aria-labelledby="ft-c">
+          <h2 id="ft-c">Estudio</h2>
           <ul>
-            <li><a href="/">Inicio</a></li>
             <li><a href="/sobre-mi/">Sobre mí</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/#presupuesto">Calcular presupuesto</a></li>
-            <li><a href="/privacidad/">Privacidad</a></li>
-          </ul>
-        </div>
-        <div>
-          <p>Contacto</p>
-          <ul>
-            <li><a href="/contacto/">Pedir presupuesto</a></li>
+            <li><a href="/contacto/">Contacto</a></li>
             <li><a href="https://wa.me/34697898574" target="_blank" rel="noopener" data-cta="whatsapp">WhatsApp</a></li>
             <li><a href="mailto:alvarosanchezortega34@gmail.com" data-cta="email">Email</a></li>
             <li><a href="https://github.com/alvaroosanchezz34" target="_blank" rel="noopener me">GitHub</a></li>
           </ul>
-        </div>
-      </nav>
-      <div class="fb">
-        <span>© <span id="year">2026</span> Álvaro Sánchez · SanchezDevelop · Málaga, España</span>
-        <span>Desarrollo web y software a medida para toda España</span>
+        </nav>
+      </div>
+      <p class="ft-word" aria-hidden="true">SanchezDevelop</p>
+      <div class="ft-bot">
+        <span>© <span data-year>2026</span> Álvaro Sánchez · SanchezDevelop · Málaga, España</span>
+        <span><a href="/privacidad/">Privacidad</a> · Trabajo en remoto para toda España</span>
       </div>
     </div>
   </footer>
 
-  <a class="fab" href="https://wa.me/34697898574?text=Hola%20%C3%81lvaro%2C%20he%20visto%20tu%20web%20y%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-cta="whatsapp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.4z"/></svg></a>
+  <a class="fab" id="fab" href="https://wa.me/34697898574?text=Hola%20%C3%81lvaro%2C%20he%20visto%20tu%20web%20y%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-cta="whatsapp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.4z"/></svg></a>
 
-  <script src="/assets/js/site.js?v=2" defer></script>
-  <script src="/assets/js/track.js?v=2" defer></script>
+  <script src="/assets/js/site.js?v=3" defer></script>
+  <script src="/assets/js/track.js?v=3" defer></script>
 </body>
 
 </html>

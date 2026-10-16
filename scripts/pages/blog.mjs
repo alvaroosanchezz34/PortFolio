@@ -39,7 +39,7 @@ const index = {
         <ul class="posts">
 ${POSTS.map(p => `          <li>
             <a class="card" href="${p.path}">
-              <h2 class="h-md">${p.title}</h2>
+              <h2 class="t-md">${p.title}</h2>
               <p>${p.excerpt}</p>
               <p class="meta"><time datetime="${p.date}">${fmtDate(p.date)}</time> · Álvaro Sánchez</p>
               <span class="go">Leer artículo</span>
@@ -178,7 +178,7 @@ const precio = {
     </article>
 ${related(['webs', 'reservas', 'mant'], 'Servicios relacionados')}
 ${finalCta({
-    title: '¿Cuánto costaría<br><span class="grad">la tuya?</span>',
+    title: '¿Cuánto costaría<br><em>la tuya?</em>',
     text: 'Cuéntame qué necesitas y te doy un precio cerrado por escrito. <b>Sin compromiso.</b>',
     waText: 'Hola Álvaro, he leído tu artículo sobre precios de webs y quiero un presupuesto para mi negocio.',
   })}`,

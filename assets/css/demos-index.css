@@ -1,0 +1,19 @@
+/* Índice de demos: filas editoriales alternas */
+.dx { display: grid; gap: clamp(70px, 10vw, 140px) }
+.dx-item { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 80px); align-items: center }
+.dx-item:nth-child(even) .dx-media { order: 2 }
+.dx-media { display: block; border-radius: var(--r); overflow: hidden; aspect-ratio: 4 / 3; background: var(--bg-2); box-shadow: 0 0 0 1px var(--line); position: relative }
+.dx-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease-out) }
+.dx-item:hover .dx-media img { transform: scale(1.04) }
+.dx-media::after { content: ""; position: absolute; inset: auto 0 0 0; height: 3px; background: var(--tone); transform: scaleX(0); transform-origin: left; transition: transform .8s var(--ease-out) }
+.dx-item:hover .dx-media::after { transform: none }
+.dx-fb { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; gap: 10px; background: linear-gradient(135deg, #f0fdfa, #e2e8f0); color: #0f172a; font-family: "Manrope", var(--f) }
+.dx-fb b { font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: -.05em; font-weight: 800 }
+.dx-fb span { color: #0d9488; font-weight: 600 }
+.dx-txt { display: grid; gap: 18px }
+.dx-txt .checks { margin: 0 }
+.dx-fit { color: var(--fg-2) }
+.dx-fit .mono { display: block; margin-bottom: 4px }
+.dx-txt .ctas { margin-top: 8px }
+@media (max-width: 860px) { .dx-item { grid-template-columns: 1fr } .dx-item:nth-child(even) .dx-media { order: 0 } }
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 400 800; font-display: swap; src: url(/assets/demos/flowbook/fonts/manrope.woff2) format("woff2") }

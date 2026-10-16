@@ -27,9 +27,9 @@ export default {
   body: `
     <section class="sec" aria-labelledby="inc-t">
       <div class="wrap">
-        <div class="sec-head">
-          <h2 class="h-lg" id="inc-t">Qué incluye el mantenimiento</h2>
-          <p class="lead">Entre <b>15 y 25 € al mes</b>, según la web. Es opcional, y el alcance exacto (por ejemplo, cuántos cambios al mes) lo dejamos por escrito.</p>
+        <div class="sh">
+          <h2 class="t-lg" id="inc-t">Qué incluye el mantenimiento</h2>
+          <p class="lede">Entre <b>15 y 25 € al mes</b>, según la web. Es opcional, y el alcance exacto (por ejemplo, cuántos cambios al mes) lo dejamos por escrito.</p>
         </div>
         <div class="split">
           <div class="card">
@@ -54,7 +54,7 @@ export default {
       </div>
     </section>
 
-    <section class="sec soft" id="revision" aria-labelledby="rev-t">
+    <section class="sec alt" id="revision" aria-labelledby="rev-t">
       <div class="narrow prose">
         <h2 id="rev-t">Revisión y mejora de una web que ya tienes</h2>
         <p>Si tu web ya existe pero no te trae clientes, la reviso por partes y te entrego una lista ordenada por impacto: primero lo que más se nota y menos cuesta.</p>
@@ -83,7 +83,7 @@ export default {
       </div>
     </section>
 
-    <section class="sec soft" aria-labelledby="rehacer-t">
+    <section class="sec alt" aria-labelledby="rehacer-t">
       <div class="narrow prose">
         <h2 id="rehacer-t">¿Retocar o rehacer?</h2>
         <p><strong>Compensa retocar</strong> cuando la base es sólida y los problemas son concretos: contenido desactualizado, imágenes pesadas, un contacto poco visible o errores de SEO técnico.</p>
@@ -94,7 +94,7 @@ export default {
 
     <section class="sec" aria-labelledby="proc-t">
       <div class="wrap">
-        <div class="sec-head"><h2 class="h-lg" id="proc-t">Cómo funciona</h2></div>
+        <div class="sh"><h2 class="t-lg" id="proc-t">Cómo funciona</h2></div>
         <ol class="steps">
           <li><h3>Me pasas la URL</h3><p>Por WhatsApp o email, con lo que te preocupa de tu web.</p></li>
           <li><h3>Revisión</h3><p>Analizo velocidad, SEO técnico, accesibilidad y conversión, y te paso una lista priorizada.</p></li>
@@ -111,7 +111,7 @@ ${faq([
   ])}
 ${related(['webs', 'apps', 'precio'])}
 ${finalCta({
-    title: 'Tu web,<br><span class="grad">siempre a punto.</span>',
+    title: 'Tu web,<br><em>siempre a punto.</em>',
     text: 'Pásame tu web y te digo qué mejoraría primero. <b>Sin compromiso</b> y con respuesta normalmente el mismo día.',
     waText: 'Hola Álvaro, he visto tu página de mantenimiento web y quiero que revises mi web.',
     mailSubject: 'Revisión y mantenimiento de mi web',

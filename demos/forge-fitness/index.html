@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Forge Fitness · Demo de web para gimnasio | SanchezDevelop</title>
+  <meta name="description" content="Demo ficticia de SanchezDevelop: web para un gimnasio boutique con programas, horario semanal filtrable, coaches, selector de planes y clase de prueba.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta name="author" content="Álvaro Sánchez">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SanchezDevelop">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Forge Fitness · Demo de web para gimnasio | SanchezDevelop">
+  <meta property="og:description" content="Demo ficticia de SanchezDevelop: web para un gimnasio boutique con programas, horario semanal filtrable, coaches, selector de planes y clase de prueba.">
+  
+  <meta property="og:image" content="https://sanchezdevelop.com/assets/og/demo-forge-fitness.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Forge Fitness, demo ficticia de SanchezDevelop">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/favicon-96.png" type="image/png" sizes="96x96">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/demos/forge-fitness/fonts/anton.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/demos/kit.css?v=3">
+  <link rel="stylesheet" href="/assets/demos/forge-fitness/style.css?v=3">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+
+<body class="ff">
+  <a class="dk-skip" href="#main">Saltar al contenido</a>
+
+  <div class="dk-bar" role="note" aria-label="Aviso de demostración">
+    <a class="dk-back" href="/demos/"><span aria-hidden="true">←</span> Demos de SanchezDevelop</a>
+    <span class="dk-tag"><b>Demo ficticia</b><span class="dk-hide-sm"> · Forge Fitness no es un negocio real</span></span>
+    <a class="dk-cta" href="/contacto/?demo=forge-fitness" data-cta="demo-forge-fitness">Quiero una web así <span aria-hidden="true">→</span></a>
+  </div>
+
+  <header class="ff-hd" id="hd">
+    <div class="ff-w ff-hd-in">
+      <a class="ff-logo" href="#inicio" aria-label="Forge Fitness, inicio">FORGE<span>/</span>FITNESS</a>
+      <button class="ff-menu" id="menuBtn" aria-expanded="false" aria-controls="nav">Menú</button>
+      <nav class="ff-nav" id="nav" aria-label="Principal"><a href="#programas">Programas</a><a href="#horarios">Horarios</a><a href="#coaches">Coaches</a><a href="#tarifas">Tarifas</a><a class="ff-btn sm" href="#prueba">Clase de prueba</a></nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="ff-hero" id="inicio" aria-labelledby="ff-h1">
+      <div class="ff-hero-img"><img src="/assets/demos/forge-fitness/img/hero-800.webp" srcset="/assets/demos/forge-fitness/img/hero-800.webp 800w, /assets/demos/forge-fitness/img/hero-1600.webp 1600w" sizes="100vw" width="1600" height="1067" alt="Atleta levantando una barra en un gimnasio a oscuras" fetchpriority="high" decoding="async"></div>
+      <div class="ff-w ff-hero-in">
+        <p class="ff-tag">Entrenamiento en grupos reducidos · Málaga</p>
+        <h1 id="ff-h1"><span>Más fuerte</span><span class="ff-outline">cada semana.</span></h1>
+        <div class="ff-hero-ft">
+          <p>Grupos de 8 personas como máximo, coaches que te corrigen y un plan que avanza contigo.</p>
+          <a class="ff-btn" href="#prueba">Pide tu clase de prueba</a>
+        </div>
+      </div>
+      <div class="ff-band" aria-hidden="true"><div><span>Fuerza</span><span>HIIT</span><span>Movilidad</span><span>Running</span><span>Fuerza</span><span>HIIT</span><span>Movilidad</span><span>Running</span><span>Fuerza</span><span>HIIT</span><span>Movilidad</span><span>Running</span><span>Fuerza</span><span>HIIT</span><span>Movilidad</span><span>Running</span></div></div>
+    </section>
+
+    <section class="ff-prog" id="programas" aria-labelledby="ff-prog-t">
+      <div class="ff-w">
+        <h2 id="ff-prog-t" data-rv>Programas</h2>
+        <ul class="ff-pl">
+          <li class="ff-p" data-rv>
+            <div class="ff-p-img"><img src="/assets/demos/forge-fitness/img/fuerza-800.webp" srcset="/assets/demos/forge-fitness/img/fuerza-800.webp 800w, /assets/demos/forge-fitness/img/fuerza-1600.webp 1600w" sizes="(max-width: 800px) 100vw, 25vw" width="1600" height="1067" alt="Atleta preparando un peso muerto con barra" loading="lazy" decoding="async"><span class="ff-p-n">01</span></div>
+            <h3>Fuerza</h3>
+            <p>Técnica y progresión en sentadilla, peso muerto y press. Cada semana, un poco más.</p>
+            <div class="ff-p-ft"><span>60 min</span><span class="ff-lvl" aria-label="Intensidad 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          </li>
+          <li class="ff-p" data-rv>
+            <div class="ff-p-img"><img src="/assets/demos/forge-fitness/img/hiit-800.webp" srcset="/assets/demos/forge-fitness/img/hiit-800.webp 800w, /assets/demos/forge-fitness/img/hiit-1600.webp 1600w" sizes="(max-width: 800px) 100vw, 25vw" width="1600" height="1069" alt="Entrenamiento con cuerdas de batalla en una nave industrial" loading="lazy" decoding="async"><span class="ff-p-n">02</span></div>
+            <h3>HIIT</h3>
+            <p>Intervalos cortos e intensos para mejorar tu resistencia sin pasar horas en el gimnasio.</p>
+            <div class="ff-p-ft"><span>45 min</span><span class="ff-lvl" aria-label="Intensidad 5 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+          </li>
+          <li class="ff-p" data-rv>
+            <div class="ff-p-img"><img src="/assets/demos/forge-fitness/img/movilidad-800.webp" srcset="/assets/demos/forge-fitness/img/movilidad-800.webp 800w, /assets/demos/forge-fitness/img/movilidad-1600.webp 1600w" sizes="(max-width: 800px) 100vw, 25vw" width="1600" height="1067" alt="Grupo haciendo ejercicios de movilidad sobre esterillas" loading="lazy" decoding="async"><span class="ff-p-n">03</span></div>
+            <h3>Movilidad</h3>
+            <p>Articulaciones sanas, mejor postura y menos molestias. El complemento que tu cuerpo agradece.</p>
+            <div class="ff-p-ft"><span>50 min</span><span class="ff-lvl" aria-label="Intensidad 2 de 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+          </li>
+          <li class="ff-p" data-rv>
+            <div class="ff-p-img"><img src="/assets/demos/forge-fitness/img/running-800.webp" srcset="/assets/demos/forge-fitness/img/running-800.webp 800w, /assets/demos/forge-fitness/img/running-1600.webp 1600w" sizes="(max-width: 800px) 100vw, 25vw" width="1600" height="1067" alt="Corredores a contraluz al amanecer" loading="lazy" decoding="async"><span class="ff-p-n">04</span></div>
+            <h3>Running club</h3>
+            <p>Salidas en grupo por ritmos, técnica de carrera y planes para tu próxima carrera.</p>
+            <div class="ff-p-ft"><span>60 min</span><span class="ff-lvl" aria-label="Intensidad 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ff-sched" id="horarios" aria-labelledby="ff-sch-t">
+      <div class="ff-w">
+        <div class="ff-sh"><h2 id="ff-sch-t" data-rv>Horario</h2><p>Horario semanal de demostración. Elige una clase para pedir tu prueba en ella.</p></div>
+        <div class="ff-filter" role="group" aria-label="Filtrar por programa">
+          <button type="button" aria-pressed="true" data-p="">Todas</button><button type="button" aria-pressed="false" data-p="fuerza">Fuerza</button><button type="button" aria-pressed="false" data-p="hiit">HIIT</button><button type="button" aria-pressed="false" data-p="movilidad">Movilidad</button><button type="button" aria-pressed="false" data-p="running">Running club</button>
+        </div>
+        <div class="ff-daytabs" role="tablist" aria-label="Día"><button type="button" role="tab" aria-selected="true" aria-controls="day-0" data-day="0">Lun</button><button type="button" role="tab" aria-selected="false" aria-controls="day-1" data-day="1">Mar</button><button type="button" role="tab" aria-selected="false" aria-controls="day-2" data-day="2">Mié</button><button type="button" role="tab" aria-selected="false" aria-controls="day-3" data-day="3">Jue</button><button type="button" role="tab" aria-selected="false" aria-controls="day-4" data-day="4">Vie</button><button type="button" role="tab" aria-selected="false" aria-controls="day-5" data-day="5">Sáb</button></div>
+        <div class="ff-grid" id="sched">
+          <div class="ff-day cur" id="day-0" role="tabpanel" aria-label="Lunes">
+            <h3>Lunes</h3>
+            <ul>
+              <li class="ff-c ff-fuerza" data-p="fuerza"><button type="button" aria-disabled="true" data-class="Fuerza · Lunes 07:00">
+                <span class="ff-c-t">07:00</span><b>Fuerza</b><span class="ff-c-m">Marta · Completa</span></button></li>
+              <li class="ff-c ff-movilidad" data-p="movilidad"><button type="button"  data-class="Movilidad · Lunes 09:30">
+                <span class="ff-c-t">09:30</span><b>Movilidad</b><span class="ff-c-m">Sergio · 7 plazas</span></button></li>
+              <li class="ff-c ff-hiit" data-p="hiit"><button type="button"  data-class="HIIT · Lunes 14:00">
+                <span class="ff-c-t">14:00</span><b>HIIT</b><span class="ff-c-m">Dani · 5 plazas</span></button></li>
+              <li class="ff-c ff-fuerza" data-p="fuerza"><button type="button"  data-class="Fuerza · Lunes 18:30">
+                <span class="ff-c-t">18:30</span><b>Fuerza</b><span class="ff-c-m">Marta · 3 plazas</span></button></li>
+              <li class="ff-c ff-hiit" data-p="hiit"><button type="button"  data-class="HIIT · Lunes 20:00">
+                <span class="ff-c-t">20:00</span><b>HIIT</b><span class="ff-c-m">Dani · 1 plaza</span></button></li>
+            </ul>
+          </div>
+          <div class="ff-day" id="day-1" role="tabpanel" aria-label="Martes">
+            <h3>Martes</h3>
+            <ul>
+              <li class="ff-c ff-hiit" data-p="hiit"><button type="button"  data-class="HIIT · Martes 07:00">
+                <span class="ff-c-t">07:00</span><b>HIIT</b><span class="ff-c-m">Dani · 3 plazas</span></button></li>
+              <li class="ff-c ff-fuerza" data-p="fuerza"><button type="button"  data-class="Fuerza · Martes 09:30">
+                <span class="ff-c-t">09:30</span><b>Fuerza</b><span class="ff-c-m">Marta · 1 plaza</span></button></li>
+              <li class="ff-c ff-running" data-p="running"><button type="button"  data-class="Running club · Martes 18:30">
+                <span class="ff-c-t">18:30</span><b>Running club</b><span class="ff-c-m">Sergio · 6 plazas</span></button></li>
+              <li class="ff-c ff-movilidad" data-p="movilidad"><button type="button"  data-class="Movilidad · Martes 20:00">
+                <span class="ff-c-t">20:00</span><b>Movilidad</b><span class="ff-c-m">Sergio · 4 plazas</span></button></li>
+            </ul>
+          </div>
+          <div class="ff-day" id="day-2" role="tabpanel" aria-label="Miércoles">
+            <h3>Miércoles</h3>
+            <ul>
+              <li class="ff-c ff-fuerza" data-p="fuerza"><button type="button"  data-class="Fuerza · Miércoles 07:00">
+                <span class="ff-c-t">07:00</span><b>Fuerza</b><span class="ff-c-m">Marta · 6 plazas</span></button></li>
+              <li class="ff-c ff-movilidad" data-p="movilidad"><button type="button"  data-class="Movilidad · Miércoles 09:30">
+                <span class="ff-c-t">09:30</span><b>Movilidad</b><span class="ff-c-m">Sergio · 4 plazas</span></button></li>
+              <li class="ff-c ff-hiit" data-p="hiit"><button type="button"  data-class="HIIT · Miércoles 14:00">
+                <span class="ff-c-t">14:00</span><b>HIIT</b><span class="ff-c-m">Dani · 2 plazas</span></button></li>
+              <li class="ff-c ff-fuerza" data-p="fuerza"><button type="button" aria-disabled="true" data-class="Fuerza · Miércoles 18:30">
+                <span class="ff-c-t">18:30</span><b>Fuerza</b><span class="ff-c-m">Marta · Completa</span></button></li>
+              <li class="ff-c ff-hiit" data-p="hiit"><button type="button"  data-class="HIIT · Miércoles 20:00">
+                <span class="ff-c-t">20:00</span><b>HIIT</b><span class="ff-c-m">Dani · 7 plazas</span></button></li>
+            </ul>
+          </div>
+          <div class="ff-day" id="day-3" role="tabpanel" aria-label="Jueves">
+            <h3>Jueves</h3>
+            <ul>
+              <li class="ff-c ff-hiit" data-p="hiit"><button type="button" aria-disabled="true" data-class="HIIT · Jueves 07:00">
+                <span class="ff-c-t">07:00</span><b>HIIT</b><span class="ff-c-m">Dani · Completa</span></button></li>
+              <li class="ff-c ff-fuerza" data-p="fuerza"><button type="button"  data-class="Fuerza · Jueves 09:30">
+                <span class="ff-c-t">09:30</span><b>Fuerza</b><span class="ff-c-m">Marta · 7 plazas</span></button></li>
+              <li class="ff-c ff-running" data-p="running"><button type="button"  data-class="Running club · Jueves 18:30">
+                <span class="ff-c-t">18:30</span><b>Running club</b><span class="ff-c-m">Sergio · 3 plazas</span></button></li>
+              <li class="ff-c ff-movilidad" data-p="movilidad"><button type="button"  data-class="Movilidad · Jueves 20:00">
+                <span class="ff-c-t">20:00</span><b>Movilidad</b><span class="ff-c-m">Sergio · 1 plaza</span></button></li>
+            </ul>
+          </div>
+          <div class="ff-day" id="day-4" role="tabpanel" aria-label="Viernes">
+            <h3>Viernes</h3>
+            <ul>
+              <li class="ff-c ff-fuerza" data-p="fuerza"><button type="button"  data-class="Fuerza · Viernes 07:00">
+                <span class="ff-c-t">07:00</span><b>Fuerza</b><span class="ff-c-m">Marta · 3 plazas</span></button></li>
+              <li class="ff-c ff-movilidad" data-p="movilidad"><button type="button"  data-class="Movilidad · Viernes 09:30">
+                <span class="ff-c-t">09:30</span><b>Movilidad</b><span class="ff-c-m">Sergio · 1 plaza</span></button></li>
+              <li class="ff-c ff-hiit" data-p="hiit"><button type="button"  data-class="HIIT · Viernes 14:00">
+                <span class="ff-c-t">14:00</span><b>HIIT</b><span class="ff-c-m">Dani · 8 plazas</span></button></li>
+              <li class="ff-c ff-fuerza" data-p="fuerza"><button type="button"  data-class="Fuerza · Viernes 18:30">
+                <span class="ff-c-t">18:30</span><b>Fuerza</b><span class="ff-c-m">Marta · 6 plazas</span></button></li>
+            </ul>
+          </div>
+          <div class="ff-day" id="day-5" role="tabpanel" aria-label="Sábado">
+            <h3>Sábado</h3>
+            <ul>
+              <li class="ff-c ff-running" data-p="running"><button type="button"  data-class="Running club · Sábado 07:00">
+                <span class="ff-c-t">07:00</span><b>Running club</b><span class="ff-c-m">Sergio · 6 plazas</span></button></li>
+              <li class="ff-c ff-hiit" data-p="hiit"><button type="button"  data-class="HIIT · Sábado 09:30">
+                <span class="ff-c-t">09:30</span><b>HIIT</b><span class="ff-c-m">Dani · 4 plazas</span></button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ff-coach" id="coaches" aria-labelledby="ff-co-t">
+      <div class="ff-w">
+        <div class="ff-sh"><h2 id="ff-co-t" data-rv>Coaches</h2><p>Coaches ficticios de demostración. En tu web, aquí irían tus entrenadores.</p></div>
+        <ul class="ff-cl">
+          <li data-rv><div class="ff-cimg"><img src="/assets/demos/forge-fitness/img/coach-1-800.webp" srcset="/assets/demos/forge-fitness/img/coach-1-800.webp 800w, /assets/demos/forge-fitness/img/coach-1-1600.webp 1600w" sizes="(max-width: 800px) 100vw, 33vw" width="1600" height="1068" alt="Entrenadora de espaldas sujetando una barra en el gimnasio" loading="lazy" decoding="async"></div><h3>Marta L.</h3><p>Fuerza y técnica</p></li>
+          <li data-rv><div class="ff-cimg"><img src="/assets/demos/forge-fitness/img/coach-2-800.webp" srcset="/assets/demos/forge-fitness/img/coach-2-800.webp 800w, /assets/demos/forge-fitness/img/coach-2-1600.webp 1600w" sizes="(max-width: 800px) 100vw, 33vw" width="1600" height="1067" alt="Mano sujetando una mancuerna" loading="lazy" decoding="async"></div><h3>Dani R.</h3><p>HIIT y acondicionamiento</p></li>
+          <li data-rv><div class="ff-cimg"><img src="/assets/demos/forge-fitness/img/coach-3-800.webp" srcset="/assets/demos/forge-fitness/img/coach-3-800.webp 800w, /assets/demos/forge-fitness/img/coach-3-1600.webp 1600w" sizes="(max-width: 800px) 100vw, 33vw" width="1600" height="1067" alt="Piernas de un atleta junto a una barra con discos" loading="lazy" decoding="async"></div><h3>Sergio T.</h3><p>Running y movilidad</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ff-plans" id="tarifas" aria-labelledby="ff-pl-t">
+      <div class="ff-w">
+        <div class="ff-sh"><h2 id="ff-pl-t" data-rv>Tarifas</h2>
+          <div class="ff-toggle" role="radiogroup" aria-label="Forma de pago">
+            <label><input type="radio" name="period" value="m" checked><span>Mensual</span></label>
+            <label><input type="radio" name="period" value="q"><span>Trimestral <small>−10 %</small></span></label>
+          </div>
+        </div>
+        <ul class="ff-cards" id="plans">
+          <li class="ff-plan" data-plan="base">
+            
+            <h3>Base</h3>
+            <p class="ff-line">2 clases a la semana</p>
+            <p class="ff-price"><b data-m="49">49 €</b><span>/mes</span></p>
+            <p class="ff-bill" data-bill>Se paga cada mes</p>
+            <ul><li>Todas las clases de grupo</li><li>Reserva desde la app</li><li>Valoración inicial</li></ul>
+            <button type="button" class="ff-btn ghost" data-pick="base" aria-pressed="false">Elegir Base</button>
+          </li>
+          <li class="ff-plan top" data-plan="pro">
+            <span class="ff-badge">El más elegido</span>
+            <h3>Pro</h3>
+            <p class="ff-line">Clases ilimitadas</p>
+            <p class="ff-price"><b data-m="79">79 €</b><span>/mes</span></p>
+            <p class="ff-bill" data-bill>Se paga cada mes</p>
+            <ul><li>Todo lo de Base</li><li>Clases ilimitadas</li><li>Revisión de objetivos cada mes</li></ul>
+            <button type="button" class="ff-btn" data-pick="pro" aria-pressed="false">Elegir Pro</button>
+          </li>
+          <li class="ff-plan" data-plan="personal">
+            
+            <h3>Personal</h3>
+            <p class="ff-line">Ilimitado + 4 sesiones 1:1</p>
+            <p class="ff-price"><b data-m="149">149 €</b><span>/mes</span></p>
+            <p class="ff-bill" data-bill>Se paga cada mes</p>
+            <ul><li>Todo lo de Pro</li><li>4 sesiones con tu coach al mes</li><li>Plan de entrenamiento propio</li></ul>
+            <button type="button" class="ff-btn ghost" data-pick="personal" aria-pressed="false">Elegir Personal</button>
+          </li>
+        </ul>
+        <p class="ff-note">Tarifas de demostración: Forge Fitness es un gimnasio ficticio.</p>
+      </div>
+    </section>
+
+    <section class="ff-trial" id="prueba" aria-labelledby="ff-tr-t">
+      <div class="ff-w ff-tr-in">
+        <div><h2 id="ff-tr-t" data-rv>Tu primera clase,<br><span class="ff-hl">sin compromiso.</span></h2><p>Dinos qué te interesa y te proponemos el mejor horario para empezar.</p></div>
+        <form class="ff-form" id="trialForm" novalidate>
+          <div class="ff-row">
+            <div class="ff-f"><label for="t-name">Nombre</label><input id="t-name" name="name" autocomplete="name" aria-describedby="t-name-e"><p class="ff-err" id="t-name-e" data-err="name" hidden></p></div>
+            <div class="ff-f"><label for="t-contact">Teléfono o email</label><input id="t-contact" name="contact" autocomplete="email" aria-describedby="t-contact-e"><p class="ff-err" id="t-contact-e" data-err="contact" hidden></p></div>
+          </div>
+          <div class="ff-row">
+            <div class="ff-f"><label for="t-plan">Plan</label><select id="t-plan" name="plan" aria-describedby="t-plan-e"><option value="">Aún no lo sé</option><option value="base">Base</option><option value="pro">Pro</option><option value="personal">Personal</option></select></div>
+            <div class="ff-f"><label for="t-when">Cuándo prefieres entrenar</label><select id="t-when" name="when" aria-describedby="t-when-e"><option value="">Elige una franja</option><option>Mañana</option><option>Mediodía</option><option>Tarde</option></select><p class="ff-err" id="t-when-e" data-err="when" hidden></p></div>
+          </div>
+          <div class="ff-f"><label for="t-msg">Clase o comentario <span class="ff-opt">(opcional)</span></label><input id="t-msg" name="msg" placeholder="Por ejemplo: HIIT el martes a las 20:00"></div>
+          <label class="ff-chk"><input type="checkbox" name="ok" aria-describedby="t-ok-e"> Acepto que me contactéis para organizar la clase de prueba.</label>
+          <p class="ff-err" id="t-ok-e" data-err="ok" hidden></p>
+          <button class="ff-btn" type="submit">Quiero mi clase de prueba</button>
+          <div class="ff-done" id="trialDone" role="status" hidden></div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="ff-ft"><div class="ff-w"><span class="ff-logo">FORGE<span>/</span>FITNESS</span><p>Gimnasio ficticio creado por SanchezDevelop para demostrar una web de fitness.</p></div></footer>
+
+  <aside class="dk-end" aria-labelledby="dk-end-t">
+    <div class="dk-end-in">
+      <p class="dk-mono">Demo de SanchezDevelop</p>
+      <h2 id="dk-end-t">¿Te imaginas tu negocio con una web así?</h2>
+      <p>Forge Fitness es un negocio ficticio: lo he diseñado y programado para enseñar lo que puede tener tu web. Las funciones que has probado se pueden adaptar a tu sector, tu marca y tu forma de trabajar.</p>
+      <div class="dk-end-ctas">
+        <a class="dk-btn" href="/contacto/?demo=forge-fitness" data-cta="demo-forge-fitness">Quiero una web así</a>
+        <a class="dk-btn ghost" href="/demos/">Ver las demás demos</a>
+      </div>
+      <p class="dk-others">También: <a href="/demos/aurea-estates/">Aurea Estates</a> · <a href="/demos/noir-atelier/">Noir Atelier</a> · <a href="/demos/sora-wellness/">Sora Wellness</a></p>
+    </div>
+  </aside>
+  <a class="dk-pill" id="dkPill" href="/contacto/?demo=forge-fitness" data-cta="demo-forge-fitness"><span class="dk-dot" aria-hidden="true"></span>Demo de SanchezDevelop · <b>Quiero una así</b></a>
+
+  <script src="/assets/demos/kit.js?v=3" defer></script>
+  <script src="/assets/js/track.js?v=3" defer></script>
+  <script src="/assets/demos/forge-fitness/app.js?v=3" defer></script>
+</body>
+
+</html>

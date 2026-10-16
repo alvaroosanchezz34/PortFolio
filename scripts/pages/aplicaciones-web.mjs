@@ -12,9 +12,9 @@ export default {
   kick: 'Software a medida',
   h1: 'Desarrollo de aplicaciones web y software a medida',
   lead: 'Cuando una hoja de cálculo o una herramienta genérica se te queda corta, construyo la aplicación que necesita tu negocio: <b>plataformas SaaS, paneles de gestión, portales de clientes y APIs</b>, de la idea al despliegue.',
-  facts: ['Frontend, backend y base de datos', 'Dos productos propios en producción', 'Alcance y precio por escrito antes de empezar'],
+  facts: ['Frontend, backend y base de datos', 'Una persona de la idea al despliegue', 'Alcance y precio por escrito antes de empezar'],
   waText: 'Hola Álvaro, he visto tu página de aplicaciones web y tengo un proyecto a medida.',
-  heroLink: '<a class="lnk" href="/proyectos/">Ver proyectos</a>',
+  heroLink: '<a class="lnk" href="/demos/flowbook/">Ver la demo de Flowbook <span class="arr" aria-hidden="true">→</span></a>',
   about: 'https://sanchezdevelop.com/aplicaciones-web/#service',
   schema: [serviceNode({
     path,
@@ -25,10 +25,10 @@ export default {
   body: `
     <section class="sec" aria-labelledby="que-t">
       <div class="wrap">
-        <div class="sec-head"><h2 class="h-lg" id="que-t">Qué puedo construir</h2></div>
+        <div class="sh"><h2 class="t-lg" id="que-t">Qué puedo construir</h2></div>
         <div class="cards">
-          <div class="card"><h3>Plataformas SaaS</h3><p>Productos online con registro de usuarios, planes de pago y suscripciones. Como <a href="/proyectos/resumeai/">ResumeAI</a>.</p></div>
-          <div class="card"><h3>Software de gestión</h3><p>Clientes, proyectos, facturas, stock o turnos en una herramienta hecha para tu proceso. Como <a href="/proyectos/workly/">Workly</a>.</p></div>
+          <div class="card"><h3>Plataformas SaaS</h3><p>Productos online con registro de usuarios, planes de pago y suscripciones. Mira la <a href="/demos/flowbook/">demo de Flowbook</a>.</p></div>
+          <div class="card"><h3>Software de gestión</h3><p>Clientes, proyectos, facturas, stock o turnos en una herramienta hecha para tu proceso, no para cualquiera.</p></div>
           <div class="card"><h3>Portales y áreas de cliente</h3><p>Un espacio privado donde tus clientes consultan pedidos, documentos, citas o el estado de su servicio.</p></div>
           <div class="card"><h3>APIs REST e integraciones</h3><p>Conectar tu web con tu facturación, tu CRM, tu TPV o una pasarela de pago para que los datos no se copien a mano.</p></div>
           <div class="card"><h3>Paneles y dashboards</h3><p>Tus números importantes en una sola pantalla, actualizados solos, en lugar de cinco hojas de cálculo.</p></div>
@@ -37,7 +37,7 @@ export default {
       </div>
     </section>
 
-    <section class="sec soft" aria-labelledby="senal-t">
+    <section class="sec alt" aria-labelledby="senal-t">
       <div class="narrow prose">
         <h2 id="senal-t">Cuándo compensa el software a medida</h2>
         <p>Estas son las señales más habituales de que una herramienta propia te ahorraría tiempo o dinero:</p>
@@ -69,9 +69,9 @@ export default {
       </div>
     </section>
 
-    <section class="sec soft" aria-labelledby="proc-t">
+    <section class="sec alt" aria-labelledby="proc-t">
       <div class="wrap">
-        <div class="sec-head"><h2 class="h-lg" id="proc-t">Cómo se trabaja un proyecto a medida</h2></div>
+        <div class="sh"><h2 class="t-lg" id="proc-t">Cómo se trabaja un proyecto a medida</h2></div>
         <ol class="steps">
           <li><h3>Entender el problema</h3><p>Antes de hablar de pantallas, vemos tu proceso: quién usa la herramienta, qué hace hoy y dónde pierde tiempo.</p></li>
           <li><h3>Alcance y primera versión</h3><p>Definimos lo mínimo que ya aporta valor y lo dejamos por escrito: funcionalidades, fases, plazos y precio.</p></li>
@@ -83,13 +83,13 @@ export default {
 
     <section class="sec" aria-labelledby="exp-t">
       <div class="wrap">
-        <div class="sec-head">
-          <h2 class="h-lg" id="exp-t">Lo que ya he construido</h2>
-          <p class="lead">Dos plataformas completas, en producción, que he diseñado y programado yo solo: <b>frontend, backend, base de datos, pagos e IA</b>.</p>
+        <div class="sh">
+          <h2 class="t-lg" id="exp-t">Míralo funcionando</h2>
+          <p class="lede">Dos de las demos de este estudio muestran el tipo de producto que puedo construir. <b>Son ficticias, pero lo que hacen funciona</b>: datos, estados, filtros y paneles.</p>
         </div>
         <div class="cards">
-          <a class="card" href="/proyectos/resumeai/"><h3>ResumeAI</h3><p>Plataforma de estudio con IA: de PDFs, textos o vídeos de YouTube a flashcards, resúmenes y exámenes. Con suscripciones.</p><ul class="tech"><li>Next.js</li><li>Node.js</li><li>MongoDB</li><li>OpenAI</li><li>Stripe</li></ul><span class="go">Ver caso de estudio</span></a>
-          <a class="card" href="/proyectos/workly/"><h3>Workly</h3><p>Gestión para autónomos: clientes, proyectos, facturas en PDF, gastos, horas y contabilidad en una sola herramienta.</p><ul class="tech"><li>React 19</li><li>Express</li><li>MySQL</li><li>Stripe</li><li>OpenAI</li></ul><span class="go">Ver caso de estudio</span></a>
+          <a class="card" href="/demos/flowbook/"><h3>Flowbook · SaaS de reservas</h3><p>Landing de producto y panel de administración: calendario semanal, alta de citas, estados y métricas calculadas al momento.</p><ul class="tech"><li>JavaScript</li><li>Estado local</li><li>Responsive</li></ul><span class="go">Abrir demo</span></a>
+          <a class="card" href="/demos/noir-atelier/"><h3>Noir Atelier · Tienda de moda</h3><p>Catálogo filtrable, fichas con tallas y colores, y una bolsa de compra que recuerda lo que añades.</p><ul class="tech"><li>Catálogo</li><li>Variantes</li><li>Carrito</li></ul><span class="go">Abrir demo</span></a>
         </div>
       </div>
     </section>
@@ -115,9 +115,9 @@ ${faq([
     ['¿Qué pasa después del lanzamiento?', '<p>No desaparezco: corrección de errores, mejoras y nuevas funciones. Lo habitual es acordar un <a href="/mantenimiento-web/">mantenimiento</a> según lo que necesite la aplicación.</p>'],
     ['¿Haces también la parte de diseño?', '<p>Sí. Diseño las pantallas pensando en quien va a usarlas cada día, y las programo yo mismo, así que no se pierde nada entre el diseño y el código.</p>'],
   ])}
-${related(['ia', 'resumeai', 'workly'])}
+${related(['ia', 'flowbook', 'demos'])}
 ${finalCta({
-    title: 'Tu idea,<br><span class="grad">funcionando.</span>',
+    title: 'Tu idea,<br><em>funcionando.</em>',
     text: 'Cuéntame qué problema quieres resolver. Te digo cómo lo plantearía y por dónde empezar. <b>La primera conversación es gratis.</b>',
     waText: 'Hola Álvaro, he visto tu página de aplicaciones web y tengo un proyecto a medida.',
     mailSubject: 'Proyecto de aplicación a medida',

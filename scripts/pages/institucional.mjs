@@ -1,5 +1,5 @@
 import {
-  finalCta, related, serviceCards, wa, mailto, EMAIL, GITHUB, WA_ICON, PERSON_ID,
+  finalCta, related, serviceCards, contactForm, wa, mailto, EMAIL, GITHUB, PERSON_ID,
 } from '../lib/site.mjs';
 
 // ---------- /sobre-mi/ ----------
@@ -15,7 +15,7 @@ const sobre = {
   h1: 'Soy Álvaro Sánchez, desarrollador Full Stack',
   lead: 'Diseño y programo webs, sistemas de reservas, aplicaciones y software a medida para <b>autónomos y pequeñas empresas</b>. Trabajo desde Málaga para toda España, y hablas conmigo de principio a fin.',
   waText: 'Hola Álvaro, he leído sobre ti en tu web y quiero comentarte un proyecto.',
-  heroLink: '<a class="lnk" href="/proyectos/">Ver mis proyectos</a>',
+  heroLink: '<a class="lnk" href="/demos/">Ver las demos <span class="arr" aria-hidden="true">→</span></a>',
   about: PERSON_ID,
   body: `
     <section class="sec">
@@ -27,7 +27,7 @@ const sobre = {
           <li><strong>Webs para negocios</strong>: webs de presencia, <a href="/sistemas-reservas-online/">reservas y pedidos online</a>, tiendas y <a href="/mantenimiento-web/">mantenimiento</a>, con precio cerrado.</li>
           <li><strong>Software a medida</strong>: <a href="/aplicaciones-web/">aplicaciones web</a>, plataformas SaaS, APIs e <a href="/integracion-inteligencia-artificial/">integraciones de inteligencia artificial</a>.</li>
         </ul>
-        <p>Mi mejor carta de presentación son dos productos propios en producción, que he diseñado y programado yo solo: <a href="/proyectos/resumeai/">ResumeAI</a>, una plataforma de estudio con IA y suscripciones, y <a href="/proyectos/workly/">Workly</a>, un software de gestión y facturación para autónomos.</p>
+        <p>Para que veas el nivel de diseño y de programación antes de hablar, he creado <a href="/demos/">seis demos navegables</a> de sectores distintos: inmobiliaria, moda, bienestar, fitness, automoción y un SaaS de reservas. Son negocios ficticios, pero cada una tiene su propia dirección de arte y funciones que funcionan de verdad.</p>
 
         <h2>Cómo trabajo</h2>
         <ul>
@@ -52,9 +52,9 @@ const sobre = {
         <p>Puedes ver parte de mi trabajo y mis repositorios públicos en <a href="${GITHUB}" target="_blank" rel="noopener me">GitHub</a>.</p>
       </div>
     </section>
-${related(['resumeai', 'workly', 'webs'], 'Sigue por aquí')}
+${related(['demos', 'webs', 'apps'], 'Sigue por aquí')}
 ${finalCta({
-    title: '¿Hablamos de<br><span class="grad">tu proyecto?</span>',
+    title: '¿Hablamos de<br><em>tu proyecto?</em>',
     text: 'Cuéntame qué necesitas. <b>La primera conversación es gratis</b> y te respondo normalmente el mismo día.',
     waText: 'Hola Álvaro, he leído sobre ti en tu web y quiero comentarte un proyecto.',
   })}`,
@@ -75,34 +75,26 @@ const contacto = {
   lead: 'La primera conversación es <b>gratis y sin compromiso</b>. Te respondo yo, normalmente el mismo día y como mucho en 24 horas.',
   heroCtas: false,
   waText: contactoWa,
+  scripts: ['/assets/js/contact.js'],
   body: `
     <section class="sec" aria-labelledby="canales-t">
-      <div class="wrap">
-        <div class="sec-head"><h2 class="h-md" id="canales-t">Elige cómo prefieres contactar</h2></div>
-        <div class="cards">
-          <div class="card">
-            <h3>WhatsApp</h3>
-            <p>La forma más rápida. Escríbeme con lo que necesitas, aunque sea en dos líneas.</p>
-            <p class="pr">+34 697 89 85 74</p>
-            <div class="ctas" style="margin-top:18px"><a class="btn wa" href="${wa(contactoWa)}" target="_blank" rel="noopener" data-cta="whatsapp">${WA_ICON}Escribir por WhatsApp</a></div>
-          </div>
-          <div class="card">
-            <h3>Email</h3>
-            <p>Si prefieres contarlo con calma o adjuntar ejemplos y documentos.</p>
-            <p class="pr" style="word-break:break-all">${EMAIL}</p>
-            <div class="ctas" style="margin-top:18px"><a class="btn" href="${mailto('Quiero un presupuesto', 'Hola Álvaro, te escribo desde tu web. Mi negocio es: ')}" data-cta="email">Mandar un email</a></div>
-          </div>
-          <div class="card">
-            <h3>Calcula el precio</h3>
-            <p>Marca lo que necesitas en el configurador y envíame la estimación por WhatsApp con un clic.</p>
-            <p class="pr">Estimación al momento</p>
-            <div class="ctas" style="margin-top:18px"><a class="btn" href="/#presupuesto" data-cta="configurador">Abrir el configurador</a></div>
-          </div>
+      <div class="wide contact-page">
+        <div class="cp-l">
+          <h2 class="t-md" id="canales-t">Escríbeme como prefieras</h2>
+          <p class="lede" style="margin-top:14px">Rellena el formulario y te preparo el mensaje en WhatsApp o en tu correo, o escríbeme directamente.</p>
+          <ul class="cp-ch">
+            <li><span class="mono muted">WhatsApp</span><a class="lnk" href="${wa(contactoWa)}" target="_blank" rel="noopener" data-cta="whatsapp">+34 697 89 85 74 <span class="arr" aria-hidden="true">→</span></a></li>
+            <li><span class="mono muted">Email</span><a class="lnk" href="${mailto('Quiero un presupuesto', 'Hola Álvaro, te escribo desde tu web. Mi negocio es: ')}" data-cta="email">${EMAIL}</a></li>
+            <li><span class="mono muted">Precio orientativo</span><a class="lnk" href="/#presupuesto" data-cta="configurador">Abrir el configurador <span class="arr" aria-hidden="true">→</span></a></li>
+          </ul>
+        </div>
+        <div class="cp-r">
+${contactForm('cf')}
         </div>
       </div>
     </section>
 
-    <section class="sec soft">
+    <section class="sec alt">
       <div class="narrow prose">
         <h2>Qué contarme para darte un precio</h2>
         <p>No necesitas saber nada de tecnología. Con esto ya puedo orientarte:</p>
@@ -183,7 +175,7 @@ const notFound = {
   body: `
     <section class="sec">
       <div class="wrap">
-        <div class="sec-head"><h2 class="h-md">Servicios</h2></div>
+        <div class="sh"><h2 class="t-md">Servicios</h2></div>
 ${serviceCards()}
       </div>
     </section>`,
