@@ -65,7 +65,7 @@ export async function onRequestPost({ request, env }) {
 }
 
 export async function onRequest(context) {
-  if (context.request.method !== "POST") return new Response("Method Not Allowed", { status: 405 });
+  if (context.request.method !== "POST") return new Response("Method Not Allowed", { status: 405, headers: { "X-Robots-Tag": "noindex" } });
   return onRequestPost(context);
 }
 
@@ -92,5 +92,5 @@ function sanitize(d) {
 }
 
 function json(obj, status = 200) {
-  return new Response(JSON.stringify(obj), { status, headers: { "Content-Type": "application/json" } });
+  return new Response(JSON.stringify(obj), { status, headers: { "Content-Type": "application/json", "X-Robots-Tag": "noindex" } });
 }

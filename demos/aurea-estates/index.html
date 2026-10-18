@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Aurea Estates · Demo de web inmobiliaria de lujo | SanchezDevelop</title>
+  <meta name="description" content="Demo ficticia de SanchezDevelop: web editorial para una inmobiliaria de lujo con buscador, filtros, fichas con galería y contacto por propiedad.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#f3eee6">
+  <meta name="author" content="Álvaro Sánchez">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SanchezDevelop">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Aurea Estates · Demo de web inmobiliaria de lujo | SanchezDevelop">
+  <meta property="og:description" content="Demo ficticia de SanchezDevelop: web editorial para una inmobiliaria de lujo con buscador, filtros, fichas con galería y contacto por propiedad.">
+  
+  <meta property="og:image" content="https://sanchezdevelop.com/assets/og/demo-aurea-estates.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aurea Estates, demo ficticia de SanchezDevelop">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/favicon-96.png" type="image/png" sizes="96x96">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/demos/aurea-estates/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/demos/kit.css?v=4">
+  <link rel="stylesheet" href="/assets/demos/aurea-estates/style.css?v=4">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+
+<body class="ae">
+  <a class="dk-skip" href="#main">Saltar al contenido</a>
+
+  <div class="dk-bar" role="note" aria-label="Aviso de demostración">
+    <a class="dk-back" href="/demos/"><span aria-hidden="true">←</span> Demos de SanchezDevelop</a>
+    <span class="dk-tag"><b>Demo ficticia</b><span class="dk-hide-sm"> · Aurea Estates no es un negocio real</span></span>
+    <a class="dk-cta" href="/contacto/?demo=aurea-estates" data-cta="demo-aurea-estates">Quiero una web así <span aria-hidden="true">→</span></a>
+  </div>
+
+  <header class="ae-hd" id="hd">
+    <div class="ae-w ae-hd-in">
+      <a class="ae-logo" href="#inicio" aria-label="Aurea Estates, inicio">AUREA<span>Estates</span></a>
+      <button class="ae-menu" id="menuBtn" aria-expanded="false" aria-controls="nav">Menú</button>
+      <nav class="ae-nav" id="nav" aria-label="Principal">
+        <a href="#propiedades">Propiedades</a><a href="#zonas">Zonas</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a>
+        <a class="ae-nav-cta" href="#contacto" data-interest="Valorar mi vivienda">Valorar mi vivienda</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="ae-hero" id="inicio" aria-labelledby="ae-h1">
+      <div class="ae-hero-img"><img src="/assets/demos/aurea-estates/img/hero-800.webp" srcset="/assets/demos/aurea-estates/img/hero-800.webp 800w, /assets/demos/aurea-estates/img/hero-1600.webp 1600w" sizes="100vw" width="1600" height="1067" alt="Villa contemporánea con piscina desbordante al atardecer" fetchpriority="high" decoding="async"></div>
+      <div class="ae-w ae-hero-in">
+        <p class="ae-eyebrow">Residencias singulares · Costa del Sol, Baleares y Madrid</p>
+        <h1 id="ae-h1">Casas que se <em>recuerdan</em>.</h1>
+        <form class="ae-search" id="heroSearch" aria-label="Buscar propiedades">
+          <label><span>Zona</span><select name="zone"><option value="">Todas las zonas</option><option value="Marbella">Marbella</option><option value="Sotogrande">Sotogrande</option><option value="Ibiza">Ibiza</option><option value="Mallorca">Mallorca</option><option value="Madrid">Madrid</option><option value="Costa Brava">Costa Brava</option></select></label>
+          <label><span>Tipo</span><select name="type"><option value="">Cualquier tipo</option><option value="Villa">Villa</option><option value="Casa">Casa</option><option value="Ático">Ático</option></select></label>
+          <label><span>Precio</span><select name="max"><option value="0">Cualquier precio</option><option value="2000000">Hasta 2.000.000 €</option><option value="3000000">Hasta 3.000.000 €</option><option value="4000000">Hasta 4.000.000 €</option><option value="5000000">Hasta 5.000.000 €</option></select></label>
+          <button type="submit">Buscar</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="ae-intro ae-w" aria-labelledby="ae-intro-t">
+      <h2 id="ae-intro-t" data-rv>Una selección pequeña, <em>a propósito</em>.</h2>
+      <div data-rv>
+        <p>En Aurea no publicamos cientos de anuncios: elegimos pocas casas, las visitamos una a una y te contamos lo que de verdad importa antes de que te desplaces.</p>
+        <ul class="ae-values"><li><b>Selección</b>Cada propiedad, visitada y documentada.</li><li><b>Discreción</b>Visitas privadas y datos protegidos.</li><li><b>Acompañamiento</b>De la primera visita a la firma.</li></ul>
+      </div>
+    </section>
+
+    <section class="ae-list" id="propiedades" aria-labelledby="ae-list-t">
+      <div class="ae-w">
+        <div class="ae-list-hd">
+          <h2 id="ae-list-t">Propiedades</h2>
+          <p class="ae-count" id="count" aria-live="polite">9 propiedades</p>
+        </div>
+        <form class="ae-filters" id="filters" aria-label="Filtrar propiedades">
+          <label><span>Zona</span><select name="zone"><option value="">Todas</option><option value="Marbella">Marbella</option><option value="Sotogrande">Sotogrande</option><option value="Ibiza">Ibiza</option><option value="Mallorca">Mallorca</option><option value="Madrid">Madrid</option><option value="Costa Brava">Costa Brava</option></select></label>
+          <label><span>Tipo</span><select name="type"><option value="">Todos</option><option value="Villa">Villa</option><option value="Casa">Casa</option><option value="Ático">Ático</option></select></label>
+          <label><span>Precio máximo</span><select name="max"><option value="0">Cualquier precio</option><option value="2000000">Hasta 2.000.000 €</option><option value="3000000">Hasta 3.000.000 €</option><option value="4000000">Hasta 4.000.000 €</option><option value="5000000">Hasta 5.000.000 €</option></select></label>
+          <label><span>Dormitorios</span><select name="beds"><option value="0">Cualquiera</option><option value="3">3 o más</option><option value="4">4 o más</option><option value="5">5 o más</option><option value="6">6 o más</option></select></label>
+          <label><span>Ordenar</span><select name="sort"><option value="feat">Destacadas</option><option value="asc">Precio: de menor a mayor</option><option value="desc">Precio: de mayor a menor</option><option value="m2">Superficie</option></select></label>
+          <button type="reset" class="ae-reset">Limpiar</button>
+        </form>
+        <ul class="ae-grid" id="grid">
+          <li class="pc" data-id="villa-marea">
+            <a href="#/propiedad/villa-marea" class="pc-a">
+              <span class="pc-img"><img src="/assets/demos/aurea-estates/img/villa-marea-800.webp" srcset="/assets/demos/aurea-estates/img/villa-marea-800.webp 800w, /assets/demos/aurea-estates/img/villa-marea-1600.webp 1600w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" width="1600" height="1067" alt="Villa blanca de dos plantas con piscina y jardín" loading="lazy" decoding="async"><span class="pc-zone">Marbella</span></span>
+              <span class="pc-body">
+                <span class="pc-name">Villa Marea</span>
+                <span class="pc-area">Sierra Blanca · Villa</span>
+                <span class="pc-meta"><span>6 dorm.</span><span>7 baños</span><span>820 m²</span></span>
+                <span class="pc-price">4.950.000 €</span>
+              </span>
+            </a>
+          </li>
+          <li class="pc" data-id="casa-alba">
+            <a href="#/propiedad/casa-alba" class="pc-a">
+              <span class="pc-img"><img src="/assets/demos/aurea-estates/img/casa-alba-800.webp" srcset="/assets/demos/aurea-estates/img/casa-alba-800.webp 800w, /assets/demos/aurea-estates/img/casa-alba-1600.webp 1600w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" width="1600" height="1200" alt="Casa moderna con grandes ventanales y piscina al atardecer" loading="lazy" decoding="async"><span class="pc-zone">Sotogrande</span></span>
+              <span class="pc-body">
+                <span class="pc-name">Casa Alba</span>
+                <span class="pc-area">La Reserva · Villa</span>
+                <span class="pc-meta"><span>5 dorm.</span><span>5 baños</span><span>610 m²</span></span>
+                <span class="pc-price">3.200.000 €</span>
+              </span>
+            </a>
+          </li>
+          <li class="pc" data-id="residencia-sol">
+            <a href="#/propiedad/residencia-sol" class="pc-a">
+              <span class="pc-img"><img src="/assets/demos/aurea-estates/img/residencia-sol-800.webp" srcset="/assets/demos/aurea-estates/img/residencia-sol-800.webp 800w, /assets/demos/aurea-estates/img/residencia-sol-1600.webp 1600w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" width="1600" height="1061" alt="Villa blanca con piscina y tumbonas bajo el cielo azul" loading="lazy" decoding="async"><span class="pc-zone">Ibiza</span></span>
+              <span class="pc-body">
+                <span class="pc-name">Residencia del Sol</span>
+                <span class="pc-area">Santa Eulària · Villa</span>
+                <span class="pc-meta"><span>7 dorm.</span><span>8 baños</span><span>940 m²</span></span>
+                <span class="pc-price">6.400.000 €</span>
+              </span>
+            </a>
+          </li>
+          <li class="pc" data-id="casa-mirador">
+            <a href="#/propiedad/casa-mirador" class="pc-a">
+              <span class="pc-img"><img src="/assets/demos/aurea-estates/img/atico-mirador-800.webp" srcset="/assets/demos/aurea-estates/img/atico-mirador-800.webp 800w, /assets/demos/aurea-estates/img/atico-mirador-1600.webp 1600w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" width="1600" height="1067" alt="Casa blanca de líneas rectas con piscina y palmeras" loading="lazy" decoding="async"><span class="pc-zone">Mallorca</span></span>
+              <span class="pc-body">
+                <span class="pc-name">Casa Mirador</span>
+                <span class="pc-area">Port d’Andratx · Villa</span>
+                <span class="pc-meta"><span>4 dorm.</span><span>4 baños</span><span>430 m²</span></span>
+                <span class="pc-price">2.750.000 €</span>
+              </span>
+            </a>
+          </li>
+          <li class="pc" data-id="villa-olivo">
+            <a href="#/propiedad/villa-olivo" class="pc-a">
+              <span class="pc-img"><img src="/assets/demos/aurea-estates/img/villa-olivo-800.webp" srcset="/assets/demos/aurea-estates/img/villa-olivo-800.webp 800w, /assets/demos/aurea-estates/img/villa-olivo-1600.webp 1600w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" width="1600" height="1067" alt="Villa de dos plantas con galería, palmeras y piscina" loading="lazy" decoding="async"><span class="pc-zone">Marbella</span></span>
+              <span class="pc-body">
+                <span class="pc-name">Villa Olivo</span>
+                <span class="pc-area">Nueva Andalucía · Villa</span>
+                <span class="pc-meta"><span>5 dorm.</span><span>4 baños</span><span>520 m²</span></span>
+                <span class="pc-price">2.150.000 €</span>
+              </span>
+            </a>
+          </li>
+          <li class="pc" data-id="casa-cedro">
+            <a href="#/propiedad/casa-cedro" class="pc-a">
+              <span class="pc-img"><img src="/assets/demos/aurea-estates/img/casa-cedro-800.webp" srcset="/assets/demos/aurea-estates/img/casa-cedro-800.webp 800w, /assets/demos/aurea-estates/img/casa-cedro-1600.webp 1600w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" width="1600" height="1342" alt="Casa contemporánea de piedra y madera con jardín" loading="lazy" decoding="async"><span class="pc-zone">Madrid</span></span>
+              <span class="pc-body">
+                <span class="pc-name">Casa Cedro</span>
+                <span class="pc-area">La Moraleja · Casa</span>
+                <span class="pc-meta"><span>6 dorm.</span><span>6 baños</span><span>780 m²</span></span>
+                <span class="pc-price">3.850.000 €</span>
+              </span>
+            </a>
+          </li>
+          <li class="pc" data-id="casa-lino">
+            <a href="#/propiedad/casa-lino" class="pc-a">
+              <span class="pc-img"><img src="/assets/demos/aurea-estates/img/casa-lino-800.webp" srcset="/assets/demos/aurea-estates/img/casa-lino-800.webp 800w, /assets/demos/aurea-estates/img/casa-lino-1600.webp 1600w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" width="1600" height="1067" alt="Casa de diseño con volúmenes de madera y hormigón" loading="lazy" decoding="async"><span class="pc-zone">Costa Brava</span></span>
+              <span class="pc-body">
+                <span class="pc-name">Casa Lino</span>
+                <span class="pc-area">Begur · Casa</span>
+                <span class="pc-meta"><span>4 dorm.</span><span>3 baños</span><span>320 m²</span></span>
+                <span class="pc-price">1.680.000 €</span>
+              </span>
+            </a>
+          </li>
+          <li class="pc" data-id="villa-brisa">
+            <a href="#/propiedad/villa-brisa" class="pc-a">
+              <span class="pc-img"><img src="/assets/demos/aurea-estates/img/noche-800.webp" srcset="/assets/demos/aurea-estates/img/noche-800.webp 800w, /assets/demos/aurea-estates/img/noche-1600.webp 1600w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" width="1600" height="1067" alt="Casa moderna iluminada al anochecer entre árboles" loading="lazy" decoding="async"><span class="pc-zone">Ibiza</span></span>
+              <span class="pc-body">
+                <span class="pc-name">Villa Brisa</span>
+                <span class="pc-area">Sant Josep · Villa</span>
+                <span class="pc-meta"><span>5 dorm.</span><span>5 baños</span><span>600 m²</span></span>
+                <span class="pc-price">3.600.000 €</span>
+              </span>
+            </a>
+          </li>
+          <li class="pc" data-id="atico-horizonte">
+            <a href="#/propiedad/atico-horizonte" class="pc-a">
+              <span class="pc-img"><img src="/assets/demos/aurea-estates/img/int-vistas-800.webp" srcset="/assets/demos/aurea-estates/img/int-vistas-800.webp 800w, /assets/demos/aurea-estates/img/int-vistas-1600.webp 1600w" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" width="1600" height="1067" alt="Salón con escalera de diseño y vistas a la piscina" loading="lazy" decoding="async"><span class="pc-zone">Marbella</span></span>
+              <span class="pc-body">
+                <span class="pc-name">Ático Horizonte</span>
+                <span class="pc-area">Milla de Oro · Ático</span>
+                <span class="pc-meta"><span>3 dorm.</span><span>3 baños</span><span>240 m²</span></span>
+                <span class="pc-price">1.950.000 €</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+        <div class="ae-empty" id="empty" hidden>
+          <p><em>Ninguna casa</em> cumple todos esos filtros.</p>
+          <button type="button" id="emptyReset" class="ae-btn">Ver todas las propiedades</button>
+        </div>
+        <p class="ae-note">Propiedades, ubicaciones y precios de demostración. Ninguna de estas casas está a la venta.</p>
+      </div>
+    </section>
+
+    <section class="ae-zones" id="zonas" aria-labelledby="ae-zones-t">
+      <div class="ae-w">
+        <h2 id="ae-zones-t" data-rv>Dónde buscamos</h2>
+        <ul class="ae-zl">
+          <li data-rv><button type="button" data-zone="Marbella"><span class="ae-zn">Marbella</span><span class="ae-zc">3 propiedades</span><span aria-hidden="true">→</span></button></li>
+          <li data-rv><button type="button" data-zone="Sotogrande"><span class="ae-zn">Sotogrande</span><span class="ae-zc">1 propiedad</span><span aria-hidden="true">→</span></button></li>
+          <li data-rv><button type="button" data-zone="Ibiza"><span class="ae-zn">Ibiza</span><span class="ae-zc">2 propiedades</span><span aria-hidden="true">→</span></button></li>
+          <li data-rv><button type="button" data-zone="Mallorca"><span class="ae-zn">Mallorca</span><span class="ae-zc">1 propiedad</span><span aria-hidden="true">→</span></button></li>
+          <li data-rv><button type="button" data-zone="Madrid"><span class="ae-zn">Madrid</span><span class="ae-zc">1 propiedad</span><span aria-hidden="true">→</span></button></li>
+          <li data-rv><button type="button" data-zone="Costa Brava"><span class="ae-zn">Costa Brava</span><span class="ae-zc">1 propiedad</span><span aria-hidden="true">→</span></button></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ae-services" id="servicios" aria-labelledby="ae-svc-t">
+      <div class="ae-w ae-svc-in">
+        <div class="ae-svc-img" data-rv><img src="/assets/demos/aurea-estates/img/int-salon-800.webp" srcset="/assets/demos/aurea-estates/img/int-salon-800.webp 800w, /assets/demos/aurea-estates/img/int-salon-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" width="1600" height="1088" alt="Salón amplio con sofá blanco y grandes ventanales" loading="lazy" decoding="async"></div>
+        <div>
+          <h2 id="ae-svc-t" data-rv>Cómo trabajamos</h2>
+          <ol class="ae-svc">
+            <li data-rv><b>Compra acompañada</b><p>Entendemos qué buscas, filtramos por ti y organizamos visitas privadas, presenciales o en vídeo.</p></li>
+            <li data-rv><b>Venta y valoración</b><p>Fotografía, plano y una ficha cuidada para presentar tu casa como merece, solo a compradores cualificados.</p></li>
+            <li data-rv><b>Gestión hasta la firma</b><p>Coordinamos notaría, documentación y entrega de llaves para que no tengas que perseguir a nadie.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="ae-contact" id="contacto" aria-labelledby="ae-ct-t">
+      <div class="ae-w ae-ct-in">
+        <div>
+          <h2 id="ae-ct-t" data-rv>Hablemos de <em>tu casa</em>.</h2>
+          <p data-rv>Cuéntanos qué buscas o qué quieres vender. Te responde una persona, no un formulario automático.</p>
+          <p class="ae-note" data-rv>Oficina, teléfono y dirección no incluidos: Aurea Estates es una inmobiliaria ficticia.</p>
+        </div>
+        <form class="ae-form" id="contactForm" novalidate>
+          <div class="ae-row">
+            <div class="ae-f"><label for="c-name">Nombre</label><input id="c-name" name="name" autocomplete="name" aria-describedby="c-name-e"><p class="ae-err" id="c-name-e" data-err="name" hidden></p></div>
+            <div class="ae-f"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" aria-describedby="c-email-e"><p class="ae-err" id="c-email-e" data-err="email" hidden></p></div>
+          </div>
+          <div class="ae-f"><label for="c-interest">Me interesa</label><select id="c-interest" name="interest" aria-describedby="c-interest-e"><option value="">Elige una opción</option><option value="Comprar">Comprar</option><option value="Vender">Vender</option><option value="Valorar mi vivienda">Valorar mi vivienda</option></select><p class="ae-err" id="c-interest-e" data-err="interest" hidden></p></div>
+          <div class="ae-f"><label for="c-msg">Mensaje</label><textarea id="c-msg" name="msg" rows="4" aria-describedby="c-msg-e"></textarea><p class="ae-err" id="c-msg-e" data-err="msg" hidden></p></div>
+          <label class="ae-chk"><input type="checkbox" name="ok" aria-describedby="c-ok-e"> Acepto que me contactéis sobre mi consulta.</label>
+          <p class="ae-err" id="c-ok-e" data-err="ok" hidden></p>
+          <button class="ae-btn" type="submit">Enviar consulta</button>
+          <div class="ae-sent" id="contactSent" role="status" hidden></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ae-ft">
+    <div class="ae-w ae-ft-in">
+      <span class="ae-logo">AUREA<span>Estates</span></span>
+      <p>Inmobiliaria ficticia creada por SanchezDevelop para demostrar una web de lujo.</p>
+    </div>
+  </footer>
+
+  <dialog class="dk-dialog ae-dlg" id="dlg" aria-labelledby="d-title">
+    <button class="dk-close" data-close aria-label="Cerrar ficha">×</button>
+    <div id="dlgBody"></div>
+  </dialog>
+
+  <aside class="dk-end" aria-labelledby="dk-end-t">
+    <div class="dk-end-in">
+      <p class="dk-mono">Demo de SanchezDevelop</p>
+      <h2 id="dk-end-t">¿Te imaginas tu negocio con una web así?</h2>
+      <p>Aurea Estates es un negocio ficticio: lo he diseñado y programado para enseñar lo que puede tener tu web. Las funciones que has probado se pueden adaptar a tu sector, tu marca y tu forma de trabajar.</p>
+      <div class="dk-end-ctas">
+        <a class="dk-btn" href="/contacto/?demo=aurea-estates" data-cta="demo-aurea-estates">Quiero una web así</a>
+        <a class="dk-btn ghost" href="/demos/">Ver las demás demos</a>
+      </div>
+      <p class="dk-others">También: <a href="/demos/noir-atelier/">Noir Atelier</a> · <a href="/demos/sora-wellness/">Sora Wellness</a> · <a href="/demos/forge-fitness/">Forge Fitness</a></p>
+    </div>
+  </aside>
+  <a class="dk-pill" id="dkPill" href="/contacto/?demo=aurea-estates" data-cta="demo-aurea-estates"><span class="dk-dot" aria-hidden="true"></span>Demo de SanchezDevelop · <b>Quiero una así</b></a>
+  <script type="application/json" id="demo-data">{"dims":{"hero":[1600,1067],"villa-marea":[1600,1067],"casa-alba":[1600,1200],"residencia-sol":[1600,1061],"atico-mirador":[1600,1067],"villa-olivo":[1600,1067],"casa-cedro":[1600,1342],"casa-lino":[1600,1067],"noche":[1600,1067],"int-salon":[1600,1088],"int-estar":[1600,1200],"int-dormitorio":[1600,1067],"int-bano":[1600,2400],"int-cocina":[1600,1060],"int-vistas":[1600,1067]},"properties":[{"id":"villa-marea","name":"Villa Marea","zone":"Marbella","area":"Sierra Blanca","type":"Villa","price":4950000,"beds":6,"baths":7,"m2":820,"plot":2400,"img":"villa-marea","alt":"Villa blanca de dos plantas con piscina y jardín","gallery":["int-salon","int-dormitorio","int-bano"],"feats":["Piscina desbordante","Vistas al mar","Domótica integral","Garaje para 4 coches"],"desc":"Arquitectura contemporánea en una de las urbanizaciones más tranquilas de Marbella. Espacios abiertos que se vuelcan al jardín y a la piscina, con luz natural en todas las estancias."},{"id":"casa-alba","name":"Casa Alba","zone":"Sotogrande","area":"La Reserva","type":"Villa","price":3200000,"beds":5,"baths":5,"m2":610,"plot":1800,"img":"casa-alba","alt":"Casa moderna con grandes ventanales y piscina al atardecer","gallery":["int-estar","int-cocina"],"feats":["Junto al campo de golf","Cocina de autor","Suite principal con vestidor","Bodega climatizada"],"desc":"Una casa para vivir todo el año, con volúmenes limpios, grandes ventanales y una piscina que prolonga el salón hacia el exterior."},{"id":"residencia-sol","name":"Residencia del Sol","zone":"Ibiza","area":"Santa Eulària","type":"Villa","price":6400000,"beds":7,"baths":8,"m2":940,"plot":5200,"img":"residencia-sol","alt":"Villa blanca con piscina y tumbonas bajo el cielo azul","gallery":["int-vistas","int-salon","int-bano"],"feats":["Casa de invitados","Piscina de 20 metros","Gimnasio y spa","Licencia turística (demo)"],"desc":"Finca contemporánea rodeada de pinos, con casa principal, casa de invitados y zonas exteriores pensadas para recibir."},{"id":"casa-mirador","name":"Casa Mirador","zone":"Mallorca","area":"Port d’Andratx","type":"Villa","price":2750000,"beds":4,"baths":4,"m2":430,"plot":950,"img":"atico-mirador","alt":"Casa blanca de líneas rectas con piscina y palmeras","gallery":["int-estar","int-dormitorio"],"feats":["Vistas a la bahía","Terrazas en cada planta","Ascensor","A 5 minutos del puerto"],"desc":"Líneas rectas, mucha luz y terrazas escalonadas que miran al puerto. Una casa compacta, cuidada al detalle y lista para entrar a vivir."},{"id":"villa-olivo","name":"Villa Olivo","zone":"Marbella","area":"Nueva Andalucía","type":"Villa","price":2150000,"beds":5,"baths":4,"m2":520,"plot":1300,"img":"villa-olivo","alt":"Villa de dos plantas con galería, palmeras y piscina","gallery":["int-cocina","int-salon"],"feats":["Galería porticada","Jardín maduro","Apartamento independiente","Cerca de colegios internacionales"],"desc":"Una villa familiar con jardín maduro y galería porticada, a pocos minutos de los colegios internacionales y de Puerto Banús."},{"id":"casa-cedro","name":"Casa Cedro","zone":"Madrid","area":"La Moraleja","type":"Casa","price":3850000,"beds":6,"baths":6,"m2":780,"plot":1600,"img":"casa-cedro","alt":"Casa contemporánea de piedra y madera con jardín","gallery":["int-estar","int-dormitorio","int-bano"],"feats":["Fachada de cedro y piedra","Sala de cine","Despacho con acceso propio","Seguridad 24 h en la urbanización"],"desc":"Madera, piedra y vidrio en una parcela llana de La Moraleja. Distribución pensada para teletrabajar, recibir y desconectar sin salir de casa."},{"id":"casa-lino","name":"Casa Lino","zone":"Costa Brava","area":"Begur","type":"Casa","price":1680000,"beds":4,"baths":3,"m2":320,"plot":700,"img":"casa-lino","alt":"Casa de diseño con volúmenes de madera y hormigón","gallery":["int-vistas","int-cocina"],"feats":["Arquitectura de autor","A 800 m de la cala","Patio interior","Eficiencia energética A (demo)"],"desc":"Una casa de autor en la Costa Brava: volúmenes de madera y hormigón alrededor de un patio, a un paseo de las calas."},{"id":"villa-brisa","name":"Villa Brisa","zone":"Ibiza","area":"Sant Josep","type":"Villa","price":3600000,"beds":5,"baths":5,"m2":600,"plot":2100,"img":"noche","alt":"Casa moderna iluminada al anochecer entre árboles","gallery":["int-salon","int-vistas"],"feats":["Puestas de sol al oeste","Porche de 80 m²","Placas solares","Huerto y frutales"],"desc":"Pensada para el atardecer: porche orientado al oeste, interiores cálidos y un jardín con frutales a pocos minutos de las playas del sur."},{"id":"atico-horizonte","name":"Ático Horizonte","zone":"Marbella","area":"Milla de Oro","type":"Ático","price":1950000,"beds":3,"baths":3,"m2":240,"plot":0,"terrace":120,"img":"int-vistas","alt":"Salón con escalera de diseño y vistas a la piscina","gallery":["int-salon","int-dormitorio"],"feats":["Terraza de 120 m²","Piscina privada","Conserjería","Dos plazas de garaje"],"desc":"Un ático luminoso con terraza envolvente y piscina privada en plena Milla de Oro, a un paseo de la playa."}]}</script>
+  <script src="/assets/demos/kit.js?v=4" defer></script>
+  <script src="/assets/js/track.js?v=4" defer></script>
+  <script src="/assets/demos/aurea-estates/app.js?v=4" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+# sanchezdevelop.com
+User-agent: *
+Disallow: /api/
+
+Sitemap: https://sanchezdevelop.com/sitemap.xml

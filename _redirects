@@ -1,0 +1,8 @@
+# Redirecciones de Cloudflare Pages (https://developers.cloudflare.com/pages/configuration/redirects/)
+# Cloudflare publica la raíz del repositorio: la documentación interna, los scripts
+# y los tests no son parte de la web y no deben poder abrirse en sanchezdevelop.com.
+/docs/* / 302
+/scripts/* / 302
+/tests/* / 302
+/README.md / 302
+/package.json / 302
