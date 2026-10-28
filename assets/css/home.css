@@ -14,8 +14,8 @@
 .hero { position: relative; min-height: 100vh; min-height: 100svh; padding: calc(var(--hd) + clamp(36px, 7vh, 90px)) 0 0; display: flex; flex-direction: column; overflow: hidden }
 .hero-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0 }
 .hero-bg span { position: absolute; border-radius: 50%; filter: blur(60px) }
-.hero-bg .g1 { width: 60vw; height: 60vw; max-width: 900px; max-height: 900px; right: -12vw; top: -18vw; background: radial-gradient(closest-side, rgba(62, 224, 197, .38), transparent 70%); animation: drift 22s var(--ease) infinite alternate }
-.hero-bg .g2 { width: 40vw; height: 40vw; max-width: 620px; max-height: 620px; left: -14vw; bottom: -14vw; background: radial-gradient(closest-side, rgba(56, 120, 180, .22), transparent 70%); animation: drift 28s var(--ease) infinite alternate-reverse }
+.hero-bg .g1 { width: 60vw; height: 60vw; max-width: 900px; max-height: 900px; right: -12vw; top: -18vw; background: radial-gradient(closest-side, rgba(59, 130, 246, .55), transparent 70%); animation: drift 22s var(--ease) infinite alternate }
+.hero-bg .g2 { width: 40vw; height: 40vw; max-width: 620px; max-height: 620px; left: -14vw; bottom: -14vw; background: radial-gradient(closest-side, rgba(30, 64, 175, .55), transparent 70%); animation: drift 28s var(--ease) infinite alternate-reverse }
 .hero-bg .grid { inset: 0; border-radius: 0; filter: none; width: auto; height: auto; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 72px 72px; mask-image: radial-gradient(ellipse 70% 60% at 70% 40%, #000 20%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse 70% 60% at 70% 40%, #000 20%, transparent 75%); opacity: .55 }
 @keyframes drift { to { transform: translate3d(-6vw, 5vw, 0) scale(1.08) } }
 
@@ -150,7 +150,7 @@
 .dm-1 { grid-column: span 7; min-height: 600px }
 .dm-2 { grid-column: span 5; min-height: 600px }
 .dm-3, .dm-4, .dm-5 { grid-column: span 4; min-height: 470px }
-.dm-6 { grid-column: span 12; min-height: 0; display: grid; grid-template-columns: 1fr 1.2fr; align-items: center; background: linear-gradient(120deg, #07302c, #071018 60%) }
+.dm-6 { grid-column: span 12; min-height: 0; display: grid; grid-template-columns: 1fr 1.2fr; align-items: center; background: linear-gradient(120deg, #13264d, #0B0F1A 60%) }
 .dm-6::after { display: none }
 .dm-6 .dm-media { position: relative; inset: auto; z-index: 0; order: 2; padding: clamp(22px, 3vw, 40px) clamp(22px, 3vw, 40px) clamp(22px, 3vw, 40px) 0 }
 .fb-mock { display: grid; grid-template-columns: 54px 1fr; height: clamp(220px, 24vw, 320px); background: #f8fafc; border-radius: 12px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .9); transition: transform 1s var(--ease-out) }
@@ -235,7 +235,7 @@
 .svc { list-style: none; padding: 0; border-top: 1px solid var(--line-2) }
 .svc li { border-bottom: 1px solid var(--line-2) }
 .svc a { position: relative; display: grid; grid-template-columns: 70px minmax(0, 1.5fr) minmax(0, 1fr) 40px; gap: 20px 32px; align-items: start; padding: clamp(26px, 3.2vw, 44px) 0; transition: padding .5s var(--ease-out) }
-.svc a::before { content: ""; position: absolute; inset: 0 calc(var(--gut) * -1); background: linear-gradient(90deg, rgba(62, 224, 197, .12), transparent 70%); opacity: 0; transition: opacity .4s; z-index: -1 }
+.svc a::before { content: ""; position: absolute; inset: 0 calc(var(--gut) * -1); background: linear-gradient(90deg, rgba(59, 130, 246, .16), transparent 70%); opacity: 0; transition: opacity .4s; z-index: -1 }
 .svc a:hover::before, .svc a:focus-visible::before { opacity: 1 }
 .svc a:hover { padding-left: 12px }
 .svc-n { color: var(--accent); padding-top: .7em }
@@ -271,7 +271,7 @@
 .tl::after { background: var(--accent); transform: scaleX(var(--p)); transform-origin: left; box-shadow: 0 0 14px var(--accent) }
 .tl li { padding-top: 34px; position: relative }
 .tl li::before { content: ""; position: absolute; top: -5px; left: 0; width: 11px; height: 11px; border-radius: 50%; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line-2); transition: background .4s, box-shadow .4s }
-.tl li.on::before { background: var(--accent); box-shadow: 0 0 0 4px rgba(106, 168, 255, .2) }
+.tl li.on::before { background: var(--accent); box-shadow: 0 0 0 4px rgba(59, 130, 246, .28) }
 .tl-n { color: var(--muted) }
 .tl h3 { font-size: clamp(1.3rem, 2vw, 1.7rem); letter-spacing: -.03em; font-weight: 600; margin-top: 18px }
 .tl p { color: var(--fg-2); margin-top: 12px }
@@ -313,7 +313,7 @@
 .opt-t small { color: var(--fg-2); font-size: .94rem }
 .opt-pr { color: var(--fg-2); font-size: .78rem; text-align: right }
 .opt input:checked ~ .opt-pr { color: var(--accent) }
-.sum { position: sticky; top: calc(var(--hd) + 24px); background: var(--bg-2); border-radius: var(--r); padding: clamp(24px, 3vw, 38px); box-shadow: inset 0 0 0 1px var(--line); overflow: hidden }
+.sum { position: sticky; top: calc(var(--hd) + 24px); background: rgba(31, 41, 55, .48); border-radius: 20px; padding: clamp(24px, 3vw, 38px); border: 1px solid rgba(59, 130, 246, .28); box-shadow: 0 30px 70px -32px rgba(59, 130, 246, .55), inset 0 1px 0 rgba(248, 250, 252, .06); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); overflow: hidden }
 .sum::before { content: ""; position: absolute; right: -40%; top: -60%; width: 100%; aspect-ratio: 1; background: radial-gradient(closest-side, var(--accent-glow), transparent 70%); opacity: .5; pointer-events: none }
 .sum > * { position: relative }
 .sum-v { font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 650; letter-spacing: -.05em; line-height: 1; margin-top: 12px; font-variant-numeric: tabular-nums }
@@ -324,11 +324,11 @@
 @media (max-width: 900px) { .cfg { grid-template-columns: 1fr } .sum { position: relative; top: 0 } }
 
 /* ---------- CONTACTO ---------- */
-.contact { background: radial-gradient(ellipse 60% 50% at 15% 30%, rgba(62, 224, 197, .12), transparent 70%) }
+.contact { background: radial-gradient(ellipse 60% 50% at 15% 30%, rgba(59, 130, 246, .2), transparent 70%) }
 .contact-in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(32px, 6vw, 100px); align-items: start }
 .contact-l { display: grid; gap: 24px; position: sticky; top: calc(var(--hd) + 30px) }
 .contact-direct { display: grid; gap: 12px; justify-items: start; margin-top: 8px }
-.contact-r { background: var(--bg-2); border-radius: var(--r); padding: clamp(22px, 3vw, 40px); box-shadow: inset 0 0 0 1px var(--line) }
+.contact-r { background: rgba(31, 41, 55, .48); border-radius: 20px; padding: clamp(22px, 3vw, 40px); border: 1px solid rgba(59, 130, 246, .24); box-shadow: 0 30px 70px -32px rgba(59, 130, 246, .4), inset 0 1px 0 rgba(248, 250, 252, .06); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px) }
 .contact-r .fld input, .contact-r .fld select, .contact-r .fld textarea { background: var(--bg) }
 @media (max-width: 900px) { .contact-in { grid-template-columns: 1fr } .contact-l { position: static } }
 

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 760" role="img" aria-label="K">
+  <defs><linearGradient id="arm" gradientUnits="userSpaceOnUse" x1="220" y1="360" x2="700" y2="730">
+      <stop offset="0%" stop-color="#BFDBFE"/>
+      <stop offset="38%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1E40AF"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="45%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient></defs>
+  <g>
+      <polygon points="46,0 196,0 196,730 46,730" fill="#F8FAFC"/>
+      <polygon points="188.0,448.4 728.0,84.4 652.0,-28.4 112.0,335.6" fill="#F8FAFC"/>
+      <polygon points="135.9,475.7 657.9,765.7 722.1,650.3 200.1,360.3" fill="url(#arm)"/>
+    </g>
+</svg>
