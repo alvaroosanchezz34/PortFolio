@@ -14,13 +14,14 @@ El dominio previsto es `https://kodikadigital.com` (aún no está en producción
 | `scripts/data/images.json` | Dimensiones de las fotos, para `width`/`height` y `srcset`. |
 | `index.html`, `*/index.html`, `404.html`, `sitemap.xml` | **Generados**: no los edites a mano. |
 | `assets/css`, `assets/js` | Estilos y JS del sitio (`site.*` común; `home.*`; `contact.js` formulario; `track.js` eventos de conversión). |
-| `assets/img/logo.svg` | Marca de Kódika (monograma). También se usa como favicon SVG. |
+| `assets/img/kodika.svg`, `assets/img/logo.svg` | Logotipo de la cabecera y el pie, y favicon SVG. |
+| `assets/brand/` | Ficheros de marca: logotipo (claro, oscuro, con lema), símbolo, icono y foto de perfil. Guía en `docs/marca/identidad.md`. |
 | `assets/demos/kit.*` | Kit común de las demos: barra «Demo ficticia», cierre comercial, validación, diálogos, router por hash y almacenamiento local. |
 | `assets/demos/<slug>/` | CSS, JS, fuentes y fotos propias de cada demo. |
 | `assets/og/` | Imágenes para compartir (1200×630). |
 | `robots.txt`, `_headers`, `_redirects` | Rastreo, cabeceras y redirecciones de Cloudflare Pages. `_redirects` impide abrir `docs/`, `scripts/`, `tests/` y este README desde la web, y redirige `/sobre-mi/` a `/sobre-kodika/`. |
 | `tests/e2e.mjs` | Pruebas end-to-end con Playwright (formularios, menú, 404 y las seis demos). |
-| `docs/` | Estrategia y entrega del rediseño anterior (`docs/rediseno/`) y documentación SEO histórica (`docs/seo/`). |
+| `docs/` | Guía de identidad (`docs/marca/`), estrategia y entrega del rediseño anterior (`docs/rediseno/`) y documentación SEO histórica (`docs/seo/`). |
 
 ## Demos
 
