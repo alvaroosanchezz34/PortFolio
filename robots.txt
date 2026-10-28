@@ -1,5 +1,5 @@
-# sanchezdevelop.com
+# kodikadigital.com
 User-agent: *
 Disallow: /api/
 
-Sitemap: https://sanchezdevelop.com/sitemap.xml
+Sitemap: https://kodikadigital.com/sitemap.xml

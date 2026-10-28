@@ -1,78 +1,80 @@
 import {
-  finalCta, related, serviceCards, contactForm, wa, mailto, EMAIL, GITHUB, PERSON_ID,
+  finalCta, related, serviceCards, contactForm, wa, mailto, EMAIL, GITHUB, ORG_ID,
 } from '../lib/site.mjs';
 
-// ---------- /sobre-mi/ ----------
+// ---------- /sobre-kodika/ ----------
 const sobre = {
-  path: '/sobre-mi/',
-  nav: '',
+  path: '/sobre-kodika/',
+  nav: 'sobre',
   pageType: 'AboutPage',
-  updated: '2026-10-16',
-  title: 'Sobre mí: Álvaro Sánchez, desarrollador Full Stack | SanchezDevelop',
-  description: 'Soy Álvaro Sánchez, desarrollador Full Stack independiente en Málaga. Diseño y programo webs, reservas online y software a medida para negocios de toda España.',
-  crumbs: [['Inicio', '/'], ['Sobre mí', '/sobre-mi/']],
-  kick: 'Sobre mí',
-  h1: 'Soy Álvaro Sánchez, desarrollador Full Stack',
-  lead: 'Diseño y programo webs, sistemas de reservas, aplicaciones y software a medida para <b>autónomos y pequeñas empresas</b>. Trabajo desde Málaga para toda España, y hablas conmigo de principio a fin.',
-  waText: 'Hola Álvaro, he leído sobre ti en tu web y quiero comentarte un proyecto.',
+  updated: '2026-10-28',
+  title: 'Sobre Kódika, estudio de desarrollo digital en Málaga',
+  description: 'Kódika es un estudio de diseño y desarrollo digital en Málaga, fundado por Álvaro Sánchez. Webs, reservas online y software a medida para toda España.',
+  crumbs: [['Inicio', '/'], ['Sobre Kódika', '/sobre-kodika/']],
+  kick: 'Sobre Kódika',
+  h1: 'Un estudio digital fundado en Málaga',
+  lead: 'Diseñamos y desarrollamos webs, sistemas de reservas, aplicaciones y software a medida para <b>empresas y profesionales</b>. Trabajamos desde Málaga para toda España, y hablas con quien construye el proyecto.',
+  waText: 'Hola, he leído sobre Kódika y quiero comentaros un proyecto.',
   heroLink: '<a class="lnk" href="/demos/">Ver las demos <span class="arr" aria-hidden="true">→</span></a>',
-  about: PERSON_ID,
+  about: ORG_ID,
   body: `
     <section class="sec">
       <div class="narrow prose">
-        <h2>Qué hago</h2>
-        <p>Soy desarrollador <strong>Full Stack</strong>: trabajo en todas las capas de un proyecto web, desde el diseño de la interfaz hasta el servidor, la base de datos, los pagos y la publicación. Para un negocio, eso significa que no hay intermediarios entre la persona que entiende lo que necesitas y la que lo programa.</p>
-        <p>Con SanchezDevelop hago dos tipos de trabajo:</p>
+        <h2>Qué hacemos</h2>
+        <p>Kódika es un estudio de producto digital. Cubrimos un proyecto de punta a punta: interfaz, servidor, base de datos, pagos y publicación. Para un negocio, eso significa que no hay comerciales entre lo que necesitas y lo que se programa.</p>
+        <p>El trabajo se concentra en dos líneas:</p>
         <ul>
           <li><strong>Webs para negocios</strong>: webs de presencia, <a href="/sistemas-reservas-online/">reservas y pedidos online</a>, tiendas y <a href="/mantenimiento-web/">mantenimiento</a>, con precio cerrado.</li>
           <li><strong>Software a medida</strong>: <a href="/aplicaciones-web/">aplicaciones web</a>, plataformas SaaS, APIs e <a href="/integracion-inteligencia-artificial/">integraciones de inteligencia artificial</a>.</li>
         </ul>
-        <p>Para que veas el nivel de diseño y de programación antes de hablar, he creado <a href="/demos/">seis demos navegables</a> de sectores distintos: inmobiliaria, moda, bienestar, fitness, automoción y un SaaS de reservas. Son negocios ficticios, pero cada una tiene su propia dirección de arte y funciones que funcionan de verdad.</p>
+        <p>Para que veas el nivel de diseño y de programación antes de hablar, hemos creado <a href="/demos/">seis demos navegables</a> de sectores distintos: inmobiliaria, moda, bienestar, fitness, automoción y un SaaS de reservas. Son negocios ficticios, pero cada una tiene su propia dirección de arte y funciones que funcionan de verdad.</p>
 
-        <h2>Cómo trabajo</h2>
+        <h2>Cómo trabajamos</h2>
         <ul>
-          <li><strong>Primero la ves, luego pagas.</strong> Te enseño una versión real de tu web antes de cualquier pago.</li>
+          <li><strong>Primero la ves, luego pagas.</strong> Te enseñamos una versión real de tu web antes de cualquier pago.</li>
           <li><strong>Precio cerrado.</strong> Lo acordamos por escrito antes de empezar y no cambia, salvo que añadamos funciones nuevas.</li>
-          <li><strong>Hablas conmigo.</strong> Sin comerciales ni intermediarios: me escribes y te respondo yo.</li>
+          <li><strong>Trato directo.</strong> Escribes y te responde quien diseña y programa el proyecto.</li>
           <li><strong>Código propio.</strong> Programado a medida, sin plantillas pesadas ni complementos que se rompen.</li>
-          <li><strong>Sinceridad.</strong> Si una herramienta que ya existe te sirve mejor que algo a medida, te lo digo.</li>
-          <li><strong>No desaparezco.</strong> Después de publicar sigo disponible para cambios, dudas o mejoras.</li>
+          <li><strong>Sinceridad.</strong> Si una herramienta que ya existe te sirve mejor que algo a medida, te lo decimos.</li>
+          <li><strong>Seguimos después.</strong> Tras publicar seguimos disponibles para cambios, dudas o mejoras.</li>
         </ul>
 
-        <h2>Tecnologías con las que trabajo</h2>
-        <p>Elijo la tecnología según el proyecto, no al revés:</p>
+        <h2 id="equipo">Equipo</h2>
+        <p><strong>Álvaro Sánchez</strong> es el fundador de Kódika y desarrollador Full Stack. Trabaja en todas las capas de un proyecto, de la interfaz al servidor, y es la persona con la que hablas de principio a fin.</p>
+        <p>Puedes ver parte de su código y los repositorios públicos en <a href="${GITHUB}" target="_blank" rel="noopener me">GitHub</a>.</p>
+        <!-- PLACEHOLDER Álvaro: cuando incorpores a más personas, añade aquí nombre, rol y una bio breve. No publiques miembros, clientes, cifras, premios ni años de actividad que no sean reales. -->
+
+        <h2>Tecnologías</h2>
+        <p>Elegimos la tecnología según el proyecto, no al revés:</p>
         <ul class="tech">
           <li>Angular</li><li>React</li><li>Next.js</li><li>TypeScript</li><li>Node.js</li><li>Express</li><li>Spring Boot</li><li>MySQL</li><li>MongoDB</li><li>Firebase</li><li>Stripe</li><li>OpenAI</li><li>Vercel</li><li>Cloudflare</li>
         </ul>
 
-        <h2>Dónde estoy</h2>
-        <p>Estoy en <strong>Málaga</strong>. Si tu negocio está cerca y te viene mejor, nos tomamos un café y lo vemos en persona. Si no, todo el proceso (reuniones, avances y entregas) se puede hacer en remoto, así que trabajo con negocios de cualquier parte de España.</p>
-
-        <h2>Código</h2>
-        <p>Puedes ver parte de mi trabajo y mis repositorios públicos en <a href="${GITHUB}" target="_blank" rel="noopener me">GitHub</a>.</p>
+        <h2>Dónde estamos</h2>
+        <p>El estudio está en <strong>Málaga</strong>. Si tu negocio está cerca y te viene mejor, nos vemos en persona. Si no, todo el proceso (reuniones, avances y entregas) se puede hacer en remoto, con empresas de cualquier parte de España.</p>
       </div>
     </section>
 ${related(['demos', 'webs', 'apps'], 'Sigue por aquí')}
 ${finalCta({
     title: '¿Hablamos de<br><em>tu proyecto?</em>',
-    text: 'Cuéntame qué necesitas. <b>La primera conversación es gratis</b> y te respondo normalmente el mismo día.',
-    waText: 'Hola Álvaro, he leído sobre ti en tu web y quiero comentarte un proyecto.',
+    text: 'Cuéntanos qué necesitas. <b>La primera conversación es gratis</b> y respondemos normalmente el mismo día.',
+    waText: 'Hola, he leído sobre Kódika y quiero comentaros un proyecto.',
   })}`,
 };
 
 // ---------- /contacto/ ----------
-const contactoWa = 'Hola Álvaro, he visto tu web y quiero un presupuesto. Mi negocio es: ';
+const contactoWa = 'Hola, he visto la web de Kódika y quiero un presupuesto. Mi negocio es: ';
 const contacto = {
   path: '/contacto/',
   nav: '',
   pageType: 'ContactPage',
-  updated: '2026-10-16',
-  title: 'Contacto y presupuesto sin compromiso | SanchezDevelop',
+  updated: '2026-10-28',
+  title: 'Contacto y presupuesto sin compromiso | Kódika',
   description: 'Pide presupuesto para tu web, sistema de reservas o aplicación a medida por WhatsApp o email. Primera conversación gratis y respuesta en 24 horas como mucho.',
   crumbs: [['Inicio', '/'], ['Contacto', '/contacto/']],
   kick: 'Contacto',
-  h1: 'Cuéntame tu proyecto',
-  lead: 'La primera conversación es <b>gratis y sin compromiso</b>. Te respondo yo, normalmente el mismo día y como mucho en 24 horas.',
+  h1: 'Cuéntanos tu proyecto',
+  lead: 'La primera conversación es <b>gratis y sin compromiso</b>. Te respondemos nosotros, normalmente el mismo día y como mucho en 24 horas.',
   heroCtas: false,
   waText: contactoWa,
   scripts: ['/assets/js/contact.js'],
@@ -80,11 +82,11 @@ const contacto = {
     <section class="sec" aria-labelledby="canales-t">
       <div class="wide contact-page">
         <div class="cp-l">
-          <h2 class="t-md" id="canales-t">Escríbeme como prefieras</h2>
-          <p class="lede" style="margin-top:14px">Rellena el formulario y te preparo el mensaje en WhatsApp o en tu correo, o escríbeme directamente.</p>
+          <h2 class="t-md" id="canales-t">Escríbenos como prefieras</h2>
+          <p class="lede" style="margin-top:14px">Rellena el formulario y te preparamos el mensaje en WhatsApp o en tu correo, o escríbenos directamente.</p>
           <ul class="cp-ch">
             <li><span class="mono muted">WhatsApp</span><a class="lnk" href="${wa(contactoWa)}" target="_blank" rel="noopener" data-cta="whatsapp">+34 697 89 85 74 <span class="arr" aria-hidden="true">→</span></a></li>
-            <li><span class="mono muted">Email</span><a class="lnk" href="${mailto('Quiero un presupuesto', 'Hola Álvaro, te escribo desde tu web. Mi negocio es: ')}" data-cta="email">${EMAIL}</a></li>
+            <li><span class="mono muted">Email</span><a class="lnk" href="${mailto('Quiero un presupuesto', 'Hola, os escribo desde la web de Kódika. Mi negocio es: ')}" data-cta="email">${EMAIL}</a></li>
             <li><span class="mono muted">Precio orientativo</span><a class="lnk" href="/#presupuesto" data-cta="configurador">Abrir el configurador <span class="arr" aria-hidden="true">→</span></a></li>
           </ul>
         </div>
@@ -97,7 +99,7 @@ ${contactForm('cf')}
     <section class="sec alt">
       <div class="narrow prose">
         <h2>Qué contarme para darte un precio</h2>
-        <p>No necesitas saber nada de tecnología. Con esto ya puedo orientarte:</p>
+        <p>No necesitas saber nada de tecnología. Con esto ya podemos orientarte:</p>
         <ul>
           <li>A qué se dedica tu negocio y dónde está.</li>
           <li>Qué quieres conseguir: que te encuentren, que reserven, vender online, ahorrar tiempo…</li>
@@ -107,11 +109,11 @@ ${contactForm('cf')}
         </ul>
         <h2>Qué pasa después</h2>
         <ol>
-          <li>Te respondo y, si hace falta, hablamos unos minutos para entender bien tu negocio.</li>
-          <li>Te paso una propuesta por escrito con qué incluye, el precio cerrado y una fecha.</li>
-          <li>Si te encaja, empiezo. Y antes de pagar, ves tu web.</li>
+          <li>Te respondemos y, si hace falta, hablamos unos minutos para entender bien tu negocio.</li>
+          <li>Te pasamos una propuesta por escrito con qué incluye, el precio cerrado y una fecha.</li>
+          <li>Si te encaja, empezamos. Y antes de pagar, ves tu web.</li>
         </ol>
-        <p>Estoy en Málaga, así que si estás cerca podemos vernos en persona. Si no, lo hacemos todo en remoto, estés donde estés en España.</p>
+        <p>Estamos en Málaga, así que si estás cerca podemos vernos en persona. Si no, lo hacemos todo en remoto, estés donde estés en España.</p>
       </div>
     </section>
 ${related(['webs', 'reservas', 'apps'], '¿Todavía decidiendo?')}`,
@@ -121,9 +123,9 @@ ${related(['webs', 'reservas', 'apps'], '¿Todavía decidiendo?')}`,
 const privacidad = {
   path: '/privacidad/',
   nav: '',
-  updated: '2026-10-16',
-  title: 'Política de privacidad | SanchezDevelop',
-  description: 'Qué datos trata sanchezdevelop.com, para qué y cómo ejercer tus derechos: contacto por WhatsApp o email, demos, demo con IA y analítica sin cookies.',
+  updated: '2026-10-28',
+  title: 'Política de privacidad | Kódika',
+  description: 'Qué datos trata kodikadigital.com, para qué y cómo ejercer tus derechos: contacto por WhatsApp o email, demos, demo con IA y analítica sin cookies.',
   crumbs: [['Inicio', '/'], ['Privacidad', '/privacidad/']],
   kick: 'Legal',
   h1: 'Política de privacidad',
@@ -133,13 +135,13 @@ const privacidad = {
     <section class="sec">
       <div class="narrow prose">
         <h2>Responsable</h2>
-        <p>Álvaro Sánchez (SanchezDevelop), Málaga, España. Contacto: <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
+        <p>Álvaro Sánchez, que opera bajo la marca Kódika, Málaga, España. Contacto: <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
 
         <h2>Qué datos se tratan y para qué</h2>
-        <h3>Cuando me escribes</h3>
-        <p>Si me contactas por WhatsApp o email, trato los datos que tú me envías (nombre, teléfono o email y lo que me cuentes de tu negocio) <strong>solo para responderte y, si lo pides, preparar un presupuesto</strong>. La base legal es tu solicitud y la aplicación de medidas precontractuales. Los conservo mientras dure la conversación o la relación profesional, y después durante los plazos legales que correspondan.</p>
+        <h3>Cuando nos escribes</h3>
+        <p>Si nos contactas por WhatsApp o email, tratamos los datos que nos envías (nombre, teléfono o email y lo que nos cuentes de tu negocio) <strong>solo para responderte y, si lo pides, preparar un presupuesto</strong>. La base legal es tu solicitud y la aplicación de medidas precontractuales. Los conservamos mientras dure la conversación o la relación profesional, y después durante los plazos legales que correspondan.</p>
         <p>WhatsApp es un servicio de Meta, y el uso que hace de tus datos se rige por su propia política de privacidad.</p>
-        <p>El formulario de contacto de esta web <strong>no envía ni guarda nada en ningún servidor</strong>: solo prepara el mensaje y abre WhatsApp o tu programa de correo para que lo envíes tú. Hasta que no pulses enviar allí, no me llega nada.</p>
+        <p>El formulario de contacto de esta web <strong>no envía ni guarda nada en ningún servidor</strong>: solo prepara el mensaje y abre WhatsApp o tu programa de correo para que lo envíes tú. Hasta que no pulses enviar allí, no nos llega nada.</p>
 
         <h3>Las demos</h3>
         <p>Las demos de <a href="/demos/">/demos/</a> son negocios ficticios. Sus formularios (reservas, visitas, pruebas, contacto) validan los campos pero <strong>no envían los datos a ningún sitio</strong>. La bolsa de la tienda de ejemplo y las citas del panel de Flowbook se guardan solo en tu navegador (almacenamiento local) para que la demo funcione al recargar; puedes borrarlas desde la propia demo o limpiando los datos del sitio en tu navegador.</p>
@@ -170,8 +172,8 @@ const notFound = {
   out: '404.html',
   nav: '',
   noindex: true,
-  title: 'Página no encontrada | SanchezDevelop',
-  description: 'La página que buscas no existe o ha cambiado de dirección. Vuelve al inicio o mira los servicios de SanchezDevelop.',
+  title: 'Página no encontrada | Kódika',
+  description: 'La página que buscas no existe o ha cambiado de dirección. Vuelve al inicio o mira los servicios de Kódika.',
   kick: 'Error 404',
   h1: 'Esta página no existe.',
   lead: 'Puede que la dirección esté mal escrita o que la página haya cambiado. Desde aquí puedes seguir:',

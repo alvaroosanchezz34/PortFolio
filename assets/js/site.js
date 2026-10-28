@@ -1,4 +1,4 @@
-// SanchezDevelop · JS común: cabecera, menú móvil y apariciones al hacer scroll.
+// Kódika · JS común: cabecera, menú móvil y apariciones al hacer scroll.
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];

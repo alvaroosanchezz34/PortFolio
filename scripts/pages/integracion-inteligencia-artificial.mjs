@@ -6,16 +6,16 @@ export default {
   path,
   nav: 'ia',
   updated: '2026-10-16',
-  title: 'Integración de IA y automatización para negocios | SanchezDevelop',
+  title: 'Integración de IA y automatización para negocios | Kódika',
   description: 'Asistentes que responden a tus clientes, lectura automática de documentos y tareas que se hacen solas. IA integrada en tu web o tu software, con supervisión humana.',
   crumbs: [['Inicio', '/'], ['Inteligencia artificial y automatización', path]],
   kick: 'IA y automatización',
   h1: 'Integración de inteligencia artificial y automatización de procesos',
   lead: 'IA que resuelve problemas reales: <b>asistentes que responden a tus clientes, documentos que se leen solos y tareas repetitivas que se hacen sin ti</b>, integrados en tu web o en tu software.',
   facts: ['Una demo con IA funcionando en esta web', 'Asistente en tu web desde 200 €', 'Con supervisión humana en lo importante'],
-  waText: 'Hola Álvaro, he visto tu página de inteligencia artificial y quiero automatizar algo en mi negocio.',
+  waText: 'Hola, he visto la página de inteligencia artificial de Kódika y quiero automatizar algo en mi negocio.',
   heroLink: '<a class="lnk" href="/#idea">Prueba la demo con IA</a>',
-  about: 'https://sanchezdevelop.com/integracion-inteligencia-artificial/#service',
+  about: 'https://kodikadigital.com/integracion-inteligencia-artificial/#service',
   schema: [serviceNode({
     path,
     name: 'Integración de inteligencia artificial y automatización de procesos',
@@ -50,18 +50,18 @@ export default {
           <li><strong>Sincronizar datos</strong> entre tu web, tu hoja de cálculo y tu programa de facturación mediante APIs.</li>
           <li><strong>Informes</strong> que llegan solos a tu correo, o exportaciones a Excel y PDF con un clic.</li>
         </ul>
-        <p>Mi forma de empezar es sencilla: me cuentas qué tarea te quita más horas a la semana y vemos si se puede automatizar, cómo, y si compensa.</p>
+        <p>La forma de empezar es sencilla: nos cuentas qué tarea te quita más horas a la semana y vemos si se puede automatizar, cómo, y si compensa.</p>
       </div>
     </section>
 
     <section class="sec" aria-labelledby="como-t">
       <div class="narrow prose">
-        <h2 id="como-t">Cómo integro la IA para que sea fiable</h2>
+        <h2 id="como-t">Cómo integramos la IA para que sea fiable</h2>
         <ul>
           <li><strong>Una tarea concreta y medible.</strong> «Responder dudas sobre horarios y reservas» funciona; «poner IA en la web» no.</li>
           <li><strong>Respuestas acotadas a tu información.</strong> El asistente trabaja con los datos de tu negocio y tiene instrucciones para no inventar precios ni compromisos. Lo que no sabe, te lo pasa.</li>
-          <li><strong>Salidas estructuradas y validadas.</strong> Cuando la IA genera datos (una maqueta, un presupuesto, unas preguntas de examen), le pido un formato fijo y lo compruebo en el servidor antes de usarlo. La demo de esta web funciona así.</li>
-          <li><strong>El modelo adecuado para cada caso.</strong> Uso la API de OpenAI y elijo el modelo según lo que importe más: calidad, rapidez o coste. La demo de esta web usa un modelo pequeño y rápido; para tareas complejas compensa uno más potente.</li>
+          <li><strong>Salidas estructuradas y validadas.</strong> Cuando la IA genera datos (una maqueta, un presupuesto, una ficha), pedimos un formato fijo y lo comprobamos en el servidor antes de usarlo. La demo de esta web funciona así.</li>
+          <li><strong>El modelo adecuado para cada caso.</strong> Usamos la API de OpenAI y elegimos el modelo según lo que importe más: calidad, rapidez o coste. La demo de esta web usa un modelo pequeño y rápido; para tareas complejas compensa uno más potente.</li>
           <li><strong>Supervisión humana.</strong> La IA se equivoca a veces. En lo importante (un presupuesto, una factura, un dato de salud) siempre revisa una persona antes de que llegue al cliente.</li>
           <li><strong>Datos personales con cuidado.</strong> Al proveedor de IA solo se le envía lo imprescindible, se informa en la política de privacidad y se cumple el RGPD.</li>
         </ul>
@@ -71,22 +71,22 @@ export default {
     <section class="sec alt" aria-labelledby="precio-t">
       <div class="narrow prose">
         <h2 id="precio-t">Precio</h2>
-        <p>Un <strong>asistente con IA integrado en tu web</strong> suma entre <strong>200 y 500 €</strong> al precio de la web, según lo que tenga que saber hacer. Las automatizaciones e integraciones a medida las presupuesto cuando veo el proceso, porque no hay dos iguales.</p>
-        <p>Además, el proveedor de IA cobra por uso. En los volúmenes de un negocio pequeño suele ser un coste bajo, pero te lo estimo según tus consultas previstas antes de empezar, para que no haya sorpresas.</p>
+        <p>Un <strong>asistente con IA integrado en tu web</strong> suma entre <strong>200 y 500 €</strong> al precio de la web, según lo que tenga que saber hacer. Las automatizaciones e integraciones a medida las presupuestamos cuando vemos el proceso, porque no hay dos iguales.</p>
+        <p>Además, el proveedor de IA cobra por uso. En los volúmenes de un negocio pequeño suele ser un coste bajo, pero te lo estimamos según tus consultas previstas antes de empezar, para que no haya sorpresas.</p>
       </div>
     </section>
 ${faq([
-    ['¿La IA puede equivocarse con mis clientes?', '<p>Sí, por eso la limito a tu información, le doy instrucciones claras de qué no debe hacer y hago que derive a ti los casos dudosos. En tareas sensibles, la IA prepara un borrador y la decisión la tomas tú.</p>'],
+    ['¿La IA puede equivocarse con mis clientes?', '<p>Sí, por eso la limitamos a tu información, le damos instrucciones claras de qué no debe hacer y hacemos que derive a ti los casos dudosos. En tareas sensibles, la IA prepara un borrador y la decisión la tomas tú.</p>'],
     ['¿Qué pasa con los datos que se envían a la IA?', '<p>Se envía solo lo necesario para la tarea, nunca más. Se informa a tus clientes en la política de privacidad, y el proveedor se elige y se configura teniendo en cuenta el RGPD.</p>'],
     ['¿Necesito tener una web para usar un asistente?', '<p>Lo habitual es integrarlo en tu web. Si es para un proceso interno, como leer documentos o preparar presupuestos, puede ir dentro de una herramienta propia.</p>'],
-    ['¿Tiene una cuota mensual?', '<p>Mi trabajo se paga una vez. El proveedor de IA cobra según el uso, y te lo estimo antes de empezar. Si quieres que lo vigile y lo ajuste con el tiempo, entra en el <a href="/mantenimiento-web/">mantenimiento</a>.</p>'],
-    ['¿Y si al final no me hace falta IA?', '<p>Te lo diré. Muchas mejoras se resuelven con una automatización sencilla o con una web mejor planteada, sin IA.</p>'],
+    ['¿Tiene una cuota mensual?', '<p>El trabajo de integración se paga una vez. El proveedor de IA cobra según el uso, y te lo estimamos antes de empezar. Si quieres que lo vigilemos y lo ajustemos con el tiempo, entra en el <a href="/mantenimiento-web/">mantenimiento</a>.</p>'],
+    ['¿Y si al final no me hace falta IA?', '<p>Te lo diremos. Muchas mejoras se resuelven con una automatización sencilla o con una web mejor planteada, sin IA.</p>'],
   ])}
 ${related(['apps', 'reservas', 'demos'])}
 ${finalCta({
     title: 'Menos tareas.<br><em>Más negocio.</em>',
-    text: 'Cuéntame qué te quita más tiempo cada semana y te digo si se puede automatizar. <b>La primera conversación es gratis.</b>',
-    waText: 'Hola Álvaro, he visto tu página de inteligencia artificial y quiero automatizar algo en mi negocio.',
+    text: 'Cuéntanos qué te quita más tiempo cada semana y te decimos si se puede automatizar. <b>La primera conversación es gratis.</b>',
+    waText: 'Hola, he visto la página de inteligencia artificial de Kódika y quiero automatizar algo en mi negocio.',
     mailSubject: 'Quiero integrar IA o automatizar un proceso',
   })}`,
 };

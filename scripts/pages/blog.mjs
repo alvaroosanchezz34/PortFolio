@@ -1,4 +1,4 @@
-import { finalCta, related, abs, PERSON_ID, OG_DEFAULT } from '../lib/site.mjs';
+import { finalCta, related, abs, FOUNDER_ID, ORG_ID, OG_DEFAULT } from '../lib/site.mjs';
 
 const POSTS = [
   {
@@ -17,7 +17,7 @@ const index = {
   nav: 'blog',
   pageType: 'CollectionPage',
   updated: POSTS[0].date,
-  title: 'Blog sobre webs y software para negocios | SanchezDevelop',
+  title: 'Blog sobre webs y software para negocios | Kódika',
   description: 'Guías prácticas y sin tecnicismos para autónomos y pequeñas empresas: precios de webs, reservas online, software a medida e inteligencia artificial.',
   crumbs: [['Inicio', '/'], ['Blog', '/blog/']],
   kick: 'Blog',
@@ -27,10 +27,10 @@ const index = {
   schema: [{
     '@type': 'Blog',
     '@id': abs('/blog/') + '#blog',
-    name: 'Blog de SanchezDevelop',
+    name: 'Blog de Kódika',
     url: abs('/blog/'),
     inLanguage: 'es-ES',
-    author: { '@id': PERSON_ID },
+    author: { '@id': ORG_ID },
     blogPost: POSTS.map(p => ({ '@type': 'BlogPosting', '@id': abs(p.path) + '#article', headline: p.title, url: abs(p.path), datePublished: p.date })),
   }],
   body: `
@@ -41,7 +41,7 @@ ${POSTS.map(p => `          <li>
             <a class="card" href="${p.path}">
               <h2 class="t-md">${p.title}</h2>
               <p>${p.excerpt}</p>
-              <p class="meta"><time datetime="${p.date}">${fmtDate(p.date)}</time> · Álvaro Sánchez</p>
+              <p class="meta"><time datetime="${p.date}">${fmtDate(p.date)}</time> · Álvaro Sánchez, fundador</p>
               <span class="go">Leer artículo</span>
             </a>
           </li>`).join('\n')}
@@ -56,7 +56,7 @@ const precio = {
   path: p1.path,
   nav: 'blog',
   ogType: 'article',
-  updated: p1.date,
+  updated: '2026-10-28',
   title: '¿Cuánto cuesta una página web para un negocio en 2026?',
   ogTitle: p1.title,
   description: 'Precios reales de ejemplo, qué hace subir el coste de una web, los gastos que no salen en el presupuesto y cómo comparar ofertas sin llevarte sustos.',
@@ -74,16 +74,16 @@ const precio = {
     image: abs(OG_DEFAULT),
     inLanguage: 'es-ES',
     datePublished: p1.date,
-    dateModified: p1.date,
-    author: { '@id': PERSON_ID },
-    publisher: { '@id': PERSON_ID },
+    dateModified: '2026-10-28',
+    author: { '@id': FOUNDER_ID },
+    publisher: { '@id': ORG_ID },
     mainEntityOfPage: { '@id': abs(p1.path) + '#webpage' },
-    isPartOf: { '@type': 'Blog', '@id': abs('/blog/') + '#blog', name: 'Blog de SanchezDevelop', url: abs('/blog/') },
+    isPartOf: { '@type': 'Blog', '@id': abs('/blog/') + '#blog', name: 'Blog de Kódika', url: abs('/blog/') },
   }],
   body: `
     <article class="sec">
       <div class="narrow prose">
-        <p class="meta" style="margin-top:0">Por <a href="/sobre-mi/">Álvaro Sánchez</a>, desarrollador Full Stack · <time datetime="${p1.date}">${fmtDate(p1.date)}</time></p>
+        <p class="meta" style="margin-top:0">Por <a href="/sobre-kodika/#equipo">Álvaro Sánchez</a>, fundador de Kódika · <time datetime="${p1.date}">${fmtDate(p1.date)}</time></p>
 
         <nav class="toc" aria-label="Contenido del artículo">
           <p>En este artículo</p>
@@ -99,7 +99,7 @@ const precio = {
 
         <h2 id="corta">La respuesta corta</h2>
         <p>Una web profesional para un negocio pequeño puede costar desde unos pocos cientos de euros hasta varios miles. La diferencia no está en el «diseño», sino en <strong>lo que la web tiene que hacer</strong>: no cuesta lo mismo una página que explica tus servicios que una con reservas, pagos o un área privada.</p>
-        <p>Para que tengas una referencia concreta, estos son mis precios orientativos de pago único:</p>
+        <p>Para que tengas una referencia concreta, estos son los precios orientativos de Kódika, de pago único:</p>
         <table>
           <thead><tr><th scope="col">Qué necesitas</th><th scope="col">Precio orientativo</th></tr></thead>
           <tbody>
@@ -111,7 +111,7 @@ const precio = {
             <tr><td>Mantenimiento (opcional)</td><td>15–25 €/mes</td></tr>
           </tbody>
         </table>
-        <p>Son mis tarifas como desarrollador independiente. Otros profesionales y agencias trabajan con rangos muy distintos, así que úsalas como referencia, no como precio de mercado. Puedes combinarlas en el <a href="/#presupuesto">configurador de presupuesto</a>.</p>
+        <p>Son las tarifas del estudio. Otros profesionales y agencias trabajan con rangos muy distintos, así que úsalas como referencia, no como precio de mercado. Puedes combinarlas en el <a href="/#presupuesto">configurador de presupuesto</a>.</p>
 
         <h2 id="formas">Tres formas de tener una web</h2>
         <h3>1. Hacerla tú con una plataforma prediseñada</h3>
@@ -121,6 +121,7 @@ const precio = {
         <p>Una persona que diseña y programa tu web. Tratas directamente con quien la hace, los costes de estructura son menores y la comunicación es más rápida. El riesgo es elegir mal: conviene ver proyectos reales y preguntar qué pasa después de publicar.</p>
         <h3>3. Una agencia</h3>
         <p>Un equipo con perfiles distintos (diseño, programación, marketing, cuentas). Aporta estructura para proyectos grandes o campañas completas, y normalmente su precio también es mayor. Pregunta quién va a hacer tu web realmente y con quién hablarás.</p>
+        <p>Kódika está en el segundo grupo: un estudio pequeño, fundado por un desarrollador full stack, con trato directo y sin estructura de agencia.</p>
 
         <h2 id="factores">Qué hace subir o bajar el precio</h2>
         <ul>
@@ -145,7 +146,7 @@ const precio = {
         </ul>
 
         <h2 id="ejemplos">Ejemplos con cifras</h2>
-        <p>Cuatro casos habituales, calculados con mis precios orientativos:</p>
+        <p>Cuatro casos habituales, calculados con estos precios orientativos:</p>
         <table>
           <thead><tr><th scope="col">Negocio</th><th scope="col">Qué necesita</th><th scope="col">Estimación</th></tr></thead>
           <tbody>
@@ -155,7 +156,7 @@ const precio = {
             <tr><td>Restaurante</td><td>Reservas de mesa y un asistente que responde dudas sobre carta y horarios</td><td>650–1.350 €</td></tr>
           </tbody>
         </table>
-        <p>A todo esto se suma el mantenimiento si lo quieres (15–25 €/mes) y los costes de terceros del apartado anterior. El precio final lo cierro siempre por escrito antes de empezar.</p>
+        <p>A todo esto se suma el mantenimiento si lo quieres (15–25 €/mes) y los costes de terceros del apartado anterior. El precio final lo cerramos siempre por escrito antes de empezar.</p>
 
         <h2 id="comparar">Cómo comparar presupuestos sin llevarte sustos</h2>
         <p>Dos presupuestos con el mismo precio pueden incluir cosas muy diferentes. Antes de decidir, pregunta:</p>
@@ -179,8 +180,8 @@ const precio = {
 ${related(['webs', 'reservas', 'mant'], 'Servicios relacionados')}
 ${finalCta({
     title: '¿Cuánto costaría<br><em>la tuya?</em>',
-    text: 'Cuéntame qué necesitas y te doy un precio cerrado por escrito. <b>Sin compromiso.</b>',
-    waText: 'Hola Álvaro, he leído tu artículo sobre precios de webs y quiero un presupuesto para mi negocio.',
+    text: 'Cuéntanos qué necesitas y te damos un precio cerrado por escrito. <b>Sin compromiso.</b>',
+    waText: 'Hola, he leído el artículo de Kódika sobre precios de webs y quiero un presupuesto para mi negocio.',
   })}`,
 };
 

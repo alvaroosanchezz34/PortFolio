@@ -143,13 +143,13 @@ ${PLANS.map(p => `          <li class="ff-plan${p.top ? ' top' : ''}" data-plan=
       </div>
     </section>
   </main>
-  <footer class="ff-ft"><div class="ff-w"><span class="ff-logo">FORGE<span>/</span>FITNESS</span><p>Gimnasio ficticio creado por SanchezDevelop para demostrar una web de fitness.</p></div></footer>`;
+  <footer class="ff-ft"><div class="ff-w"><span class="ff-logo">FORGE<span>/</span>FITNESS</span><p>Gimnasio ficticio creado por Kódika para demostrar una web de fitness.</p></div></footer>`;
 
 export default demoPage({
   slug,
   path: `/demos/${slug}/`,
-  title: 'Forge Fitness · Demo de web para gimnasio | SanchezDevelop',
-  description: 'Demo ficticia de SanchezDevelop: web para un gimnasio boutique con programas, horario semanal filtrable, coaches, selector de planes y clase de prueba.',
+  title: 'Forge Fitness · Demo de web para gimnasio | Kódika',
+  description: 'Demo ficticia de Kódika: web para un gimnasio boutique con programas, horario semanal filtrable, coaches, selector de planes y clase de prueba.',
   ogImage: `/assets/og/demo-${slug}.jpg`,
   themeColor: '#0b0b0b',
   fonts: [`/assets/demos/${slug}/fonts/anton.woff2`],

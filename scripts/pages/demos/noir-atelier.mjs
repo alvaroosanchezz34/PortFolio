@@ -95,7 +95,7 @@ ${CATS.map(c => `            <button type="button" aria-pressed="false" data-cat
     </section>
   </main>
 
-  <footer class="na-ft"><div class="na-w"><span class="na-logo">Noir Atelier</span><p>Marca ficticia creada por SanchezDevelop para demostrar una tienda de moda.</p></div></footer>
+  <footer class="na-ft"><div class="na-w"><span class="na-logo">Noir Atelier</span><p>Marca ficticia creada por Kódika para demostrar una tienda de moda.</p></div></footer>
 
   <dialog class="dk-dialog na-dlg" id="pdlg" aria-labelledby="p-title">
     <button class="dk-close" data-close aria-label="Cerrar producto">×</button>
@@ -112,8 +112,8 @@ ${CATS.map(c => `            <button type="button" aria-pressed="false" data-cat
 export default demoPage({
   slug,
   path: `/demos/${slug}/`,
-  title: 'Noir Atelier · Demo de tienda online de moda | SanchezDevelop',
-  description: 'Demo ficticia de SanchezDevelop: tienda de moda minimalista con catálogo filtrable, fichas con tallas y colores y bolsa de compra.',
+  title: 'Noir Atelier · Demo de tienda online de moda | Kódika',
+  description: 'Demo ficticia de Kódika: tienda de moda minimalista con catálogo filtrable, fichas con tallas y colores y bolsa de compra.',
   ogImage: `/assets/og/demo-${slug}.jpg`,
   themeColor: '#ffffff',
   fonts: [`/assets/demos/${slug}/fonts/bodoni-moda.woff2`],

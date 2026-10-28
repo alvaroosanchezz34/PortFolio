@@ -142,7 +142,7 @@ ${ZONES.map(z => `          <li data-rv><button type="button" data-zone="${z}"><
   <footer class="ae-ft">
     <div class="ae-w ae-ft-in">
       <span class="ae-logo">AUREA<span>Estates</span></span>
-      <p>Inmobiliaria ficticia creada por SanchezDevelop para demostrar una web de lujo.</p>
+      <p>Inmobiliaria ficticia creada por Kódika para demostrar una web de lujo.</p>
     </div>
   </footer>
 
@@ -154,8 +154,8 @@ ${ZONES.map(z => `          <li data-rv><button type="button" data-zone="${z}"><
 const page = demoPage({
   slug,
   path: `/demos/${slug}/`,
-  title: 'Aurea Estates · Demo de web inmobiliaria de lujo | SanchezDevelop',
-  description: 'Demo ficticia de SanchezDevelop: web editorial para una inmobiliaria de lujo con buscador, filtros, fichas con galería y contacto por propiedad.',
+  title: 'Aurea Estates · Demo de web inmobiliaria de lujo | Kódika',
+  description: 'Demo ficticia de Kódika: web editorial para una inmobiliaria de lujo con buscador, filtros, fichas con galería y contacto por propiedad.',
   ogImage: `/assets/og/demo-${slug}.jpg`,
   themeColor: '#f3eee6',
   fonts: [`/assets/demos/${slug}/fonts/cormorant.woff2`],

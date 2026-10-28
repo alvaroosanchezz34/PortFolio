@@ -1,7 +1,7 @@
 // Plantilla común del sitio: <head> con metadatos y JSON-LD, cabecera, menú, migas, pie y scripts.
 import {
   ORIGIN, BRAND, EMAIL, OG_DEFAULT, ASSET_V, NAV, SERVICES, DEMOS, WA_ICON, ARR, GITHUB,
-  esc, abs, wa, personNode, websiteNode, breadcrumbNode, PERSON_ID, WEBSITE_ID,
+  esc, abs, wa, organizationNode, founderNode, websiteNode, breadcrumbNode, ORG_ID, WEBSITE_ID,
 } from './site.mjs';
 
 const footer = () => `
@@ -9,8 +9,8 @@ const footer = () => `
     <div class="wide">
       <div class="ft-top">
         <div class="ft-brand">
-          <a href="/" class="hd-logo"><img src="/assets/img/logo-sd.webp" alt="" width="28" height="28">SanchezDevelop</a>
-          <p>Diseño y desarrollo de webs, reservas online y software a medida. Desde Málaga, para toda España.</p>
+          <a href="/" class="hd-logo"><img src="/assets/img/logo.svg" alt="" width="28" height="28">Kódika</a>
+          <p>Estudio de diseño y desarrollo digital. Webs, reservas online y software a medida. Desde Málaga, para toda España.</p>
           <div class="ctas"><a class="btn sm" href="/contacto/" data-cta="presupuesto">Pedir presupuesto ${ARR}</a></div>
         </div>
         <nav aria-labelledby="ft-s">
@@ -29,19 +29,19 @@ ${DEMOS.map(d => `            <li><a href="/demos/${d.slug}/">${d.name}</a></li>
         <nav aria-labelledby="ft-c">
           <h2 id="ft-c">Estudio</h2>
           <ul>
-            <li><a href="/sobre-mi/">Sobre mí</a></li>
+            <li><a href="/sobre-kodika/">Sobre Kódika</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/#presupuesto">Calcular presupuesto</a></li>
             <li><a href="/contacto/">Contacto</a></li>
             <li><a href="https://wa.me/34697898574" target="_blank" rel="noopener" data-cta="whatsapp">WhatsApp</a></li>
             <li><a href="mailto:${EMAIL}" data-cta="email">Email</a></li>
-            <li><a href="${GITHUB}" target="_blank" rel="noopener me">GitHub</a></li>
+            <li><a href="${GITHUB}" target="_blank" rel="noopener">GitHub</a></li>
           </ul>
         </nav>
       </div>
-      <p class="ft-word" aria-hidden="true">SanchezDevelop</p>
+      <p class="ft-word" aria-hidden="true">Kódika</p>
       <div class="ft-bot">
-        <span>© <span data-year>2026</span> Álvaro Sánchez · SanchezDevelop · Málaga, España</span>
+        <span>© <span data-year>2026</span> Kódika · Málaga, España</span>
         <span><a href="/privacidad/">Privacidad</a> · Trabajo en remoto para toda España</span>
       </div>
     </div>
@@ -51,7 +51,7 @@ const header = active => `
   <a class="skip" href="#main">Saltar al contenido</a>
   <header class="hd" id="hd">
     <div class="wide hd-in">
-      <a href="/" class="hd-logo"><img src="/assets/img/logo-sd.webp" alt="" width="28" height="28">SanchezDevelop</a>
+      <a href="/" class="hd-logo"><img src="/assets/img/logo.svg" alt="" width="28" height="28">Kódika</a>
       <nav class="hd-nav" aria-label="Principal">
 ${NAV.map(n => `        <a href="${n.href}"${n.key === active ? ' aria-current="page"' : ''}>${n.label}</a>`).join('\n')}
       </nav>
@@ -69,7 +69,7 @@ ${NAV.map((n, i) => `        <li style="--i:${i + 1}"><a href="${n.href}">${n.la
     </nav>
     <div class="menu-foot">
       <a class="btn lg" href="/contacto/" data-cta="presupuesto">Pedir presupuesto ${ARR}</a>
-      <a class="btn lg ghost" href="${wa('Hola Álvaro, he visto tu web y quiero información.')}" target="_blank" rel="noopener" data-cta="whatsapp">${WA_ICON}WhatsApp</a>
+      <a class="btn lg ghost" href="${wa('Hola, he visto la web de Kódika y quiero información.')}" target="_blank" rel="noopener" data-cta="whatsapp">${WA_ICON}WhatsApp</a>
     </div>
   </div>`;
 
@@ -105,8 +105,8 @@ export const head = page => {
   <title>${esc(page.title)}</title>
   <meta name="description" content="${esc(page.description)}">
   ${page.noindex ? '<meta name="robots" content="noindex, follow">' : `<link rel="canonical" href="${url}">`}
-  <meta name="theme-color" content="${page.themeColor || '#0b0b0c'}">
-  <meta name="author" content="Álvaro Sánchez">
+  <meta name="theme-color" content="${page.themeColor || '#071018'}">
+  <meta name="author" content="${BRAND}">
   <meta property="og:type" content="${page.ogType || 'website'}">
   <meta property="og:site_name" content="${BRAND}">
   <meta property="og:locale" content="es_ES">
@@ -116,9 +116,13 @@ export const head = page => {
   <meta property="og:image" content="${ogImage}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="${esc(page.ogAlt || 'SanchezDevelop: webs y software a medida')}">
+  <meta property="og:image:alt" content="${esc(page.ogAlt || 'Kódika: estudio de diseño y desarrollo digital')}">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${esc(page.ogTitle || page.title)}">
+  <meta name="twitter:description" content="${esc(page.description)}">
+  <meta name="twitter:image" content="${ogImage}">
   <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
   <link rel="icon" href="/assets/img/favicon-96.png" type="image/png" sizes="96x96">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">`;
 };
@@ -127,7 +131,8 @@ export function render(page) {
   const url = abs(page.path);
   const ogImage = abs(page.ogImage || OG_DEFAULT);
   const graph = [
-    { ...personNode(), ...(page.personExtra || {}) },
+    { ...organizationNode(), ...(page.orgExtra || {}) },
+    founderNode(),
     websiteNode(),
     {
       '@type': page.pageType || 'WebPage',
@@ -137,7 +142,7 @@ export function render(page) {
       description: page.description,
       inLanguage: 'es-ES',
       isPartOf: { '@id': WEBSITE_ID },
-      about: page.about ? { '@id': page.about } : { '@id': PERSON_ID },
+      about: page.about ? { '@id': page.about } : { '@id': ORG_ID },
       primaryImageOfPage: { '@type': 'ImageObject', url: ogImage },
       ...(page.crumbs ? { breadcrumb: { '@id': url + '#breadcrumb' } } : {}),
       ...(page.updated ? { dateModified: page.updated } : {}),
@@ -172,7 +177,7 @@ ${page.body}
   </main>
 ${footer()}
 
-  <a class="fab" id="fab" href="${wa(page.waText || 'Hola Álvaro, he visto tu web y quiero información.')}" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-cta="whatsapp">${WA_ICON}</a>
+  <a class="fab" id="fab" href="${wa(page.waText || 'Hola, he visto la web de Kódika y quiero información.')}" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-cta="whatsapp">${WA_ICON}</a>
 
 ${scripts.map(s => `  <script src="${s}?v=${ASSET_V}" defer></script>`).join('\n')}
 </body>

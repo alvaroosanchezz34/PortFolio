@@ -5,7 +5,7 @@ import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const ORIGIN = 'https://sanchezdevelop.com';
+const ORIGIN = 'https://kodikadigital.com';
 const SKIP = new Set(['node_modules', '.wrangler', '.git', 'docs', 'scripts', 'functions']);
 
 const errors = [], warnings = [];

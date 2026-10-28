@@ -2,7 +2,7 @@ import {
   SERVICES, DEMOS, ORIGIN, WA_ICON, ARR, EMAIL, wa, photo, lines, faq, contactForm,
 } from '../lib/site.mjs';
 
-const WA_HOME = 'Hola Álvaro, he visto tu web y quiero una para mi negocio.';
+const WA_HOME = 'Hola, he visto la web de Kódika y quiero una para mi negocio.';
 
 // ---------- Hero: fragmentos de interfaz de las demos ----------
 const stage = `
@@ -92,10 +92,10 @@ const body = `
       <div class="wide hero-in">
         <div class="hero-txt">
           <h1 id="h1">
-            <span class="eyebrow hero-eyebrow">Diseño y desarrollo web a medida · Málaga / España</span>
+            <span class="eyebrow hero-eyebrow">Estudio de producto digital · Málaga / España</span>
             <span class="t-hero lines in-load">${lines(['Haz que tu negocio', 'se vea <em>tan bien</em>', 'como trabaja.'])}</span>
           </h1>
-          <p class="lede hero-lede">Diseño y programo webs, reservas online y software a medida para empresas y emprendedores. <b>Trato directo conmigo, precio cerrado y tu web delante antes de pagar.</b></p>
+          <p class="lede hero-lede">Diseñamos y desarrollamos webs, reservas online y software a medida para empresas y emprendedores. <b>Precio cerrado, trato directo y tu web delante antes de pagar.</b></p>
           <div class="ctas hero-ctas">
             <a class="btn lg" href="#contacto" data-cta="presupuesto">Pedir presupuesto ${ARR}</a>
             <a class="btn lg ghost" href="#demos">Explorar las demos</a>
@@ -150,7 +150,7 @@ ${DEMOS.map(demoTile).join('')}
             </div>
             <p class="err idea-err" id="genErr" hidden>Escribe al menos el nombre o el tipo de negocio.</p>
             <div><button class="btn lg" id="gen" type="submit">Diseñar mi web ${ARR}</button></div>
-            <p class="hint muted">Hecho con IA para que veas la idea. Tu web de verdad la diseño contigo, a mano. No escribas datos personales: el texto se envía a OpenAI para generar la maqueta.</p>
+            <p class="hint muted">Hecho con IA para que veas la idea. La web de verdad la diseñamos contigo, a mano. No escribas datos personales: el texto se envía a OpenAI para generar la maqueta.</p>
           </form>
         </div>
         <div class="idea-r" data-rv style="--d:2">
@@ -177,9 +177,9 @@ ${DEMOS.map(demoTile).join('')}
         <div class="sh sh-row">
           <div>
             <p class="idx" data-rv>(03) Servicios</p>
-            <h2 class="t-xl" id="servicios-t" data-rv style="--d:1">Qué puedo hacer <em>por</em> tu negocio.</h2>
+            <h2 class="t-xl" id="servicios-t" data-rv style="--d:1">Qué podemos hacer <em>por</em> tu negocio.</h2>
           </div>
-          <p class="lede" data-rv style="--d:2">Cada servicio explicado por lo que consigue, no por la tecnología que usa. La tecnología es mi trabajo; <b>el resultado es lo que te importa a ti</b>.</p>
+          <p class="lede" data-rv style="--d:2">Cada servicio explicado por lo que consigue, no por la tecnología que usa. La tecnología es nuestro trabajo; <b>el resultado es lo que te importa a ti</b>.</p>
         </div>
         <ol class="svc">
 ${SERVICES.map((s, i) => `          <li data-rv style="--d:${i}">
@@ -225,13 +225,13 @@ ${SERVICES.map((s, i) => `          <li data-rv style="--d:${i}">
             <p class="idx" data-rv>(05) Proceso</p>
             <h2 class="t-xl" id="proc-t" data-rv style="--d:1">De la idea a online, <em>sin líos</em>.</h2>
           </div>
-          <p class="lede" data-rv style="--d:2">Cuatro pasos, siempre con la misma persona al otro lado. Sabes qué se hace, cuándo y por cuánto antes de empezar.</p>
+          <p class="lede" data-rv style="--d:2">Cuatro pasos, con quien diseña y programa al otro lado. Sabes qué se hace, cuándo y por cuánto antes de empezar.</p>
         </div>
         <ol class="tl" id="tl">
-          <li><span class="tl-n mono">01</span><h3>Hablamos</h3><p>Me cuentas tu negocio con tus palabras, por WhatsApp, llamada o en persona si estás en Málaga. La primera conversación es gratis.</p></li>
-          <li><span class="tl-n mono">02</span><h3>Propuesta cerrada</h3><p>Te paso por escrito qué incluye, el precio cerrado y una fecha de entrega. Sin letra pequeña.</p></li>
+          <li><span class="tl-n mono">01</span><h3>Hablamos</h3><p>Nos cuentas tu negocio con tus palabras, por WhatsApp, llamada o en persona si estás en Málaga. La primera conversación es gratis.</p></li>
+          <li><span class="tl-n mono">02</span><h3>Propuesta cerrada</h3><p>Te pasamos por escrito qué incluye, el precio cerrado y una fecha de entrega. Sin letra pequeña.</p></li>
           <li><span class="tl-n mono">03</span><h3>Diseño y desarrollo</h3><p>Primero el plano, luego el diseño. Ves avances reales, ajustamos sobre la marcha y <b>pagas cuando te convence</b>.</p></li>
-          <li><span class="tl-n mono">04</span><h3>Online y acompañamiento</h3><p>La publico, la doy de alta en Google y sigo disponible para cambios, dudas o mejoras.</p></li>
+          <li><span class="tl-n mono">04</span><h3>Online y acompañamiento</h3><p>La publicamos, la damos de alta en Google y seguimos disponibles para cambios, dudas o mejoras.</p></li>
         </ol>
       </div>
     </section>
@@ -240,18 +240,19 @@ ${SERVICES.map((s, i) => `          <li data-rv style="--d:${i}">
     <section class="sec alt why" aria-labelledby="why-t">
       <div class="wide">
         <div class="sh">
-          <p class="idx" data-rv>(06) Por qué SanchezDevelop</p>
-          <h2 class="t-xl" id="why-t" data-rv style="--d:1">Nivel de estudio. <em>Trato de tú a tú.</em></h2>
+          <p class="idx" data-rv>(06) Por qué Kódika</p>
+          <h2 class="t-xl" id="why-t" data-rv style="--d:1">Nivel de estudio. <em>Trato directo.</em></h2>
         </div>
         <ul class="why-list">
-          <li data-rv><h3>Primero la ves. Luego pagas.</h3><p>Te enseño una versión real de tu web antes de cualquier pago. Si no te convence, no pagas.</p></li>
+          <li data-rv><h3>Primero la ves. Luego pagas.</h3><p>Te enseñamos una versión real de tu web antes de cualquier pago. Si no te convence, no pagas.</p></li>
           <li data-rv><h3>Precio cerrado, por escrito.</h3><p>Lo acordamos antes de empezar y no cambia, salvo que añadamos funciones nuevas.</p></li>
-          <li data-rv><h3>Hablas con quien la programa.</h3><p>Soy una sola persona: sin comerciales ni intermediarios. Lo que me cuentas es lo que se construye.</p></li>
+          <li data-rv><h3>Hablas con quien la construye.</h3><p>Kódika la funda Álvaro Sánchez, desarrollador full stack. Sin comerciales de por medio: lo que nos cuentas es lo que se construye.</p></li>
           <li data-rv><h3>Código propio, sin plantillas.</h3><p>Diseñado y programado a medida: más rápido, más seguro y sin complementos que se rompan.</p></li>
-          <li data-rv><h3>No desaparezco después.</h3><p>Tras publicar sigo ahí para cambios, dudas o mejoras, siempre que lo necesites.</p></li>
+          <li data-rv><h3>Seguimos después de publicar.</h3><p>Tras el lanzamiento seguimos disponibles para cambios, dudas o mejoras, siempre que lo necesites.</p></li>
         </ul>
+        <!-- PLACEHOLDER Álvaro: si más adelante hay clientes, casos o cifras reales, aquí cabe una sección de prueba social. No publiques testimonios, logos, métricas, premios ni años de actividad que no puedas demostrar. -->
         <div class="stack" data-rv>
-          <p class="mono muted">Tecnologías con las que trabajo, según lo que necesite cada proyecto</p>
+          <p class="mono muted">Tecnologías con las que trabajamos, según lo que necesite cada proyecto</p>
           <div class="marq big" aria-hidden="true"><div>${'<span>Angular</span><span>React</span><span>Next.js</span><span>TypeScript</span><span>Node.js</span><span>Express</span><span>Spring Boot</span><span>MySQL</span><span>MongoDB</span><span>Firebase</span><span>Stripe</span><span>OpenAI</span>'.repeat(2)}</div></div>
           <p class="sr">Angular, React, Next.js, TypeScript, Node.js, Express, Spring Boot, MySQL, MongoDB, Firebase, Stripe y OpenAI.</p>
         </div>
@@ -284,7 +285,7 @@ ${OPTS.map((o, i) => `            <label class="opt">
             <p class="sum-x" id="extra"></p>
             <p class="sum-h" id="hint2">Pago único. Primero ves la web, luego pagas.</p>
             <div class="sum-ctas">
-              <a class="btn lg wa" id="calcCta" target="_blank" rel="noopener" href="${wa('Hola Álvaro')}" data-cta="configurador-whatsapp">${WA_ICON}Enviar por WhatsApp</a>
+              <a class="btn lg wa" id="calcCta" target="_blank" rel="noopener" href="${wa('Hola, escribo a Kódika')}" data-cta="configurador-whatsapp">${WA_ICON}Enviar por WhatsApp</a>
               <button class="btn lg ghost" type="button" id="calcForm">Usar en el formulario</button>
             </div>
             <ul class="checks">
@@ -297,13 +298,13 @@ ${OPTS.map((o, i) => `            <label class="opt">
       </div>
     </section>
 ${faq([
-    ['¿Las demos son clientes reales?', '<p>No. Aurea Estates, Noir Atelier, Sora Wellness, Forge Fitness, Veloce Automotive y Flowbook son <strong>negocios ficticios</strong> que he creado para que veas el nivel de diseño y las funciones que puede tener tu web. Están marcados como demostración en cada página.</p>'],
-    ['¿Cuánto cuesta una web?', '<p>Una web de presencia cuesta entre 250 y 400 €, y cada función extra (reservas, tienda, IA) se suma aparte. En el <a href="#presupuesto">configurador</a> ves una estimación al momento, y en <a href="/blog/cuanto-cuesta-una-pagina-web/">cuánto cuesta una página web</a> explico qué hace subir o bajar el precio.</p>'],
-    ['¿Cuánto tardas en hacer una web?', '<p>Una web sencilla suele estar lista en pocos días. Cuando hablemos y vea lo que necesitas, te doy una fecha concreta por escrito.</p>'],
-    ['¿Y si no tengo claro lo que quiero?', '<p>Para eso estoy. Me cuentas tu negocio en lenguaje normal y yo lo convierto en una web con sentido. No necesitas saber nada de tecnología.</p>'],
-    ['¿Cómo se paga?', '<p>Precio cerrado desde el principio. Lo acordamos antes de empezar y te enseño una primera versión antes de que pagues nada.</p>'],
-    ['¿Y si ya tengo una web?', '<p>La reviso y te digo con sinceridad si merece la pena retocarla o rehacerla. Lo explico en <a href="/mantenimiento-web/">mantenimiento y mejora web</a>.</p>'],
-    ['¿Trabajas solo en Málaga?', '<p>Estoy en Málaga y trabajo mucho con negocios de aquí y de la zona de Cádiz, pero todo se puede hacer en remoto, así que da igual dónde estés en España.</p>'],
+    ['¿Las demos son clientes reales?', '<p>No. Aurea Estates, Noir Atelier, Sora Wellness, Forge Fitness, Veloce Automotive y Flowbook son <strong>negocios ficticios</strong> que hemos creado para que veas el nivel de diseño y las funciones que puede tener tu web. Están marcados como demostración en cada página.</p>'],
+    ['¿Cuánto cuesta una web?', '<p>Una web de presencia cuesta entre 250 y 400 €, y cada función extra (reservas, tienda, IA) se suma aparte. En el <a href="#presupuesto">configurador</a> ves una estimación al momento, y en <a href="/blog/cuanto-cuesta-una-pagina-web/">cuánto cuesta una página web</a> explicamos qué hace subir o bajar el precio.</p>'],
+    ['¿Cuánto tardáis en hacer una web?', '<p>Una web sencilla suele estar lista en pocos días. Cuando hablemos y veamos lo que necesitas, te damos una fecha concreta por escrito.</p>'],
+    ['¿Y si no tengo claro lo que quiero?', '<p>Para eso estamos. Nos cuentas tu negocio en lenguaje normal y lo convertimos en una web con sentido. No necesitas saber nada de tecnología.</p>'],
+    ['¿Cómo se paga?', '<p>Precio cerrado desde el principio. Lo acordamos antes de empezar y te enseñamos una primera versión antes de que pagues nada.</p>'],
+    ['¿Y si ya tengo una web?', '<p>La revisamos y te decimos con sinceridad si merece la pena retocarla o rehacerla. Lo explicamos en <a href="/mantenimiento-web/">mantenimiento y mejora web</a>.</p>'],
+    ['¿Trabajáis solo en Málaga?', '<p>Estamos en Málaga y trabajamos con negocios de aquí y de la zona de Cádiz, pero todo se puede hacer en remoto, así que da igual dónde estés en España.</p>'],
   ], 'Preguntas frecuentes')}
 
     <!-- ================= CONTACTO ================= -->
@@ -312,7 +313,7 @@ ${faq([
         <div class="contact-l">
           <p class="idx" data-rv>(08) Contacto</p>
           <h2 class="t-xl" id="contact-t" data-rv style="--d:1">Hablemos de <em>tu proyecto</em>.</h2>
-          <p class="lede" data-rv style="--d:2">Cuéntame qué haces y te digo qué haría yo, sin compromiso. <b>La primera conversación es gratis</b> y te respondo normalmente el mismo día.</p>
+          <p class="lede" data-rv style="--d:2">Cuéntanos qué haces y te decimos qué haríamos, sin compromiso. <b>La primera conversación es gratis</b> y respondemos normalmente el mismo día.</p>
           <ul class="checks" data-rv style="--d:3">
             <li>Respuesta en 24 horas como mucho</li>
             <li>Precio cerrado por escrito</li>
@@ -333,19 +334,19 @@ export default {
   path: '/',
   out: 'index.html',
   nav: '',
-  updated: '2026-10-16',
-  title: 'Desarrollador web freelance en Málaga | SanchezDevelop',
-  description: 'Webs a medida, reservas online, tiendas y aplicaciones para negocios de toda España. Precio cerrado, trato directo conmigo y ves tu web antes de pagar.',
-  ogTitle: 'SanchezDevelop · Haz que tu negocio se vea tan bien como trabaja',
+  updated: '2026-10-28',
+  title: 'Desarrollo web a medida en Málaga | Kódika',
+  description: 'Estudio en Málaga. Webs a medida, reservas online, tiendas y aplicaciones para empresas de toda España. Precio cerrado y ves el resultado antes de pagar.',
+  ogTitle: 'Kódika · Haz que tu negocio se vea tan bien como trabaja',
   hideHero: true,
   bodyClass: 'home',
   waText: WA_HOME,
   styles: ['/assets/css/home.css'],
   scripts: ['/assets/js/home.js', '/assets/js/contact.js'],
-  personExtra: {
+  orgExtra: {
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Servicios de SanchezDevelop',
+      name: 'Servicios de Kódika',
       itemListElement: SERVICES.map(s => ({
         '@type': 'Offer',
         itemOffered: { '@type': 'Service', '@id': ORIGIN + s.path + '#service', name: s.name, url: ORIGIN + s.path },

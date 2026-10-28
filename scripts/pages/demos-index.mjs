@@ -1,4 +1,4 @@
-import { DEMOS, ARR, photo, finalCta, abs, PERSON_ID } from '../lib/site.mjs';
+import { DEMOS, ARR, photo, finalCta, abs } from '../lib/site.mjs';
 
 const DETAIL = {
   'aurea-estates': ['Buscador por zona, tipo, precio y dormitorios', 'Ordenación y estado vacío con reinicio de filtros', 'Ficha de cada inmueble con galería navegable', 'Formulario de contacto por propiedad con validación'],
@@ -25,7 +25,7 @@ const page = {
   schema: [{
     '@type': 'ItemList',
     '@id': abs('/demos/') + '#list',
-    name: 'Demos de SanchezDevelop',
+    name: 'Demos de Kódika',
     itemListElement: DEMOS.map((d, i) => ({ '@type': 'ListItem', position: i + 1, name: `${d.name} · ${d.sector}`, url: abs(`/demos/${d.slug}/`) })),
   }],
   body: `
@@ -50,15 +50,15 @@ ${DEMOS.map((d, i) => `        <article class="dx-item" data-rv>
     <section class="sec alt">
       <div class="narrow prose">
         <h2>Sobre estas demos</h2>
-        <p>Las he diseñado y programado para que puedas ver, antes de hablar conmigo, el nivel de diseño y el tipo de funciones que puede tener tu web. <strong>No son clientes reales</strong>: los nombres, los inmuebles, los productos, los precios, los horarios y las personas son inventados, y las fotografías son de bancos de imágenes con licencia libre.</p>
+        <p>Las hemos diseñado y programado para que puedas ver, antes de hablar con nosotros, el nivel de diseño y el tipo de funciones que puede tener tu web. <strong>No son clientes reales</strong>: los nombres, los inmuebles, los productos, los precios, los horarios y las personas son inventados, y las fotografías son de bancos de imágenes con licencia libre.</p>
         <p>Las funciones sí son reales dentro de cada demo: los filtros filtran, la bolsa suma y las citas cambian de estado. Lo que no hacen es enviar datos: los formularios validan lo que escribes, pero no mandan nada a nadie, y no hay pagos. En tu web de verdad, esos pasos se conectan a tu email, a tu panel o a tu pasarela de pago.</p>
-        <p>¿Tu sector no está? Cuéntame qué haces y te diré qué funciones tendría sentido construir. O prueba a <a href="/#idea">generar una primera idea con IA</a>.</p>
+        <p>¿Tu sector no está? Cuéntanos qué haces y te diremos qué funciones tendría sentido construir. O prueba a <a href="/#idea">generar una primera idea con IA</a>.</p>
       </div>
     </section>
 ${finalCta({
     title: '¿Cuál sería <em>la tuya</em>?',
-    text: 'Dime qué demo se parece más a lo que buscas y te cuento cómo la adaptaría a tu negocio.',
-    waText: 'Hola Álvaro, he visto tus demos y quiero una web para mi negocio.',
+    text: 'Dinos qué demo se parece más a lo que buscas y te contamos cómo la adaptaríamos a tu negocio.',
+    waText: 'Hola, he visto las demos de Kódika y quiero una web para mi negocio.',
   })}`,
 };
 

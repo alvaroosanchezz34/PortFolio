@@ -60,7 +60,7 @@ await test('Contacto: ?demo= prellena el mensaje', async () => {
 });
 await test('Menú móvil: abre, atrapa el foco y se cierra con Escape', async () => {
   const p = await newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
-  await p.goto(BASE + '/sobre-mi/');
+  await p.goto(BASE + '/sobre-kodika/');
   await p.click('#menuBtn');
   ok(await p.locator('#menu').isVisible(), 'Menú visible');
   eq(await p.getAttribute('#menuBtn', 'aria-expanded'), 'true', 'aria-expanded');
