@@ -70,7 +70,7 @@ const contacto = {
   pageType: 'ContactPage',
   updated: '2026-10-28',
   title: 'Contacto y presupuesto sin compromiso | Kódika',
-  description: 'Pide presupuesto para tu web, sistema de reservas o aplicación a medida por WhatsApp o email. Primera conversación gratis y respuesta en 24 horas como mucho.',
+  description: 'Pide presupuesto para tu web, reservas online o aplicación a medida con el formulario, por WhatsApp o email. Primera conversación gratis y respuesta en 24 h.',
   crumbs: [['Inicio', '/'], ['Contacto', '/contacto/']],
   kick: 'Contacto',
   h1: 'Cuéntanos tu proyecto',
@@ -83,7 +83,7 @@ const contacto = {
       <div class="wide contact-page">
         <div class="cp-l">
           <h2 class="t-md" id="canales-t">Escríbenos como prefieras</h2>
-          <p class="lede" style="margin-top:14px">Rellena el formulario y te preparamos el mensaje en WhatsApp o en tu correo, o escríbenos directamente.</p>
+          <p class="lede" style="margin-top:14px">Rellena el formulario y el mensaje nos llega al momento. Si lo prefieres, escríbenos por WhatsApp o email.</p>
           <ul class="cp-ch">
             <li><span class="mono muted">WhatsApp</span><a class="lnk" href="${wa(contactoWa)}" target="_blank" rel="noopener" data-cta="whatsapp">+34 697 89 85 74 <span class="arr" aria-hidden="true">→</span></a></li>
             <li><span class="mono muted">Email</span><a class="lnk" href="${mailto('Quiero un presupuesto', 'Hola, os escribo desde la web de Kódika. Mi negocio es: ')}" data-cta="email">${EMAIL}</a></li>
@@ -125,7 +125,7 @@ const privacidad = {
   nav: '',
   updated: '2026-10-28',
   title: 'Política de privacidad | Kódika',
-  description: 'Qué datos trata kodikadigital.com, para qué y cómo ejercer tus derechos: contacto por WhatsApp o email, demos, demo con IA y analítica sin cookies.',
+  description: 'Qué datos trata kodikadigital.com, para qué y cómo ejercer tus derechos: formulario de contacto, WhatsApp, email, demos, demo con IA y analítica sin cookies.',
   crumbs: [['Inicio', '/'], ['Privacidad', '/privacidad/']],
   kick: 'Legal',
   h1: 'Política de privacidad',
@@ -139,9 +139,9 @@ const privacidad = {
 
         <h2>Qué datos se tratan y para qué</h2>
         <h3>Cuando nos escribes</h3>
-        <p>Si nos contactas por WhatsApp o email, tratamos los datos que nos envías (nombre, teléfono o email y lo que nos cuentes de tu negocio) <strong>solo para responderte y, si lo pides, preparar un presupuesto</strong>. La base legal es tu solicitud y la aplicación de medidas precontractuales. Los conservamos mientras dure la conversación o la relación profesional, y después durante los plazos legales que correspondan.</p>
+        <p>Si nos escribes con el formulario, por WhatsApp o por email, tratamos los datos que nos envías (nombre, teléfono o email y lo que nos cuentes de tu negocio) <strong>solo para responderte y, si lo pides, preparar un presupuesto</strong>. La base legal es tu solicitud y la aplicación de medidas precontractuales. Los conservamos mientras dure la conversación o la relación profesional, y después durante los plazos legales que correspondan.</p>
         <p>WhatsApp es un servicio de Meta, y el uso que hace de tus datos se rige por su propia política de privacidad.</p>
-        <p>El formulario de contacto de esta web <strong>no envía ni guarda nada en ningún servidor</strong>: solo prepara el mensaje y abre WhatsApp o tu programa de correo para que lo envíes tú. Hasta que no pulses enviar allí, no nos llega nada.</p>
+        <p>Al pulsar «Enviar mensaje», el formulario manda tu nombre, tu email o teléfono, el tipo de proyecto y tu mensaje a nuestro correo a través de Resend, el servicio que usamos para enviar emails. <strong>La web no guarda los mensajes en ninguna base de datos</strong>: solo los recibimos en nuestro buzón. Si dejas un email, puedes recibir un acuse de recibo automático. Si eliges «Prefiero WhatsApp», el formulario solo prepara el mensaje y no nos llega nada hasta que lo envías tú desde WhatsApp.</p>
 
         <h3>Las demos</h3>
         <p>Las demos de <a href="/demos/">/demos/</a> son negocios ficticios. Sus formularios (reservas, visitas, pruebas, contacto) validan los campos pero <strong>no envían los datos a ningún sitio</strong>. La bolsa de la tienda de ejemplo y las citas del panel de Flowbook se guardan solo en tu navegador (almacenamiento local) para que la demo funcione al recargar; puedes borrarlas desde la propia demo o limpiando los datos del sitio en tu navegador.</p>
@@ -156,7 +156,7 @@ const privacidad = {
         <p>Esta web no instala cookies propias ni de publicidad.</p>
 
         <h2>Proveedores</h2>
-        <p>La web está alojada en Cloudflare. La demo usa OpenAI. Ambos pueden tratar datos técnicos (como la dirección IP) para prestar el servicio y mantener su seguridad.</p>
+        <p>La web está alojada en Cloudflare. El formulario de contacto envía los mensajes con Resend y la demo usa OpenAI. Los tres pueden tratar datos técnicos (como la dirección IP) para prestar el servicio y mantener su seguridad. Resend y OpenAI son empresas de Estados Unidos: actúan como encargados del tratamiento y las transferencias se hacen con las garantías que exige el RGPD.</p>
 
         <h2>Tus derechos</h2>
         <p>Puedes pedir el acceso, la rectificación o la supresión de tus datos, así como oponerte a su tratamiento o limitarlo, escribiendo a <a href="mailto:${EMAIL}">${EMAIL}</a>. Si crees que no se han respetado tus derechos, puedes presentar una reclamación ante la <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos</a>.</p>

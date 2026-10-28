@@ -12,7 +12,7 @@ export const WA_NUMBER = '34697898574';
 export const GITHUB = 'https://github.com/alvaroosanchezz34';
 export const OG_DEFAULT = '/assets/og/kodika.png';
 // Versión de los recursos estáticos: súbela cuando cambien los CSS o JS comunes.
-export const ASSET_V = '7';
+export const ASSET_V = '8';
 
 // Dimensiones reales de las fotos de las demos (las genera la conversión a WebP).
 export const IMAGES = JSON.parse(readFileSync(new URL('../data/images.json', import.meta.url)));
@@ -315,7 +315,8 @@ export const PROJECT_TYPES = [
   ['otro', 'Otra cosa'],
 ];
 
-// Formulario de contacto (assets/js/contact.js). Prepara el mensaje en WhatsApp o email.
+// Formulario de contacto (assets/js/contact.js → functions/api/contact.js). Envía el mensaje por email;
+// «Prefiero WhatsApp» lo prepara en WhatsApp.
 export const contactForm = (id = 'cf') => `
           <form class="form" data-contact novalidate aria-describedby="${id}-how">
             <div class="row">
@@ -348,10 +349,11 @@ ${PROJECT_TYPES.map(([v, l]) => `                <option value="${v}">${l}</opti
               <label class="check"><input type="checkbox" name="privacy" required aria-describedby="${id}-privacy-err"> <span>He leído la <a href="/privacidad/">política de privacidad</a>.</span></label>
               <p class="err" id="${id}-privacy-err" hidden></p>
             </div>
+            <div class="hp" aria-hidden="true"><label>No rellenes este campo <input name="website" tabindex="-1" autocomplete="off"></label></div>
             <div class="ctas" style="margin-top:6px">
-              <button class="btn lg" type="submit" value="wa">Enviar por WhatsApp ${ARR}</button>
-              <button class="btn lg ghost" type="submit" value="email">Enviar por email</button>
+              <button class="btn lg" type="submit" value="send">Enviar mensaje ${ARR}</button>
+              <button class="btn lg ghost" type="submit" value="wa">${WA_ICON}Prefiero WhatsApp</button>
             </div>
-            <p class="hint muted" id="${id}-how" style="font-size:.88rem">Al enviar se abre WhatsApp o tu programa de correo con el mensaje ya escrito, y solo tienes que pulsar enviar. Esta web no guarda tus datos.</p>
-            <div class="form-status" role="status" aria-live="polite" hidden></div>
+            <p class="hint muted" id="${id}-how" style="font-size:.88rem">El mensaje nos llega directamente y te respondemos normalmente el mismo día. Solo lo usamos para responderte.</p>
+            <div class="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
           </form>`;

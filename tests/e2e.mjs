@@ -24,18 +24,18 @@ const newPage = async (opts = {}) => {
   const page = await ctx.newPage();
   page.errors = [];
   page.on('pageerror', e => page.errors.push(e.message));
-  page.on('console', m => { if (m.type() === 'error' && !/status of 404/.test(m.text())) page.errors.push(m.text()); });
-  page.on('response', r => { if (r.status() >= 400 && !r.url().includes('/api/preview') && !r.url().includes('no-existe')) page.errors.push(`${r.status()} ${r.url()}`); });
+  page.on('console', m => { if (m.type() === 'error' && !/status of (404|503)/.test(m.text())) page.errors.push(m.text()); });
+  page.on('response', r => { if (r.status() >= 400 && !r.url().includes('/api/preview') && !r.url().includes('/api/contact') && !r.url().includes('no-existe')) page.errors.push(`${r.status()} ${r.url()}`); });
   return page;
 };
 const visible = (p, sel) => p.locator(sel).filter({ visible: true }).count();
 const noErrors = p => eq(p.errors.join(' | '), '', 'Errores en la consola o la red');
 
 /* ---------- Sitio principal ---------- */
-await test('Home: formulario valida, prepara el mensaje y el configurador lo rellena', async () => {
+await test('Home: formulario valida, el configurador lo rellena y se envía', async () => {
   const p = await newPage();
   await p.goto(BASE + '/');
-  await p.locator('#contacto button[value="wa"]').click();
+  await p.locator('#contacto button[value="send"]').click();
   ok(await p.locator('#contacto [aria-invalid="true"]').count() >= 4, 'Faltan errores al enviar vacío');
   await p.locator('#opts label').nth(1).click();
   await p.waitForFunction(() => document.querySelector('#num').textContent === '450–850 €', null, { timeout: 3000 }).catch(() => {});
@@ -44,12 +44,36 @@ await test('Home: formulario valida, prepara el mensaje y el configurador lo rel
   eq(await p.inputValue('#cf-type'), 'reservas', 'Tipo prellenado desde el configurador');
   ok((await p.inputValue('#cf-msg')).includes('Reservas o pedidos'), 'Mensaje prellenado');
   await p.fill('#cf-name', 'Prueba'); await p.fill('#cf-contact', 'correo-malo');
-  await p.locator('#contacto button[value="email"]').click();
+  await p.locator('#contacto button[value="send"]').click();
   ok((await p.textContent('#cf-contact-err')).includes('email válido'), 'Error de email');
   await p.fill('#cf-contact', 'prueba@ejemplo.com'); await p.check('#contacto input[name="privacy"]');
-  await p.evaluate(() => { window.__href = null; Object.defineProperty(window, 'open', { value: () => ({}) }); });
+  // «Prefiero WhatsApp» solo prepara el mensaje
+  await p.evaluate(() => { Object.defineProperty(window, 'open', { value: () => ({}) }); });
   await p.locator('#contacto button[value="wa"]').click();
   ok((await p.textContent('#contacto .form-status')).includes('solo falta que pulses enviar'), 'Estado honesto tras preparar el mensaje');
+  // «Enviar mensaje» llama a /api/contact (aquí simulado) y confirma el envío
+  let sent = null;
+  await p.route('**/api/contact', r => { sent = JSON.parse(r.request().postData()); r.fulfill({ status: 200, contentType: 'application/json', body: '{"ok":true}' }); });
+  await p.waitForTimeout(1600);
+  await p.locator('#contacto button[value="send"]').click();
+  await p.waitForFunction(() => /Mensaje enviado/.test(document.querySelector('#contacto .form-status').textContent), null, { timeout: 5000 });
+  eq(sent && sent.type, 'reservas', 'Datos enviados'); eq(sent.privacy, true, 'Privacidad'); eq(sent.website, '', 'Campo trampa vacío');
+  ok(sent.t >= 1500, 'Tiempo de relleno');
+  eq(await p.inputValue('#cf-name'), '', 'Formulario vaciado tras enviar');
+  noErrors(p);
+});
+await test('Contacto: si el envío falla, ofrece WhatsApp y email con el mensaje', async () => {
+  const p = await newPage();
+  await p.goto(BASE + '/contacto/');
+  await p.fill('#cf-name', 'Prueba'); await p.fill('#cf-contact', '600123456'); await p.selectOption('#cf-type', 'web');
+  await p.fill('#cf-msg', 'Quiero una web para mi taller mecánico.'); await p.check('input[name="privacy"]');
+  await p.waitForTimeout(1600);
+  await p.locator('button[value="send"]').click(); // sin RESEND_API_KEY en local: 503
+  await p.waitForFunction(() => /No hemos podido/.test(document.querySelector('.form-status').textContent), null, { timeout: 8000 });
+  const wa = await p.getAttribute('.form-status a[href*="wa.me"]', 'href');
+  ok(wa && decodeURIComponent(wa).includes('taller mecánico'), 'Enlace de WhatsApp con el mensaje');
+  ok(await p.locator('.form-status a[href^="mailto:"]').count() === 1, 'Enlace de email');
+  eq(await p.inputValue('#cf-name'), 'Prueba', 'No se borra lo escrito');
   noErrors(p);
 });
 await test('Contacto: ?demo= prellena el mensaje', async () => {
