@@ -1,37 +1,36 @@
 /* =========================================================
    Kódika · sistema de diseño
-   Dirección: navy corporativo, un acento teal, tipografía con carácter.
+   Dirección: fondo #0B0F1A, azul #3B82F6, tipografía Sora.
    ========================================================= */
 @font-face {
-  font-family: "Inter Tight"; font-style: normal; font-weight: 400 800; font-display: swap;
-  src: url(/assets/fonts/inter-tight-latin.woff2) format("woff2");
+  font-family: "Sora"; font-style: normal; font-weight: 300 700; font-display: swap;
+  src: url(/assets/fonts/sora-latin.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 }
 @font-face {
-  font-family: "Inter Tight"; font-style: normal; font-weight: 400 800; font-display: swap;
-  src: url(/assets/fonts/inter-tight-latin-ext.woff2) format("woff2");
+  font-family: "Sora"; font-style: normal; font-weight: 300 700; font-display: swap;
+  src: url(/assets/fonts/sora-latin-ext.woff2) format("woff2");
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF
 }
-@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/instrument-serif-italic.woff2) format("woff2") }
-@font-face { font-family: "Instrument Serif"; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/instrument-serif.woff2) format("woff2") }
 @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400 600; font-display: swap; src: url(/assets/fonts/jetbrains-mono.woff2) format("woff2") }
 
 :root {
-  --bg: #071018;
-  --bg-2: #0c1824;
-  --bg-3: #132433;
-  --line: rgba(214, 232, 240, .10);
-  --line-2: rgba(214, 232, 240, .20);
-  --fg: #f4f7f8;
-  --fg-2: #c5d0d6;
-  --muted: #93a3ad;
-  --accent: #3ee0c5;
-  --accent-ink: #04241c;
-  --accent-glow: rgba(62, 224, 197, .34);
+  --bg: #0B0F1A;
+  --bg-2: #111827;
+  --bg-3: #1F2937;
+  --line: rgba(248, 250, 252, .10);
+  --line-2: rgba(248, 250, 252, .18);
+  --fg: #F8FAFC;
+  --fg-2: #CBD5E1;
+  --muted: #94A3B8;
+  --accent: #3B82F6;
+  --accent-deep: #1E40AF;
+  --accent-ink: #0B0F1A;
+  --accent-glow: rgba(59, 130, 246, .45);
   --ok: #7ad69b;
   --err: #ff8a80;
-  --f: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  --f-serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --f: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --f-serif: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --wrap: 1120px;
   --narrow: 720px;
@@ -80,7 +79,7 @@ ul, ol { margin: 0 }
 .t-lg { font-size: clamp(1.9rem, 3.8vw, 3.3rem); line-height: 1.04; font-weight: 650; letter-spacing: -.04em }
 .t-md { font-size: clamp(1.35rem, 2.2vw, 1.9rem); line-height: 1.15; font-weight: 600; letter-spacing: -.03em }
 .serif, .t-hero em, .t-xl em, .t-lg em, .t-md em {
-  font-family: var(--f-serif); font-style: italic; font-weight: 400; letter-spacing: -.01em
+  font-family: inherit; font-style: normal; font-weight: 600; letter-spacing: -.03em; color: var(--accent)
 }
 .t-hero em, .t-xl em, .t-lg em { padding-right: .04em }
 .mono, .idx, .eyebrow { font-family: var(--f-mono); font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 500 }
@@ -94,18 +93,18 @@ ul, ol { margin: 0 }
 
 /* ---------- Botones y enlaces ---------- */
 .btn {
-  --b: var(--fg); --c: var(--bg);
+  --b: #1D4ED8; --c: #F8FAFC;
   position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   min-height: 48px; padding: 0 22px; border-radius: 100px; background: var(--b); color: var(--c);
   font-weight: 600; font-size: 1rem; letter-spacing: -.01em; white-space: nowrap; overflow: hidden; isolation: isolate;
   transition: transform .35s var(--ease-out), background .3s, color .3s, box-shadow .3s
 }
 .btn::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; background: var(--accent);
+  content: ""; position: absolute; inset: 0; z-index: -1; background: #2563EB;
   transform: translateY(101%); transition: transform .45s var(--ease-out)
 }
 .btn:hover::before { transform: none }
-.btn:hover { color: var(--accent-ink) }
+.btn:hover { color: #F8FAFC }
 .btn:active { transform: scale(.97) }
 .btn .arr { display: inline-block; transition: transform .35s var(--ease-out) }
 .btn:hover .arr { transform: translateX(4px) }
@@ -142,10 +141,11 @@ ul, ol { margin: 0 }
   border-bottom: 1px solid transparent
 }
 .hd::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--accent) 18%, var(--accent) 82%, transparent); opacity: .9 }
-.hd.scrolled { background: rgba(7, 16, 24, .78); backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%); border-color: var(--line) }
+.hd.scrolled { background: rgba(11, 15, 26, .78); backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%); border-color: var(--line) }
 .hd-in { height: 100%; display: flex; align-items: center; gap: 28px }
-.hd-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.16rem; letter-spacing: -.04em; margin-right: auto }
-.hd-logo img { width: 28px; height: 28px; border-radius: 7px }
+.hd-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.05rem; letter-spacing: -.04em; margin-right: auto }
+.hd-logo img { width: auto; height: 26px }
+@media (max-width: 420px) { .hd-logo img { height: 22px } }
 .hd-nav { display: flex; gap: 26px; font-size: .92rem; color: var(--fg-2) }
 .hd-nav a { position: relative; padding: 6px 0; transition: color .2s }
 .hd-nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease-out) }
@@ -223,9 +223,14 @@ html.menu-open { overflow: hidden }
 .prose th { color: var(--fg); font-weight: 600; white-space: nowrap; font-family: var(--f-mono); font-size: .75rem; text-transform: uppercase; letter-spacing: .05em }
 
 /* Listas editoriales (en lugar de cajas) */
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 clamp(24px, 3vw, 44px) }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px }
 .cards.c4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) }
-.card { display: block; border-top: 1px solid var(--line-2); padding: 26px 0 34px; position: relative }
+.card {
+  display: block; position: relative; padding: 26px 24px 28px; border-radius: 18px;
+  background: rgba(31, 41, 55, .42); border: 1px solid rgba(59, 130, 246, .22);
+  box-shadow: 0 24px 50px -28px rgba(59, 130, 246, .45), inset 0 1px 0 rgba(248, 250, 252, .06);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px)
+}
 .card h3 { font-size: 1.24rem; letter-spacing: -.025em; line-height: 1.25; font-weight: 600 }
 .card p { color: var(--fg-2); margin-top: 10px; font-size: 1rem }
 .card .pr { margin-top: 16px; color: var(--fg); font-family: var(--f-mono); font-size: .82rem; letter-spacing: .03em }
@@ -300,7 +305,7 @@ a.card:hover .go::after { transform: translateX(4px) }
 .fld select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--fg-2) 50%), linear-gradient(135deg, var(--fg-2) 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 40px }
 .fld input::placeholder, .fld textarea::placeholder { color: #6f6d68 }
 .fld input:hover, .fld select:hover, .fld textarea:hover { border-color: rgba(255, 255, 255, .3) }
-.fld input:focus, .fld select:focus, .fld textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(62, 224, 197, .22) }
+.fld input:focus, .fld select:focus, .fld textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(59, 130, 246, .28) }
 .fld [aria-invalid="true"] { border-color: var(--err) }
 .fld .hint { font-size: .85rem; color: var(--muted) }
 .fld .err { font-size: .87rem; color: var(--err); display: flex; gap: 8px; align-items: flex-start }
@@ -323,7 +328,8 @@ a.card:hover .go::after { transform: translateX(4px) }
 .ft h2 { font-family: var(--f-mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); font-weight: 500; margin-bottom: 16px }
 .ft ul { list-style: none; padding: 0; display: grid; gap: 10px; font-size: .95rem; color: var(--fg-2) }
 .ft ul a:hover { color: var(--fg) }
-.ft-word { margin-top: clamp(56px, 8vw, 100px); font-size: clamp(4.2rem, 18vw, 16rem); line-height: .8; font-weight: 700; letter-spacing: -.045em; color: transparent; -webkit-text-stroke: 1px rgba(62, 224, 197, .28); white-space: nowrap; user-select: none }
+.ft-word { margin-top: clamp(56px, 8vw, 100px); font-size: clamp(4.2rem, 16vw, 14rem); line-height: .8; font-weight: 700; letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 1px rgba(59, 130, 246, .45); white-space: nowrap; user-select: none }
+.ft-brand .hd-logo img { height: 46px }
 .ft-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem }
 .ft-bot a:hover { color: var(--fg) }
 
@@ -350,6 +356,6 @@ a.card:hover .go::after { transform: translateX(4px) }
 .cp-ch { list-style: none; padding: 0; margin-top: 34px; border-top: 1px solid var(--line-2) }
 .cp-ch li { display: grid; gap: 6px; padding: 18px 0; border-bottom: 1px solid var(--line-2) }
 .cp-ch .lnk { justify-self: start; word-break: break-all }
-.cp-r { background: var(--bg-2); border-radius: var(--r); padding: clamp(22px, 3vw, 40px); box-shadow: inset 0 0 0 1px var(--line) }
+.cp-r { background: rgba(31, 41, 55, .48); border-radius: 20px; padding: clamp(22px, 3vw, 40px); border: 1px solid rgba(59, 130, 246, .24); box-shadow: 0 30px 70px -32px rgba(59, 130, 246, .4), inset 0 1px 0 rgba(248, 250, 252, .06); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px) }
 .cp-r .fld input, .cp-r .fld select, .cp-r .fld textarea { background: var(--bg) }
 @media (max-width: 900px) { .contact-page { grid-template-columns: 1fr } }

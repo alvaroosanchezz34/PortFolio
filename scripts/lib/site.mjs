@@ -12,7 +12,7 @@ export const WA_NUMBER = '34697898574';
 export const GITHUB = 'https://github.com/alvaroosanchezz34';
 export const OG_DEFAULT = '/assets/og/kodika.png';
 // Versión de los recursos estáticos: súbela cuando cambien los CSS o JS comunes.
-export const ASSET_V = '5';
+export const ASSET_V = '6';
 
 // Dimensiones reales de las fotos de las demos (las genera la conversión a WebP).
 export const IMAGES = JSON.parse(readFileSync(new URL('../data/images.json', import.meta.url)));
@@ -180,7 +180,7 @@ export const organizationNode = () => ({
   url: ORIGIN + '/',
   logo: {
     '@type': 'ImageObject',
-    url: abs('/assets/img/logo.svg'),
+    url: abs('/assets/img/icon-dark.svg'),
   },
   image: abs(OG_DEFAULT),
   email: 'mailto:' + EMAIL,

@@ -9,7 +9,7 @@ const footer = () => `
     <div class="wide">
       <div class="ft-top">
         <div class="ft-brand">
-          <a href="/" class="hd-logo"><img src="/assets/img/logo.svg" alt="" width="28" height="28">Kódika</a>
+          <a href="/" class="hd-logo"><img src="/assets/img/logo.svg" alt="KODIKA. Design. Code. Solve." width="210" height="48"></a>
           <p>Estudio de diseño y desarrollo digital. Webs, reservas online y software a medida. Desde Málaga, para toda España.</p>
           <div class="ctas"><a class="btn sm" href="/contacto/" data-cta="presupuesto">Pedir presupuesto ${ARR}</a></div>
         </div>
@@ -39,7 +39,7 @@ ${DEMOS.map(d => `            <li><a href="/demos/${d.slug}/">${d.name}</a></li>
           </ul>
         </nav>
       </div>
-      <p class="ft-word" aria-hidden="true">Kódika</p>
+      <p class="ft-word" aria-hidden="true">KODIKA</p>
       <div class="ft-bot">
         <span>© <span data-year>2026</span> Kódika · Málaga, España</span>
         <span><a href="/privacidad/">Privacidad</a> · Trabajo en remoto para toda España</span>
@@ -51,7 +51,7 @@ const header = active => `
   <a class="skip" href="#main">Saltar al contenido</a>
   <header class="hd" id="hd">
     <div class="wide hd-in">
-      <a href="/" class="hd-logo"><img src="/assets/img/logo.svg" alt="" width="28" height="28">Kódika</a>
+      <a href="/" class="hd-logo"><img src="/assets/img/logo-wordmark.svg" alt="KODIKA" width="154" height="28"></a>
       <nav class="hd-nav" aria-label="Principal">
 ${NAV.map(n => `        <a href="${n.href}"${n.key === active ? ' aria-current="page"' : ''}>${n.label}</a>`).join('\n')}
       </nav>
@@ -105,7 +105,7 @@ export const head = page => {
   <title>${esc(page.title)}</title>
   <meta name="description" content="${esc(page.description)}">
   ${page.noindex ? '<meta name="robots" content="noindex, follow">' : `<link rel="canonical" href="${url}">`}
-  <meta name="theme-color" content="${page.themeColor || '#071018'}">
+  <meta name="theme-color" content="${page.themeColor || '#0B0F1A'}">
   <meta name="author" content="${BRAND}">
   <meta property="og:type" content="${page.ogType || 'website'}">
   <meta property="og:site_name" content="${BRAND}">
@@ -122,9 +122,10 @@ export const head = page => {
   <meta name="twitter:description" content="${esc(page.description)}">
   <meta name="twitter:image" content="${ogImage}">
   <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/img/icon-dark.svg" type="image/svg+xml">
   <link rel="icon" href="/assets/img/favicon-96.png" type="image/png" sizes="96x96">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">`;
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">`;
 };
 
 export function render(page) {
@@ -160,7 +161,7 @@ export function render(page) {
 
 <head>
 ${head(page)}
-  <link rel="preload" href="/assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
 ${(page.preload || []).map(p => `  <link rel="preload" href="${p}" as="font" type="font/woff2" crossorigin>`).join('\n')}
 ${styles.map(s => `  <link rel="stylesheet" href="${s}?v=${ASSET_V}">`).join('\n')}
   <script>document.documentElement.classList.add('js')</script>

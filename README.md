@@ -14,7 +14,7 @@ El dominio previsto es `https://kodikadigital.com` (aún no está en producción
 | `scripts/data/images.json` | Dimensiones de las fotos, para `width`/`height` y `srcset`. |
 | `index.html`, `*/index.html`, `404.html`, `sitemap.xml` | **Generados**: no los edites a mano. |
 | `assets/css`, `assets/js` | Estilos y JS del sitio (`site.*` común; `home.*`; `contact.js` formulario; `track.js` eventos de conversión). |
-| `assets/img/logo.svg` | Marca de Kódika (monograma). También se usa como favicon SVG. |
+| `assets/img/logo*.svg`, `icon-*.svg` | Marca de Kódika en SVG: wordmark, horizontal, monocromo e icono K. La tipografía del sitio es Sora, autoalojada en `assets/fonts/sora-*.woff2`. |
 | `assets/demos/kit.*` | Kit común de las demos: barra «Demo ficticia», cierre comercial, validación, diálogos, router por hash y almacenamiento local. |
 | `assets/demos/<slug>/` | CSS, JS, fuentes y fotos propias de cada demo. |
 | `assets/og/` | Imágenes para compartir (1200×630). |
