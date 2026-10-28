@@ -82,7 +82,7 @@ export default {
             <ul class="checks">
               <li>Diseño propio para tu marca, sin plantillas</li>
               <li>Adaptada a móvil, tablet y ordenador</li>
-              <li>Estructura y textos pensados para que te contacten, que preparamos juntos a partir de lo que me cuentes</li>
+              <li>Estructura y textos pensados para que te contacten, que preparamos juntos a partir de lo que nos cuentes</li>
               <li>SEO técnico de base: títulos, descripciones, velocidad, datos estructurados y sitemap</li>
               <li>Ficha de empresa de Google configurada, si tu negocio puede tenerla</li>
               <li>Botones de WhatsApp, llamada y email</li>

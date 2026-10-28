@@ -129,7 +129,7 @@ const privacidad = {
   crumbs: [['Inicio', '/'], ['Privacidad', '/privacidad/']],
   kick: 'Legal',
   h1: 'Política de privacidad',
-  lead: 'Esta web recoge los mínimos datos posibles. Aquí te explico cuáles, para qué y cómo puedes ejercer tus derechos.',
+  lead: 'Esta web recoge los mínimos datos posibles. Aquí te explicamos cuáles, para qué y cómo puedes ejercer tus derechos.',
   heroCtas: false,
   body: `
     <section class="sec">
@@ -161,7 +161,7 @@ const privacidad = {
         <h2>Tus derechos</h2>
         <p>Puedes pedir el acceso, la rectificación o la supresión de tus datos, así como oponerte a su tratamiento o limitarlo, escribiendo a <a href="mailto:${EMAIL}">${EMAIL}</a>. Si crees que no se han respetado tus derechos, puedes presentar una reclamación ante la <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos</a>.</p>
 
-        <p class="note">Última actualización: 16 de octubre de 2026.</p>
+        <p class="note">Última actualización: 28 de octubre de 2026.</p>
       </div>
     </section>`,
 };

@@ -27,13 +27,13 @@
       name: v => v.trim().length >= 2 ? '' : 'Escribe tu nombre.',
       contact: v => {
         const s = v.trim();
-        if (!s) return 'Necesito un email o un teléfono para responderte.';
+        if (!s) return 'Necesitamos un email o un teléfono para responderte.';
         const email = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
         const phone = s.replace(/[\s().-]/g, '').replace(/^\+/, '').match(/^\d{9,15}$/);
         return email || phone ? '' : 'Escribe un email válido (nombre@dominio.com) o un teléfono de al menos 9 cifras.';
       },
       type: v => v ? '' : 'Elige qué tipo de proyecto es.',
-      msg: v => v.trim().length >= 15 ? '' : 'Cuéntame un poco más (mínimo 15 caracteres).',
+      msg: v => v.trim().length >= 15 ? '' : 'Cuéntanos un poco más (mínimo 15 caracteres).',
     };
     const check = name => {
       const el = f(name), msg = rules[name](el.value);
@@ -41,7 +41,7 @@
     };
     const checkPrivacy = () => {
       const el = f('privacy'), ok = el.checked;
-      setErr(el, ok ? '' : 'Necesito que aceptes la política de privacidad para responderte.');
+      setErr(el, ok ? '' : 'Necesitamos que aceptes la política de privacidad para responderte.');
       return ok;
     };
 

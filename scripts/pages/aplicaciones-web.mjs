@@ -48,7 +48,7 @@ export default {
           <li>Tu proceso <strong>no encaja en ningún programa estándar</strong> y acabas adaptándote tú al programa.</li>
           <li>Quieres <strong>convertir tu servicio en un producto online</strong> por el que se pague una cuota.</li>
         </ul>
-        <p class="note">Y cuando no compensa: si ya existe una herramienta que cubre casi todo lo que necesitas por una cuota razonable, normalmente sale más a cuenta usarla, o integrarla con lo que ya tienes. Te lo diré antes de presupuestar nada.</p>
+        <p class="note">Y cuando no compensa: si ya existe una herramienta que cubre casi todo lo que necesitas por una cuota razonable, normalmente sale más a cuenta usarla, o integrarla con lo que ya tienes. Te lo diremos antes de presupuestar nada.</p>
       </div>
     </section>
 
