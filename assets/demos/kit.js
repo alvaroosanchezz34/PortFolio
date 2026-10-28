@@ -106,7 +106,7 @@
   addEventListener('load', reveal);
   reveal();
 
-  // Pastilla flotante de SanchezDevelop
+  // Pastilla flotante de Kódika
   const pill = $('#dkPill'), end = $('.dk-end');
   if (pill) {
     const upd = () => {

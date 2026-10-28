@@ -1,7 +1,7 @@
 {
-  "name": "sanchezdevelop",
+  "name": "kodika",
   "private": true,
-  "description": "Web estática de sanchezdevelop.com (Cloudflare Pages). Sin dependencias.",
+  "description": "Web estática de kodikadigital.com (Cloudflare Pages). Sin dependencias.",
   "type": "module",
   "engines": {
     "node": ">=18"

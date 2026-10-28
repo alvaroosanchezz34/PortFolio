@@ -114,7 +114,7 @@ const body = `
       </div>
     </section>
   </main>
-  <footer class="va-ft"><div class="va-w"><span class="va-logo">VELOCE</span><p>Concesionario ficticio creado por SanchezDevelop para demostrar una web de automoción.</p></div></footer>
+  <footer class="va-ft"><div class="va-w"><span class="va-logo">VELOCE</span><p>Concesionario ficticio creado por Kódika para demostrar una web de automoción.</p></div></footer>
 
   <dialog class="dk-dialog va-dlg" id="dlg" aria-labelledby="v-title">
     <button class="dk-close" data-close aria-label="Cerrar ficha">×</button>
@@ -124,8 +124,8 @@ const body = `
 export default demoPage({
   slug,
   path: `/demos/${slug}/`,
-  title: 'Veloce Automotive · Demo de web para concesionario | SanchezDevelop',
-  description: 'Demo ficticia de SanchezDevelop: web para un concesionario premium con stock filtrable, fichas técnicas con galería, calculadora de cuota y solicitud de prueba.',
+  title: 'Veloce Automotive · Demo de web para concesionario | Kódika',
+  description: 'Demo ficticia de Kódika: web para un concesionario premium con stock filtrable, fichas técnicas con galería, calculadora de cuota y solicitud de prueba.',
   ogImage: `/assets/og/demo-${slug}.jpg`,
   themeColor: '#070708',
   fonts: [`/assets/demos/${slug}/fonts/michroma.woff2`],

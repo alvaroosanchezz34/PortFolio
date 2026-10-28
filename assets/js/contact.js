@@ -71,7 +71,7 @@
         return;
       }
       const typeLabel = f('type').selectedOptions[0].textContent;
-      const text = `Hola Álvaro, soy ${f('name').value.trim()}.\n\nNecesito: ${typeLabel}.\n\n${f('msg').value.trim()}\n\nPuedes contactarme en: ${f('contact').value.trim()}`;
+      const text = `Hola, escribo a Kódika. Soy ${f('name').value.trim()}.\n\nNecesito: ${typeLabel}.\n\n${f('msg').value.trim()}\n\nPodéis contactarme en: ${f('contact').value.trim()}`;
       let opened = true;
       if (via === 'email') {
         location.href = `mailto:${EMAIL}?subject=${encodeURIComponent('Proyecto: ' + typeLabel)}&body=${encodeURIComponent(text)}`;
@@ -82,8 +82,8 @@
       if (window.sdTrack) window.sdTrack(via === 'email' ? 'form-email' : 'form-whatsapp');
       status.hidden = false; status.className = 'form-status ok';
       status.innerHTML = via === 'email'
-        ? `Mensaje preparado en tu programa de correo: <b>solo falta que pulses enviar</b>. Si no se ha abierto, escríbeme a <a href="mailto:${EMAIL}">${EMAIL}</a>.`
-        : `Mensaje preparado en WhatsApp${opened ? '' : ' (abriéndolo…)'}: <b>solo falta que pulses enviar</b>. Si no se ha abierto, escríbeme por email a <a href="mailto:${EMAIL}">${EMAIL}</a>.`;
+        ? `Mensaje preparado en tu programa de correo: <b>solo falta que pulses enviar</b>. Si no se ha abierto, escríbenos a <a href="mailto:${EMAIL}">${EMAIL}</a>.`
+        : `Mensaje preparado en WhatsApp${opened ? '' : ' (abriéndolo…)'}: <b>solo falta que pulses enviar</b>. Si no se ha abierto, escríbenos por email a <a href="mailto:${EMAIL}">${EMAIL}</a>.`;
     });
   });
 })();

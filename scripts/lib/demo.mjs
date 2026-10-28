@@ -7,7 +7,7 @@ export const demoBar = slug => {
   const d = DEMOS.find(x => x.slug === slug);
   return `
   <div class="dk-bar" role="note" aria-label="Aviso de demostración">
-    <a class="dk-back" href="/demos/"><span aria-hidden="true">←</span> Demos de SanchezDevelop</a>
+    <a class="dk-back" href="/demos/"><span aria-hidden="true">←</span> Demos de Kódika</a>
     <span class="dk-tag"><b>Demo ficticia</b><span class="dk-hide-sm"> · ${esc(d.name)} no es un negocio real</span></span>
     <a class="dk-cta" href="/contacto/?demo=${slug}" data-cta="demo-${slug}">Quiero una web así <span aria-hidden="true">→</span></a>
   </div>`;
@@ -19,9 +19,9 @@ export const demoEnd = slug => {
   return `
   <aside class="dk-end" aria-labelledby="dk-end-t">
     <div class="dk-end-in">
-      <p class="dk-mono">Demo de SanchezDevelop</p>
+      <p class="dk-mono">Demo de Kódika</p>
       <h2 id="dk-end-t">¿Te imaginas tu negocio con una web así?</h2>
-      <p>${esc(d.name)} es un negocio ficticio: lo he diseñado y programado para enseñar lo que puede tener tu web. Las funciones que has probado se pueden adaptar a tu sector, tu marca y tu forma de trabajar.</p>
+      <p>${esc(d.name)} es un negocio ficticio: lo hemos diseñado y programado para enseñar lo que puede tener tu web. Las funciones que has probado se pueden adaptar a tu sector, tu marca y tu forma de trabajar.</p>
       <div class="dk-end-ctas">
         <a class="dk-btn" href="/contacto/?demo=${slug}" data-cta="demo-${slug}">Quiero una web así</a>
         <a class="dk-btn ghost" href="/demos/">Ver las demás demos</a>
@@ -29,7 +29,7 @@ export const demoEnd = slug => {
       <p class="dk-others">También: ${others.map(o => `<a href="/demos/${o.slug}/">${esc(o.name)}</a>`).join(' · ')}</p>
     </div>
   </aside>
-  <a class="dk-pill" id="dkPill" href="/contacto/?demo=${slug}" data-cta="demo-${slug}"><span class="dk-dot" aria-hidden="true"></span>Demo de SanchezDevelop · <b>Quiero una así</b></a>`;
+  <a class="dk-pill" id="dkPill" href="/contacto/?demo=${slug}" data-cta="demo-${slug}"><span class="dk-dot" aria-hidden="true"></span>Demo de Kódika · <b>Quiero una así</b></a>`;
 };
 
 // page: { slug, path, title, description, themeColor, fonts: [url], css, js, body, data, bodyClass }
@@ -40,7 +40,7 @@ export function demoPage(page) {
 <html lang="es">
 
 <head>
-${head({ ...page, noindex: true, ogAlt: `${d.name}, demo ficticia de SanchezDevelop` })}
+${head({ ...page, noindex: true, ogAlt: `${d.name}, demo ficticia de Kódika` })}
 ${(page.fonts || []).map(f => `  <link rel="preload" href="${f}" as="font" type="font/woff2" crossorigin>`).join('\n')}
   <link rel="stylesheet" href="/assets/demos/kit.css?v=${ASSET_V}">
   <link rel="stylesheet" href="${page.css}?v=${ASSET_V}">

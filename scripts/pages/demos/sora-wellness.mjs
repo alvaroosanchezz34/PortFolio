@@ -163,13 +163,13 @@ ${TEAM.map(([ini, n, r, d]) => `          <li data-rv><span class="sw-av" aria-h
       </div>
     </section>
   </main>
-  <footer class="sw-ft"><div class="sw-w"><span class="sw-logo">sora<span>wellness</span></span><p>Centro ficticio creado por SanchezDevelop para demostrar una web de bienestar con reservas.</p></div></footer>`;
+  <footer class="sw-ft"><div class="sw-w"><span class="sw-logo">sora<span>wellness</span></span><p>Centro ficticio creado por Kódika para demostrar una web de bienestar con reservas.</p></div></footer>`;
 
 export default demoPage({
   slug,
   path: `/demos/${slug}/`,
-  title: 'Sora Wellness · Demo de web con reserva de citas | SanchezDevelop',
-  description: 'Demo ficticia de SanchezDevelop: web de centro de bienestar y estética con tratamientos, reserva de citas en cuatro pasos y formulario validado.',
+  title: 'Sora Wellness · Demo de web con reserva de citas | Kódika',
+  description: 'Demo ficticia de Kódika: web de centro de bienestar y estética con tratamientos, reserva de citas en cuatro pasos y formulario validado.',
   ogImage: `/assets/og/demo-${slug}.jpg`,
   themeColor: '#efe9df',
   fonts: [`/assets/demos/${slug}/fonts/fraunces.woff2`],

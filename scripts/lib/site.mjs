@@ -3,15 +3,16 @@
 // direcciones, teléfonos, valoraciones, clientes ni perfiles que no existan.
 import { readFileSync } from 'node:fs';
 
-export const ORIGIN = 'https://sanchezdevelop.com';
-export const BRAND = 'SanchezDevelop';
+export const ORIGIN = 'https://kodikadigital.com';
+export const BRAND = 'Kódika';
+export const BRAND_SLUG = 'kodika';
 export const PERSON_NAME = 'Álvaro Sánchez';
 export const EMAIL = 'alvarosanchezortega34@gmail.com';
 export const WA_NUMBER = '34697898574';
 export const GITHUB = 'https://github.com/alvaroosanchezz34';
-export const OG_DEFAULT = '/assets/og/sanchezdevelop.jpg';
+export const OG_DEFAULT = '/assets/og/kodika.png';
 // Versión de los recursos estáticos: súbela cuando cambien los CSS o JS comunes.
-export const ASSET_V = '4';
+export const ASSET_V = '5';
 
 // Dimensiones reales de las fotos de las demos (las genera la conversión a WebP).
 export const IMAGES = JSON.parse(readFileSync(new URL('../data/images.json', import.meta.url)));
@@ -57,7 +58,7 @@ export const SERVICES = [
     key: 'mant', path: '/mantenimiento-web/', short: 'Mantenimiento',
     name: 'Mantenimiento y mejora web',
     outcome: 'Tu web siempre a punto, también la que ya tienes',
-    desc: 'Tu web siempre online, rápida y al día. También reviso y mejoro webs que ya tienes.',
+    desc: 'Tu web siempre online, rápida y al día. También revisamos y mejoramos webs que ya tienes.',
     benefit: 'Cambios cuando los necesitas, velocidad vigilada y nada que caduque sin avisar.',
     tech: ['Core Web Vitals', 'Seguridad', 'Search Console'],
     from: 'Desde 15 €/mes',
@@ -120,7 +121,7 @@ export const NAV = [
   { key: 'demos', href: '/demos/', label: 'Demos' },
   { key: 'servicios', href: '/#servicios', label: 'Servicios' },
   { key: 'precios', href: '/#presupuesto', label: 'Precios' },
-  { key: 'sobre', href: '/sobre-mi/', label: 'Sobre mí' },
+  { key: 'sobre', href: '/sobre-kodika/', label: 'Estudio' },
   { key: 'blog', href: '/blog/', label: 'Blog' },
 ];
 
@@ -149,23 +150,47 @@ export const photo = (key, alt, { sizes = '100vw', eager = false, cls = '' } = {
 export const lines = (arr, tag = 'span') => arr.map((l, i) => `<span class="ln"><${tag} style="--d:${i}">${l}</${tag}></span>`).join('');
 
 // ---------- Datos estructurados comunes ----------
-export const PERSON_ID = ORIGIN + '/#alvaro';
+export const ORG_ID = ORIGIN + '/#organization';
+export const FOUNDER_ID = ORIGIN + '/#alvaro';
 export const WEBSITE_ID = ORIGIN + '/#website';
 
-export const personNode = () => ({
+const KNOWS = ['Desarrollo web', 'Desarrollo Full Stack', 'Aplicaciones web', 'Sistemas de reservas online', 'Integración de inteligencia artificial', 'Automatización de procesos', 'SEO técnico', 'Angular', 'React', 'Next.js', 'TypeScript', 'Node.js', 'Express', 'Spring Boot', 'MySQL', 'MongoDB', 'Firebase'];
+
+export const founderNode = () => ({
   '@type': 'Person',
-  '@id': PERSON_ID,
+  '@id': FOUNDER_ID,
   name: PERSON_NAME,
   alternateName: 'Álvaro Sánchez Ortega',
-  jobTitle: 'Desarrollador Full Stack',
-  description: 'Desarrollador Full Stack independiente. Diseña y programa webs, sistemas de reservas, aplicaciones web y software a medida para autónomos y pequeñas empresas.',
-  url: ORIGIN + '/sobre-mi/',
+  jobTitle: 'Fundador',
+  description: 'Fundador de Kódika y desarrollador Full Stack. Diseña y programa webs, sistemas de reservas, aplicaciones web y software a medida.',
+  url: ORIGIN + '/sobre-kodika/',
   email: 'mailto:' + EMAIL,
+  worksFor: { '@id': ORG_ID },
   address: { '@type': 'PostalAddress', addressLocality: 'Málaga', addressRegion: 'Andalucía', addressCountry: 'ES' },
-  knowsAbout: ['Desarrollo web', 'Desarrollo Full Stack', 'Aplicaciones web', 'Sistemas de reservas online', 'Integración de inteligencia artificial', 'Automatización de procesos', 'SEO técnico', 'Angular', 'React', 'Next.js', 'TypeScript', 'Node.js', 'Express', 'Spring Boot', 'MySQL', 'MongoDB', 'Firebase'],
+  knowsAbout: KNOWS,
   knowsLanguage: 'es',
-  brand: { '@type': 'Brand', name: BRAND },
   sameAs: [GITHUB],
+});
+
+export const organizationNode = () => ({
+  '@type': ['Organization', 'ProfessionalService'],
+  '@id': ORG_ID,
+  name: BRAND,
+  alternateName: ['Kodika', 'kodikadigital.com'],
+  url: ORIGIN + '/',
+  logo: {
+    '@type': 'ImageObject',
+    url: abs('/assets/img/logo.svg'),
+  },
+  image: abs(OG_DEFAULT),
+  email: 'mailto:' + EMAIL,
+  telephone: '+34697898574',
+  description: 'Estudio de diseño y desarrollo digital en Málaga. Webs a medida, reservas online, aplicaciones y software para empresas de toda España.',
+  founder: { '@id': FOUNDER_ID },
+  address: { '@type': 'PostalAddress', addressLocality: 'Málaga', addressRegion: 'Andalucía', addressCountry: 'ES' },
+  areaServed: { '@type': 'Country', name: 'España' },
+  knowsAbout: ['Desarrollo web', 'Diseño web', 'Aplicaciones web', 'Sistemas de reservas online', 'Integración de inteligencia artificial', 'Automatización de procesos', 'SEO técnico'],
+  knowsLanguage: 'es',
 });
 
 export const websiteNode = () => ({
@@ -173,9 +198,9 @@ export const websiteNode = () => ({
   '@id': WEBSITE_ID,
   url: ORIGIN + '/',
   name: BRAND,
-  alternateName: 'sanchezdevelop.com',
+  alternateName: 'kodikadigital.com',
   inLanguage: 'es-ES',
-  publisher: { '@id': PERSON_ID },
+  publisher: { '@id': ORG_ID },
 });
 
 export const breadcrumbNode = (path, crumbs) => ({
@@ -194,7 +219,7 @@ export const serviceNode = ({ path, name, serviceType, description, minPrice, un
     serviceType,
     description,
     url: abs(path),
-    provider: { '@id': PERSON_ID },
+    provider: { '@id': ORG_ID },
     areaServed: { '@type': 'Country', name: 'España' },
   };
   if (minPrice) {
@@ -257,7 +282,7 @@ ${SERVICES.filter(s => !exclude.includes(s.key)).map(s => `          <a class="c
 
 const EXTRA = {
   precio: ['/blog/cuanto-cuesta-una-pagina-web/', 'Cuánto cuesta una página web', 'Qué hace subir o bajar el precio de una web y cómo comparar presupuestos sin llevarte sustos.', 'Leer artículo'],
-  sobre: ['/sobre-mi/', 'Sobre mí', 'Quién soy, cómo trabajo y con qué tecnologías.', 'Leer más'],
+  sobre: ['/sobre-kodika/', 'Sobre Kódika', 'El estudio, su fundador y cómo trabajamos.', 'Leer más'],
   demos: ['/demos/', 'Las seis demos', 'Webs navegables de inmobiliaria, moda, bienestar, fitness, automoción y SaaS.', 'Explorar demos'],
 };
 for (const d of DEMOS) EXTRA[d.slug] = [`/demos/${d.slug}/`, `Demo: ${d.name}`, `${d.sector}. ${d.pitch}`, 'Abrir demo'];
@@ -313,7 +338,7 @@ ${PROJECT_TYPES.map(([v, l]) => `                <option value="${v}">${l}</opti
               <p class="err" id="${id}-type-err" hidden></p>
             </div>
             <div class="fld">
-              <label for="${id}-msg">Cuéntame tu proyecto</label>
+                <label for="${id}-msg">Cuéntanos tu proyecto</label>
               <textarea id="${id}-msg" name="msg" maxlength="1500" required placeholder="A qué se dedica tu negocio y qué te gustaría conseguir." aria-describedby="${id}-msg-err"></textarea>
               <p class="err" id="${id}-msg-err" hidden></p>
             </div>

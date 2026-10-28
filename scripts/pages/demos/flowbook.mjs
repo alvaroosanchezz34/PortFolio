@@ -28,8 +28,8 @@ const mock = `
 const landing = demoPage({
   slug,
   path: `/demos/${slug}/`,
-  title: 'Flowbook · Demo de landing y panel SaaS de reservas | SanchezDevelop',
-  description: 'Demo ficticia de SanchezDevelop: landing de un producto SaaS de reservas y un panel de administración con calendario, citas, estados y métricas.',
+  title: 'Flowbook · Demo de landing y panel SaaS de reservas | Kódika',
+  description: 'Demo ficticia de Kódika: landing de un producto SaaS de reservas y un panel de administración con calendario, citas, estados y métricas.',
   ogImage: `/assets/og/demo-${slug}.jpg`,
   themeColor: '#ffffff',
   fonts: [`/assets/demos/${slug}/fonts/manrope.woff2`],
@@ -94,13 +94,13 @@ ${PLANS.map(p => `          <li class="${p.top ? 'top' : ''}" data-rv>${p.top ? 
       <div class="fl-w"><h2 id="fl-c-t" data-rv>Prueba el panel ahora</h2><p data-rv>Crea citas, cambia estados y mira cómo se actualizan las métricas. Sin registro.</p><a class="fb-btn" href="app/" data-rv>Abrir el panel de demostración</a></div>
     </section>
   </main>
-  <footer class="fl-ft"><div class="fl-w"><span class="fb-logo">${logo}</span><p>Producto ficticio creado por SanchezDevelop para demostrar una landing y un panel SaaS.</p></div></footer>`,
+  <footer class="fl-ft"><div class="fl-w"><span class="fb-logo">${logo}</span><p>Producto ficticio creado por Kódika para demostrar una landing y un panel SaaS.</p></div></footer>`,
 });
 
 const app = demoPage({
   slug,
   path: `/demos/${slug}/app/`,
-  title: 'Panel de Flowbook · Demo de panel de reservas | SanchezDevelop',
+  title: 'Panel de Flowbook · Demo de panel de reservas | Kódika',
   description: 'Panel de administración de demostración: calendario semanal, alta de citas, estados de reserva y métricas, con datos guardados en tu navegador.',
   ogImage: `/assets/og/demo-${slug}.jpg`,
   themeColor: '#0f172a',

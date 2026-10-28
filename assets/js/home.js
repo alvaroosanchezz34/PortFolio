@@ -1,4 +1,4 @@
-// SanchezDevelop · portada: escenario del hero, proceso, configurador y demo con IA.
+// Kódika · portada: escenario del hero, proceso, configurador y demo con IA.
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -91,10 +91,10 @@
       extra.textContent = ex.join('. ');
       let est;
       if (!lo && !custom) { cancelAnimationFrame(na); num.textContent = '—'; est = 'por ver'; hint2.textContent = mlo ? 'El mantenimiento va junto a una web. Marca qué necesitas.' : 'Marca al menos una opción.'; }
-      else if (!lo) { cancelAnimationFrame(na); num.textContent = 'A medida'; est = 'a medida'; hint2.textContent = 'Te doy un precio cerrado después de una primera charla.'; }
+      else if (!lo) { cancelAnimationFrame(na); num.textContent = 'A medida'; est = 'a medida'; hint2.textContent = 'Te damos un precio cerrado después de una primera charla.'; }
       else { anim(lo, hi); est = `${fmt(lo)}–${fmt(hi)} €`; hint2.textContent = 'Pago único. Primero ves la web, luego pagas.'; }
       last = { picked, est: est + (mlo ? ` + ${mlo}–${mhi} €/mes` : '') };
-      const msg = `Hola Álvaro, he configurado mi web en tu página.\n\nMe interesa: ${picked.join(', ') || 'una web'}.\nEstimación: ${last.est}.\n\nMi negocio es: `;
+      const msg = `Hola, escribo a Kódika. He configurado una web en vuestra página.\n\nMe interesa: ${picked.join(', ') || 'una web'}.\nEstimación: ${last.est}.\n\nMi negocio es: `;
       calcCta.href = WA + encodeURIComponent(msg);
     };
     inputs.forEach(i => i.addEventListener('change', calc));

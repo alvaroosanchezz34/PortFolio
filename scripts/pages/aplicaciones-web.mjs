@@ -6,16 +6,16 @@ export default {
   path,
   nav: 'apps',
   updated: '2026-10-16',
-  title: 'Desarrollo de aplicaciones web y software a medida | SanchezDevelop',
-  description: 'Plataformas SaaS, paneles de gestión, portales de clientes y APIs con React, Next.js, Angular, Node.js o Spring Boot, de un desarrollador con productos propios.',
+  title: 'Desarrollo de aplicaciones web y software a medida | Kódika',
+  description: 'Plataformas SaaS, paneles de gestión, portales de clientes y APIs con React, Next.js, Angular, Node.js o Spring Boot, de la idea al despliegue.',
   crumbs: [['Inicio', '/'], ['Aplicaciones web y software a medida', path]],
   kick: 'Software a medida',
   h1: 'Desarrollo de aplicaciones web y software a medida',
-  lead: 'Cuando una hoja de cálculo o una herramienta genérica se te queda corta, construyo la aplicación que necesita tu negocio: <b>plataformas SaaS, paneles de gestión, portales de clientes y APIs</b>, de la idea al despliegue.',
-  facts: ['Frontend, backend y base de datos', 'Una persona de la idea al despliegue', 'Alcance y precio por escrito antes de empezar'],
-  waText: 'Hola Álvaro, he visto tu página de aplicaciones web y tengo un proyecto a medida.',
+  lead: 'Cuando una hoja de cálculo o una herramienta genérica se te queda corta, construimos la aplicación que necesita tu negocio: <b>plataformas SaaS, paneles de gestión, portales de clientes y APIs</b>, de la idea al despliegue.',
+  facts: ['Frontend, backend y base de datos', 'De la idea al despliegue', 'Alcance y precio por escrito antes de empezar'],
+  waText: 'Hola, he visto la página de aplicaciones web de Kódika y tengo un proyecto a medida.',
   heroLink: '<a class="lnk" href="/demos/flowbook/">Ver la demo de Flowbook <span class="arr" aria-hidden="true">→</span></a>',
-  about: 'https://sanchezdevelop.com/aplicaciones-web/#service',
+  about: 'https://kodikadigital.com/aplicaciones-web/#service',
   schema: [serviceNode({
     path,
     name: 'Desarrollo de aplicaciones web y software a medida',
@@ -25,7 +25,7 @@ export default {
   body: `
     <section class="sec" aria-labelledby="que-t">
       <div class="wrap">
-        <div class="sh"><h2 class="t-lg" id="que-t">Qué puedo construir</h2></div>
+        <div class="sh"><h2 class="t-lg" id="que-t">Qué podemos construir</h2></div>
         <div class="cards">
           <div class="card"><h3>Plataformas SaaS</h3><p>Productos online con registro de usuarios, planes de pago y suscripciones. Mira la <a href="/demos/flowbook/">demo de Flowbook</a>.</p></div>
           <div class="card"><h3>Software de gestión</h3><p>Clientes, proyectos, facturas, stock o turnos en una herramienta hecha para tu proceso, no para cualquiera.</p></div>
@@ -54,8 +54,8 @@ export default {
 
     <section class="sec" aria-labelledby="tec-t">
       <div class="narrow prose">
-        <h2 id="tec-t">Tecnologías: elijo según el proyecto</h2>
-        <p>Trabajo en todo el recorrido de una aplicación, del diseño de la interfaz a la base de datos y el despliegue. No uso siempre lo mismo: cada pieza tiene sus puntos fuertes.</p>
+        <h2 id="tec-t">Tecnologías: elegimos según el proyecto</h2>
+        <p>Trabajamos en todo el recorrido de una aplicación, del diseño de la interfaz a la base de datos y el despliegue. No usamos siempre lo mismo: cada pieza tiene sus puntos fuertes.</p>
         <table>
           <thead><tr><th scope="col">Capa</th><th scope="col">Tecnologías</th><th scope="col">Cuándo encaja</th></tr></thead>
           <tbody>
@@ -85,7 +85,7 @@ export default {
       <div class="wrap">
         <div class="sh">
           <h2 class="t-lg" id="exp-t">Míralo funcionando</h2>
-          <p class="lede">Dos de las demos de este estudio muestran el tipo de producto que puedo construir. <b>Son ficticias, pero lo que hacen funciona</b>: datos, estados, filtros y paneles.</p>
+          <p class="lede">Dos de las demos de este estudio muestran el tipo de producto que podemos construir. <b>Son ficticias, pero lo que hacen funciona</b>: datos, estados, filtros y paneles.</p>
         </div>
         <div class="cards">
           <a class="card" href="/demos/flowbook/"><h3>Flowbook · SaaS de reservas</h3><p>Landing de producto y panel de administración: calendario semanal, alta de citas, estados y métricas calculadas al momento.</p><ul class="tech"><li>JavaScript</li><li>Estado local</li><li>Responsive</li></ul><span class="go">Abrir demo</span></a>
@@ -105,21 +105,21 @@ export default {
           <li><strong>Requisitos legales.</strong> Facturación, protección de datos y conservación de registros.</li>
           <li><strong>Mantenimiento posterior.</strong> Un software vivo necesita actualizaciones y mejoras.</li>
         </ul>
-        <p>Con todo eso sobre la mesa, te doy el alcance y el precio por escrito. Empezar por una primera versión acotada reduce mucho el riesgo.</p>
+        <p>Con todo eso sobre la mesa, te damos el alcance y el precio por escrito. Empezar por una primera versión acotada reduce mucho el riesgo.</p>
       </div>
     </section>
 ${faq([
-    ['¿Cuánto cuesta una aplicación web a medida?', '<p>Depende por completo del alcance, así que no te daré una cifra sin conocer el proyecto. Tras una primera charla gratuita te paso por escrito qué incluye, en qué fases y por cuánto.</p>'],
-    ['¿Puedes continuar un proyecto que empezó otra persona?', '<p>Puedo revisarlo. Según la tecnología y el estado del código, te diré con sinceridad si compensa continuarlo, rehacer partes o empezar de nuevo.</p>'],
-    ['¿Trabajas con empresas de fuera de Málaga?', '<p>Sí. Las reuniones, las demos y las entregas se pueden hacer en remoto con negocios de toda España.</p>'],
-    ['¿Qué pasa después del lanzamiento?', '<p>No desaparezco: corrección de errores, mejoras y nuevas funciones. Lo habitual es acordar un <a href="/mantenimiento-web/">mantenimiento</a> según lo que necesite la aplicación.</p>'],
-    ['¿Haces también la parte de diseño?', '<p>Sí. Diseño las pantallas pensando en quien va a usarlas cada día, y las programo yo mismo, así que no se pierde nada entre el diseño y el código.</p>'],
+    ['¿Cuánto cuesta una aplicación web a medida?', '<p>Depende por completo del alcance, así que no daremos una cifra sin conocer el proyecto. Tras una primera charla gratuita te pasamos por escrito qué incluye, en qué fases y por cuánto.</p>'],
+    ['¿Podéis continuar un proyecto que empezó otra persona?', '<p>Podemos revisarlo. Según la tecnología y el estado del código, te diremos con sinceridad si compensa continuarlo, rehacer partes o empezar de nuevo.</p>'],
+    ['¿Trabajáis con empresas de fuera de Málaga?', '<p>Sí. Las reuniones, las demos y las entregas se pueden hacer en remoto con negocios de toda España.</p>'],
+    ['¿Qué pasa después del lanzamiento?', '<p>No desaparecemos: corrección de errores, mejoras y nuevas funciones. Lo habitual es acordar un <a href="/mantenimiento-web/">mantenimiento</a> según lo que necesite la aplicación.</p>'],
+    ['¿Hacéis también la parte de diseño?', '<p>Sí. Diseñamos las pantallas pensando en quien va a usarlas cada día y las programamos, así que no se pierde nada entre el diseño y el código.</p>'],
   ])}
 ${related(['ia', 'flowbook', 'demos'])}
 ${finalCta({
     title: 'Tu idea,<br><em>funcionando.</em>',
-    text: 'Cuéntame qué problema quieres resolver. Te digo cómo lo plantearía y por dónde empezar. <b>La primera conversación es gratis.</b>',
-    waText: 'Hola Álvaro, he visto tu página de aplicaciones web y tengo un proyecto a medida.',
+    text: 'Cuéntanos qué problema quieres resolver. Te decimos cómo lo plantearíamos y por dónde empezar. <b>La primera conversación es gratis.</b>',
+    waText: 'Hola, he visto la página de aplicaciones web de Kódika y tengo un proyecto a medida.',
     mailSubject: 'Proyecto de aplicación a medida',
   })}`,
 };
