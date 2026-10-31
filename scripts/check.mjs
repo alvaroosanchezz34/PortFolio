@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://kodikadigital.com';
-const SKIP = new Set(['node_modules', '.wrangler', '.git', 'docs', 'scripts', 'functions']);
+const SKIP = new Set(['node_modules', '.wrangler', '.git', 'docs', 'scripts', 'api']);
 
 const errors = [], warnings = [];
 const err = (f, m) => errors.push(`✗ ${f}: ${m}`);
@@ -225,7 +225,7 @@ else {
 
 // 404 y páginas huérfanas
 const nf = pages.get('/404.html');
-if (!nf) err('404.html', 'no existe: Cloudflare Pages serviría la portada con código 200 en cualquier URL');
+if (!nf) err('404.html', 'no existe: las URL inexistentes no devolverían una página 404 propia');
 else if (!nf.noindex) err('404.html', 'debe llevar noindex');
 for (const p of pages.values()) {
   if (p.noindex || p.path === '/') continue;

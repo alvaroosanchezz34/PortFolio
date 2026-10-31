@@ -1,0 +1,8 @@
+# Lo que no forma parte de la web publicada. El HTML ya está generado y versionado,
+# así que Vercel no necesita los scripts ni el package.json (sin build ni npm install).
+docs
+scripts
+tests
+README.md
+package.json
+.wrangler

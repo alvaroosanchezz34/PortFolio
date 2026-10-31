@@ -1,7 +1,7 @@
-// Cloudflare Pages Function → ruta: POST /api/preview
+// Vercel Function → ruta: POST /api/preview
 // Genera el contenido de una maqueta de web a partir del negocio del visitante.
 // La key de OpenAI se lee de la variable de entorno OPENAI_API_KEY
-// (se configura en el panel de Cloudflare, NUNCA en el repo).
+// (se configura en Vercel › Settings › Environment Variables, NUNCA en el repo).
 
 const SYSTEM_PROMPT = `Eres un diseñador web. A partir del negocio que te describa el usuario, genera el CONTENIDO de una maqueta de landing.
 
@@ -24,9 +24,10 @@ Reglas:
 - No inventes teléfonos, direcciones ni datos concretos: usa genéricos ("📍 Tu ciudad", "🕐 Horario", "☎ Reservas").
 - Exactamente 3 tarjetas y 3 elementos en foot.`;
 
-export async function onRequestPost({ request, env }) {
+export async function POST(request) {
   try {
-    if (!env.OPENAI_API_KEY) return json({ error: "missing_key" }, 500);
+    const key = process.env.OPENAI_API_KEY;
+    if (!key) return json({ error: "missing_key" }, 500);
 
     const { name, type } = await request.json().catch(() => ({}));
     const desc = `${(name || "").slice(0, 60)} — ${(type || "").slice(0, 100)}`.trim();
@@ -36,7 +37,7 @@ export async function onRequestPost({ request, env }) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${env.OPENAI_API_KEY}`,
+        Authorization: `Bearer ${key}`,
       },
       body: JSON.stringify({
         model: "gpt-4o-mini",
@@ -64,9 +65,8 @@ export async function onRequestPost({ request, env }) {
   }
 }
 
-export async function onRequest(context) {
-  if (context.request.method !== "POST") return new Response("Method Not Allowed", { status: 405, headers: { "X-Robots-Tag": "noindex" } });
-  return onRequestPost(context);
+export function GET() {
+  return new Response("Method Not Allowed", { status: 405, headers: { Allow: "POST", "X-Robots-Tag": "noindex" } });
 }
 
 // Deja la respuesta con la forma esperada aunque el modelo se desvíe un poco.

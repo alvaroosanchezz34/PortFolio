@@ -123,7 +123,7 @@ ${related(['webs', 'reservas', 'apps'], '¿Todavía decidiendo?')}`,
 const privacidad = {
   path: '/privacidad/',
   nav: '',
-  updated: '2026-10-28',
+  updated: '2026-10-31',
   title: 'Política de privacidad | Kódika',
   description: 'Qué datos trata kodikadigital.com, para qué y cómo ejercer tus derechos: contacto por WhatsApp o email, demos, demo con IA y analítica sin cookies.',
   crumbs: [['Inicio', '/'], ['Privacidad', '/privacidad/']],
@@ -150,18 +150,18 @@ const privacidad = {
         <p>Si usas la demo de la portada, el nombre y el tipo de negocio que escribes se envían a la API de OpenAI para generar la maqueta. Esta web no guarda ese texto. <strong>No escribas datos personales en la demo</strong>: basta con algo como «Peluquería Lucía, peluquería y estética». El tratamiento por parte de OpenAI se rige por sus condiciones de uso de la API.</p>
 
         <h3>Analítica</h3>
-        <p>La web usa Cloudflare Web Analytics para contar visitas de forma agregada. No usa cookies ni identifica a los visitantes. Al hacer clic en los botones de contacto se puede registrar el tipo de contacto (WhatsApp, email…) y la página, nunca el contenido del mensaje.</p>
+        <p>La web usa Vercel Web Analytics para contar visitas de forma agregada. No usa cookies ni identifica a los visitantes. Al hacer clic en los botones de contacto se puede registrar el tipo de contacto (WhatsApp, email…) y la página, nunca el contenido del mensaje.</p>
 
         <h3>Cookies</h3>
         <p>Esta web no instala cookies propias ni de publicidad.</p>
 
         <h2>Proveedores</h2>
-        <p>La web está alojada en Cloudflare. La demo usa OpenAI. Ambos pueden tratar datos técnicos (como la dirección IP) para prestar el servicio y mantener su seguridad.</p>
+        <p>La web está alojada en Vercel. La demo usa OpenAI. Ambos pueden tratar datos técnicos (como la dirección IP) para prestar el servicio y mantener su seguridad.</p>
 
         <h2>Tus derechos</h2>
         <p>Puedes pedir el acceso, la rectificación o la supresión de tus datos, así como oponerte a su tratamiento o limitarlo, escribiendo a <a href="mailto:${EMAIL}">${EMAIL}</a>. Si crees que no se han respetado tus derechos, puedes presentar una reclamación ante la <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos</a>.</p>
 
-        <p class="note">Última actualización: 28 de octubre de 2026.</p>
+        <p class="note">Última actualización: 31 de octubre de 2026.</p>
       </div>
     </section>`,
 };

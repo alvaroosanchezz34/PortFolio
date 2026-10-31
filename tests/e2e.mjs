@@ -1,5 +1,5 @@
 // Pruebas end-to-end de la web y de las seis demos (Playwright).
-// Requisitos: un servidor con la web (npx wrangler pages dev . --port 8788) y Playwright
+// Requisitos: un servidor con la web (npx vercel dev --listen 8788) y Playwright
 // disponible (npm i -D playwright, o NODE_PATH apuntando a una instalación global).
 // Uso: BASE=http://localhost:8788 node tests/e2e.mjs
 const BASE = process.env.BASE || 'http://localhost:8788';
@@ -25,7 +25,7 @@ const newPage = async (opts = {}) => {
   page.errors = [];
   page.on('pageerror', e => page.errors.push(e.message));
   page.on('console', m => { if (m.type() === 'error' && !/status of 404/.test(m.text())) page.errors.push(m.text()); });
-  page.on('response', r => { if (r.status() >= 400 && !r.url().includes('/api/preview') && !r.url().includes('no-existe')) page.errors.push(`${r.status()} ${r.url()}`); });
+  page.on('response', r => { if (r.status() >= 400 && !r.url().includes('/api/preview') && !r.url().includes('/_vercel/') && !r.url().includes('no-existe')) page.errors.push(`${r.status()} ${r.url()}`); });
   return page;
 };
 const visible = (p, sel) => p.locator(sel).filter({ visible: true }).count();

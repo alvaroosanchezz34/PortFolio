@@ -180,6 +180,7 @@ ${footer()}
   <a class="fab" id="fab" href="${wa(page.waText || 'Hola, he visto la web de Kódika y quiero información.')}" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-cta="whatsapp">${WA_ICON}</a>
 
 ${scripts.map(s => `  <script src="${s}?v=${ASSET_V}" defer></script>`).join('\n')}
+  <script src="/_vercel/insights/script.js" defer></script>
 </body>
 
 </html>
