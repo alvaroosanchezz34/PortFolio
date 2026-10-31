@@ -1,5 +1,5 @@
 // Genera todas las páginas HTML y el sitemap a partir de scripts/pages/**/*.mjs.
-// Uso: npm run build  (sin dependencias; Node 18 o superior).
+// Uso: npm run generate  (sin dependencias; Node 18 o superior).
 // Cada módulo exporta una página o una lista de páginas:
 //   { path, out?, title, description, body, ... }  → plantilla común (scripts/lib/layout.mjs)
 //   { path, out?, html }                            → HTML ya completo (las demos)

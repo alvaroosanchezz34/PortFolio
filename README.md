@@ -39,7 +39,7 @@ Todas son negocios **ficticios**, lo dicen en pantalla y llevan `noindex`. Sus f
 ## Comandos (Node 18 o superior)
 
 ```bash
-npm run build   # genera todas las páginas y el sitemap (y borra las que ya no existen)
+npm run generate  # genera todas las páginas y el sitemap (y borra las que ya no existen)
 npm run check   # valida titles, H1, canonical, OG, JSON-LD, enlaces, sitemap, robots y términos retirados
 npm test        # build + check
 ```
@@ -49,6 +49,8 @@ Para ver la web con el comportamiento real de Vercel (404, cabeceras, redireccio
 ```bash
 npx vercel dev --listen 8788
 ```
+
+El script se llama `generate` y no `build` a propósito: si `package.json` tuviera un script `build`, Vercel lo ejecutaría y buscaría la web en una carpeta `public/` que no existe.
 
 El generador con IA necesita la variable `OPENAI_API_KEY` (en local, en un fichero `.env.local`; en producción, en Vercel › Settings › Environment Variables). Sin ella, el resto de la web funciona igual.
 

@@ -1,13 +1,13 @@
 {
   "name": "kodika",
   "private": true,
-  "description": "Web estática de kodikadigital.com (Cloudflare Pages). Sin dependencias.",
+  "description": "Web estática de kodikadigital.com (Vercel). Sin dependencias. Sin script «build» a propósito: el HTML ya está generado y Vercel lo publica tal cual.",
   "type": "module",
   "engines": {
     "node": ">=18"
   },
   "scripts": {
-    "build": "node scripts/build.mjs",
+    "generate": "node scripts/build.mjs",
     "check": "node scripts/check.mjs",
     "test": "node scripts/build.mjs && node scripts/check.mjs",
     "e2e": "node tests/e2e.mjs"
