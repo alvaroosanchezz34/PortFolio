@@ -1,6 +1,6 @@
 # kodikadigital.com
 
-Web de **Kódika**, estudio de diseño y desarrollo digital en Málaga fundado por Álvaro Sánchez. HTML estático publicado con **Cloudflare Pages** desde la raíz del repositorio, más una Pages Function (`functions/api/preview.js`) para el generador de ideas con IA de la portada.
+Web de **Kódika**, estudio de diseño y desarrollo digital en Málaga fundado por Álvaro Sánchez. HTML estático publicado con **Vercel** desde la raíz del repositorio, más una Vercel Function (`api/preview.mjs`) para el generador de ideas con IA de la portada.
 
 El dominio previsto es `https://kodikadigital.com` (aún no está en producción). No hay framework ni dependencias de npm: un pequeño generador en Node convierte módulos de contenido en HTML, y ese HTML generado se versiona.
 
@@ -19,7 +19,7 @@ El dominio previsto es `https://kodikadigital.com` (aún no está en producción
 | `assets/demos/kit.*` | Kit común de las demos: barra «Demo ficticia», cierre comercial, validación, diálogos, router por hash y almacenamiento local. |
 | `assets/demos/<slug>/` | CSS, JS, fuentes y fotos propias de cada demo. |
 | `assets/og/` | Imágenes para compartir (1200×630). |
-| `robots.txt`, `_headers`, `_redirects` | Rastreo, cabeceras y redirecciones de Cloudflare Pages. `_redirects` impide abrir `docs/`, `scripts/`, `tests/` y este README desde la web, y redirige `/sobre-mi/` a `/sobre-kodika/`. |
+| `robots.txt`, `vercel.json`, `.vercelignore` | Rastreo, cabeceras y redirecciones de Vercel. `.vercelignore` deja fuera de la web `docs/`, `scripts/`, `tests/`, este README y `package.json`. `vercel.json` redirige `/sobre-mi/` a `/sobre-kodika/`, el dominio antiguo (sanchezdevelop.com) al nuevo con 301 y pone `noindex` en `*.vercel.app`. |
 | `tests/e2e.mjs` | Pruebas end-to-end con Playwright (formularios, menú, 404 y las seis demos). |
 | `docs/` | Guía de identidad (`docs/marca/`), estrategia y entrega del rediseño anterior (`docs/rediseno/`) y documentación SEO histórica (`docs/seo/`). |
 
@@ -44,13 +44,13 @@ npm run check   # valida titles, H1, canonical, OG, JSON-LD, enlaces, sitemap, r
 npm test        # build + check
 ```
 
-Para ver la web con el comportamiento real de Cloudflare Pages (404, `_headers`, `_redirects`, la Function):
+Para ver la web con el comportamiento real de Vercel (404, cabeceras, redirecciones, la Function):
 
 ```bash
-npx wrangler pages dev . --port 8788
+npx vercel dev --listen 8788
 ```
 
-El generador con IA necesita la variable `OPENAI_API_KEY` (en local, en un fichero `.dev.vars`; en producción, en el panel de Cloudflare Pages). Sin ella, el resto de la web funciona igual.
+El generador con IA necesita la variable `OPENAI_API_KEY` (en local, en un fichero `.env.local`; en producción, en Vercel › Settings › Environment Variables). Sin ella, el resto de la web funciona igual.
 
 Pruebas end-to-end (con el servidor anterior en marcha y Playwright instalado, por ejemplo con `npm i -D playwright && npx playwright install chromium`):
 

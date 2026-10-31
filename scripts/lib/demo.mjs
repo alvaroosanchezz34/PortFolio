@@ -55,6 +55,7 @@ ${demoEnd(page.slug)}
 ${page.data ? `  <script type="application/json" id="demo-data">${JSON.stringify(page.data).replace(/</g, '\\u003c')}</script>` : ''}
   <script src="/assets/demos/kit.js?v=${ASSET_V}" defer></script>
   <script src="/assets/js/track.js?v=${ASSET_V}" defer></script>
+  <script src="/_vercel/insights/script.js" defer></script>
   ${page.js ? `<script src="${page.js}?v=${ASSET_V}" defer></script>` : ''}
 </body>
 
